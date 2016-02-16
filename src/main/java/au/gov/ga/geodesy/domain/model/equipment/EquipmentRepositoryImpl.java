@@ -1,4 +1,4 @@
-package au.gov.ga.geodesy.domain.model;
+package au.gov.ga.geodesy.domain.model.equipment;
 
 import java.util.List;
 
@@ -22,6 +22,12 @@ public class EquipmentRepositoryImpl implements EquipmentRepositoryCustom {
         query.setParameter("serialNumber", serialNumber);
         List<T> results = query.getResultList();
         return results.size() == 0 ? null : query.getResultList().get(0);
+    }
+
+    public <T extends Equipment> List<T> findByEquipmentType(Class<T> equipmentType) {
+        String queryString = "select e from " + equipmentType.getName() + " e ";
+        TypedQuery<T> query = entityManager.createQuery(queryString, equipmentType);
+        return query.getResultList();
     }
 }
 
