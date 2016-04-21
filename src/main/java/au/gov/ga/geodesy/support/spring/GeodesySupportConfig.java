@@ -5,6 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 import au.gov.ga.geodesy.igssitelog.interfaces.xml.IgsSiteLogXmlMarshaller;
 import au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.IgsSiteLogMoxyMarshaller;
@@ -29,5 +30,15 @@ public class GeodesySupportConfig {
 	@Bean
     public IgsSiteLogXmlMarshaller siteLogMarshaller() throws Exception {
         return new IgsSiteLogMoxyMarshaller();
+    }
+
+    /**
+     * @return a PropertySourcesPlaceholderConfigurer for wiring @value ${xxx} resources
+     */
+	@Bean
+    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+        PropertySourcesPlaceholderConfigurer p = new PropertySourcesPlaceholderConfigurer();
+
+        return p;
     }
 }

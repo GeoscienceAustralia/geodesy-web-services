@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
@@ -21,18 +22,25 @@ import au.gov.ga.geodesy.domain.model.Node;
 import au.gov.ga.geodesy.domain.model.NodeRepository;
 import au.gov.ga.geodesy.domain.model.Setup;
 import au.gov.ga.geodesy.domain.model.SetupRepository;
+import au.gov.ga.geodesy.domain.model.SynchronousEventPublisher;
+import au.gov.ga.geodesy.domain.model.equipment.EquipmentFactory;
+import au.gov.ga.geodesy.domain.model.event.EventSubscriber;
+import au.gov.ga.geodesy.domain.model.event.SiteLogReceived;
+import au.gov.ga.geodesy.domain.model.event.SiteUpdated;
+import au.gov.ga.geodesy.domain.model.sitelog.SiteIdentification;
 import au.gov.ga.geodesy.domain.model.sitelog.SiteLog;
 import au.gov.ga.geodesy.domain.model.sitelog.SiteLogRepository;
-import au.gov.ga.geodesy.domain.model.sitelog.SiteIdentification;
-import au.gov.ga.geodesy.port.SiteLogSource;
+import au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.IgsSiteLogMoxyMarshaller;
+import au.gov.ga.geodesy.port.SiteLogReader;
 import au.gov.ga.geodesy.port.adapter.sopac.SiteLogSopacReader;
-import au.gov.ga.geodesy.support.spring.GeodesyServiceTestConfig;
-import au.gov.ga.geodesy.support.spring.GeodesySupportConfig;
+import au.gov.ga.geodesy.support.mapper.orika.SiteLogOrikaMapper;
 import au.gov.ga.geodesy.support.spring.PersistenceJpaConfig;
+import au.gov.ga.geodesy.support.spring.TestAppConfig;
 
-@ContextConfiguration(
-        classes = {GeodesySupportConfig.class, GeodesyServiceTestConfig.class, PersistenceJpaConfig.class},
-        loader = AnnotationConfigContextLoader.class)
+@ContextConfiguration(classes = {TestAppConfig.class, IgsSiteLogService.class, SiteLogSopacReader.class,
+        SiteLogOrikaMapper.class, IgsSiteLogMoxyMarshaller.class, CorsSiteService.class, EquipmentFactory.class,
+        NodeService.class, SynchronousEventPublisher.class,
+        PersistenceJpaConfig.class}, loader = AnnotationConfigContextLoader.class)
 
 @Transactional("geodesyTransactionManager")
 public class UploadADE1Test extends AbstractTransactionalTestNGSpringContextTests {
@@ -44,8 +52,11 @@ public class UploadADE1Test extends AbstractTransactionalTestNGSpringContextTest
     @Autowired
     private IgsSiteLogService siteLogService;
 
+    // This isn't used directly in here but is necessary for the test
     @Autowired
-    private CorsSiteService siteService;
+    @Qualifier("CorsSiteService")
+    // private CorsSiteService siteService;
+    private EventSubscriber<SiteLogReceived> siteService;
 
     @Autowired
     private CorsSiteRepository sites;
@@ -57,17 +68,24 @@ public class UploadADE1Test extends AbstractTransactionalTestNGSpringContextTest
     private NodeRepository nodeRepo;
 
     @Autowired
-    private NodeService nodeService;
+    private SiteLogRepository siteLogs;
 
     @Autowired
-    private SiteLogRepository siteLogs;
+    private SiteLogReader siteLogSource;
+
+    // This isn't used directly in here but is necessary for the test
+    // This is an example of why I striped GeodesySupportConfig out since it was blindly bringing NodeService in
+    @Autowired
+    @Qualifier("NodeService")
+    // private NodeService nodeService;
+    private EventSubscriber<SiteUpdated> nodeService;
 
     @Test
     @Rollback(false)
     public void saveSiteLog() throws Exception {
         File f = new File(siteLogsDir + fourCharId + ".xml");
-        SiteLogSource input = new SiteLogSopacReader(new FileReader(f));
-        siteLogService.upload(input.getSiteLog());
+        siteLogSource.setSiteLogReader(new FileReader(f));
+        siteLogService.upload(siteLogSource.getSiteLog());
     }
 
     @Test(dependsOnMethods = {"saveSiteLog"})

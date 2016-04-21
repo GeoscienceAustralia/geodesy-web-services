@@ -20,21 +20,26 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 import org.testng.annotations.BeforeClass;
 
+import au.gov.ga.geodesy.domain.model.SynchronousEventPublisher;
+import au.gov.ga.geodesy.domain.model.equipment.EquipmentFactory;
+import au.gov.ga.geodesy.domain.service.CorsSiteService;
+import au.gov.ga.geodesy.domain.service.IgsSiteLogService;
+import au.gov.ga.geodesy.domain.service.PositionService;
+import au.gov.ga.geodesy.domain.service.WeeklySolutionService;
+import au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.IgsSiteLogMoxyMarshaller;
+import au.gov.ga.geodesy.port.adapter.geodesyml.GeodesyMLValidator;
+import au.gov.ga.geodesy.port.adapter.sopac.SiteLogSopacReader;
+import au.gov.ga.geodesy.support.mapper.orika.SiteLogOrikaMapper;
 import au.gov.ga.geodesy.support.spring.GeodesyRepositoryRestMvcConfig;
 import au.gov.ga.geodesy.support.spring.GeodesyRestMvcConfig;
-import au.gov.ga.geodesy.support.spring.GeodesyServiceTestConfig;
-import au.gov.ga.geodesy.support.spring.GeodesySupportConfig;
 import au.gov.ga.geodesy.support.spring.PersistenceJpaConfig;
+import au.gov.ga.geodesy.support.spring.TestAppConfig;
 
-@ContextConfiguration(
-        classes = {
-            GeodesySupportConfig.class,
-            GeodesyServiceTestConfig.class,
-            GeodesyRepositoryRestMvcConfig.class,
-            GeodesyRestMvcConfig.class,
-            PersistenceJpaConfig.class
-        },
-        loader = AnnotationConfigWebContextLoader.class)
+@ContextConfiguration(classes = {TestAppConfig.class, IgsSiteLogService.class, SynchronousEventPublisher.class,
+        GeodesyMLValidator.class, SiteLogSopacReader.class, IgsSiteLogMoxyMarshaller.class, SiteLogOrikaMapper.class,
+        WeeklySolutionService.class, CorsSiteService.class, EquipmentFactory.class, PositionService.class,
+        GeodesyRepositoryRestMvcConfig.class, GeodesyRestMvcConfig.class,
+        PersistenceJpaConfig.class}, loader = AnnotationConfigWebContextLoader.class)
 
 @WebAppConfiguration
 @Transactional("geodesyTransactionManager")
