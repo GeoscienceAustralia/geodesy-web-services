@@ -16,14 +16,15 @@ import org.springframework.transaction.annotation.Transactional;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import au.gov.ga.geodesy.port.SiteLogSource;
+import au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.IgsSiteLogMoxyMarshaller;
 import au.gov.ga.geodesy.port.adapter.sopac.SiteLogSopacReader;
-import au.gov.ga.geodesy.support.spring.GeodesySupportConfig;
+import au.gov.ga.geodesy.support.mapper.orika.SiteLogOrikaMapper;
 import au.gov.ga.geodesy.support.spring.PersistenceJpaConfig;
+import au.gov.ga.geodesy.support.spring.TestAppConfig;
 
-@ContextConfiguration(
-        classes = {GeodesySupportConfig.class, PersistenceJpaConfig.class},
-        loader = AnnotationConfigContextLoader.class)
+@ContextConfiguration(classes = {TestAppConfig.class, PersistenceJpaConfig.class, SiteLogSopacReader.class,
+        SiteLogRepository.class, IgsSiteLogMoxyMarshaller.class,
+        SiteLogOrikaMapper.class}, loader = AnnotationConfigContextLoader.class)
 
 @Transactional("geodesyTransactionManager")
 public class SiteLogRepositoryTest extends AbstractTransactionalTestNGSpringContextTests {
@@ -33,14 +34,17 @@ public class SiteLogRepositoryTest extends AbstractTransactionalTestNGSpringCont
     @Autowired
     private SiteLogRepository igsSiteLogs;
 
+    @Autowired
+    private SiteLogSopacReader siteLogSource;
+
     private static final String sampleSiteLogsDir = "src/test/resources/sitelog";
 
     @Test(groups = "first")
     @Rollback(false)
     public void saveALIC() throws Exception {
         File alic = new File(sampleSiteLogsDir + "/ALIC.xml");
-        SiteLogSource input = new SiteLogSopacReader(new InputStreamReader(new FileInputStream(alic)));
-        igsSiteLogs.saveAndFlush(input.getSiteLog());
+        siteLogSource.setSiteLogReader(new InputStreamReader(new FileInputStream(alic)));
+        igsSiteLogs.saveAndFlush(siteLogSource.getSiteLog());
     }
 
     /**
@@ -50,8 +54,8 @@ public class SiteLogRepositoryTest extends AbstractTransactionalTestNGSpringCont
     @Rollback(false)
     public void saveBZGN() throws Exception {
         File alic = new File(sampleSiteLogsDir + "/BZGN.xml");
-        SiteLogSource input = new SiteLogSopacReader(new InputStreamReader(new FileInputStream(alic)));
-        igsSiteLogs.saveAndFlush(input.getSiteLog());
+        siteLogSource.setSiteLogReader(new InputStreamReader(new FileInputStream(alic)));
+        igsSiteLogs.saveAndFlush(siteLogSource.getSiteLog());
     }
 
     @Test(dependsOnGroups = "first")
@@ -60,9 +64,8 @@ public class SiteLogRepositoryTest extends AbstractTransactionalTestNGSpringCont
         igsSiteLogs.deleteAll();
         for (File f : getSiteLogFiles()) {
             log.info("Saving " + f.getName());
-            SiteLogSource input = new SiteLogSopacReader(new InputStreamReader(new FileInputStream(f)));
-            SiteLog siteLog = input.getSiteLog();
-            igsSiteLogs.saveAndFlush(siteLog);
+            siteLogSource.setSiteLogReader(new InputStreamReader(new FileInputStream(f)));
+            igsSiteLogs.saveAndFlush(siteLogSource.getSiteLog());
         }
     }
 

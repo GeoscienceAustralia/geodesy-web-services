@@ -41,7 +41,7 @@ import au.gov.ga.geodesy.domain.model.sitelog.EquipmentLogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.SiteLog;
 import au.gov.ga.geodesy.domain.model.sitelog.SiteIdentification;
 
-@Component
+@Component("CorsSiteService")
 @Transactional("geodesyTransactionManager")
 public class CorsSiteService implements EventSubscriber<SiteLogReceived> {
 

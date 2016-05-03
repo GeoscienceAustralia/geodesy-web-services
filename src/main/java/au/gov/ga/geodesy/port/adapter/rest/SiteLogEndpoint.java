@@ -20,7 +20,6 @@ import au.gov.ga.geodesy.domain.service.IgsSiteLogService;
 import au.gov.ga.geodesy.port.InvalidSiteLogException;
 import au.gov.ga.geodesy.port.SiteLogReader;
 import au.gov.ga.geodesy.port.adapter.geodesyml.GeodesyMLValidator;
-import au.gov.ga.geodesy.port.adapter.sopac.SiteLogSopacReader;
 import au.gov.ga.xmlschemer.Violation;
 
 @Controller
@@ -36,6 +35,9 @@ public class SiteLogEndpoint {
     @Autowired
     private GeodesyMLValidator geodesyMLValidator;
 
+    @Autowired
+    private SiteLogReader siteLogSource;
+
     @RequestMapping(value = "/validate", method = RequestMethod.POST)
     public ResponseEntity<List<Violation>> validate(HttpServletRequest req, HttpServletResponse rsp) throws IOException {
         StreamSource source = new StreamSource(req.getInputStream(), "data:");
@@ -49,11 +51,10 @@ public class SiteLogEndpoint {
 
     @RequestMapping(value = "/sopac/upload", method = RequestMethod.POST)
     public void upload(HttpServletRequest req, HttpServletResponse rsp) throws IOException {
-        SiteLogReader reader = new SiteLogSopacReader(new InputStreamReader(req.getInputStream()));
+        siteLogSource.setSiteLogReader(new InputStreamReader(req.getInputStream()));
         try {
-            service.upload(reader.getSiteLog());
-        }
-        catch (InvalidSiteLogException e) {
+            service.upload(siteLogSource.getSiteLog());
+        } catch (InvalidSiteLogException e) {
             // TODO
             e.printStackTrace();
         }

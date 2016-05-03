@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
@@ -19,18 +20,23 @@ import org.testng.annotations.Test;
 import au.gov.ga.geodesy.domain.model.CorsSiteRepository;
 import au.gov.ga.geodesy.domain.model.NodeRepository;
 import au.gov.ga.geodesy.domain.model.SetupRepository;
+import au.gov.ga.geodesy.domain.model.SynchronousEventPublisher;
+import au.gov.ga.geodesy.domain.model.equipment.EquipmentFactory;
 import au.gov.ga.geodesy.domain.model.equipment.EquipmentRepository;
-import au.gov.ga.geodesy.domain.model.sitelog.SiteLogRepository;
-import au.gov.ga.geodesy.port.SiteLogSource;
+import au.gov.ga.geodesy.domain.model.event.EventSubscriber;
+import au.gov.ga.geodesy.domain.model.event.SiteLogReceived;
+import au.gov.ga.geodesy.domain.model.event.SiteUpdated;
+import au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.IgsSiteLogMoxyMarshaller;
+import au.gov.ga.geodesy.port.SiteLogReader;
 import au.gov.ga.geodesy.port.adapter.sopac.SiteLogSopacReader;
-import au.gov.ga.geodesy.support.spring.GeodesyServiceTestConfig;
-import au.gov.ga.geodesy.support.spring.GeodesySupportConfig;
+import au.gov.ga.geodesy.support.mapper.orika.SiteLogOrikaMapper;
 import au.gov.ga.geodesy.support.spring.PersistenceJpaConfig;
+import au.gov.ga.geodesy.support.spring.TestAppConfig;
 
-@ContextConfiguration(
-        classes = {GeodesySupportConfig.class, GeodesyServiceTestConfig.class, PersistenceJpaConfig.class},
-        loader = AnnotationConfigContextLoader.class)
-
+@ContextConfiguration(classes = {TestAppConfig.class, IgsSiteLogMoxyMarshaller.class, IgsSiteLogService.class,
+        SiteLogSopacReader.class, SiteLogOrikaMapper.class, EquipmentFactory.class, CorsSiteService.class,
+        NodeService.class, SynchronousEventPublisher.class,
+        PersistenceJpaConfig.class}, loader = AnnotationConfigContextLoader.class)
 @Transactional("geodesyTransactionManager")
 public class KeepUnmodifiedNodesAndSetupsTest extends AbstractTransactionalTestNGSpringContextTests {
 
@@ -39,10 +45,13 @@ public class KeepUnmodifiedNodesAndSetupsTest extends AbstractTransactionalTestN
     private static final String fourCharId = "ABRK";
 
     @Autowired
-    private CorsSiteService siteService;
-
-    @Autowired
     private CorsSiteRepository sites;
+
+    // This isn't used directly in here but is necessary for the test
+    @Autowired
+    @Qualifier("CorsSiteService")
+    // private CorsSiteService siteService;
+    private EventSubscriber<SiteLogReceived> siteService;
 
     @Autowired
     private IgsSiteLogService siteLogService;
@@ -57,10 +66,16 @@ public class KeepUnmodifiedNodesAndSetupsTest extends AbstractTransactionalTestN
     private EquipmentRepository equipment;
 
     @Autowired
-    private SiteLogRepository siteLogs;
+    private PlatformTransactionManager txnManager;
 
     @Autowired
-    private PlatformTransactionManager txnManager;
+    private SiteLogReader siteLogSource;
+
+    // This isn't used directly in here but is necessary for the test
+    @Autowired
+    @Qualifier("NodeService")
+    // private NodeService nodeService;
+    private EventSubscriber<SiteUpdated> nodeService;
 
     private abstract class InTransaction {
         public void f() throws Exception {
@@ -68,8 +83,7 @@ public class KeepUnmodifiedNodesAndSetupsTest extends AbstractTransactionalTestN
             TransactionStatus txn = txnManager.getTransaction(txnDef);
             try {
                 f();
-            }
-            finally {
+            } finally {
                 txnManager.commit(txn);
             }
         }
@@ -77,14 +91,11 @@ public class KeepUnmodifiedNodesAndSetupsTest extends AbstractTransactionalTestN
 
     private InTransaction uploadABRK = new InTransaction() {
         public void f() throws Exception {
-            SiteLogSource input = new SiteLogSopacReader(new FileReader(new File(siteLogsDir + fourCharId + ".xml")));
-            siteLogService.upload(input.getSiteLog());
+            siteLogSource.setSiteLogReader(new FileReader(new File(siteLogsDir + fourCharId + ".xml")));
+            siteLogService.upload(siteLogSource.getSiteLog());
         }
     };
-    private InTransaction[] scenario = {
-        uploadABRK,
-        uploadABRK,
-    };
+    private InTransaction[] scenario = {uploadABRK, uploadABRK,};
 
     private void execute(InTransaction... scenario) throws Exception {
         for (InTransaction s : scenario) {

@@ -4,18 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
-import au.gov.ga.geodesy.domain.model.SynchronousEventPublisher;
-import au.gov.ga.geodesy.domain.model.event.EventPublisher;
-
 @Configuration
-public class GeodesyServiceTestConfig extends GeodesyServiceConfig {
-
-    @Bean
-    @Override
-    public EventPublisher eventPublisher() {
-        return new SynchronousEventPublisher();
-    }
-
+public class TestAppConfig {
     /**
      * @return a PropertySourcesPlaceholderConfigurer for wiring @value ${xxx} resources
      */
@@ -25,4 +15,5 @@ public class GeodesyServiceTestConfig extends GeodesyServiceConfig {
 
         return p;
     }
+
 }

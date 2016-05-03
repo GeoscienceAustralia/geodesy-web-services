@@ -13,17 +13,19 @@ import org.springframework.transaction.annotation.Transactional;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import au.gov.ga.geodesy.domain.model.SynchronousEventPublisher;
 import au.gov.ga.geodesy.domain.model.sitelog.SiteLogRepository;
+import au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.IgsSiteLogMoxyMarshaller;
 import au.gov.ga.geodesy.port.InvalidSiteLogException;
-import au.gov.ga.geodesy.port.SiteLogSource;
+import au.gov.ga.geodesy.port.SiteLogReader;
 import au.gov.ga.geodesy.port.adapter.sopac.SiteLogSopacReader;
-import au.gov.ga.geodesy.support.spring.GeodesyServiceTestConfig;
-import au.gov.ga.geodesy.support.spring.GeodesySupportConfig;
+import au.gov.ga.geodesy.support.mapper.orika.SiteLogOrikaMapper;
 import au.gov.ga.geodesy.support.spring.PersistenceJpaConfig;
+import au.gov.ga.geodesy.support.spring.TestAppConfig;
 
-@ContextConfiguration(
-        classes = {GeodesySupportConfig.class, GeodesyServiceTestConfig.class, PersistenceJpaConfig.class},
-        loader = AnnotationConfigContextLoader.class)
+@ContextConfiguration(classes = {TestAppConfig.class, IgsSiteLogService.class, SiteLogRepository.class,
+        SiteLogSopacReader.class, IgsSiteLogMoxyMarshaller.class, SiteLogOrikaMapper.class,
+        SynchronousEventPublisher.class, PersistenceJpaConfig.class}, loader = AnnotationConfigContextLoader.class)
 
 @Transactional("geodesyTransactionManager")
 public class ChangeReceiverAtABRKTest extends AbstractTransactionalTestNGSpringContextTests {
@@ -36,13 +38,16 @@ public class ChangeReceiverAtABRKTest extends AbstractTransactionalTestNGSpringC
     @Autowired
     private SiteLogRepository siteLogs;
 
+    @Autowired
+    private SiteLogReader siteLogSource;
+
     private void executeSiteLogScenario(String scenarioDirName) throws FileNotFoundException, InvalidSiteLogException {
         File[] siteLogFiles = new File(scenarioDirName).listFiles((File dir, String f) -> {
             return f.endsWith(".xml");
         });
         for (File siteLogFile : siteLogFiles) {
-            SiteLogSource input = new SiteLogSopacReader(new FileReader(siteLogFile));
-            siteLogService.upload(input.getSiteLog());
+            siteLogSource.setSiteLogReader(new FileReader(siteLogFile));
+            siteLogService.upload(siteLogSource.getSiteLog());
         }
     }
 
