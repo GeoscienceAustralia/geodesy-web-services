@@ -1,9 +1,18 @@
 package au.gov.ga.geodesy.support.mapper.dozer.converter;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import au.gov.xml.icsm.geodesyml.v_0_4.IgsReceiverModelCodeType;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Matchers;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import au.gov.ga.geodesy.exception.GeodesyRuntimeException;
 import net.opengis.iso19139.gco.v_20070417.CodeListValueType;
 
 /**
@@ -12,13 +21,31 @@ import net.opengis.iso19139.gco.v_20070417.CodeListValueType;
  * au.gov.xml.icsm.geodesyml.v_0_3.IgsAntennaModelCodeType
  *
  */
+@RunWith(MockitoJUnitRunner.class)
 public class CodeListValueTypeConverterTest {
-    CodeListValueTypeConverter ctv = new CodeListValueTypeConverter();
+    @Mock
+    private CodeListValueTypeConverterInstanceFactory codeListValueTypeConverterInstanceFactory = new CodeListValueTypeConverterInstanceFactory();
+
+    private CodeListValueTypeConverterInstanceDefault defaultConverter = new CodeListValueTypeConverterInstanceDefault();
+
+    @InjectMocks
+    private CodeListValueTypeConverter ctv;
+
+    @Before
+    public void init() {
+        Mockito.when(codeListValueTypeConverterInstanceFactory.getCodeListValueTypeConverterInstance(Matchers.any()))
+                .thenReturn(defaultConverter);
+    }
 
     @Test
     public void testStringSourceDestinationCodeListValueTypeNull() {
         CodeListValueType destination = null;
         String source = "banana";
+        CodeListValueType emptyCodeListValueType = new CodeListValueType();
+
+        // .setCodeListValueType() only necessary due to the Mockito.when init
+        defaultConverter.setCodeListValueType(emptyCodeListValueType);
+
         CodeListValueType c = (CodeListValueType) ctv.convert(destination, source, CodeListValueType.class,
                 String.class);
 
@@ -30,6 +57,10 @@ public class CodeListValueTypeConverterTest {
         CodeListValueType destination = new CodeListValueType();
         destination.setValue("Not a banana");
         String source = "banana";
+
+        // .setCodeListValueType() only necessary due to the Mockito.when init
+        defaultConverter.setCodeListValueType(destination);
+
         CodeListValueType c = (CodeListValueType) ctv.convert(destination, source, CodeListValueType.class,
                 String.class);
 
@@ -58,10 +89,25 @@ public class CodeListValueTypeConverterTest {
 
     // ========================
 
+    // Since .setCodeListValueType() not called due to Mockito.when init
+    @Test(expected = GeodesyRuntimeException.class)
+    public void testNoArgShouldThrowException() {
+        IgsReceiverModelCodeType destination = null;
+        String source = "banana";
+        @SuppressWarnings("unused")
+        IgsReceiverModelCodeType c = (IgsReceiverModelCodeType) ctv.convert(destination, source,
+                IgsReceiverModelCodeType.class, String.class);
+    }
+
     @Test
     public void testStringSourceDestinationIgsReceiverModelCodeListValueTypeNull() {
         IgsReceiverModelCodeType destination = null;
         String source = "banana";
+
+        IgsReceiverModelCodeType emptyCodeListValueType = new IgsReceiverModelCodeType();
+
+        // .setCodeListValueType() only necessary due to the Mockito.when init
+        defaultConverter.setCodeListValueType(emptyCodeListValueType);
         IgsReceiverModelCodeType c = (IgsReceiverModelCodeType) ctv.convert(destination, source,
                 IgsReceiverModelCodeType.class, String.class);
 
@@ -72,6 +118,10 @@ public class CodeListValueTypeConverterTest {
     public void testStringSourceDestinationIgsReceiverModelCodeListValueTypeNotNull() {
         IgsReceiverModelCodeType destination = new IgsReceiverModelCodeType();
         String source = "banana";
+
+        // .setCodeListValueType() only necessary due to the Mockito.when init
+        defaultConverter.setCodeListValueType(destination);
+
         IgsReceiverModelCodeType c = (IgsReceiverModelCodeType) ctv.convert(destination, source,
                 IgsReceiverModelCodeType.class, String.class);
 

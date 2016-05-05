@@ -18,6 +18,9 @@ import net.opengis.iso19139.gco.v_20070417.CodeListValueType;
 public class CodeListValueTypeConverter implements CustomConverter {
     Logger logger = LoggerFactory.getLogger(getClass());
 
+    private CodeListValueTypeConverterInstanceFactory codeListValueTypeConverterInstanceFactory = new CodeListValueTypeConverterInstanceFactory();
+
+    @Override
     @SuppressWarnings("rawtypes")
     public Object convert(Object destination, Object source, Class destClass, Class sourceClass) {
         if (source == null) {
@@ -35,12 +38,12 @@ public class CodeListValueTypeConverter implements CustomConverter {
             } else {
                 destClassInstance = destination;
             }
-            CodeListValueType destClassInstanceType =  (CodeListValueType) destClassInstance;
-            destClassInstanceType.setValue((String) source);
-            // TODO set proper codeLists
-            destClassInstanceType.setCodeList("codelist");
-            destClassInstanceType.setCodeListValue("codeListValue");
-            return destClassInstance;
+            CodeListValueType destClassInstanceType = (CodeListValueType) destClassInstance;
+            // Handle the different subclasses of CodeListValueType
+            CodeListValueTypeConverterInstanceBase subConverter = codeListValueTypeConverterInstanceFactory
+                    .getCodeListValueTypeConverterInstance(destClassInstanceType);
+            subConverter.doConversion((String) source);
+            return subConverter.getCodeListValueType();
         } else if (source instanceof CodeListValueType) {
             return ((CodeListValueType) source).getValue();
         } else {
