@@ -60,7 +60,6 @@ import au.gov.xml.icsm.geodesyml.v_0_3.TemperatureSensorPropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_3.TemperatureSensorType;
 import au.gov.xml.icsm.geodesyml.v_0_3.WaterVaporSensorPropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_3.WaterVaporSensorType;
-
 import net.opengis.iso19139.gmd.v_20070417.CIResponsiblePartyType;
 
 // @ContextConfiguration(classes = {GeodesyServiceTestConfig.class}, loader = AnnotationConfigContextLoader.class)
@@ -155,8 +154,8 @@ public class TranslateTest { // extends AbstractTestNGSpringContextTests {
         Assert.assertEquals(geodesyML.getElements().size(), 1);
         Assert.assertTrue(geodesyML.getElements().get(0) instanceof JAXBElement); // TODO: remove this check
 
-        Stream<SiteLogType> siteLogTypeStream = GeodesyMLUtils.getElementFromJAXBElements(
-                geodesyML.getElements(), SiteLogType.class);
+        Stream<SiteLogType> siteLogTypeStream = GeodesyMLUtils.getElementFromJAXBElements(geodesyML.getElements(),
+                SiteLogType.class);
 
         SiteLogType siteLogType = siteLogTypeStream.collect(Collectors.toList()).get(0);
         return siteLogType;
@@ -192,7 +191,7 @@ public class TranslateTest { // extends AbstractTestNGSpringContextTests {
         SiteLocationType siteLocationType = siteLogType.getSiteLocation();
         Assert.assertEquals(Double.parseDouble(siteLocationType.getApproximatePositionITRF().getXCoordinateInMeters()),
                 Double.parseDouble("-4052051.7670"));
-        Assert.assertEquals("AUS", siteLocationType.getCountryCodeISO());
+        Assert.assertEquals(siteLocationType.getCountryCodeISO().getCodeListValue(), "AUS");
         Assert.assertEquals(siteLocationType.getCity(), "Alice Springs");
         Assert.assertEquals(siteLocationType.getState(), "Northern Territory");
         Assert.assertEquals(siteLocationType.getTectonicPlate().getValue(), "Australian");
