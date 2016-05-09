@@ -12,11 +12,10 @@ import org.junit.Test;
 import au.gov.ga.geodesy.support.mapper.dozer.converter.TimePrimitivePropertyTypeUtils;
 import au.gov.ga.geodesy.support.utils.GMLDateUtils;
 import au.gov.ga.geodesy.support.utils.GMLReflectionUtils;
-import au.gov.xml.icsm.geodesyml.v_0_3.GeodesyMLType;
-import au.gov.xml.icsm.geodesyml.v_0_3.HumiditySensorPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.HumiditySensorType;
-import au.gov.xml.icsm.geodesyml.v_0_3.ObjectFactory;
-import net.opengis.gml.v_3_2_1.TimePrimitivePropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.GeodesyMLType;
+import au.gov.xml.icsm.geodesyml.v_0_4.HumiditySensorPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.HumiditySensorType;
+import au.gov.xml.icsm.geodesyml.v_0_4.ObjectFactory;
 
 public class IdDecoratorTest {
     private ObjectFactory geoFactory = new ObjectFactory();

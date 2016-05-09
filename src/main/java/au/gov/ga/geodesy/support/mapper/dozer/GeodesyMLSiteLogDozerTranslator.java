@@ -37,46 +37,47 @@ import au.gov.ga.geodesy.igssitelog.domain.model.WaterVaporSensorLogItem;
 import au.gov.ga.geodesy.port.adapter.geodesyml.GeodesyMLSiteLogTranslator;
 import au.gov.ga.geodesy.support.mapper.decorator.GeodesyMLDecorators;
 import au.gov.ga.geodesy.support.mapper.dozer.converter.MoreInformationAfterMapping;
-import au.gov.xml.icsm.geodesyml.v_0_3.AgencyPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.BasePossibleProblemSourcesType;
-import au.gov.xml.icsm.geodesyml.v_0_3.CollocationInformationPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.CollocationInformationType;
-import au.gov.xml.icsm.geodesyml.v_0_3.FormInformationType;
-import au.gov.xml.icsm.geodesyml.v_0_3.FrequencyStandardPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.FrequencyStandardType;
-import au.gov.xml.icsm.geodesyml.v_0_3.GeodesyMLType;
-import au.gov.xml.icsm.geodesyml.v_0_3.GnssAntennaPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.GnssAntennaType;
-import au.gov.xml.icsm.geodesyml.v_0_3.GnssReceiverPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.GnssReceiverType;
-import au.gov.xml.icsm.geodesyml.v_0_3.HumiditySensorPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.HumiditySensorType;
-import au.gov.xml.icsm.geodesyml.v_0_3.LocalEpisodicEventsPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.LocalEpisodicEventsType;
-import au.gov.xml.icsm.geodesyml.v_0_3.MoreInformationType;
-import au.gov.xml.icsm.geodesyml.v_0_3.MultipathSourcesPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.ObjectFactory;
-import au.gov.xml.icsm.geodesyml.v_0_3.OtherInstrumentationPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.OtherInstrumentationType;
-import au.gov.xml.icsm.geodesyml.v_0_3.PressureSensorPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.PressureSensorType;
-import au.gov.xml.icsm.geodesyml.v_0_3.RadioInterferencesPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.RadioInterferencesType;
-import au.gov.xml.icsm.geodesyml.v_0_3.SignalObstructionsPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.SiteIdentificationType;
-import au.gov.xml.icsm.geodesyml.v_0_3.SiteLocationType;
-import au.gov.xml.icsm.geodesyml.v_0_3.SiteLogType;
-import au.gov.xml.icsm.geodesyml.v_0_3.SurveyedLocalTiesPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.SurveyedLocalTiesType;
-import au.gov.xml.icsm.geodesyml.v_0_3.TemperatureSensorPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.TemperatureSensorType;
-import au.gov.xml.icsm.geodesyml.v_0_3.WaterVaporSensorPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.WaterVaporSensorType;
+import au.gov.xml.icsm.geodesyml.v_0_4.AgencyPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.BasePossibleProblemSourcesType;
+import au.gov.xml.icsm.geodesyml.v_0_4.CollocationInformationPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.CollocationInformationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.FormInformationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.FrequencyStandardPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.FrequencyStandardType;
+import au.gov.xml.icsm.geodesyml.v_0_4.GeodesyMLType;
+import au.gov.xml.icsm.geodesyml.v_0_4.GnssAntennaPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.GnssAntennaType;
+import au.gov.xml.icsm.geodesyml.v_0_4.GnssReceiverPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.GnssReceiverType;
+import au.gov.xml.icsm.geodesyml.v_0_4.HumiditySensorPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.HumiditySensorType;
+import au.gov.xml.icsm.geodesyml.v_0_4.LocalEpisodicEventsPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.LocalEpisodicEventsType;
+import au.gov.xml.icsm.geodesyml.v_0_4.MoreInformationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.MultipathSourcesPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.ObjectFactory;
+import au.gov.xml.icsm.geodesyml.v_0_4.OtherInstrumentationPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.OtherInstrumentationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.PressureSensorPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.PressureSensorType;
+import au.gov.xml.icsm.geodesyml.v_0_4.RadioInterferencesPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.RadioInterferencesType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SignalObstructionsPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SiteIdentificationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SiteLocationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SiteLogType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SurveyedLocalTiesPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SurveyedLocalTiesType;
+import au.gov.xml.icsm.geodesyml.v_0_4.TemperatureSensorPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.TemperatureSensorType;
+import au.gov.xml.icsm.geodesyml.v_0_4.WaterVaporSensorPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.WaterVaporSensorType;
 
 @Service
 public class GeodesyMLSiteLogDozerTranslator implements GeodesyMLSiteLogTranslator {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
+    @Override
     public JAXBElement<GeodesyMLType> dozerTranslate(IgsSiteLog sopacSiteLog) {
         try {
             return run(sopacSiteLog);
@@ -235,9 +236,9 @@ public class GeodesyMLSiteLogDozerTranslator implements GeodesyMLSiteLogTranslat
             newChildType = DozerDelegate.mapWithGuardWithDecorators(sopacSiteLogItem, childType);
             logger.trace("  " + newChildType);
             P newParentPropertyType = parentPropertyType.newInstance();
-            newParentPropertyType = (P) GeodesyMLDecorators.addDecorators(newParentPropertyType, newChildType);
+            newParentPropertyType = GeodesyMLDecorators.addDecorators(newParentPropertyType, newChildType);
             setBasedOnChildType(newParentPropertyType, newChildType);
-            parentPropertyTypesList.add((P) newParentPropertyType);
+            parentPropertyTypesList.add(newParentPropertyType);
         }
 
         return parentPropertyTypesList;

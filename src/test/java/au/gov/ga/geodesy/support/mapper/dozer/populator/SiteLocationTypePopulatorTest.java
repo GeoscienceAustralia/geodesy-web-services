@@ -4,8 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import au.gov.ga.geodesy.support.utils.GMLGeoTools;
-import au.gov.xml.icsm.geodesyml.v_0_3.SiteLocationType;
-import au.gov.xml.icsm.geodesyml.v_0_3.SiteLocationType.ApproximatePositionITRF;
+import au.gov.xml.icsm.geodesyml.v_0_4.SiteLocationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SiteLocationType.ApproximatePositionITRF;
 
 /**
  * Use this to test GeodesyMLElementPopulator (parent) and specifically SiteLocationType.approximatePositionITRF

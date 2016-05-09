@@ -5,9 +5,8 @@ import java.lang.reflect.InvocationTargetException;
 import org.junit.Assert;
 import org.junit.Test;
 
-import au.gov.ga.geodesy.support.mapper.dozer.GeodesyMLSiteLogDozerTranslator;
-import au.gov.xml.icsm.geodesyml.v_0_3.FrequencyStandardPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.FrequencyStandardType;
+import au.gov.xml.icsm.geodesyml.v_0_4.FrequencyStandardPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.FrequencyStandardType;
 
 public class GeodesyMLSiteLogTranslatorTest {
 
