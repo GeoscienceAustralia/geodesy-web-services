@@ -2,9 +2,9 @@ package au.gov.ga.geodesy.support.mapper.dozer.populator;
 
 import au.gov.ga.geodesy.support.utils.GMLGmlTools;
 import au.gov.ga.geodesy.support.utils.GMLMiscTools;
-import au.gov.xml.icsm.geodesyml.v_0_3.GnssAntennaType;
-import au.gov.xml.icsm.geodesyml.v_0_3.IgsAntennaModelCodeType;
-import au.gov.xml.icsm.geodesyml.v_0_3.IgsRadomeModelCodeType;
+import au.gov.xml.icsm.geodesyml.v_0_4.GnssAntennaType;
+import au.gov.xml.icsm.geodesyml.v_0_4.IgsAntennaModelCodeType;
+import au.gov.xml.icsm.geodesyml.v_0_4.IgsRadomeModelCodeType;
 
 /**
  * The receivers have required elements that don't all exist in the SOPAC Sitelog xml. This fills them in.
@@ -19,6 +19,7 @@ public class GnssAntennaTypePopulator extends GeodesyMLElementPopulator<GnssAnte
      * 
      * @param gnssAntennaType
      */
+    @Override
     void checkAllRequiredElementsPopulated(GnssAntennaType gnssAntennaType) {
         // This can be blank when receiver hasn't been removed. Some other logic in the project
         // removes empty elements from the Sopac SiteLog before it gets to this translator

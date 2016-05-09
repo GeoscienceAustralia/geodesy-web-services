@@ -4,7 +4,7 @@ import org.dozer.CustomConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import au.gov.xml.icsm.geodesyml.v_0_3.IgsRadomeModelCodeType;
+import au.gov.xml.icsm.geodesyml.v_0_4.IgsRadomeModelCodeType;
 
 /**
  * Convert field: au.gov.ga.geodesy.igssitelog.domain.model.GnssAntennaLogItem.antennaRadomeType
@@ -17,6 +17,7 @@ public class AntennaRadomeTypeConverter implements CustomConverter {
     Logger logger = LoggerFactory.getLogger(getClass());
     public static final String DEFAULT_CODESPACEATTR = "CodeSpaceAttr";
 
+    @Override
     @SuppressWarnings("rawtypes")
     public Object convert(Object destination, Object source, Class destClass, Class sourceClass) {
         if (source == null) {

@@ -5,8 +5,7 @@ import org.junit.Test;
 
 import au.gov.ga.geodesy.igssitelog.domain.model.Agency;
 import au.gov.ga.geodesy.igssitelog.domain.model.Contact;
-import au.gov.ga.geodesy.support.mapper.dozer.converter.AgencyAgencyPropertyTypeConverter;
-import au.gov.xml.icsm.geodesyml.v_0_3.AgencyPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.AgencyPropertyType;
 
 /**
  * Test Convert: au.gov.ga.geodesy.igssitelog.domain.model.Agency <-->

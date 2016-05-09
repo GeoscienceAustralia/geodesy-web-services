@@ -3,7 +3,7 @@ package au.gov.ga.geodesy.support.mapper.dozer.populator;
 import au.gov.ga.geodesy.support.mapper.dozer.converter.TimePrimitivePropertyTypeUtils;
 import au.gov.ga.geodesy.support.utils.GMLDateUtils;
 import au.gov.ga.geodesy.support.utils.GMLMiscTools;
-import au.gov.xml.icsm.geodesyml.v_0_3.SurveyedLocalTiesType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SurveyedLocalTiesType;
 
 /**
  * The receivers have required elements that don't all exist in the SOPAC Sitelog xml. This fills them in.
@@ -18,6 +18,7 @@ public class SurveyedLocalTiesTypePopulator extends GeodesyMLElementPopulator<Su
      * 
      * @param gnssReceiverType
      */
+    @Override
     void checkAllRequiredElementsPopulated(SurveyedLocalTiesType surveyedLocalTiesType) {
         checkElementPopulated(surveyedLocalTiesType, "tiedMarkerName", GMLMiscTools.getEmptyString());
         checkElementPopulated(surveyedLocalTiesType, "tiedMarkerUsage", GMLMiscTools.getEmptyString());
