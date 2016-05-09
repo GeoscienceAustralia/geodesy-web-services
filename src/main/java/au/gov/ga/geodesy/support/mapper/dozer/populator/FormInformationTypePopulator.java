@@ -2,7 +2,7 @@ package au.gov.ga.geodesy.support.mapper.dozer.populator;
 
 import au.gov.ga.geodesy.support.utils.GMLGmlTools;
 import au.gov.ga.geodesy.support.utils.GMLMiscTools;
-import au.gov.xml.icsm.geodesyml.v_0_3.FormInformationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.FormInformationType;
 
 public class FormInformationTypePopulator extends GeodesyMLElementPopulator<FormInformationType> {
 

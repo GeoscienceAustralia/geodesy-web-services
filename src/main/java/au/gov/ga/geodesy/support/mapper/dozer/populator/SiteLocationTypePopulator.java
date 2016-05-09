@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import au.gov.ga.geodesy.support.utils.GMLGeoTools;
 import au.gov.ga.geodesy.support.utils.GMLGmlTools;
 import au.gov.ga.geodesy.support.utils.GMLMiscTools;
-import au.gov.xml.icsm.geodesyml.v_0_3.SiteLocationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SiteLocationType;
 
 /**
  * The translate simply copied the Countries (in Sopac Sitelog XML) across to the GeoesyML CountryCode elements.

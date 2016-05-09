@@ -2,16 +2,14 @@ package au.gov.ga.geodesy.support.mapper.dozer.populator;
 
 import java.math.BigDecimal;
 
-import javax.xml.bind.annotation.XmlElement;
-
 import au.gov.ga.geodesy.support.mapper.dozer.converter.TimePrimitivePropertyTypeUtils;
 import au.gov.ga.geodesy.support.utils.GMLDateUtils;
 import au.gov.ga.geodesy.support.utils.GMLGmlTools;
 import au.gov.ga.geodesy.support.utils.GMLMiscTools;
-import au.gov.xml.icsm.geodesyml.v_0_3.BaseSensorEquipmentType;
-import au.gov.xml.icsm.geodesyml.v_0_3.HumiditySensorType;
-import au.gov.xml.icsm.geodesyml.v_0_3.PressureSensorType;
-import au.gov.xml.icsm.geodesyml.v_0_3.TemperatureSensorType;
+import au.gov.xml.icsm.geodesyml.v_0_4.BaseSensorEquipmentType;
+import au.gov.xml.icsm.geodesyml.v_0_4.HumiditySensorType;
+import au.gov.xml.icsm.geodesyml.v_0_4.PressureSensorType;
+import au.gov.xml.icsm.geodesyml.v_0_4.TemperatureSensorType;
 
 /**
  * The receivers have required elements that don't all exist in the SOPAC Sitelog xml. This fills them in.
@@ -32,6 +30,7 @@ public class SensorTypesPopulator extends GeodesyMLElementPopulator<BaseSensorEq
      * 
      * @param gnssReceiverType
      */
+    @Override
     void checkAllRequiredElementsPopulated(BaseSensorEquipmentType sensorType) {
         checkElementPopulated(sensorType, "calibrationDate", GMLGmlTools.getEmptyTimePositionType());
         checkElementPopulated(sensorType, "manufacturer", GMLMiscTools.getEmptyString());

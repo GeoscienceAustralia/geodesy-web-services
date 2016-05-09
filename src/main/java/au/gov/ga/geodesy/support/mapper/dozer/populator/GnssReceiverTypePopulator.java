@@ -2,8 +2,8 @@ package au.gov.ga.geodesy.support.mapper.dozer.populator;
 
 import au.gov.ga.geodesy.support.utils.GMLGmlTools;
 import au.gov.ga.geodesy.support.utils.GMLMiscTools;
-import au.gov.xml.icsm.geodesyml.v_0_3.GnssReceiverType;
-import au.gov.xml.icsm.geodesyml.v_0_3.IgsReceiverModelCodeType;
+import au.gov.xml.icsm.geodesyml.v_0_4.GnssReceiverType;
+import au.gov.xml.icsm.geodesyml.v_0_4.IgsReceiverModelCodeType;
 import net.opengis.gml.v_3_2_1.CodeType;
 
 /**

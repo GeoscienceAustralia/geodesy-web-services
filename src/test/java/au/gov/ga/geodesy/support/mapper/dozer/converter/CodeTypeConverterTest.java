@@ -3,8 +3,7 @@ package au.gov.ga.geodesy.support.mapper.dozer.converter;
 import org.junit.Assert;
 import org.junit.Test;
 
-import au.gov.ga.geodesy.support.mapper.dozer.converter.CodeTypeConverter;
-import au.gov.xml.icsm.geodesyml.v_0_3.IgsRadomeModelCodeType;
+import au.gov.xml.icsm.geodesyml.v_0_4.IgsRadomeModelCodeType;
 import net.opengis.gml.v_3_2_1.CodeType;
 
 /**
