@@ -3,7 +3,7 @@ package au.gov.ga.geodesy.support.mapper.dozer.populator;
 import org.junit.Assert;
 import org.junit.Test;
 
-import au.gov.xml.icsm.geodesyml.v_0_3.GnssReceiverType;
+import au.gov.xml.icsm.geodesyml.v_0_4.GnssReceiverType;
 
 public class GnssReceiverTypePopulatorTest {
     private static final GnssReceiverTypePopulator gnssReceiverTypePopulator = new GnssReceiverTypePopulator();

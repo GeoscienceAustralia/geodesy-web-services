@@ -3,7 +3,7 @@ package au.gov.ga.geodesy.support.mapper.dozer.populator;
 import au.gov.ga.geodesy.support.mapper.dozer.converter.TimePrimitivePropertyTypeUtils;
 import au.gov.ga.geodesy.support.utils.GMLDateUtils;
 import au.gov.ga.geodesy.support.utils.GMLGmlTools;
-import au.gov.xml.icsm.geodesyml.v_0_3.FrequencyStandardType;
+import au.gov.xml.icsm.geodesyml.v_0_4.FrequencyStandardType;
 
 public class FrequencyStandardTypePopulator extends GeodesyMLElementPopulator<FrequencyStandardType> {
 

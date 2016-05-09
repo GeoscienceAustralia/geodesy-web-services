@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import au.gov.ga.geodesy.igssitelog.domain.model.MoreInformation;
-import au.gov.xml.icsm.geodesyml.v_0_3.MoreInformationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.MoreInformationType;
 
 public class MoreInformationAfterMappingTest {
     @Test
