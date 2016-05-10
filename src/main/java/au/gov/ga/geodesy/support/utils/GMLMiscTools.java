@@ -3,7 +3,7 @@ package au.gov.ga.geodesy.support.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-import au.gov.xml.icsm.geodesyml.v_0_3.CountryCodeType;
+import au.gov.xml.icsm.geodesyml.v_0_4.CountryCodeType;
 
 public class GMLMiscTools {
     public static String getEmptyString() {
