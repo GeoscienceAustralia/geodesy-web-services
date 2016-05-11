@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import au.gov.ga.geodesy.support.utils.GMLGeoTools;
 import au.gov.ga.geodesy.support.utils.GMLGmlTools;
 import au.gov.ga.geodesy.support.utils.GMLMiscTools;
-import au.gov.xml.icsm.geodesyml.v_0_3.SiteLocationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SiteLocationType;
 
 /**
  * The translate simply copied the Countries (in Sopac Sitelog XML) across to the GeoesyML CountryCode elements.
@@ -27,7 +27,7 @@ public class SiteLocationTypePopulator extends GeodesyMLElementPopulator<SiteLoc
     void checkAllRequiredElementsPopulated(SiteLocationType siteLocationType) {
         checkElementPopulated(siteLocationType, "city", GMLMiscTools.getEmptyString());
         checkElementPopulated(siteLocationType, "state", GMLMiscTools.getEmptyString());
-        checkElementPopulated(siteLocationType, "countryCodeISO", GMLMiscTools.getEmptyString());
+        checkElementPopulated(siteLocationType, "countryCodeISO", GMLMiscTools.getEmptyCountryCode());
         checkElementPopulated(siteLocationType, "tectonicPlate", GMLGmlTools.getEmptyCodeType());
         checkElementPopulated(siteLocationType, "approximatePositionITRF",
                 GMLGeoTools.buildZeroApproximatePositionITRF());
@@ -38,10 +38,16 @@ public class SiteLocationTypePopulator extends GeodesyMLElementPopulator<SiteLoc
         super.postWritingDestinationValue(event);
 
         SiteLocationType siteLocationType = (SiteLocationType) event.getDestinationObject();
-        String country = siteLocationType.getCountryCodeISO();
-        String code = COUNTRY_CODES_ALPHA_3.lookupCode(country);
-        siteLocationType.setCountryCodeISO(code);
-        logger.debug(String.format("Change country: '%s' to code '%s'", country, code));
+        String code = "";
+        if (siteLocationType.getCountryCodeISO() != null) {
+            String country = siteLocationType.getCountryCodeISO().getCodeListValue();
+            code = COUNTRY_CODES_ALPHA_3.lookupCode(country);
+            siteLocationType.getCountryCodeISO().setCodeListValue(code);
+            logger.debug(String.format("Change country: '%s' to code '%s'", country, code));
+        } else {
+            checkElementPopulated(siteLocationType, "countryCodeISO", GMLMiscTools.getEmptyCountryCode());
+            logger.warn("ERROR siteLocationType.ountryCodeISO is null");
+        }
     }
 
     /**

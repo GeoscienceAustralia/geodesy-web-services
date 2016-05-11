@@ -1,7 +1,7 @@
 package au.gov.ga.geodesy.support.mapper.dozer.populator;
 
 import au.gov.ga.geodesy.support.utils.GMLMiscTools;
-import au.gov.xml.icsm.geodesyml.v_0_3.SiteIdentificationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SiteIdentificationType;
 
 /**
  * The translate simply copied the Countries (in Sopac Sitelog XML) across to the GeoesyML CountryCode elements.
@@ -16,6 +16,7 @@ public class SiteIdentificationTypePopulator extends GeodesyMLElementPopulator<S
      * 
      * @param gnssReceiverType
      */
+    @Override
     void checkAllRequiredElementsPopulated(SiteIdentificationType sensorType) {
         checkElementPopulated(sensorType, "siteName", GMLMiscTools.getEmptyString());
         checkElementPopulated(sensorType, "cdpNumber", GMLMiscTools.getEmptyString());

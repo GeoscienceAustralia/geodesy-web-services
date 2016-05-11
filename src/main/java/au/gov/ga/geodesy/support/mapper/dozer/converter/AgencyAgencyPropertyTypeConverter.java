@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
 
 import au.gov.ga.geodesy.igssitelog.domain.model.Agency;
 import au.gov.ga.geodesy.support.mapper.dozer.DozerDelegate;
-import au.gov.xml.icsm.geodesyml.v_0_3.AgencyPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.ObjectFactory;
+import au.gov.xml.icsm.geodesyml.v_0_4.AgencyPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.ObjectFactory;
 import net.opengis.iso19139.gco.v_20070417.CharacterStringPropertyType;
 import net.opengis.iso19139.gco.v_20070417.CodeListValueType;
 import net.opengis.iso19139.gmd.v_20070417.CIAddressPropertyType;
@@ -35,6 +35,7 @@ public class AgencyAgencyPropertyTypeConverter implements CustomConverter {
     ObjectFactory geoObjectFactory = new ObjectFactory();
     net.opengis.iso19139.gmd.v_20070417.ObjectFactory gmdObjectFactory = new net.opengis.iso19139.gmd.v_20070417.ObjectFactory();
 
+    @Override
     @SuppressWarnings("rawtypes")
     public Object convert(Object destination, Object source, Class destClass, Class sourceClass) {
         if (source == null) {

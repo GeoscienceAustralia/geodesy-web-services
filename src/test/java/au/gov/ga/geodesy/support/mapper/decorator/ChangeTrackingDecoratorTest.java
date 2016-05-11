@@ -12,9 +12,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import au.gov.ga.geodesy.support.utils.GMLDateUtils;
-import au.gov.xml.icsm.geodesyml.v_0_3.GnssReceiverPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.GnssReceiverType;
-import au.gov.xml.icsm.geodesyml.v_0_3.ObjectFactory;
+import au.gov.xml.icsm.geodesyml.v_0_4.GnssReceiverPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.GnssReceiverType;
+import au.gov.xml.icsm.geodesyml.v_0_4.ObjectFactory;
 import net.opengis.gml.v_3_2_1.TimePositionType;
 
 public class ChangeTrackingDecoratorTest {

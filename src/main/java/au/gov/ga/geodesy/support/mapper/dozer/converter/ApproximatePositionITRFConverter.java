@@ -13,8 +13,8 @@ import com.vividsolutions.jts.geom.PrecisionModel;
 
 import au.gov.ga.geodesy.igssitelog.domain.model.ApproximatePosition;
 import au.gov.ga.geodesy.support.utils.GMLGeoTools;
-import au.gov.xml.icsm.geodesyml.v_0_3.ObjectFactory;
-import au.gov.xml.icsm.geodesyml.v_0_3.SiteLocationType.ApproximatePositionITRF;
+import au.gov.xml.icsm.geodesyml.v_0_4.ObjectFactory;
+import au.gov.xml.icsm.geodesyml.v_0_4.SiteLocationType.ApproximatePositionITRF;
 
 /**
  * Convert: au.gov.ga.geodesy.igssitelog.domain.model.ApproximatePosition <-->
@@ -26,6 +26,7 @@ public class ApproximatePositionITRFConverter implements CustomConverter {
     ObjectFactory geoObjectFactory = new ObjectFactory();
     net.opengis.iso19139.gmd.v_20070417.ObjectFactory gmdObjectFactory = new net.opengis.iso19139.gmd.v_20070417.ObjectFactory();
 
+    @Override
     @SuppressWarnings("rawtypes")
     public Object convert(Object destination, Object source, Class destClass, Class sourceClass) {
         if (source == null) {
@@ -78,7 +79,7 @@ public class ApproximatePositionITRFConverter implements CustomConverter {
             if (dest.getGrs80() == null) {
                 p = new Point(c, pm, 0);
             } else {
-                p = (Point) dest.getGrs80();
+                p = dest.getGrs80();
             }
 
             dest.setGrs80(p);

@@ -30,37 +30,36 @@ import au.gov.ga.geodesy.port.adapter.geodesyml.MarshallingException;
 import au.gov.ga.geodesy.support.mapper.dozer.converter.TimePrimitivePropertyTypeUtils;
 import au.gov.ga.geodesy.support.marshalling.moxy.GeodesyMLMoxy;
 import au.gov.ga.geodesy.support.utils.GMLDateUtils;
-import au.gov.xml.icsm.geodesyml.v_0_3.BasePossibleProblemSourcesType;
-import au.gov.xml.icsm.geodesyml.v_0_3.CollocationInformationPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.FormInformationType;
-import au.gov.xml.icsm.geodesyml.v_0_3.FrequencyStandardPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.FrequencyStandardType;
-import au.gov.xml.icsm.geodesyml.v_0_3.GeodesyMLType;
-import au.gov.xml.icsm.geodesyml.v_0_3.GnssAntennaPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.GnssAntennaType;
-import au.gov.xml.icsm.geodesyml.v_0_3.GnssReceiverPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.GnssReceiverType;
-import au.gov.xml.icsm.geodesyml.v_0_3.HumiditySensorPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.HumiditySensorType;
-import au.gov.xml.icsm.geodesyml.v_0_3.LocalEpisodicEventsPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.LocalEpisodicEventsType;
-import au.gov.xml.icsm.geodesyml.v_0_3.MoreInformationType;
-import au.gov.xml.icsm.geodesyml.v_0_3.MultipathSourcesPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.PressureSensorPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.PressureSensorType;
-import au.gov.xml.icsm.geodesyml.v_0_3.RadioInterferencesPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.RadioInterferencesType;
-import au.gov.xml.icsm.geodesyml.v_0_3.SignalObstructionsPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.SiteIdentificationType;
-import au.gov.xml.icsm.geodesyml.v_0_3.SiteLocationType;
-import au.gov.xml.icsm.geodesyml.v_0_3.SiteLogType;
-import au.gov.xml.icsm.geodesyml.v_0_3.SurveyedLocalTiesPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.SurveyedLocalTiesType;
-import au.gov.xml.icsm.geodesyml.v_0_3.TemperatureSensorPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.TemperatureSensorType;
-import au.gov.xml.icsm.geodesyml.v_0_3.WaterVaporSensorPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_3.WaterVaporSensorType;
-
+import au.gov.xml.icsm.geodesyml.v_0_4.BasePossibleProblemSourcesType;
+import au.gov.xml.icsm.geodesyml.v_0_4.CollocationInformationPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.FormInformationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.FrequencyStandardPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.FrequencyStandardType;
+import au.gov.xml.icsm.geodesyml.v_0_4.GeodesyMLType;
+import au.gov.xml.icsm.geodesyml.v_0_4.GnssAntennaPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.GnssAntennaType;
+import au.gov.xml.icsm.geodesyml.v_0_4.GnssReceiverPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.GnssReceiverType;
+import au.gov.xml.icsm.geodesyml.v_0_4.HumiditySensorPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.HumiditySensorType;
+import au.gov.xml.icsm.geodesyml.v_0_4.LocalEpisodicEventsPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.LocalEpisodicEventsType;
+import au.gov.xml.icsm.geodesyml.v_0_4.MoreInformationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.MultipathSourcesPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.PressureSensorPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.PressureSensorType;
+import au.gov.xml.icsm.geodesyml.v_0_4.RadioInterferencesPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.RadioInterferencesType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SignalObstructionsPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SiteIdentificationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SiteLocationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SiteLogType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SurveyedLocalTiesPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SurveyedLocalTiesType;
+import au.gov.xml.icsm.geodesyml.v_0_4.TemperatureSensorPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.TemperatureSensorType;
+import au.gov.xml.icsm.geodesyml.v_0_4.WaterVaporSensorPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.WaterVaporSensorType;
 import net.opengis.iso19139.gmd.v_20070417.CIResponsiblePartyType;
 
 // @ContextConfiguration(classes = {GeodesyServiceTestConfig.class}, loader = AnnotationConfigContextLoader.class)
@@ -155,8 +154,8 @@ public class TranslateTest { // extends AbstractTestNGSpringContextTests {
         Assert.assertEquals(geodesyML.getElements().size(), 1);
         Assert.assertTrue(geodesyML.getElements().get(0) instanceof JAXBElement); // TODO: remove this check
 
-        Stream<SiteLogType> siteLogTypeStream = GeodesyMLUtils.getElementFromJAXBElements(
-                geodesyML.getElements(), SiteLogType.class);
+        Stream<SiteLogType> siteLogTypeStream = GeodesyMLUtils.getElementFromJAXBElements(geodesyML.getElements(),
+                SiteLogType.class);
 
         SiteLogType siteLogType = siteLogTypeStream.collect(Collectors.toList()).get(0);
         return siteLogType;
@@ -192,7 +191,7 @@ public class TranslateTest { // extends AbstractTestNGSpringContextTests {
         SiteLocationType siteLocationType = siteLogType.getSiteLocation();
         Assert.assertEquals(Double.parseDouble(siteLocationType.getApproximatePositionITRF().getXCoordinateInMeters()),
                 Double.parseDouble("-4052051.7670"));
-        Assert.assertEquals("AUS", siteLocationType.getCountryCodeISO());
+        Assert.assertEquals(siteLocationType.getCountryCodeISO().getCodeListValue(), "AUS");
         Assert.assertEquals(siteLocationType.getCity(), "Alice Springs");
         Assert.assertEquals(siteLocationType.getState(), "Northern Territory");
         Assert.assertEquals(siteLocationType.getTectonicPlate().getValue(), "Australian");

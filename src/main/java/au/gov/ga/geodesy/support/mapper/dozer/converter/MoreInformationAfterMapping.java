@@ -7,7 +7,7 @@ import org.apache.commons.lang.StringUtils;
 import au.gov.ga.geodesy.igssitelog.domain.model.MoreInformation;
 import au.gov.ga.geodesy.support.mapper.dozer.populator.MoreInformationTypePopulator;
 import au.gov.ga.geodesy.support.utils.GMLMiscTools;
-import au.gov.xml.icsm.geodesyml.v_0_3.MoreInformationType;
+import au.gov.xml.icsm.geodesyml.v_0_4.MoreInformationType;
 
 /**
  * This is a class independant of the style of all the other Converters.

@@ -10,8 +10,7 @@ import com.vividsolutions.jts.geom.Point;
 import com.vividsolutions.jts.geom.PrecisionModel;
 
 import au.gov.ga.geodesy.igssitelog.domain.model.ApproximatePosition;
-import au.gov.ga.geodesy.support.mapper.dozer.converter.ApproximatePositionITRFConverter;
-import au.gov.xml.icsm.geodesyml.v_0_3.SiteLocationType.ApproximatePositionITRF;
+import au.gov.xml.icsm.geodesyml.v_0_4.SiteLocationType.ApproximatePositionITRF;
 
 public class ApproximatePositionITRFConverterTest {
     ApproximatePositionITRFConverter conv = new ApproximatePositionITRFConverter();
