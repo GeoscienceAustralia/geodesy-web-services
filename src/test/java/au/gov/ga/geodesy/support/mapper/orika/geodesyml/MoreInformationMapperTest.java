@@ -14,7 +14,8 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 
 /**
- * Created by u43894 on 30/05/2016.
+ * Tests the mapping of a GeodesyML moreInformation element
+ * to and from a MoreInformation domain object.
  */
 public class MoreInformationMapperTest {
     private MoreInformationMapper mapper = new MoreInformationMapper();
@@ -26,7 +27,7 @@ public class MoreInformationMapperTest {
      **/
     @Test
     public void testMapping() throws Exception {
-        GeodesyMLType mobs = marshaller.unmarshal(TestResources.geodesyMLSiteLogReader("MOBS-sensors"), GeodesyMLType.class)
+        GeodesyMLType mobs = marshaller.unmarshal(TestResources.geodesyMLSiteLogReader("MOBS-moreInfo"), GeodesyMLType.class)
                 .getValue();
 
         SiteLogType siteLogType = GeodesyMLUtils.getElementFromJAXBElements(mobs.getElements(), SiteLogType.class)
