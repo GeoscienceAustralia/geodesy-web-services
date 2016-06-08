@@ -27,6 +27,7 @@ public class HumiditySensorMapper implements Iso<HumiditySensorType, HumiditySen
                 .byDefault()
                 .register();
 
+        // Refactoring this otu to 
         mapperFactory.classMap(TimePeriodType.class, EffectiveDates.class)
                 .field("beginPosition", "from")
                 .field("endPosition", "to")
