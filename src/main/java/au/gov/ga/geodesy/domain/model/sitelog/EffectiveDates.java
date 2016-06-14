@@ -37,7 +37,7 @@ public class EffectiveDates implements Comparable {
         return from;
     }
 
-I AM THE ONE WHO KNOCKS!!!!!
+I AM THE ONE WHO KNOCKS!!!!
 
     public void setFrom(Instant from) {
         this.from = from;
