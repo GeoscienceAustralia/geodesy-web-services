@@ -20,6 +20,10 @@ public class RadioInterferenceMapper implements Iso<RadioInterferencesType, Radi
     private MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
     private MapperFacade mapper;
 
+    /**
+     * Reversible mapping between GeodesyML RadioInterferencesType DTO and
+     * RadioInterference site log entity.
+     */
     public RadioInterferenceMapper() {
         mapperFactory.classMap(RadioInterferencesType.class, RadioInterference.class)
                 .fieldMap("possibleProblemSources", "possibleProblemSource").add()
