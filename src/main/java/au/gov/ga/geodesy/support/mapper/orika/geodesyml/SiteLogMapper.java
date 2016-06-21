@@ -1,15 +1,12 @@
 package au.gov.ga.geodesy.support.mapper.orika.geodesyml;
 
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import au.gov.ga.geodesy.domain.model.sitelog.GnssReceiverLogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.HumiditySensorLogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.LogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.MultipathSourceLogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.OtherInstrumentationLogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.PressureSensorLogItem;
+import au.gov.ga.geodesy.domain.model.sitelog.RadioInterference;
 import au.gov.ga.geodesy.domain.model.sitelog.SignalObstructionLogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.SiteIdentification;
 import au.gov.ga.geodesy.domain.model.sitelog.SiteLocation;
@@ -19,6 +16,7 @@ import au.gov.ga.geodesy.domain.model.sitelog.WaterVaporSensorLogItem;
 import au.gov.ga.geodesy.support.gml.GMLPropertyType;
 import au.gov.ga.geodesy.support.java.util.Iso;
 import au.gov.xml.icsm.geodesyml.v_0_3.MultipathSourcesPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_3.RadioInterferencesPropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_3.SignalObstructionsPropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_3.SiteIdentificationType;
 import au.gov.xml.icsm.geodesyml.v_0_3.SiteLocationType;
@@ -31,6 +29,10 @@ import ma.glasnost.orika.converter.ConverterFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 import ma.glasnost.orika.metadata.Type;
 import net.opengis.gml.v_3_2_1.AbstractGMLType;
+
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Reversible mapping between GeodesyML SiteLogType DTO and
@@ -54,6 +56,7 @@ public class SiteLogMapper implements Iso<SiteLogType, SiteLog> {
             .fieldMap("otherInstrumentations", "otherInstrumentationLogItem").converter("otherInstrumentations").add()
             .fieldMap("signalObstructionsSet", "signalObstructionLogItems").converter("signalObstructionsSet").add()
             .fieldMap("multipathSourcesSet", "multipathSourceLogItems").converter("multipathSourcesSet").add()
+            .fieldMap("radioInterferencesSet", "radioInterferences").converter("radioInterferencesSet").add()
             /* .byDefault() */
             .register();
 
@@ -110,6 +113,12 @@ public class SiteLogMapper implements Iso<SiteLogType, SiteLog> {
         converters.registerConverter("multipathSourcesSet",
                 new BidirectionalConverterWrapper<List<MultipathSourcesPropertyType>, Set<MultipathSourceLogItem>>(
                         logItemsConverter(new MultipathSourcesMapper())
+                ) {}
+        );
+
+        converters.registerConverter("radioInterferencesSet",
+                new BidirectionalConverterWrapper<List<RadioInterferencesPropertyType>, Set<RadioInterference>>(
+                        logItemsConverter(new RadioInterferenceMapper())
                 ) {}
         );
 
