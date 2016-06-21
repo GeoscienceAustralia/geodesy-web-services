@@ -19,6 +19,10 @@ public class HumiditySensorMapper implements Iso<HumiditySensorType, HumiditySen
     private MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
     private MapperFacade mapper;
 
+    /**
+     * Reversible mapping between GeodesyML HumiditySensorType DTO and
+     * HumiditySensor site log entity.
+     */
     public HumiditySensorMapper() {
         mapperFactory.classMap(HumiditySensorType.class, HumiditySensorLogItem.class)
                 .fieldMap("type", "type").converter("typeConverter").add()
@@ -42,6 +46,7 @@ public class HumiditySensorMapper implements Iso<HumiditySensorType, HumiditySen
     /**
      * {@inheritDoc}
      */
+    @Override
     public HumiditySensorLogItem to(HumiditySensorType humiditySensor) {
         return mapper.map(humiditySensor, HumiditySensorLogItem.class);
     }
@@ -49,6 +54,7 @@ public class HumiditySensorMapper implements Iso<HumiditySensorType, HumiditySen
     /**
      * {@inheritDoc}
      */
+    @Override
     public HumiditySensorType from(HumiditySensorLogItem humiditySensorLogItem) {
         return mapper.map(humiditySensorLogItem, HumiditySensorType.class);
     }
