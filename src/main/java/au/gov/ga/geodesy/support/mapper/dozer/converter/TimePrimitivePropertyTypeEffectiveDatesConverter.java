@@ -21,13 +21,14 @@ public class TimePrimitivePropertyTypeEffectiveDatesConverter implements CustomC
     Logger logger = LoggerFactory.getLogger(getClass());
 
     @SuppressWarnings("rawtypes")
+    @Override
     public Object convert(Object destination, Object source, Class destClass, Class sourceClass) {
         if (source == null) {
             return null;
         }
 
         if (source instanceof EffectiveDates) {
-            return buildTimePrimitivePropertyType(destination, source);
+            return buildTimePrimitivePropertyType(source);
         } else if (source instanceof TimePrimitivePropertyType) {
             try {
                 return buildEffectiveDate(source);
@@ -75,12 +76,11 @@ public class TimePrimitivePropertyTypeEffectiveDatesConverter implements CustomC
      * Build a TimePrimitivePropertyType using the existing such object if it isn't null, and populating a TimePeriodType (begin, end)
      * payload from given source which is first confirmed to be a au.gov.ga.geodesy.igssitelog.domain.model.EffectiveDates;
      * 
-     * @param destination
      * @param source
      *            is object as returned by Dozer's CustomConverter.
      * @return newly created TimePrimitivePropertyType.
      */
-    private Object buildTimePrimitivePropertyType(Object destination, Object source) {
+    private Object buildTimePrimitivePropertyType(Object source) {
         if (!(source instanceof EffectiveDates)) {
             return null;
         }
