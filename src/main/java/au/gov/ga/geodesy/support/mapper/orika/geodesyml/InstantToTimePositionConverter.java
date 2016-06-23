@@ -10,6 +10,7 @@ import java.time.format.ResolverStyle;
 import java.util.Arrays;
 import java.util.Optional;
 
+import au.gov.ga.geodesy.exception.GeodesyRuntimeException;
 import org.apache.commons.lang3.StringUtils;
 
 import ma.glasnost.orika.MappingContext;
@@ -17,15 +18,18 @@ import ma.glasnost.orika.converter.BidirectionalConverter;
 import ma.glasnost.orika.metadata.Type;
 import net.opengis.gml.v_3_2_1.TimePositionType;
 
+/**
+ * Class for Orika GeodesyML to Geodesy domain model mapper
+ */
 // TODO: swap type parameters, DTO first
 public class InstantToTimePositionConverter extends BidirectionalConverter<Instant, TimePositionType> {
 
     private static final ZoneId UTC = ZoneId.of("UTC");
 
-    private static final String defaultTimePositionPattern = "uuuu-MM-dd'T'HH:mm:ss.SSSXXX";
+    private static final String DEFAULT_TIME_POSITION_PATTERN = "uuuu-MM-dd'T'HH:mm:ss.SSSXXX";
 
     private static final String[] timePositionPatterns = {
-        defaultTimePositionPattern,
+        DEFAULT_TIME_POSITION_PATTERN,
         "uuuu-MM-dd'T'HH:mm:ss.SSSZ",
         "uuuu-MM-dd'T'HH:mm:ssX",
         "uuuu-MM-ddX",
@@ -35,12 +39,14 @@ public class InstantToTimePositionConverter extends BidirectionalConverter<Insta
         return DateTimeFormatter.ofPattern(pattern).withResolverStyle(ResolverStyle.STRICT).withZone(UTC);
     }
 
+    @Override
     public TimePositionType convertTo(Instant date, Type<TimePositionType> targetType, MappingContext ctx) {
         TimePositionType time = new TimePositionType();
-        time.getValue().add(dateFormat(defaultTimePositionPattern).format(date));
+        time.getValue().add(dateFormat(DEFAULT_TIME_POSITION_PATTERN).format(date));
         return time;
     }
 
+    @Override
     public Instant convertFrom(TimePositionType time, Type<Instant> targetType, MappingContext ctx) {
         if (time.getValue().isEmpty()) {
             return null;
@@ -69,7 +75,7 @@ public class InstantToTimePositionConverter extends BidirectionalConverter<Insta
             return date.get();
         } else {
             String attemptedPatterns = StringUtils.join(timePositionPatterns, ", ");
-            throw new RuntimeException("Failed to parse " + dateString + " using the following patterns: " + attemptedPatterns);
+            throw new GeodesyRuntimeException("Failed to parse " + dateString + " using the following patterns: " + attemptedPatterns);
         }
     }
 }
