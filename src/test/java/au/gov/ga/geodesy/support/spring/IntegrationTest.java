@@ -9,14 +9,13 @@ import org.testng.annotations.AfterClass;
 import au.gov.ga.geodesy.domain.model.Repositories;
 
 @ContextConfiguration(
-    classes = {
-        GeodesySupportConfig.class,
-        GeodesyServiceUnitTestConfig.class,
-        PersistenceJpaConfig.class
-    },
-    loader = AnnotationConfigContextLoader.class
-)
-public class UnitTestConfig extends AbstractTransactionalTestNGSpringContextTests {
+        classes = {
+                GeodesySupportConfig.class,
+                GeodesyServiceTestConfig.class,
+                PersistenceJpaConfig.class,
+        },
+        loader = AnnotationConfigContextLoader.class)
+public class IntegrationTest extends AbstractTransactionalTestNGSpringContextTests {
 
     @AfterClass(alwaysRun = true)
     @Rollback(false)
