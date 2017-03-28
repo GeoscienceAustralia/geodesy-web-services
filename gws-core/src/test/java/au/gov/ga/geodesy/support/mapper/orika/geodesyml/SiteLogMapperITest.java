@@ -8,6 +8,8 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -68,8 +70,8 @@ import au.gov.xml.icsm.geodesyml.v_0_4.PressureSensorType;
 import au.gov.xml.icsm.geodesyml.v_0_4.RadioInterferencePropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_4.SignalObstructionPropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_4.SiteLogType;
-import au.gov.xml.icsm.geodesyml.v_0_4.SurveyedLocalTiesPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_4.SurveyedLocalTiesType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SurveyedLocalTiePropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_4.SurveyedLocalTieType;
 import au.gov.xml.icsm.geodesyml.v_0_4.TemperatureSensorPropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_4.TemperatureSensorType;
 import au.gov.xml.icsm.geodesyml.v_0_4.WaterVaporSensorPropertyType;
@@ -113,7 +115,7 @@ public class SiteLogMapperITest extends IntegrationTest {
 
     private void checkSiteContacts(SiteLogType siteLogType, SiteLog siteLog) {
         assertThat(
-            siteLogType.getSiteContact().get(0).getCIResponsibleParty().getIndividualName().getCharacterString().getValue(),
+            siteLogType.getSiteContacts().get(0).getCIResponsibleParty().getIndividualName().getCharacterString().getValue(),
             is(siteLog.getSiteContacts().get(0).getParty().getIndividualName())
         );
     }
@@ -121,7 +123,7 @@ public class SiteLogMapperITest extends IntegrationTest {
     private void checkSiteContacts(SiteLog siteLog, SiteLogType siteLogType) {
         assertThat(
             siteLog.getSiteContacts().get(0).getParty().getIndividualName(),
-            is(siteLogType.getSiteContact().get(0).getCIResponsibleParty().getIndividualName().getCharacterString().getValue())
+            is(siteLogType.getSiteContacts().get(0).getCIResponsibleParty().getIndividualName().getCharacterString().getValue())
         );
     }
 
@@ -132,7 +134,7 @@ public class SiteLogMapperITest extends IntegrationTest {
     @Test
     public void testApproximatePositionMapping() throws Exception {
         GeodesyMLType mobs = marshaller
-                .unmarshal(TestResources.customGeodesyMLSiteLogReader("MOBS-itrf-points"),
+                .unmarshal(TestResources.customGeodesyMLSiteLogReader("MOBS"),
                         GeodesyMLType.class)
                 .getValue();
 
@@ -140,7 +142,7 @@ public class SiteLogMapperITest extends IntegrationTest {
                 .findFirst().get();
 
         SiteLog siteLog = mapper.to(siteLogType);
-
+        
         Point cartesianPosition = siteLog.getSiteLocation().getApproximatePosition().getCartesianPosition();
         assertThat(cartesianPosition.getSRID(), 
         		equalTo(Integer.parseInt(siteLogType.getSiteLocation().getApproximatePositionITRF()
@@ -259,7 +261,7 @@ public class SiteLogMapperITest extends IntegrationTest {
     @Test
     public void testSignalObstructionsMapping() throws Exception {
         GeodesyMLType mobs = marshaller
-                .unmarshal(TestResources.customGeodesyMLSiteLogReader("METZ-signalObstructionSet"),
+                .unmarshal(TestResources.customGeodesyMLSiteLogReader("METZ-signalObstructions"),
                         GeodesyMLType.class).getValue();
 
         SiteLogType siteLogType = GeodesyMLUtils.getElementFromJAXBElements(mobs.getElements(), SiteLogType.class)
@@ -414,6 +416,8 @@ public class SiteLogMapperITest extends IntegrationTest {
      **/
     @Test
     public void testCollocationInformationMapping() throws Exception {
+        DateTimeFormatter outputFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX").withZone(ZoneId.of("UTC"));
+
         GeodesyMLType mobs = marshaller
                 .unmarshal(TestResources.customGeodesyMLSiteLogReader("AIRA-collocationInfo"), GeodesyMLType.class)
                 .getValue();
@@ -435,9 +439,9 @@ public class SiteLogMapperITest extends IntegrationTest {
                 assertThat(collocationInfo.getInstrumentType(), is(collocationInfoType.getInstrumentationType().getValue()));
 
                 TimePeriodType timePeriodType = (TimePeriodType) collocationInfoType.getValidTime().getAbstractTimePrimitive().getValue();
-                String beginTime = timePeriodType.getBeginPosition().getValue().get(0).toString();
-
-                assertThat(collocationInfo.getEffectiveDates().getFrom().toString(), is(beginTime));
+                String beginTime = GMLDateUtils.stringToDateToStringMultiParsers(timePeriodType.getBeginPosition().getValue().get(0));
+                
+                assertThat(GMLDateUtils.dateToString(collocationInfo.getEffectiveDates().getFrom(), GMLDateUtils.GEODESYML_DATE_FORMAT_TIME_MILLISEC), is(beginTime));
                 assertThat(collocationInfo.getStatus(), is(collocationInfoType.getStatus().getValue()));
             }
         }
@@ -456,27 +460,27 @@ public class SiteLogMapperITest extends IntegrationTest {
                 .findFirst().get();
 
         SiteLog siteLog = mapper.to(siteLogType);
-        List<SurveyedLocalTiesPropertyType> surveyedLocalTiesProperties = siteLogType.getSurveyedLocalTies();
-        sortSurveyedLocalTiesPropertyTypes(surveyedLocalTiesProperties);
+        List<SurveyedLocalTiePropertyType> surveyedLocalTieProperties = siteLogType.getSurveyedLocalTies();
+        sortSurveyedLocalTiePropertyTypes(surveyedLocalTieProperties);
 
         assertThat(siteLog.getSurveyedLocalTies(), hasSize(4));
-        assertThat(surveyedLocalTiesProperties, hasSize(4));
+        assertThat(surveyedLocalTieProperties, hasSize(4));
 
         {
             int i = 0;
             for (SurveyedLocalTie surveyedLocalTie : sortSurveyedLocalTies(siteLog.getSurveyedLocalTies())) {
-                SurveyedLocalTiesType surveyedLocalTiesType = surveyedLocalTiesProperties.get(i++).getSurveyedLocalTies();
-                assertThat(surveyedLocalTie.getTiedMarkerName(), is(surveyedLocalTiesType.getTiedMarkerName()));
-                assertThat(surveyedLocalTie.getTiedMarkerUsage(), is(surveyedLocalTiesType.getTiedMarkerUsage()));
-                assertThat(surveyedLocalTie.getTiedMarkerCdpNumber(), Matchers.is(surveyedLocalTiesType.getTiedMarkerCDPNumber()));
-                assertThat(surveyedLocalTie.getTiedMarkerDomesNumber(), Matchers.is(surveyedLocalTiesType.getTiedMarkerDOMESNumber()));
-                assertThat(surveyedLocalTie.getDifferentialFromMarker().getDx().doubleValue(), Matchers.is(surveyedLocalTiesType.getDifferentialComponentsGNSSMarkerToTiedMonumentITRS().getDx()));
-                assertThat(surveyedLocalTie.getDifferentialFromMarker().getDy().doubleValue(), Matchers.is(surveyedLocalTiesType.getDifferentialComponentsGNSSMarkerToTiedMonumentITRS().getDy()));
-                assertThat(surveyedLocalTie.getDifferentialFromMarker().getDz().doubleValue(), Matchers.is(surveyedLocalTiesType.getDifferentialComponentsGNSSMarkerToTiedMonumentITRS().getDz()));
-                assertThat(Double.parseDouble(surveyedLocalTie.getLocalSiteTieAccuracy()), Matchers.is(surveyedLocalTiesType.getLocalSiteTiesAccuracy()));
-                assertThat(surveyedLocalTie.getSurveyMethod(), is(surveyedLocalTiesType.getSurveyMethod()));
-                assertThat(surveyedLocalTie.getDateMeasured(), Matchers.is(GMLDateUtils.stringToDateMultiParsers(surveyedLocalTiesType.getDateMeasured().getValue().get(0))));
-                assertThat(surveyedLocalTie.getNotes(), Matchers.is(surveyedLocalTiesType.getNotes()));
+                SurveyedLocalTieType surveyedLocalTieType = surveyedLocalTieProperties.get(i++).getSurveyedLocalTie();
+                assertThat(surveyedLocalTie.getTiedMarkerName(), is(surveyedLocalTieType.getTiedMarkerName()));
+                assertThat(surveyedLocalTie.getTiedMarkerUsage(), is(surveyedLocalTieType.getTiedMarkerUsage()));
+                assertThat(surveyedLocalTie.getTiedMarkerCdpNumber(), Matchers.is(surveyedLocalTieType.getTiedMarkerCDPNumber()));
+                assertThat(surveyedLocalTie.getTiedMarkerDomesNumber(), Matchers.is(surveyedLocalTieType.getTiedMarkerDOMESNumber()));
+                assertThat(surveyedLocalTie.getDifferentialFromMarker().getDx().doubleValue(), Matchers.is(surveyedLocalTieType.getDifferentialComponentsGNSSMarkerToTiedMonumentITRS().getDx()));
+                assertThat(surveyedLocalTie.getDifferentialFromMarker().getDy().doubleValue(), Matchers.is(surveyedLocalTieType.getDifferentialComponentsGNSSMarkerToTiedMonumentITRS().getDy()));
+                assertThat(surveyedLocalTie.getDifferentialFromMarker().getDz().doubleValue(), Matchers.is(surveyedLocalTieType.getDifferentialComponentsGNSSMarkerToTiedMonumentITRS().getDz()));
+                assertThat(Double.parseDouble(surveyedLocalTie.getLocalSiteTieAccuracy()), Matchers.is(surveyedLocalTieType.getLocalSiteTiesAccuracy()));
+                assertThat(surveyedLocalTie.getSurveyMethod(), is(surveyedLocalTieType.getSurveyMethod()));
+                assertThat(surveyedLocalTie.getDateMeasured(), Matchers.is(GMLDateUtils.stringToDateMultiParsers(surveyedLocalTieType.getDateMeasured().getValue().get(0))));
+                assertThat(surveyedLocalTie.getNotes(), Matchers.is(surveyedLocalTieType.getNotes()));
             }
         }
     }
@@ -487,8 +491,8 @@ public class SiteLogMapperITest extends IntegrationTest {
 
         List<GnssReceiverPropertyType> receiverProperties = siteLogType.getGnssReceivers();
         sortGMLPropertyTypes(receiverProperties);
-        assertThat(siteLog.getGnssReceivers().size(), equalTo(9));
-        assertThat(receiverProperties.size(), equalTo(9));
+        assertThat(siteLog.getGnssReceivers().size(), equalTo(15));
+        assertThat(receiverProperties.size(), equalTo(15));
 
         {
             int i = 0;
@@ -520,7 +524,7 @@ public class SiteLogMapperITest extends IntegrationTest {
             int i = 0;
             for (GnssAntennaLogItem antennaLogItem : sortLogItems(siteLog.getGnssAntennas())) {
                 GnssAntennaType antennaType = gnssAntennaPropertyTypes.get(i++).getGnssAntenna();
-                assertThat(antennaLogItem.getSerialNumber(), equalTo(antennaType.getSerialNumber()));
+                assertThat(antennaLogItem.getSerialNumber(), equalTo(antennaType.getManufacturerSerialNumber()));
             }
         }
     }
@@ -634,7 +638,7 @@ public class SiteLogMapperITest extends IntegrationTest {
     /**
      * Sort a list of SurveyedLocalTiesPropertyType objects by tied marker names.
      */
-    private <P extends SurveyedLocalTiesPropertyType> void sortSurveyedLocalTiesPropertyTypes(List<P> list) {
+    private <P extends SurveyedLocalTiePropertyType> void sortSurveyedLocalTiePropertyTypes(List<P> list) {
         Collections.sort(list, new Comparator<P>() {
             public int compare(P p, P q) {
                 return tiedMarkerName(p).compareTo(tiedMarkerName(q));
