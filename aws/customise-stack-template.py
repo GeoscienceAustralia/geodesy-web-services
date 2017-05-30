@@ -3,8 +3,11 @@ from amazonia.classes.sns import SNS
 from troposphere import Ref, Join, cloudwatch
 from troposphere.sns import Topic, Subscription
 
-def user_registration_topic(emails):
+def user_registration_received_topic(emails):
     return topic("UserRegistrationReceived", emails)
+
+def new_cors_site_requested_topic(emails):
+    return topic("NewCorsSiteRequested", emails)
 
 def topic(topic_title, emails):
     topic = Topic(topic_title,
@@ -20,5 +23,6 @@ def topic(topic_title, emails):
     return topic
 
 def customise_stack_template(template):
-    template.add_resource(user_registration_topic([]))
+    template.add_resource(user_registration_received_topic([]))
+    template.add_resource(new_cors_site_requested_topic([]))
     return template
