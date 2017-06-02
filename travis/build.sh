@@ -10,8 +10,8 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
     mvn --settings ./travis/maven-settings.xml deploy -pl '!gws-system-test' -DredirectTestOutputToFile
     mvn --settings ./travis/maven-settings.xml deploy -pl gws-system-test -DskipTests
     mvn --settings ./travis/maven-settings.xml site-deploy -DskipTests -pl gws-core
-    docker rm $(docker ps -aq)
-    docker rmi $(docker images -aq)
+    docker rm $(docker ps -aq) || exit 0
+    docker rmi $(docker images -aq) || exit 0
     aws configure set aws_access_key_id "${TRAVIS_AWS_ACCESS_KEY_ID}" --profile geodesy
     aws configure set aws_secret_access_key "${TRAVIS_AWS_SECRET_KEY_ID}" --profile geodesy
     aws configure set region ap-southeast-2 --profile geodesy
@@ -27,4 +27,6 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
 else
     mvn --settings ./travis/maven-settings.xml install -pl '!gws-system-test' -DredirectTestOutputToFile
     mvn --settings ./travis/maven-settings.xml install -pl 'gws-system-test' -DskipTests
+    docker rm $(docker ps -aq) || exit 0
+    docker rmi $(docker images -aq) || exit 0
 fi
