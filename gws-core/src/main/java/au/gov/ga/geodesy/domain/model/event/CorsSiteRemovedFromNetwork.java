@@ -13,10 +13,10 @@ import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
 import au.gov.ga.geodesy.domain.model.sitelog.EffectiveDates;
 
 @Entity
-@Table(name = "CORS_SITE_ADDED_TO_NETWORK")
-@DiscriminatorValue("cors site added to network")
-@PrimaryKeyJoinColumn(foreignKey=@ForeignKey(name = "fk_domain_event_cors_site_added_to_network"))
-public class CorsSiteAddedToNetwork extends Event {
+@Table(name = "CORS_SITE_REMOVED_FROM_NETWORK")
+@DiscriminatorValue("cors site removed from network")
+@PrimaryKeyJoinColumn(foreignKey=@ForeignKey(name = "fk_domain_event_cors_site_removed_from_network"))
+public class CorsSiteRemovedFromNetwork extends Event {
 
     @Column(name = "SITE_ID", nullable = false)
     private @MonotonicNonNull Integer siteId;
@@ -28,10 +28,10 @@ public class CorsSiteAddedToNetwork extends Event {
     private @MonotonicNonNull EffectiveDates period;
 
     @SuppressWarnings({"unused", "initialization.fields.uninitialized"}) // used by hibernate
-    private CorsSiteAddedToNetwork() {
+    private CorsSiteRemovedFromNetwork() {
     }
 
-    public CorsSiteAddedToNetwork(Integer siteId, Integer networkId, EffectiveDates period) {
+    public CorsSiteRemovedFromNetwork(Integer siteId, Integer networkId, EffectiveDates period) {
         this.siteId = siteId;
         this.networkId = networkId;
         this.period = period;

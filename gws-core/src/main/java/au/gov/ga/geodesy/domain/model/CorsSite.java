@@ -19,7 +19,9 @@ import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import au.gov.ga.geodesy.domain.model.command.AddCorsSiteToNetwork;
+import au.gov.ga.geodesy.domain.model.command.RemoveCorsSiteFromNetwork;
 import au.gov.ga.geodesy.domain.model.event.CorsSiteAddedToNetwork;
+import au.gov.ga.geodesy.domain.model.event.CorsSiteRemovedFromNetwork;
 import au.gov.ga.geodesy.domain.model.event.Event;
 
 @Entity
@@ -119,5 +121,25 @@ public class CorsSite extends Site {
         } else {
             return Stream.empty();
         }
+    }
+
+    public Stream<Event> handle(RemoveCorsSiteFromNetwork command) {
+        int index = this.findNetworkTenancyIndexByNetworkId(command.getNetworkId());
+        if (index != -1) {
+            this.networkTenancies.remove(index);
+            return Stream.of(new CorsSiteRemovedFromNetwork(this.getId(), command.getNetworkId(), command.getPeriod()));
+        } else {
+            return Stream.empty();
+        }
+    }
+
+    private int findNetworkTenancyIndexByNetworkId(Integer networkId) {
+        for (int i = 0; i < this.networkTenancies.size(); i ++) {
+            NetworkTenancy networkTenancy = networkTenancies.get(i);
+            if (networkTenancy.getCorsNetworkId().equals(networkId)) {
+                return i;
+            }
+        }
+        return -1;
     }
 }

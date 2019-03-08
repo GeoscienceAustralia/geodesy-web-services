@@ -70,6 +70,14 @@ public class GeodesyRepositoryRestMvcConfig extends RepositoryRestConfigurerAdap
                     .slash("addToNetwork");
 
                 resource.add(link.withRel("addToNetwork"));
+
+                LinkBuilder link2 = configuration.entityLinks().linkForSingleResource(
+                    CorsSite.class,
+                    resource.getContent().getId()
+                )
+                .slash("removeFromNetwork");
+                resource.add(link2.withRel("removeFromNetwork"));
+
                 return resource;
             }
         };

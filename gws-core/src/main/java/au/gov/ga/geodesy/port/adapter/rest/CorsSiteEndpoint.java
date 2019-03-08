@@ -14,6 +14,7 @@ import au.gov.ga.geodesy.domain.model.CorsNetworkRepository;
 import au.gov.ga.geodesy.domain.model.CorsSite;
 import au.gov.ga.geodesy.domain.model.CorsSiteRepository;
 import au.gov.ga.geodesy.domain.model.command.AddCorsSiteToNetwork;
+import au.gov.ga.geodesy.domain.model.command.RemoveCorsSiteFromNetwork;
 import au.gov.ga.geodesy.domain.model.event.EventPublisher;
 import au.gov.ga.geodesy.domain.model.sitelog.EffectiveDates;
 import au.gov.ga.geodesy.support.utils.GMLDateUtils;
@@ -51,6 +52,30 @@ public class CorsSiteEndpoint {
             parse(effectiveTo, timeFormat)
         );
         site.handle(new AddCorsSiteToNetwork(networkId, period)).forEach(eventPublisher::publish);
+        sites.save(site);
+        return new ResponseEntity<String>(HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            value = "/{siteId}/removeFromNetwork",
+            method = RequestMethod.PUT
+    )
+    public ResponseEntity<String> removeFromNetwork(
+            @PathVariable("siteId") Integer siteId,
+            @RequestParam("networkId") Integer networkId,
+            @RequestParam(required = false) String effectiveFrom,
+            @RequestParam(required = false) String effectiveTo,
+            @RequestParam(defaultValue = "uuuu-MM-dd") String timeFormat) {
+
+        CorsSite site = sites.findOne(siteId);
+        if (!networks.exists(networkId)) {
+            return new ResponseEntity<String>("Network not found", HttpStatus.BAD_REQUEST);
+        }
+        EffectiveDates period = new EffectiveDates(
+                parse(effectiveFrom, timeFormat),
+                parse(effectiveTo, timeFormat)
+        );
+        site.handle(new RemoveCorsSiteFromNetwork(networkId, period)).forEach(eventPublisher::publish);
         sites.save(site);
         return new ResponseEntity<String>(HttpStatus.OK);
     }
