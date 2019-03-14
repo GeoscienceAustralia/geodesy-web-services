@@ -64,18 +64,14 @@ public class CorsSiteEndpoint {
             @PathVariable("siteId") Integer siteId,
             @RequestParam("networkId") Integer networkId,
             @RequestParam(required = false) String effectiveFrom,
-            @RequestParam(required = false) String effectiveTo,
             @RequestParam(defaultValue = "uuuu-MM-dd") String timeFormat) {
 
         CorsSite site = sites.findOne(siteId);
         if (!networks.exists(networkId)) {
             return new ResponseEntity<String>("Network not found", HttpStatus.BAD_REQUEST);
         }
-        EffectiveDates period = new EffectiveDates(
-                parse(effectiveFrom, timeFormat),
-                parse(effectiveTo, timeFormat)
-        );
-        site.handle(new RemoveCorsSiteFromNetwork(networkId, period)).forEach(eventPublisher::publish);
+
+        site.handle(new RemoveCorsSiteFromNetwork(networkId, parse(effectiveFrom, timeFormat))).forEach(eventPublisher::publish);
         sites.save(site);
         return new ResponseEntity<String>(HttpStatus.OK);
     }

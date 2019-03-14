@@ -117,7 +117,7 @@
         <dependency>
             <groupId>au.gov.ga.geodesy</groupId>
             <artifactId>igssitelog-bindings</artifactId>
-            <version>0.1.0</version>
+            <version>0.1.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>au.gov.ga</groupId>

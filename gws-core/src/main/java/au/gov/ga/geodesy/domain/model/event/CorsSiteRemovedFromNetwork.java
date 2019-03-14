@@ -7,10 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import java.time.Instant;
 
 import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
-
-import au.gov.ga.geodesy.domain.model.sitelog.EffectiveDates;
 
 @Entity
 @Table(name = "CORS_SITE_REMOVED_FROM_NETWORK")
@@ -24,17 +23,17 @@ public class CorsSiteRemovedFromNetwork extends Event {
     @Column(name = "NETWORK_ID", nullable = false)
     private @MonotonicNonNull Integer networkId;
 
-    @Embedded
-    private @MonotonicNonNull EffectiveDates period;
+    @Column(name = "EFFECTIVE_FROM")
+    private @MonotonicNonNull Instant effectiveFrom;
 
     @SuppressWarnings({"unused", "initialization.fields.uninitialized"}) // used by hibernate
     private CorsSiteRemovedFromNetwork() {
     }
 
-    public CorsSiteRemovedFromNetwork(Integer siteId, Integer networkId, EffectiveDates period) {
+    public CorsSiteRemovedFromNetwork(Integer siteId, Integer networkId, Instant effectiveFrom) {
         this.siteId = siteId;
         this.networkId = networkId;
-        this.period = period;
+        this.effectiveFrom = effectiveFrom;
     }
 
     public Integer getSiteId() {
@@ -45,7 +44,7 @@ public class CorsSiteRemovedFromNetwork extends Event {
         return networkId;
     }
 
-    public EffectiveDates getPeriod() {
-        return period;
+    public Instant getEffectiveFrom() {
+        return effectiveFrom;
     }
 }

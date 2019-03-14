@@ -127,7 +127,7 @@ public class CorsSite extends Site {
         int index = this.findNetworkTenancyIndexByNetworkId(command.getNetworkId());
         if (index != -1) {
             this.networkTenancies.remove(index);
-            return Stream.of(new CorsSiteRemovedFromNetwork(this.getId(), command.getNetworkId(), command.getPeriod()));
+            return Stream.of(new CorsSiteRemovedFromNetwork(this.getId(), command.getNetworkId(), command.getEffectiveFrom()));
         } else {
             return Stream.empty();
         }

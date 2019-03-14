@@ -1,22 +1,22 @@
 package au.gov.ga.geodesy.domain.model.command;
 
-import au.gov.ga.geodesy.domain.model.sitelog.EffectiveDates;
+import java.time.Instant;
 
 public class RemoveCorsSiteFromNetwork {
 
     private Integer networkId;
-    private EffectiveDates period = new EffectiveDates();
+    private Instant effectiveFrom;
 
-    public RemoveCorsSiteFromNetwork(Integer networkId, EffectiveDates period) {
+    public RemoveCorsSiteFromNetwork(Integer networkId, Instant effectiveFrom) {
         this.networkId = networkId;
-        this.period = period;
+        this.effectiveFrom = effectiveFrom;
     }
 
     public Integer getNetworkId() {
         return networkId;
     }
 
-    public EffectiveDates getPeriod() {
-        return period;
+    public Instant  getEffectiveFrom() {
+        return effectiveFrom;
     }
 }

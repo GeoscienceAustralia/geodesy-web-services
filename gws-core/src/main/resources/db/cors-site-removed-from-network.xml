@@ -9,7 +9,6 @@
             <constraints nullable="false"/>
          </column>
          <column name="effective_from" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
-         <column name="effective_to" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
          <column name="site_id" type="INT">
             <constraints nullable="false"/>
          </column>
