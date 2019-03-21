@@ -213,17 +213,6 @@
             <version>${jackson.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.geotoolkit</groupId>
-            <artifactId>geotk-xml-gml</artifactId>
-            <version>4.0-M2</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.opengis</groupId>
-                    <artifactId>geoapi-pending</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
             <groupId>org.geotools</groupId>
             <artifactId>gt-api</artifactId>
             <version>14.0</version>
