@@ -17,7 +17,7 @@ autoscaling_units:
           instance_port: '8080'
           loadbalancer_protocol: 'HTTPS'
           loadbalancer_port: '443'
-      ssl_certificate_id: 'arn:aws:acm:ap-southeast-2:094928090547:certificate/07496dcd-6975-4dd4-8986-533488587f0e'
+      ssl_certificate_id: 'arn:aws:acm:ap-southeast-2:094928090547:certificate/9facd9b6-4fc7-4351-9e72-82007f362efd'
       elb_health_check: 'TCP:8080'
       healthy_threshold: 2
       unhealthy_threshold: 2
@@ -41,7 +41,7 @@ autoscaling_units:
           instance_port: '8080'
           loadbalancer_protocol: 'HTTPS'
           loadbalancer_port: '443'
-      ssl_certificate_id: 'arn:aws:acm:ap-southeast-2:094928090547:certificate/07496dcd-6975-4dd4-8986-533488587f0e'
+      ssl_certificate_id: 'arn:aws:acm:ap-southeast-2:094928090547:certificate/9facd9b6-4fc7-4351-9e72-82007f362efd'
       elb_health_check: 'HTTP:8080/geoserver/web/'
     dependencies:
      - 'Db:5432'
@@ -58,7 +58,7 @@ autoscaling_units:
           instance_port: '8443'
           loadbalancer_protocol: 'SSL'
           loadbalancer_port: '443'
-      ssl_certificate_id: 'arn:aws:acm:ap-southeast-2:094928090547:certificate/07496dcd-6975-4dd4-8986-533488587f0e'
+      ssl_certificate_id: 'arn:aws:acm:ap-southeast-2:094928090547:certificate/9facd9b6-4fc7-4351-9e72-82007f362efd'
       elb_health_check: 'SSL:8443'
 
 #  -
