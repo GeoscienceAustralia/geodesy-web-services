@@ -86,19 +86,18 @@
 
 1) Click `Save`, `Back to Main Page`, and `Back to Access Control`
 
-## Add extra fields to user (Organisation and Position)
+## Add organisation and position to user attributes
 
-1) Terminal into the OpenAM directory, eg 
+1) Connect to OpenAM container
+
     ```
-    [if running inside docker] docker-compose exec -it open-am bash
-    # cd /opt/openam
+    docker-compose exec open-am bash
+    $ cd /opt/openam
     ```
     
-2)  edit the amUsers.xml file to add new atttributes
-   `# vim config/xml/amUser.xml`
-   
+2)  Edit config/xml/amUser.xml to add new user atttributes
+
    ```xml  
-    
    <AttributeSchema name="sunIdentityServerPPEmploymentIdentityOrg"
       type="single"
       syntax="string"
@@ -113,35 +112,28 @@
       i18nKey="Position">
     </AttributeSchema>
    ```
-3) delete and recreate the iPlanetAMUserService so that the above attributes get added
+
+3) Recreate iPlanetAMUserService
 
     ```
-    # ./tools/admin/openam/bin/ssoadm \
+    $ ./tools/admin/openam/bin/ssoadm \
         delete-svc \
         --adminid amadmin \
         --password-file tools/admin/passwdfile \
         --servicename iPlanetAMUserService 
         
-    Service was deleted.
-        
-    # ./tools/admin/openam/bin/ssoadm \
+    $ ./tools/admin/openam/bin/ssoadm \
         create-svc \
         --adminid amadmin \
         --password-file tools/admin/passwdfile \
         --xmlfile config/xml/amUser.xml
-    
-    Service was created.
-   
-    # exit        
     ```
-4) rebuild the docker container
+
+4) Restart the container
+
    ``` 
-   $ docker-compose build open-am
-   $ docker-compose up -d open-am
+   $ docker-compose restart open-am
    ```
-5) The Organisation and Position fields will now appear in the Subject screen in the OpenAM UI and will be stored in the LDAP attributes sunIdentityServerPPEmploymentIdentityOrg and sunIdentityServerPPEmploymentIdentityJobTitle respectively
-
-
 ## Configure OIDC claims script
 
 1) Choose `Top Level Realm`
