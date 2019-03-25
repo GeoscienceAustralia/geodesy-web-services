@@ -1,5 +1,8 @@
 package au.gov.ga.geodesy.domain.model;
 
+import com.google.common.base.Predicate;
+import com.google.common.collect.Iterables;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -124,22 +127,19 @@ public class CorsSite extends Site {
     }
 
     public Stream<Event> handle(RemoveCorsSiteFromNetwork command) {
-        int index = this.findNetworkTenancyIndexByNetworkId(command.getNetworkId());
-        if (index != -1) {
-            this.networkTenancies.remove(index);
-            return Stream.of(new CorsSiteRemovedFromNetwork(this.getId(), command.getNetworkId(), command.getEffectiveFrom()));
-        } else {
-            return Stream.empty();
-        }
-    }
-
-    private int findNetworkTenancyIndexByNetworkId(Integer networkId) {
-        for (int i = 0; i < this.networkTenancies.size(); i ++) {
-            NetworkTenancy networkTenancy = networkTenancies.get(i);
-            if (networkTenancy.getCorsNetworkId().equals(networkId)) {
-                return i;
+        List<Event> events = new ArrayList<>();
+        Integer siteId = this.getId();
+        Iterables.removeIf(this.networkTenancies, new Predicate<NetworkTenancy>() {
+            @Override
+            public boolean apply(NetworkTenancy networkTenancy) {
+                if (networkTenancy.getCorsNetworkId().equals(command.getNetworkId())) {
+                    events.add(new CorsSiteRemovedFromNetwork(siteId, command.getNetworkId(), command.getEffectiveFrom()));
+                    return true;
+                } else {
+                    return false;
+                }
             }
-        }
-        return -1;
+        });
+        return events.stream();
     }
 }

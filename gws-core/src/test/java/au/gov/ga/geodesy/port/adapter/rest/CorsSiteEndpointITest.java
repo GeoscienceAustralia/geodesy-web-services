@@ -3,6 +3,7 @@ package au.gov.ga.geodesy.port.adapter.rest;
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
@@ -115,6 +116,8 @@ public class CorsSiteEndpointITest extends IntegrationTest {
             .statusCode(HttpStatus.OK.value())
             .extract().jsonPath().getList("networkTenancies", NetworkTenancy.class);
 
-        assertThat(networkTenancies.size(), is(0));
+        assertThat(networkTenancies, is(empty()));
+
+
     }
 }
