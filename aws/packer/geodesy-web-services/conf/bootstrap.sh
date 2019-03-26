@@ -17,9 +17,9 @@ sudo yum install -y \
     perl-Sys-Syslog \
     perl-LWP-Protocol-https
 
-curl -so /tmp/apache-maven-3.5.0-bin.tar.gz http://apache.mirror.digitalpacific.com.au/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz
-sudo tar -xzvf /tmp/apache-maven-3.5.0-bin.tar.gz -C /opt
-sudo ln -s /opt/apache-maven-3.5.0 /opt/maven
+curl -so /tmp/apache-maven-3.6.0-bin.tar.gz http://apache.mirror.amaze.com.au/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+sudo tar -xzvf /tmp/apache-maven-3.6.0-bin.tar.gz -C /opt
+sudo ln -s /opt/apache-maven-3.6.0 /opt/maven
 
 # cloudwatch monitoring scripts
 curl -so /tmp/CloudWatchMonitoringScripts-1.2.1.zip http://aws-cloudwatch.s3.amazonaws.com/downloads/CloudWatchMonitoringScripts-1.2.1.zip
