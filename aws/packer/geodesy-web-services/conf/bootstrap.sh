@@ -2,6 +2,10 @@
 
 set -e
 
+# Tell cloud-init not to update anything
+sudo sed 's/^repo_upgrade: security/repo_upgrade: none/g' -i /etc/cloud/cloud.cfg
+sudo sed -e '/- package-update-upgrade-install/s/^/#/g' -i /etc/cloud/cloud.cfg.d/00_defaults.cfg
+
 sudo yum erase -y java-1.7.0*
 sudo yum update -y
 
