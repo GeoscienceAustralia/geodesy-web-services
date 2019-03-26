@@ -6,7 +6,7 @@ autoscaling_units:
   -
     unit_title: WebServices
     asg_config:
-      image_id: "ami-851a11e6"
+      image_id: "ami-091d2d68188370013"
       instance_type: 't2.small'
       health_check_grace_period: '480'
       health_check_type: 'EC2' # TODO: revert to ELB
