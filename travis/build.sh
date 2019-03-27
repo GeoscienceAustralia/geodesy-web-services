@@ -25,12 +25,12 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
     # zip bundle to $TMPDIR.
     export TMPDIR=/tmp
     case "${TRAVIS_BRANCH}" in
-        "release-0.2.0")
+        "release-0.2.1")
             ./aws/codedeploy-WebServices/deploy.sh test
         ;;
         "master")
             mvn --settings ./travis/maven-settings.xml site-deploy -DskipTests -pl gws-core
-            ./aws/codedeploy-WebServices/deploy.sh test
+            ./aws/codedeploy-WebServices/deploy.sh dev
         ;;
     esac
 else
