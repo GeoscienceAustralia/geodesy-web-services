@@ -11,7 +11,7 @@ sudo rm -f /etc/mavenrc
 mvn --settings ./travis/maven-settings.xml -U install -DskipTests > /dev/null
 
 if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
-    mvn --settings ./travis/maven-settings.xml deploy -pl '!gws-system-test' -DredirectTestOutputToFile
+    mvn --settings ./travis/maven-settings.xml deploy -pl '!gws-system-test' -DredirectTestOutputToFile -DskipTests
     mvn --settings ./travis/maven-settings.xml deploy -pl gws-system-test -DskipTests
     mvn --settings ./travis/maven-settings.xml site -DskipTests -pl gws-core
     cp ./gws-webapp/target/geodesy-web-services.war ./gws-system-test/target/gws-system-test.jar ./aws/codedeploy-WebServices/
@@ -29,6 +29,10 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
             ./aws/codedeploy-WebServices/deploy.sh test
         ;;
         "master")
+            mvn --settings ./travis/maven-settings.xml site-deploy -DskipTests -pl gws-core
+            ./aws/codedeploy-WebServices/deploy.sh dev
+        ;;
+        "test-deployment")
             mvn --settings ./travis/maven-settings.xml site-deploy -DskipTests -pl gws-core
             ./aws/codedeploy-WebServices/deploy.sh dev
         ;;
