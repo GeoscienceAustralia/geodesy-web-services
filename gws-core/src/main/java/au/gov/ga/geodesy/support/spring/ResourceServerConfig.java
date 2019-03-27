@@ -35,6 +35,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
             .antMatchers(HttpMethod.PATCH, "/corsSites/**").hasAuthority("superuser")
             .antMatchers(HttpMethod.PUT, "/corsSites/*/addToNetwork").hasAuthority("superuser")
+            .antMatchers(HttpMethod.PUT, "/corsSites/*/removeFromNetwork").hasAuthority("superuser")
 
             .antMatchers(HttpMethod.PUT, "/setups/request/updateSetups").hasAuthority("superuser")
 

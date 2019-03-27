@@ -3,6 +3,7 @@ package au.gov.ga.geodesy.port.adapter.rest;
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
@@ -71,7 +72,7 @@ public class CorsSiteEndpointITest extends IntegrationTest {
 
     @Test(dependsOnMethods = {"addSiteToNetwork"})
     @Rollback(false)
-    public void checkNetworkTenancy() throws Exception {
+    public void checkNetworkTenancyAfterAdd() throws Exception {
         List<NetworkTenancy> networkTenancies = given()
             .when()
             .get("/corsSites/search/findByFourCharacterId?id=ALIC")
@@ -82,5 +83,41 @@ public class CorsSiteEndpointITest extends IntegrationTest {
         assertThat(networkTenancies.size(), is(1));
         assertThat(networkTenancies.get(0).getCorsNetworkId(), is(this.gpsNetworkId));
         assertThat(networkTenancies.get(0).getPeriod().getFrom(), is(equalTo(Instant.parse("2011-12-12T00:00:00Z"))));
+    }
+
+    @Test(dependsOnMethods = {"checkNetworkTenancyAfterAdd"})
+    @Rollback(false)
+    public void removeSiteFromNetwork() throws Exception {
+        String removeFromNetworkHref = given()
+            .when()
+            .get("/corsSites/search/findByFourCharacterId?id=ALIC")
+            .then()
+            .statusCode(HttpStatus.OK.value())
+            .extract().jsonPath().getString("_links.removeFromNetwork.href");
+
+        String removeFromNetworkPath = new URL(removeFromNetworkHref).getPath();
+
+        given()
+            .auth().with(super.superuserToken())
+            .queryParam("networkId", gpsNetworkId)
+            .when()
+            .put(removeFromNetworkPath)
+            .then()
+            .statusCode(HttpStatus.OK.value());
+    }
+
+    @Test(dependsOnMethods = {"removeSiteFromNetwork"})
+    @Rollback(false)
+    public void checkNetworkTenancyAfterRemove() throws Exception {
+        List<NetworkTenancy> networkTenancies = given()
+            .when()
+            .get("/corsSites/search/findByFourCharacterId?id=ALIC")
+            .then()
+            .statusCode(HttpStatus.OK.value())
+            .extract().jsonPath().getList("networkTenancies", NetworkTenancy.class);
+
+        assertThat(networkTenancies, is(empty()));
+
+
     }
 }

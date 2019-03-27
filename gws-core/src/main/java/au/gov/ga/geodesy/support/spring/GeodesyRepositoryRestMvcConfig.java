@@ -62,14 +62,24 @@ public class GeodesyRepositoryRestMvcConfig extends RepositoryRestConfigurerAdap
         return new ResourceProcessor<Resource<CorsSite>>() {
             @Override
             public Resource<CorsSite> process(Resource<CorsSite> resource) {
-                LinkBuilder link =
+                LinkBuilder addToNetworkLink =
                     configuration.entityLinks().linkForSingleResource(
                         CorsSite.class,
                         resource.getContent().getId()
                     )
                     .slash("addToNetwork");
 
-                resource.add(link.withRel("addToNetwork"));
+                resource.add(addToNetworkLink.withRel("addToNetwork"));
+
+                LinkBuilder removeFromNetworkLink =
+                    configuration.entityLinks().linkForSingleResource(
+                        CorsSite.class,
+                        resource.getContent().getId()
+                    )
+                    .slash("removeFromNetwork");
+
+                resource.add(removeFromNetworkLink.withRel("removeFromNetwork"));
+
                 return resource;
             }
         };

@@ -1,5 +1,8 @@
 package au.gov.ga.geodesy.domain.model;
 
+import com.google.common.base.Predicate;
+import com.google.common.collect.Iterables;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -19,7 +22,9 @@ import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import au.gov.ga.geodesy.domain.model.command.AddCorsSiteToNetwork;
+import au.gov.ga.geodesy.domain.model.command.RemoveCorsSiteFromNetwork;
 import au.gov.ga.geodesy.domain.model.event.CorsSiteAddedToNetwork;
+import au.gov.ga.geodesy.domain.model.event.CorsSiteRemovedFromNetwork;
 import au.gov.ga.geodesy.domain.model.event.Event;
 
 @Entity
@@ -119,5 +124,22 @@ public class CorsSite extends Site {
         } else {
             return Stream.empty();
         }
+    }
+
+    public Stream<Event> handle(RemoveCorsSiteFromNetwork command) {
+        List<Event> events = new ArrayList<>();
+        Integer siteId = this.getId();
+        Iterables.removeIf(this.networkTenancies, new Predicate<NetworkTenancy>() {
+            @Override
+            public boolean apply(NetworkTenancy networkTenancy) {
+                if (networkTenancy.getCorsNetworkId().equals(command.getNetworkId())) {
+                    events.add(new CorsSiteRemovedFromNetwork(siteId, command.getNetworkId(), command.getEffectiveFrom()));
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
+        return events.stream();
     }
 }
