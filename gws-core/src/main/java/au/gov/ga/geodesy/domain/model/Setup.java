@@ -16,6 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -55,6 +56,7 @@ public class Setup {
     private Boolean invalidated = false;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OrderBy("period.from ASC NULLS FIRST, period.to ASC NULLS LAST")
     @JoinColumn(name = "SETUP_ID")
     private List<EquipmentInUse> equipmentInUse = new ArrayList<>();
 

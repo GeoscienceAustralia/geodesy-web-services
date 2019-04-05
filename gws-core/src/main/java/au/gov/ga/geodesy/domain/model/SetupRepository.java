@@ -14,14 +14,23 @@ import au.gov.ga.geodesy.support.spring.AggregateRepository;
 public interface SetupRepository extends AggregateRepository<Setup>, SetupRepositoryCustom, QueryDslPredicateExecutor<Setup> {
 
     // TODO: test
-    @Query("select s from Setup s where s.siteId = :siteId and s.type = :type and s.invalidated = false")
+    @Query(
+        "select s from Setup s where s.siteId = :siteId and s.type = :type and s.invalidated = false"
+        + " order by s.effectivePeriod.from asc nulls first, s.effectivePeriod.to asc nulls last"
+    )
     Page<Setup> findBySiteId(@Param("siteId") Integer id, @Param("type") SetupType type, Pageable pageRequest);
 
     @RestResource(exported = false)
-    @Query("select s from Setup s where s.siteId = :siteId and s.type = :type and s.invalidated = false")
+    @Query(
+        "select s from Setup s where s.siteId = :siteId and s.type = :type and s.invalidated = false"
+        + " order by s.effectivePeriod.from asc nulls first, s.effectivePeriod.to asc nulls last"
+    )
     List<Setup> findBySiteId(@Param("siteId") Integer id, @Param("type") SetupType type);
 
     @RestResource(exported = false)
-    @Query("select s from Setup s where s.siteId = :siteId and s.type = :type and s.invalidated = true")
+    @Query(
+        "select s from Setup s where s.siteId = :siteId and s.type = :type and s.invalidated = true"
+        + " order by s.effectivePeriod.from asc nulls first, s.effectivePeriod.to asc nulls last"
+    )
     List<Setup> findInvalidatedBySiteId(@Param("siteId") Integer id, @Param("type") SetupType type) ;
 }

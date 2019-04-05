@@ -140,13 +140,16 @@ public class SetupFactory {
             /* while (!setups.get(i).getEffectivePeriod().getFrom().equals(equipmentFrom)) { */
             /*     i++; */
             /* } */
-            while (true) {
+            while (i < setups.size()) {
                 EffectiveDates setupPeriod = setups.get(i).getEffectivePeriod();
                 if (setupPeriod != null && setupPeriod.getFrom() != null
                         && setupPeriod.getFrom().equals(equipmentFrom)) {
                     break;
                 }
                 i++;
+            }
+            if (i == setups.size()) {
+                return;
             }
             j = i;
             if (equipmentTo == null) {
