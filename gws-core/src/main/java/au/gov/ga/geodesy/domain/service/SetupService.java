@@ -104,6 +104,7 @@ public class SetupService {
     public void createSetups(CorsSite site) {
         Integer siteId = site.getId();
         String fourCharId = site.getFourCharacterId();
+        log.debug("Generating setups for site " + fourCharId);
         SiteLog siteLog = siteLogs.findByFourCharacterId(fourCharId);
         HashMap<SetupType, List<Setup>> setupsByType = setupFactory.createSetups(siteId, siteLog);
         setupsByType.forEach((setupType, newSetups) -> {

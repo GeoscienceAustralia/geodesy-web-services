@@ -9,7 +9,9 @@ import javax.persistence.TypedQuery;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Predicate;
@@ -33,7 +35,8 @@ public class SetupRepositoryImpl implements SetupRepositoryCustom {
     public Setup findCurrentBySiteId(Integer siteId, SetupType type) {
         // TODO: use query-dsl
         String queryString =
-            "select s from Setup s where s.type = :type and s.siteId = :id and s.effectivePeriod.to is null and s.invalidated = false";
+            "select s from Setup s where s.type = :type and s.siteId = :id and s.effectivePeriod.to is null and s.invalidated = false"
+            + " order by s.effectivePeriod.from asc nulls first, s.effectivePeriod.to asc nulls last";
 
         TypedQuery<Setup> query = entityManager.createQuery(queryString, Setup.class);
         query.setParameter("id", siteId);
@@ -50,7 +53,7 @@ public class SetupRepositoryImpl implements SetupRepositoryCustom {
             SetupType type,
             @Nullable Instant periodStart,
             @Nullable Instant periodEnd,
-            Pageable pageReuest) {
+            Pageable pageRequest) {
 
         QSetup qsetup = QSetup.setup;
 
@@ -79,7 +82,17 @@ public class SetupRepositoryImpl implements SetupRepositoryCustom {
             .and(isValid)
             .and(isContained.or(isIntercepted));
 
-        return setups.findAll(requiredSetupPredicate, pageReuest);
+        PageRequest newPageRequest = new PageRequest(
+            pageRequest.getPageNumber(),
+            pageRequest.getPageSize(),
+            pageRequest.getSort() != null ? pageRequest.getSort()
+                : new Sort(
+                    new Sort.Order(Sort.Direction.ASC, "effectivePeriod.from", Sort.NullHandling.NULLS_FIRST),
+                    new Sort.Order(Sort.Direction.ASC, "effectivePeriod.to", Sort.NullHandling.NULLS_LAST)
+                )
+        );
+
+        return setups.findAll(requiredSetupPredicate, newPageRequest);
     }
 
     /**
