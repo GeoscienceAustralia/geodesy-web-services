@@ -2,6 +2,10 @@
 
 set -e
 
+# Tell cloud-init not to update anything
+sudo sed 's/^repo_upgrade: security/repo_upgrade: none/g' -i /etc/cloud/cloud.cfg
+sudo sed -e '/- package-update-upgrade-install/s/^/#/g' -i /etc/cloud/cloud.cfg.d/00_defaults.cfg
+
 sudo yum erase -y java-1.7.0*
 sudo yum update -y
 
@@ -17,9 +21,9 @@ sudo yum install -y \
     perl-Sys-Syslog \
     perl-LWP-Protocol-https
 
-curl -so /tmp/apache-maven-3.5.0-bin.tar.gz http://apache.mirror.digitalpacific.com.au/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz
-sudo tar -xzvf /tmp/apache-maven-3.5.0-bin.tar.gz -C /opt
-sudo ln -s /opt/apache-maven-3.5.0 /opt/maven
+curl -so /tmp/apache-maven-3.6.0-bin.tar.gz http://apache.mirror.amaze.com.au/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+sudo tar -xzvf /tmp/apache-maven-3.6.0-bin.tar.gz -C /opt
+sudo ln -s /opt/apache-maven-3.6.0 /opt/maven
 
 # cloudwatch monitoring scripts
 curl -so /tmp/CloudWatchMonitoringScripts-1.2.1.zip http://aws-cloudwatch.s3.amazonaws.com/downloads/CloudWatchMonitoringScripts-1.2.1.zip

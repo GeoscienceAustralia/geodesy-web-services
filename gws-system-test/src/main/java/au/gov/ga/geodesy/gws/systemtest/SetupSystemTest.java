@@ -14,14 +14,13 @@ public class SetupSystemTest extends BaseSystemTest {
     @Test
     public void findSetupsByIdAndDate() throws Exception {
         Response response = given()
-            .get(getConfig().getWebServicesUrl() + "/setups/search/findByFourCharacterId?id=ALIC&effectiveFrom=2011-12-12&effectiveTo=2014-12-12&timeFormat=uuuu-MM-dd")
+            .get(getConfig().getWebServicesUrl() + "/setups/search/findByFourCharacterId?id=ALIC&type=CorsSetup&effectiveFrom=2011-12-12&effectiveTo=2014-12-12&timeFormat=uuuu-MM-dd")
             .then()
             .statusCode(HttpStatus.OK.value())
             .extract().response();
 
        assertThat(response.jsonPath().get("page.totalElements"), is(3));
-       assertThat(response.jsonPath().get("_embedded.setups[0].name"), is("GNSS CORS Setup"));
-       assertThat(response.jsonPath().get("_embedded.setups[0].name"), is("GNSS CORS Setup"));
+       assertThat(response.jsonPath().get("_embedded.setups[0].type"), is("GNSS CORS Setup"));
        assertThat(response.jsonPath().get("_embedded.setups[0].effectivePeriod.from"), is("2011-07-20T00:00:00Z"));
        assertThat(response.jsonPath().get("_embedded.setups[0].effectivePeriod.to"), is("2013-03-08T00:00:00Z"));
     }

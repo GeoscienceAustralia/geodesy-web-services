@@ -34,6 +34,7 @@ import com.fasterxml.jackson.databind.ser.impl.ObjectIdWriter;
 import com.fasterxml.jackson.databind.ser.std.BeanSerializerBase;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+import au.gov.ga.geodesy.domain.model.ContactType;
 import au.gov.ga.geodesy.domain.model.CorsNetwork;
 import au.gov.ga.geodesy.domain.model.CorsSite;
 import au.gov.ga.geodesy.domain.model.EquipmentInUse;
@@ -61,14 +62,24 @@ public class GeodesyRepositoryRestMvcConfig extends RepositoryRestConfigurerAdap
         return new ResourceProcessor<Resource<CorsSite>>() {
             @Override
             public Resource<CorsSite> process(Resource<CorsSite> resource) {
-                LinkBuilder link =
+                LinkBuilder addToNetworkLink =
                     configuration.entityLinks().linkForSingleResource(
                         CorsSite.class,
                         resource.getContent().getId()
                     )
                     .slash("addToNetwork");
 
-                resource.add(link.withRel("addToNetwork"));
+                resource.add(addToNetworkLink.withRel("addToNetwork"));
+
+                LinkBuilder removeFromNetworkLink =
+                    configuration.entityLinks().linkForSingleResource(
+                        CorsSite.class,
+                        resource.getContent().getId()
+                    )
+                    .slash("removeFromNetwork");
+
+                resource.add(removeFromNetworkLink.withRel("removeFromNetwork"));
+
                 return resource;
             }
         };
@@ -76,7 +87,7 @@ public class GeodesyRepositoryRestMvcConfig extends RepositoryRestConfigurerAdap
 
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-        config.exposeIdsFor(SiteLog.class, CorsSite.class, CorsNetwork.class, Setup.class);
+        config.exposeIdsFor(SiteLog.class, CorsSite.class, CorsNetwork.class, Setup.class, ContactType.class);
     }
 
     // See: https://github.com/spring-projects/spring-hateoas/issues/134

@@ -5,7 +5,7 @@
     <name>Geodesy Web Services Core</name>
     <groupId>au.gov.ga.geodesy.gws</groupId>
     <artifactId>gws-core</artifactId>
-    <version>0.1.4</version>
+    <version>0.2.0</version>
     <packaging>jar</packaging>
 
     <scm>
@@ -16,7 +16,7 @@
     <parent>
         <groupId>au.gov.ga.geodesy.gws</groupId>
         <artifactId>gws-parent</artifactId>
-        <version>0.1.4</version>
+        <version>0.2.0</version>
         <relativePath>../gws-parent</relativePath>
     </parent>
     <properties>
@@ -180,6 +180,12 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>net.thisptr</groupId>
+            <artifactId>jackson-jq</artifactId>
+            <version>0.0.7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.restdocs</groupId>
             <artifactId>spring-restdocs-mockmvc</artifactId>
             <version>${restdoc.version}</version>
@@ -205,17 +211,6 @@
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.geotoolkit</groupId>
-            <artifactId>geotk-xml-gml</artifactId>
-            <version>4.0-M2</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.opengis</groupId>
-                    <artifactId>geoapi-pending</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.geotools</groupId>

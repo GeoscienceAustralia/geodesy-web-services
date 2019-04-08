@@ -1,0 +1,37 @@
+19a20,21
+> import java.util.HashSet
+> 
+73c75,78
+<         "name": attributeRetriever.curry("cn")
+---
+>         "name": attributeRetriever.curry("cn"),
+>         "organisation": attributeRetriever.curry("sunIdentityServerPPEmploymentIdentityOrg"),
+>         "position": attributeRetriever.curry("sunIdentityServerPPEmploymentIdentityJobTitle"),
+>         "authorities": attributeRetriever.curry("isMemberOf")
+81c84
+<         "profile": [ "given_name", "zoneinfo", "family_name", "locale", "name" ]
+---
+>         "profile": [ "given_name", "zoneinfo", "family_name", "locale", "name", "organisation", "position", "authorities" ]
+92c95,114
+<         [ claim, claimAttributes.get(claim)(claim, identity, requestedValues) ]
+---
+>       if (claim.equals("authorities")) {
+>         
+>         HashSet authorities = null;
+>         Object authoritiesObject = claimAttributes.get(claim)(claim, identity, requestedValues)
+>         
+>         if (authoritiesObject instanceof String) {
+>           authorities = new HashSet()
+>           authorities.add(authoritiesObject)
+>         } else {
+>           authorities = authoritiesObject;
+>         }
+>         
+>         // extract cn value from ldap group name (cn=foo,dc=...)
+>         authorities = authorities.collect { authority -> authority.split(",")[0].split("=")[1] }
+>         
+>         return [ claim, authorities ]
+>         
+>       } else {
+>         return [ claim, claimAttributes.get(claim)(claim, identity, requestedValues) ]
+>       }
