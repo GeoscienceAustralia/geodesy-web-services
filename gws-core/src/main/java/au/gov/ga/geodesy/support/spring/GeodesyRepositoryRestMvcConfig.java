@@ -17,6 +17,7 @@ import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceProcessor;
 import org.springframework.stereotype.Component;
 
+import com.bedatadriven.jackson.datatype.jts.JtsModule3D;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -112,6 +113,7 @@ public class GeodesyRepositoryRestMvcConfig extends RepositoryRestConfigurerAdap
         mapper.addMixIn(TelephoneImpl.class, TelephoneImplMixin.class);
         mapper.setDateFormat(format);
         mapper.registerModule(new JavaTimeModule());
+        mapper.registerModule(new JtsModule3D());
         mapper.registerModule(new SimpleModule() {
             public void setupModule(SetupContext context) {
                 super.setupModule(context);

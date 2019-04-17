@@ -7,8 +7,10 @@ import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StopWatch;
 
 import au.gov.ga.geodesy.domain.model.CorsSite;
 import au.gov.ga.geodesy.domain.model.CorsSiteRepository;
@@ -53,12 +55,27 @@ public class CorsSiteService implements EventSubscriber<SiteLogReceived> {
         log.info("Notified of " + siteLogReceived);
 
         String fourCharacterId = siteLogReceived.getFourCharacterId();
+        CorsSite site = this.updateSite(fourCharacterId);
+        corsSites.saveAndFlush(site);
+        setupService.createSetups(site);
+
+        eventPublisher.handled(siteLogReceived);
+        eventPublisher.publish(new SiteUpdated(fourCharacterId));
+    }
+
+    public CorsSite updateSite(String fourCharacterId) {
         SiteLog siteLog = siteLogs.findByFourCharacterId(fourCharacterId);
 
         CorsSite corsSite = Optional.ofNullable(corsSites.findByFourCharacterId(fourCharacterId))
             .orElse(new CorsSite(fourCharacterId));
 
         corsSite.setName(siteLog.getSiteIdentification().getSiteName());
+
+        if (siteLog.getSiteLocation().getApproximatePosition() != null) {
+            corsSite.setApproximatePosition(
+                siteLog.getSiteLocation().getApproximatePosition().getGeodeticPosition()
+            );
+        }
 
         SiteIdentification siteId = siteLog.getSiteIdentification();
         corsSite.setDomesNumber(siteId.getIersDOMESNumber());
@@ -71,14 +88,21 @@ public class CorsSiteService implements EventSubscriber<SiteLogReceived> {
         monument.setMarkerDescription(siteId.getMarkerDescription());
         corsSite.setMonument(monument);
 
-        corsSites.saveAndFlush(corsSite);
-
-        setupService.createSetups(corsSite);
-
-        eventPublisher.handled(siteLogReceived);
-        eventPublisher.publish(new SiteUpdated(fourCharacterId));
-
         log.info("Saving site: " + fourCharacterId);
+        return corsSite;
+    }
+
+    /**
+     * Update CorsSites
+     */
+    @Async
+    public void updateSites() {
+        StopWatch w = new StopWatch();
+        w.start();
+        this.corsSites.findAll().forEach(site -> {
+            CorsSiteService.this.updateSite(site.getFourCharacterId());
+        });
+        w.stop();
+        log.info("Updated all CorsSites in " + w.getTotalTimeSeconds() + " seconds.");
     }
 }
-
