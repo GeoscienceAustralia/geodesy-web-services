@@ -21,9 +21,11 @@ import au.gov.ga.geodesy.domain.model.CorsNetworkRepository;
 import au.gov.ga.geodesy.domain.model.NetworkTenancy;
 import au.gov.ga.geodesy.domain.model.sitelog.SiteLog;
 import au.gov.ga.geodesy.domain.service.CorsSiteLogService;
-import au.gov.ga.geodesy.port.adapter.sopac.SopacSiteLogReader;
+import au.gov.ga.geodesy.port.adapter.geodesyml.GeodesyMLSiteLogReader;
 import au.gov.ga.geodesy.support.TestResources;
 import au.gov.ga.geodesy.support.spring.IntegrationTest;
+
+import io.restassured.path.json.JsonPath;
 
 public class CorsSiteEndpointITest extends IntegrationTest {
 
@@ -43,8 +45,21 @@ public class CorsSiteEndpointITest extends IntegrationTest {
     @Test
     @Rollback(false)
     public void upload() throws Exception {
-        SiteLog alice = new SopacSiteLogReader(TestResources.originalSopacSiteLogReader("ALIC")).getSiteLog();
+        SiteLog alice = new GeodesyMLSiteLogReader(TestResources.customGeodesyMLSiteLogReader("ALIC")).getSiteLog();
         siteLogService.upload(alice);
+    }
+
+    @Test(dependsOnMethods = "upload")
+    public void checkApproximatePosition() {
+        JsonPath response = given()
+            .when()
+            .get("/corsSites/search/findByFourCharacterId?id=ALIC")
+            .then()
+            .statusCode(HttpStatus.OK.value())
+            .extract().jsonPath();
+
+        assertThat(response.getString("approximatePosition.type"), is("Point"));
+        assertThat(response.getString("approximatePosition.coordinates"), is("[-37.829407, 144.97534, 40.578]"));
     }
 
     @Test(dependsOnMethods = {"upload"})
@@ -117,7 +132,5 @@ public class CorsSiteEndpointITest extends IntegrationTest {
             .extract().jsonPath().getList("networkTenancies", NetworkTenancy.class);
 
         assertThat(networkTenancies, is(empty()));
-
-
     }
 }

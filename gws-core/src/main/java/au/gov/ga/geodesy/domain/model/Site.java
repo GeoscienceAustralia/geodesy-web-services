@@ -12,6 +12,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.vividsolutions.jts.geom.Point;
+
 @Entity
 @Table(name = "SITE")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -35,6 +37,9 @@ abstract public class Site {
     @Column(name = "DESCRIPTION")
     private String description;
 
+    @Column(name = "SHAPE")
+    private Point approximatePosition;
+
     @Column(name = "DATE_INSTALLED")
     private Instant dateInstalled;
 
@@ -52,6 +57,14 @@ abstract public class Site {
 
     public String getDescription() {
         return description;
+    }
+
+    public void setApproximatePosition(Point p) {
+        approximatePosition = p;
+    }
+
+    public Point getApproximatePosition() {
+        return approximatePosition;
     }
 
     public void setDescription(String description) {
