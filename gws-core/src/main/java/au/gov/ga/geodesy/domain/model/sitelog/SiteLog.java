@@ -39,6 +39,9 @@ import au.gov.ga.geodesy.domain.model.SiteResponsibleParty;
 /**
  * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004/igsSiteLog.xsd:igsSiteLogType
  */
+// TODO: Change JPA fetch type to lazy on all relationships and modify
+// SiteLogEndpoint to force all relationships when returning site logs
+// in JSON format.
 @Configurable
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -77,72 +80,72 @@ public class SiteLog {
     protected SiteLocation siteLocation = new SiteLocation();
 
     @Valid
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOG_GNSS_RECEIVER"))
     protected Set<GnssReceiverLogItem> gnssReceivers = new HashSet<>();
 
     @Valid
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOG_GNSS_ANTENNA"))
     protected Set<GnssAntennaLogItem> gnssAntennas = new HashSet<>();
 
     @Valid
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOG_SURVEYEDLOCALTIE"))
     protected Set<SurveyedLocalTieLogItem> surveyedLocalTies = new HashSet<>();
 
     @Valid
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOGFREQUENCYSTANDARD"))
     protected Set<FrequencyStandardLogItem> frequencyStandards = new HashSet<>();
 
     @Valid
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOG_COLLOCATIONINFORMATION"))
     protected Set<CollocationInformationLogItem> collocationInformation = new HashSet<>();
 
     @Valid
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOG_HUMIDITYSENSOR"))
     protected Set<HumiditySensorLogItem> humiditySensors = new HashSet<>();
 
     @Valid
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOG_PRESSURESENSOR"))
     protected Set<PressureSensorLogItem> pressureSensors = new HashSet<>();
 
     @Valid
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOG_TEMPERATURESENSOR"))
     protected Set<TemperatureSensorLogItem> temperatureSensors = new HashSet<>();
 
     @Valid
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOG_WATERVAPORSENSOR"))
     protected Set<WaterVaporSensorLogItem> waterVaporSensors = new HashSet<>();
 
     @Valid
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOG_OTHERINSTRUMENTATION"))
     protected Set<OtherInstrumentationLogItem> otherInstrumentationLogItem = new HashSet<>();
 
     @Valid
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOG_RADIOINTERFERENCE"))
     protected Set<RadioInterferenceLogItem> radioInterferences = new HashSet<>();
 
     @Valid
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOG_MUTLIPATHSOURCE"))
     protected Set<MultipathSourceLogItem> multipathSourceLogItems = new HashSet<>();
 
     @Valid
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOG_SIGNALOBSTRACTION"))
     protected Set<SignalObstructionLogItem> signalObstructionLogItems = new HashSet<>();
 
     @Valid
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOG_LOCALEPISODICEFFECT"))
     protected Set<LocalEpisodicEffectLogItem> localEpisodicEffectLogItems = new HashSet<>();
 
@@ -150,7 +153,7 @@ public class SiteLog {
     @Embedded
     protected MoreInformation moreInformation = new MoreInformation();
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
     @OrderColumn(name = "INDEX")
     protected @Nullable List<SiteResponsibleParty> responsibleParties = new ArrayList<>();
