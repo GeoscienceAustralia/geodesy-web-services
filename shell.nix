@@ -24,6 +24,7 @@ let
       postgresql
       awscli
       docker-compose
+      terraform_0_12
     ];
   };
 in
