@@ -842,7 +842,7 @@
                 <configuration>
                     <message>Creating site for ${project.version}</message>
                     <repositoryOwner>GeoscienceAustralia</repositoryOwner>
-                    <repositoryName>geodesy-web-services.github.io</repositoryName>
+                    <repositoryName>geodesy-web-services</repositoryName>
                 </configuration>
                 <executions>
                     <execution>
