@@ -3,8 +3,8 @@ let
   pinnedPkgs = import (defaultPkgs.fetchFromGitHub {
     owner = "NixOS";
     repo = "nixpkgs-channels";
-    rev = "f0fac3b578086066b47360de17618448d066b30e"; # 17 April 2017
-    sha256 = "1mpwdminwk1wzycwmgi2c2kwpbcfjwmxiakn7bmvvsaxb30gwyyb";
+    rev = "63cdd9bd317e15e4a4f42dde455c73383ded1b41"; # nixpkgs-19.09-darwin, 29 Oct 2019
+    sha256 = "0svq9pim5pp43w749xg2rr5xpm4ibgm08fzfplxccmphd6yhajig";
   }) {};
 
 in
@@ -23,7 +23,7 @@ let
       travis
       postgresql
       awscli
-      pythonPackages.docker_compose
+      docker-compose
     ];
   };
 in
