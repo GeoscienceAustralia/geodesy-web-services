@@ -1,4 +1,5 @@
 language: nix
+dist: bionic
 sudo: required
 services:
 - docker
@@ -23,3 +24,4 @@ env:
   - secure: MMhB8nFF3byT/4uDlIfQOfquK/Nq7MZGD/3fNf9ue0zo7qt5wdRdqf1hVDNeajhXFV+d76kG9UhEzE/pCp0keSpKS/z9BDmtm9xR/E08SOwGtCK89DTzmFCFdpocGIJx8MRz1p/eoYiUNIF9nFEfimsxCTHkyDhjbgm+fOLWc5ghyMB8phiozOAoLCOm1eP5ICR9EflvLBYkS3IjbL6QqfhQWg8xFjXQ/RHGplJONGssUvhrPKZbwGhw5CZBCrB8a0IJis3sG+2GwDeQEzSxsPnHQl+Z83+nyZ1QuYOciwpIXQ6ZafdMQ7485U0iCh1C0Q2SZ8RhGjopvJdTgVvki/JlmQh0KBGpCEQYiLbUZTEC2/LhEFwBPsfDpux0r7kY6b3IJ6utGcBwTbE6JbI/r+vSPHiO5gpjTAABysLNGe3iwNwqv0LqHp5Isc3bdzKzYpkcypNdwpTJERYKvOWTq/hu9HnpjgQtGmSTKp9rAKXsTsVMdK/rKvq0KaE2TK0KlA0j91jGcW8srq6oHwYTUpmkqwLXoF/AgU6EoI2WQbTzrL6k71rDByjlxaFn464Zj7D/lNfIyxeAvNhRleUrcQpzVOVH9IYr0EwS/KJE9NCT+YSQ2YXClGEqCdb1eIwtBVUqO576o2xS+oaV5XAiJ02Fl+DCq1rVpxbhd2ey21c=
 notifications:
   slack: geoscience-australia:fQDjipn1NbDZMzOdaO5MgXOR
+travi

@@ -3,6 +3,11 @@
 
 set -e
 
+docker --version
+dockerd --version
+exit 0
+
+
 # A local installation of maven prefers to run the global installation, if available.
 sudo rm -f /etc/mavenrc
 
