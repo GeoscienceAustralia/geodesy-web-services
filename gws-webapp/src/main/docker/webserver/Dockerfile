@@ -8,5 +8,7 @@ RUN sed -i 's/${geodesy-db-username}/geodesy/' /webapps/ROOT/META-INF/context.xm
 RUN sed -i 's/${geodesy-db-password}/geodesypw/' /webapps/ROOT/META-INF/context.xml
 
 RUN sed -i 's,${oauthProviderUrl},http://open-am:8080/openam/oauth2,' /webapps/ROOT/WEB-INF/classes/config.properties
+RUN sed -i 's,${env},local,' /webapps/ROOT/WEB-INF/classes/config.properties
+
 
 CMD ["catalina.sh", "run"]
