@@ -163,41 +163,41 @@ public class GenericMapper {
         converters.registerConverter("validTimeConverter", new JAXBElementConverter<TimePeriodType, EffectiveDates>() {});
 
         mapperFactory.classMap(TimePeriodType.class, EffectiveDates.class)
-            .fieldMap("beginPosition", "from").mapNulls(false).add()
-            .fieldMap("endPosition", "to").mapNulls(false).add()
-            .customize(new CustomMapper<TimePeriodType, EffectiveDates>() {
+                .fieldMap("beginPosition", "from").mapNulls(false).add()
+                .fieldMap("endPosition", "to").mapNulls(false).add()
+                .customize(new CustomMapper<TimePeriodType, EffectiveDates>() {
 
-                @Override
-                public void mapBtoA(EffectiveDates dates, TimePeriodType period, MappingContext ctx) {
-                    if (dates.getFrom() == null) {
-                        TimePositionType begin = new TimePositionType();
-                        begin.setIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN);
-                        period.setBeginPosition(begin);
+                    @Override
+                    public void mapBtoA(EffectiveDates dates, TimePeriodType period, MappingContext ctx) {
+                        if (dates.getFrom() == null) {
+                            TimePositionType begin = new TimePositionType();
+                            begin.setIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN);
+                            period.setBeginPosition(begin);
+                        }
+                        if (dates.getTo() == null) {
+                            TimePositionType end = new TimePositionType();
+                            end.setIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN);
+                            period.setEndPosition(end);
+                        }
                     }
-                    if (dates.getTo() == null) {
-                        TimePositionType end = new TimePositionType();
-                        end.setIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN);
-                        period.setEndPosition(end);
-                    }
-                }
 
-            })
-            .register();
+                })
+                .register();
 
         // Form Information
         mapperFactory.classMap(FormInformationType.class, FormInformation.class)
                 .byDefault()
                 .register();
 
-       // Site Identification
-       mapperFactory.classMap(SiteIdentificationType.class, SiteIdentification.class)
-            .field("fourCharacterID", "fourCharacterId")
-            .fieldMap("monumentDescription", "monumentDescription").converter("monumentDescription").add()
-            .field("heightOfTheMonument", "heightOfMonument")
-            .fieldMap("geologicCharacteristic", "geologicCharacteristic").converter("geologicCharacteristic").add()
-            .fieldMap("faultZonesNearby", "faultZonesNearby").converter("faultZonesNearby").add()
-            .byDefault()
-            .register();
+        // Site Identification
+        mapperFactory.classMap(SiteIdentificationType.class, SiteIdentification.class)
+                .field("fourCharacterID", "fourCharacterId")
+                .fieldMap("monumentDescription", "monumentDescription").converter("monumentDescription").add()
+                .field("heightOfTheMonument", "heightOfMonument")
+                .fieldMap("geologicCharacteristic", "geologicCharacteristic").converter("geologicCharacteristic").add()
+                .fieldMap("faultZonesNearby", "faultZonesNearby").converter("faultZonesNearby").add()
+                .byDefault()
+                .register();
 
         converters.registerConverter("monumentDescription", new StringToCodeTypeConverter("eGeodesy/monumentDescription") {});
         converters.registerConverter("geologicCharacteristic", new StringToCodeTypeConverter("eGeodesy/geologicCharacteristic") {});
@@ -217,95 +217,95 @@ public class GenericMapper {
 
         // GNSS Receiver
         mapperFactory.classMap(GnssReceiverLogItem.class, GnssReceiverType.class)
-            .fieldMap("type", "igsModelCode").converter("receiverTypeConverter").add()
-            .field("serialNumber", "manufacturerSerialNumber")
-            .fieldMap("satelliteSystem", "satelliteSystem").converter("satelliteSystemConverter").add()
-            .fieldMap("dateRemoved", "dateRemoved").mapNulls(false).add()
-            .byDefault()
-            .customize(new CustomMapper<GnssReceiverLogItem, GnssReceiverType>() {
+                .fieldMap("type", "igsModelCode").converter("receiverTypeConverter").add()
+                .field("serialNumber", "manufacturerSerialNumber")
+                .fieldMap("satelliteSystem", "satelliteSystem").converter("satelliteSystemConverter").add()
+                .fieldMap("dateRemoved", "dateRemoved").mapNulls(false).add()
+                .byDefault()
+                .customize(new CustomMapper<GnssReceiverLogItem, GnssReceiverType>() {
 
-                @Override
-                public void mapAtoB(GnssReceiverLogItem receiverLogItem, GnssReceiverType receiverType, MappingContext ctx) {
-                    if (receiverLogItem.getDateInstalled() == null) {
-                        TimePositionType dateInstalled = new TimePositionType();
-                        dateInstalled.setIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN);
-                        receiverType.setDateInstalled(dateInstalled);
+                    @Override
+                    public void mapAtoB(GnssReceiverLogItem receiverLogItem, GnssReceiverType receiverType, MappingContext ctx) {
+                        if (receiverLogItem.getDateInstalled() == null) {
+                            TimePositionType dateInstalled = new TimePositionType();
+                            dateInstalled.setIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN);
+                            receiverType.setDateInstalled(dateInstalled);
+                        }
+                        if (receiverLogItem.getDateRemoved() == null) {
+                            TimePositionType dateRemoved = new TimePositionType();
+                            dateRemoved.setIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN);
+                            receiverType.setDateRemoved(dateRemoved);
+                        }
                     }
-                    if (receiverLogItem.getDateRemoved() == null) {
-                        TimePositionType dateRemoved = new TimePositionType();
-                        dateRemoved.setIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN);
-                        receiverType.setDateRemoved(dateRemoved);
-                    }
-                }
-            })
-            .register();
+                })
+                .register();
 
         converters.registerConverter("receiverTypeConverter", new StringToCodeListValueConverter<IgsReceiverModelCodeType>(
-            "https://igscb.jpl.nasa.gov/igscb/station/general/rcvr_ant.tab",
-            "http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode"
+                "https://igscb.jpl.nasa.gov/igscb/station/general/rcvr_ant.tab",
+                "http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode"
         ));
         converters.registerConverter("satelliteSystemConverter",
                 new StringToListConverter<CodeType>(
-                    new StringToCodeTypeConverter("eGeodesy/satelliteSystem"), TypeFactory.valueOf(CodeType.class)
+                        new StringToCodeTypeConverter("eGeodesy/satelliteSystem"), TypeFactory.valueOf(CodeType.class)
                 )
-            );
+        );
 
         // GNSS Antenna
         mapperFactory.classMap(GnssAntennaLogItem.class, GnssAntennaType.class)
-            .fieldMap("type", "igsModelCode").converter("antennaTypeConverter").add()
-            .field("serialNumber", "manufacturerSerialNumber")
+                .fieldMap("type", "igsModelCode").converter("antennaTypeConverter").add()
+                .field("serialNumber", "manufacturerSerialNumber")
 
-            .fieldMap("antennaRadomeType", "antennaRadomeType").converter("codeWithAuthorityTypeConverter").add()
-            .fieldMap("antennaReferencePoint", "antennaReferencePoint").converter("antennaReferencePointConverter").add()
-            .byDefault()
-            .customize(new CustomMapper<GnssAntennaLogItem, GnssAntennaType>() {
+                .fieldMap("antennaRadomeType", "antennaRadomeType").converter("codeWithAuthorityTypeConverter").add()
+                .fieldMap("antennaReferencePoint", "antennaReferencePoint").converter("antennaReferencePointConverter").add()
+                .byDefault()
+                .customize(new CustomMapper<GnssAntennaLogItem, GnssAntennaType>() {
 
-                @Override
-                public void mapAtoB(GnssAntennaLogItem antennaLogItem, GnssAntennaType antennaType, MappingContext ctx) {
-                    if (antennaLogItem.getDateInstalled() == null) {
-                        TimePositionType dateInstalled = new TimePositionType();
-                        dateInstalled.setIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN);
-                        antennaType.setDateInstalled(dateInstalled);
+                    @Override
+                    public void mapAtoB(GnssAntennaLogItem antennaLogItem, GnssAntennaType antennaType, MappingContext ctx) {
+                        if (antennaLogItem.getDateInstalled() == null) {
+                            TimePositionType dateInstalled = new TimePositionType();
+                            dateInstalled.setIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN);
+                            antennaType.setDateInstalled(dateInstalled);
+                        }
+                        if (antennaLogItem.getDateRemoved() == null) {
+                            TimePositionType dateRemoved = new TimePositionType();
+                            dateRemoved.setIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN);
+                            antennaType.setDateRemoved(dateRemoved);
+                        }
+                        if (antennaType.getMarkerArpUpEcc() != null) {
+                            antennaType.setMarkerArpUpEcc(this.roundArpEcc(antennaType.getMarkerArpUpEcc()));
+                        }
+                        if (antennaType.getMarkerArpNorthEcc() != null) {
+                            antennaType.setMarkerArpNorthEcc(this.roundArpEcc(antennaType.getMarkerArpNorthEcc()));
+                        }
+                        if (antennaType.getMarkerArpEastEcc() != null) {
+                            antennaType.setMarkerArpEastEcc(this.roundArpEcc(antennaType.getMarkerArpEastEcc()));
+                        }
                     }
-                    if (antennaLogItem.getDateRemoved() == null) {
-                        TimePositionType dateRemoved = new TimePositionType();
-                        dateRemoved.setIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN);
-                        antennaType.setDateRemoved(dateRemoved);
-                    }
-                    if (antennaType.getMarkerArpUpEcc() != null) {
-                        antennaType.setMarkerArpUpEcc(this.roundArpEcc(antennaType.getMarkerArpUpEcc()));
-                    }
-                    if (antennaType.getMarkerArpNorthEcc() != null) {
-                        antennaType.setMarkerArpNorthEcc(this.roundArpEcc(antennaType.getMarkerArpNorthEcc()));
-                    }
-                    if (antennaType.getMarkerArpEastEcc() != null) {
-                        antennaType.setMarkerArpEastEcc(this.roundArpEcc(antennaType.getMarkerArpEastEcc()));
-                    }
-                }
 
-                @Override
-                public void mapBtoA(GnssAntennaType antennaType, GnssAntennaLogItem antennaLogItem, MappingContext ctx) {
+                    @Override
+                    public void mapBtoA(GnssAntennaType antennaType, GnssAntennaLogItem antennaLogItem, MappingContext ctx) {
 
-                    if (antennaLogItem.getMarkerArpUpEcc() != null) {
-                        antennaLogItem.setMarkerArpUpEcc(this.roundArpEcc(antennaLogItem.getMarkerArpUpEcc()));
+                        if (antennaLogItem.getMarkerArpUpEcc() != null) {
+                            antennaLogItem.setMarkerArpUpEcc(this.roundArpEcc(antennaLogItem.getMarkerArpUpEcc()));
+                        }
+                        if (antennaLogItem.getMarkerArpNorthEcc() != null) {
+                            antennaLogItem.setMarkerArpNorthEcc(this.roundArpEcc(antennaLogItem.getMarkerArpNorthEcc()));
+                        }
+                        if (antennaLogItem.getMarkerArpEastEcc() != null) {
+                            antennaLogItem.setMarkerArpEastEcc(this.roundArpEcc(antennaLogItem.getMarkerArpEastEcc()));
+                        }
                     }
-                    if (antennaLogItem.getMarkerArpNorthEcc() != null) {
-                        antennaLogItem.setMarkerArpNorthEcc(this.roundArpEcc(antennaLogItem.getMarkerArpNorthEcc()));
-                    }
-                    if (antennaLogItem.getMarkerArpEastEcc() != null) {
-                        antennaLogItem.setMarkerArpEastEcc(this.roundArpEcc(antennaLogItem.getMarkerArpEastEcc()));
-                    }
-                }
 
-                private Double roundArpEcc(Double x) {
-                    return this.round(x, 4);
-                }
+                    private Double roundArpEcc(Double x) {
+                        return this.round(x, 4);
+                    }
 
-                private Double round(Double x, int scale) {
-                    return BigDecimal.valueOf(x).setScale(scale, BigDecimal.ROUND_HALF_UP).doubleValue();
-                }
-            })
-            .register();
+                    private Double round(Double x, int scale) {
+                        return BigDecimal.valueOf(x).setScale(scale, BigDecimal.ROUND_HALF_UP).doubleValue();
+                    }
+                })
+                .register();
 
         converters.registerConverter("antennaTypeConverter", new StringToCodeListValueConverter<IgsAntennaModelCodeType>(
                 "https://igscb.jpl.nasa.gov/igscb/station/general/rcvr_ant.tab",
@@ -316,34 +316,34 @@ public class GenericMapper {
 
         // Frequency Standard
         mapperFactory.classMap(FrequencyStandardType.class, FrequencyStandardLogItem.class)
-            .fieldMap("standardType", "type").converter("frequencyStandardTypeConverter").add()
-            .fieldMap("validTime.abstractTimePrimitive", "effectiveDates").converter("validTimeConverter").add()
-            .byDefault()
-            .register();
+                .fieldMap("standardType", "type").converter("frequencyStandardTypeConverter").add()
+                .fieldMap("validTime.abstractTimePrimitive", "effectiveDates").converter("validTimeConverter").add()
+                .byDefault()
+                .register();
 
         converters.registerConverter("frequencyStandardTypeConverter", new StringToCodeTypeConverter("eGeodesy/frequencyStandardType") {});
 
         mapperFactory.classMap(SiteLogType.class, SiteLog.class)
-            .fieldMap("siteIdentification", "siteIdentification").converter("siteIdentification").add()
-            .fieldMap("siteLocation", "siteLocation").converter("siteLocation").add()
-            .fieldMap("gnssReceivers", "gnssReceivers").converter("gnssReceivers").add()
-            .fieldMap("gnssAntennas", "gnssAntennas").converter("gnssAntennas").add()
-            .fieldMap("frequencyStandards", "frequencyStandards").converter("frequencyStandards").add()
-            .fieldMap("humiditySensors", "humiditySensors").converter("humiditySensors").add()
-            .fieldMap("pressureSensors", "pressureSensors").converter("pressureSensors").add()
-            .fieldMap("temperatureSensors", "temperatureSensors").converter("temperatureSensors").add()
-            .fieldMap("waterVaporSensors", "waterVaporSensors").converter("waterVaporSensors").add()
-            .fieldMap("otherInstrumentation", "otherInstrumentationLogItem").converter("otherInstrumentation").add()
-            .fieldMap("signalObstructions", "signalObstructionLogItems").converter("signalObstructions").add()
-            .fieldMap("multipathSources", "multipathSourceLogItems").converter("multipathSources").add()
-            .fieldMap("localEpisodicEffects", "localEpisodicEffectLogItems").converter("localEpisodicEffects").add()
-            .fieldMap("radioInterferences", "radioInterferences").converter("radioInterferences").add()
-            .fieldMap("moreInformation", "moreInformation").converter("moreInformation").add()
-            .fieldMap("formInformation", "formInformation").converter("formInformation").add()
-            .fieldMap("collocationInformation", "collocationInformation").converter("collocationInformation").add()
-            .fieldMap("surveyedLocalTies", "surveyedLocalTies").converter("surveyedLocalTies").add()
-            .customize(responsiblePartiesMapper)
-            .register();
+                .fieldMap("siteIdentification", "siteIdentification").converter("siteIdentification").add()
+                .fieldMap("siteLocation", "siteLocation").converter("siteLocation").add()
+                .fieldMap("gnssReceivers", "gnssReceivers").converter("gnssReceivers").add()
+                .fieldMap("gnssAntennas", "gnssAntennas").converter("gnssAntennas").add()
+                .fieldMap("frequencyStandards", "frequencyStandards").converter("frequencyStandards").add()
+                .fieldMap("humiditySensors", "humiditySensors").converter("humiditySensors").add()
+                .fieldMap("pressureSensors", "pressureSensors").converter("pressureSensors").add()
+                .fieldMap("temperatureSensors", "temperatureSensors").converter("temperatureSensors").add()
+                .fieldMap("waterVaporSensors", "waterVaporSensors").converter("waterVaporSensors").add()
+                .fieldMap("otherInstrumentation", "otherInstrumentationLogItem").converter("otherInstrumentation").add()
+                .fieldMap("signalObstructions", "signalObstructionLogItems").converter("signalObstructions").add()
+                .fieldMap("multipathSources", "multipathSourceLogItems").converter("multipathSources").add()
+                .fieldMap("localEpisodicEffects", "localEpisodicEffectLogItems").converter("localEpisodicEffects").add()
+                .fieldMap("radioInterferences", "radioInterferences").converter("radioInterferences").add()
+                .fieldMap("moreInformation", "moreInformation").converter("moreInformation").add()
+                .fieldMap("formInformation", "formInformation").converter("formInformation").add()
+                .fieldMap("collocationInformation", "collocationInformation").converter("collocationInformation").add()
+                .fieldMap("surveyedLocalTies", "surveyedLocalTies").converter("surveyedLocalTies").add()
+                .customize(responsiblePartiesMapper)
+                .register();
 
         // Surveyed Local Tie
         mapperFactory.classMap(SurveyedLocalTieType.class, SurveyedLocalTieLogItem.class)
@@ -378,8 +378,8 @@ public class GenericMapper {
                 .register();
 
         // Local Episodic Effect
-		mapperFactory.classMap(LocalEpisodicEffectType.class, LocalEpisodicEffectLogItem.class)
-				.fieldMap("validTime.abstractTimePrimitive", "effectiveDates").converter("validTimeConverter").add()
+        mapperFactory.classMap(LocalEpisodicEffectType.class, LocalEpisodicEffectLogItem.class)
+                .fieldMap("validTime.abstractTimePrimitive", "effectiveDates").converter("validTimeConverter").add()
                 .byDefault()
                 .register();
 
@@ -387,10 +387,10 @@ public class GenericMapper {
         CustomMapper<BaseSensorEquipmentType, SensorEquipmentLogItem> indeterminateCalibrationDateMapper = new CustomMapper<BaseSensorEquipmentType, SensorEquipmentLogItem>() {
 
             @Override
-            public void mapBtoA(SensorEquipmentLogItem sensorLogItem, BaseSensorEquipmentType sensorLogItemDto, MappingContext ctx) { 
+            public void mapBtoA(SensorEquipmentLogItem sensorLogItem, BaseSensorEquipmentType sensorLogItemDto, MappingContext ctx) {
                 if (sensorLogItem.getCalibrationDate() == null) {
                     sensorLogItemDto.setCalibrationDate(new TimePositionType()
-                        .withIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN)
+                            .withIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN)
                     );
                 }
             }
@@ -463,21 +463,21 @@ public class GenericMapper {
                 .fieldMap("validTime.abstractTimePrimitive", "effectiveDates").converter("validTimeConverter").add()
                 .byDefault()
                 .register();
-        
+
         // More Information
         mapperFactory.classMap(MoreInformationType.class, MoreInformation.class)
                 .fieldBToA("primaryDataCenter", "dataCenter[0]")
                 .fieldBToA("secondaryDataCenter", "dataCenter[1]")
                 .customize(new CustomMapper<MoreInformationType, MoreInformation>() {
-                       @Override
-                       public void mapAtoB(MoreInformationType infoType, MoreInformation info, MappingContext ctx) {
-                           if (infoType.getDataCenter().size() >= 1) {
-                               info.setPrimaryDataCenter(infoType.getDataCenter().get(0));
-                           }
-                           if (infoType.getDataCenter().size() >= 2) {
-                               info.setSecondaryDataCenter(infoType.getDataCenter().get(1));
-                           }
-                       }
+                    @Override
+                    public void mapAtoB(MoreInformationType infoType, MoreInformation info, MappingContext ctx) {
+                        if (infoType.getDataCenter().size() >= 1) {
+                            info.setPrimaryDataCenter(infoType.getDataCenter().get(0));
+                        }
+                        if (infoType.getDataCenter().size() >= 2) {
+                            info.setSecondaryDataCenter(infoType.getDataCenter().get(1));
+                        }
+                    }
                 })
                 .fieldMap("DOI", "doi").converter("doiCodeTypeConverter").add()
                 .byDefault()
@@ -615,7 +615,7 @@ public class GenericMapper {
             return delegate.convertFrom(b, type, mappingContext);
         }
     }
-     
+
     /**
      * Given a LogItemPropertyType isomorphism (from DTO to domain model), return a
      * bidirectional converter from a list of GML property types to a
