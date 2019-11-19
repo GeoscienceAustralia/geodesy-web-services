@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2564/moreInformation.xsd:moreInformationType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2564/moreInformation.xsd:MoreInformationType
  */
 public class MoreInformation {
 

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="BRUX00BEL" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="BRUX00BEL" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="brux_20170103.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Carine Bruyninx</geo:preparedBy>
             <geo:datePrepared>2017-01-03</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>Brussels</geo:siteName>
             <geo:fourCharacterID>BRUX</geo:fourCharacterID>
             <geo:monumentInscription></geo:monumentInscription>
@@ -24,11 +27,13 @@
             <geo:fractureSpacing>0 cm</geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type">NO</geo:faultZonesNearby>
             <geo:notes></geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Brussels</geo:city>
             <geo:state>Brabant</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Belgium" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">BEL</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Belgium" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">BEL</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">EURASIAN</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -43,12 +48,13 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes></geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:notes>hardware replacement of receiver with SN 1128, same receiver, but different serial number (now 1436)</geo:notes>
                 <geo:manufacturerSerialNumber>1436</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX2" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">SEPT POLARX2</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX2" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">SEPT POLARX2</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>2.6.2</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -61,7 +67,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:manufacturerSerialNumber>RT820015201</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH Z-XII3T" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASHTECH Z-XII3T</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH Z-XII3T" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASHTECH Z-XII3T</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>1L01-1D04</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -74,7 +80,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-3">
                 <geo:manufacturerSerialNumber>2001060</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX3ETR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">SEPT POLARX3ETR</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX3ETR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">SEPT POLARX3ETR</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>1.4.0</geo:firmwareVersion>
@@ -89,7 +95,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-4">
                 <geo:notes>The receiver delay 1PPS in to 1PPS out was measured to be 145 ns.</geo:notes>
                 <geo:manufacturerSerialNumber>3001376</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX4TR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">SEPT POLARX4TR</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX4TR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">SEPT POLARX4TR</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -105,7 +111,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-5">
                 <geo:notes>The receiver delay 1PPS in to 1PPS out was measured to be 142.8 ns.</geo:notes>
                 <geo:manufacturerSerialNumber>3001376</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX4TR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">SEPT POLARX4TR</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX4TR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">SEPT POLARX4TR</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -121,7 +127,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-6">
                 <geo:notes>The receiver delay 1PPS in to 1PPS out was measured to be 142.8 ns.</geo:notes>
                 <geo:manufacturerSerialNumber>3001376</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX4TR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">SEPT POLARX4TR</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX4TR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">SEPT POLARX4TR</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -137,7 +143,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-7">
                 <geo:notes>The receiver delay 1PPS in to 1PPS out is supposed to be unchanged (142.8 ns).</geo:notes>
                 <geo:manufacturerSerialNumber>3001376</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX4TR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">SEPT POLARX4TR</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX4TR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">SEPT POLARX4TR</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -154,7 +160,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-8">
                 <geo:notes>The receiver delay 1PPS in to 1PPS out was remeasured and found to be unchanged (142.8 ns).</geo:notes>
                 <geo:manufacturerSerialNumber>3001376</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX4TR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">SEPT POLARX4TR</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX4TR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">SEPT POLARX4TR</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -170,7 +176,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-9">
                 <geo:manufacturerSerialNumber>3001376</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX4TR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">SEPT POLARX4TR</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX4TR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">SEPT POLARX4TR</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -186,7 +192,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-10">
                 <geo:manufacturerSerialNumber>3001376</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX4TR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">SEPT POLARX4TR</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX4TR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">SEPT POLARX4TR</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -202,7 +208,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-11">
                 <geo:manufacturerSerialNumber>3001376</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX4TR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">SEPT POLARX4TR</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX4TR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">SEPT POLARX4TR</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -218,7 +224,7 @@
         <geo:gnssAntenna>
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:manufacturerSerialNumber>CR620023301</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701945E_M NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASH701945E_M    NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701945E_M NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASH701945E_M    NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.1266</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.001</geo:marker-arpNorthEcc.>
@@ -236,7 +242,7 @@
         <geo:gnssAntenna>
             <geo:GnssAntenna gml:id="gnss-antenna-2">
                 <geo:manufacturerSerialNumber>CR620002301</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701945C_M NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASH701945C_M    NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701945C_M NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASH701945C_M    NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.1266</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.001</geo:marker-arpNorthEcc.>
@@ -255,7 +261,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-3">
                 <geo:notes>Testing of ECCOSORB ANW-79 around antenna in order to obtain low reflectivity. Adaptation antenna height by + 2 mm due to a mounting plate which holds the ECCOSORB material under the antenna.</geo:notes>
                 <geo:manufacturerSerialNumber>CR620002301</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701945C_M NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASH701945C_M    NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701945C_M NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASH701945C_M    NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.1286</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.001</geo:marker-arpNorthEcc.>
@@ -274,7 +280,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-4">
                 <geo:notes>Testing without plate and ECOSORB</geo:notes>
                 <geo:manufacturerSerialNumber>CR620002301</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701945C_M NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASH701945C_M    NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701945C_M NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASH701945C_M    NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.1266</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.001</geo:marker-arpNorthEcc.>
@@ -293,7 +299,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-5">
                 <geo:notes>Testing new antenna (Antartica)</geo:notes>
                 <geo:manufacturerSerialNumber>30765568</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM55971.00 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRM55971.00     NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM55971.00 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRM55971.00     NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BAM</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.1266</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.001</geo:marker-arpNorthEcc.>
@@ -312,7 +318,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-6">
                 <geo:notes>Testing new antenna (Antartica)</geo:notes>
                 <geo:manufacturerSerialNumber>30765568</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM55971.00 TZGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRM55971.00     TZGD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM55971.00 TZGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRM55971.00     TZGD</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BAM</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.1266</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.001</geo:marker-arpNorthEcc.>
@@ -330,7 +336,7 @@
         <geo:gnssAntenna>
             <geo:GnssAntenna gml:id="gnss-antenna-7">
                 <geo:manufacturerSerialNumber>CR620002301</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701945C_M NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASH701945C_M    NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701945C_M NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASH701945C_M    NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.1266</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.001</geo:marker-arpNorthEcc.>
@@ -349,7 +355,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-8">
                 <geo:notes>To shield the antenna from reflections on the dome below it, a 0.8x0.8 m^2 metal shield was installed with Eccosorb ANW-77 on top. The spacing between the ARP and the top of the Eccosorb ANW-77 is 17.8 cm. On 2015-12-09, the Eccosorb was replaced by a new more resistant version.</geo:notes>
                 <geo:manufacturerSerialNumber>00464</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="JAVRINGANT_DM NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JAVRINGANT_DM   NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="JAVRINGANT_DM NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JAVRINGANT_DM   NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.4689</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.001</geo:marker-arpNorthEcc.>
@@ -743,6 +749,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>ROB</geo:dataCenter>
             <geo:dataCenter>BKG</geo:dataCenter>
             <geo:urlForMoreInformation></geo:urlForMoreInformation>
@@ -755,6 +762,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

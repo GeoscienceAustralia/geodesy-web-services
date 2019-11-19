@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <geo:GeodesyML gml:id="GEO_1" xmlns:gml="http://www.opengis.net/gml/3.2"
-    xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4"
+    xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gco="http://www.isotc211.org/2005/gco"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    xsi:schemaLocation="urn:xml-gov-au:icsm:egeodesy:0.4 ../schemas/geodesyML.xsd">
+    xsi:schemaLocation="urn:xml-gov-au:icsm:egeodesy:0.5 ../schemas/geodesyML.xsd">
     <!--
         @Name MOBS_SiteLog.xml
         @Author Laurence Davies
@@ -214,46 +214,52 @@
     <geo:siteLog gml:id="SITELOG_1">
         <geo:atSite xlink:href="#SITE_1"/>
         <geo:formInformation>
-            <geo:preparedBy/>
-            <geo:datePrepared/>
-            <geo:reportType/>
+            <geo:FormInformation gml:id="form-information">
+                <geo:preparedBy/>
+                <geo:datePrepared/>
+                <geo:reportType/>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
-            <geo:siteName>Melbourne Observatory</geo:siteName>
-            <geo:fourCharacterID>MOBS</geo:fourCharacterID>
-            <geo:iersDOMESNumber>50182M001</geo:iersDOMESNumber>
-            <geo:cdpNumber>Not Available</geo:cdpNumber>
-            <geo:monumentDescription>Centre of base of 5/8&quot; spigot on GPS</geo:monumentDescription>
-            <geo:heightOfTheMonument>1.5</geo:heightOfTheMonument>
-            <geo:monumentFoundation>Concrete cast in situ, set in Bedrock</geo:monumentFoundation>
-            <geo:foundationDepth>4.9</geo:foundationDepth>
-            <geo:markerDescription>Stainless Steel Plate</geo:markerDescription>
-            <geo:dateInstalled>2002-09-15Z</geo:dateInstalled>
-            <geo:geologicCharacteristic>Thin Bedrock of between 5-20m of</geo:geologicCharacteristic>
-            <geo:bedrockType>SANDSTONE</geo:bedrockType>
-            <geo:bedrockCondition>Firm, variably oxidised, variably cemented</geo:bedrockCondition>
-            <geo:fractureSpacing>No Fractures</geo:fractureSpacing>
-            <geo:faultZonesNearby>Non documented</geo:faultZonesNearby>
-            <geo:notes>antenna mounting plate fixed to 1.5m stainless steel pole. Pole is fixed to 0.6m diameter bluestone pillar The GPS antenna is located on top of a stainless steel pillar, which has been secured into the top of a bluestone pillar set in bedrock</geo:notes>
+            <geo:SiteIdentification gml:id="site-identification">
+                <geo:siteName>Melbourne Observatory</geo:siteName>
+                <geo:fourCharacterID>MOBS</geo:fourCharacterID>
+                <geo:iersDOMESNumber>50182M001</geo:iersDOMESNumber>
+                <geo:cdpNumber>Not Available</geo:cdpNumber>
+                <geo:monumentDescription>Centre of base of 5/8&quot; spigot on GPS</geo:monumentDescription>
+                <geo:heightOfTheMonument>1.5</geo:heightOfTheMonument>
+                <geo:monumentFoundation>Concrete cast in situ, set in Bedrock</geo:monumentFoundation>
+                <geo:foundationDepth>4.9</geo:foundationDepth>
+                <geo:markerDescription>Stainless Steel Plate</geo:markerDescription>
+                <geo:dateInstalled>2002-09-15Z</geo:dateInstalled>
+                <geo:geologicCharacteristic>Thin Bedrock of between 5-20m of</geo:geologicCharacteristic>
+                <geo:bedrockType>SANDSTONE</geo:bedrockType>
+                <geo:bedrockCondition>Firm, variably oxidised, variably cemented</geo:bedrockCondition>
+                <geo:fractureSpacing>No Fractures</geo:fractureSpacing>
+                <geo:faultZonesNearby>Non documented</geo:faultZonesNearby>
+                <geo:notes>antenna mounting plate fixed to 1.5m stainless steel pole. Pole is fixed to 0.6m diameter bluestone pillar The GPS antenna is located on top of a stainless steel pillar, which has been secured into the top of a bluestone pillar set in bedrock</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
-            <geo:city>Melbourne</geo:city>
-            <geo:state>Victoria</geo:state>
-            <geo:countryCodeISO codeList="codelist" codeListValue="codeListValue" codeSpace="DummyCodeSpace">AUS</geo:countryCodeISO>
-            <geo:tectonicPlate>Indian/Australian</geo:tectonicPlate>
-            <geo:approximatePositionITRF>
-                <geo:cartesianPosition>
-                    <gml:Point gml:id="itrf_cartesian" srsName="EPSG:7789">
-                        <gml:pos>-4130636.589 2894953.121 -3890530.442</gml:pos>
-                    </gml:Point>
-                </geo:cartesianPosition>
-                <geo:geodeticPosition>
-                    <gml:Point gml:id="itrf_geodetic" srsName="EPSG:7912">
-                        <gml:pos>-37.8294054083 144.975340194 40.578</gml:pos>
-                    </gml:Point>
-                </geo:geodeticPosition>
-            </geo:approximatePositionITRF>
-            <geo:notes>The GPS is located at the old Melbourne Observatory, located in the Royal Melbourne Botanical Gardens</geo:notes>
+            <geo:SiteLocation gml:id="site-location">
+                <geo:city>Melbourne</geo:city>
+                <geo:state>Victoria</geo:state>
+                <geo:countryCodeISO codeList="codelist" codeListValue="codeListValue" codeSpace="DummyCodeSpace">AUS</geo:countryCodeISO>
+                <geo:tectonicPlate>Indian/Australian</geo:tectonicPlate>
+                <geo:approximatePositionITRF>
+                    <geo:cartesianPosition>
+                        <gml:Point gml:id="itrf_cartesian" srsName="EPSG:7789">
+                            <gml:pos>-4130636.589 2894953.121 -3890530.442</gml:pos>
+                        </gml:Point>
+                    </geo:cartesianPosition>
+                    <geo:geodeticPosition>
+                        <gml:Point gml:id="itrf_geodetic" srsName="EPSG:7912">
+                            <gml:pos>-37.8294054083 144.975340194 40.578</gml:pos>
+                        </gml:Point>
+                    </geo:geodeticPosition>
+                </geo:approximatePositionITRF>
+                <geo:notes>The GPS is located at the old Melbourne Observatory, located in the Royal Melbourne Botanical Gardens</geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver xlink:href="#GNSS_REC_1">
             <geo:dateInserted>2002-10-29T00:00:00Z</geo:dateInserted>

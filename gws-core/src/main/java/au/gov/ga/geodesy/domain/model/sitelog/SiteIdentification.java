@@ -9,7 +9,7 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2564/siteIdentification.xsd:siteIdentificationType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2564/siteIdentification.xsd:SiteIdentificationType
  */
 @Embeddable
 public class SiteIdentification {

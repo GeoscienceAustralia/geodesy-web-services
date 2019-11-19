@@ -6,7 +6,7 @@ import javax.persistence.Embeddable;
 import com.vividsolutions.jts.geom.Point;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004/siteLocation.xsd:siteLocationType.approximatePositionITRF
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004/siteLocation.xsd:SiteLocationType.approximatePositionITRF
  */
 @Embeddable
 public class ApproximatePosition {

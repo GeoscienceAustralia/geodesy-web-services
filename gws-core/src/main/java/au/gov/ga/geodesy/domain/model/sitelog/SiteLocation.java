@@ -7,7 +7,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2564/siteLocation.xsd:siteLocationType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2564/siteLocation.xsd:SiteLocationType
  */
 @Embeddable
 public class SiteLocation {
