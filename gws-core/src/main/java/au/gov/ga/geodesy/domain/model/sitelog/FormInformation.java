@@ -7,7 +7,7 @@ import javax.persistence.Embeddable;
 import javax.validation.constraints.Past;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004/formInformation.xsd:FormInformationType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004/formInformation.xsd:formInformationType
  */
 @Embeddable
 public class FormInformation {

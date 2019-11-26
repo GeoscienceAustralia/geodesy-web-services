@@ -488,12 +488,12 @@ public class GenericMapper {
         // ********
         converters.registerConverter("siteIdentification",
                 new BidirectionalConverterWrapper<SiteIdentificationPropertyType, SiteIdentification>(
-                        singleLogItemConverter(siteIdentificationMapper)
+                        singleItemConverter(siteIdentificationMapper)
                 ) {});
 
         converters.registerConverter("siteLocation",
                 new BidirectionalConverterWrapper<SiteLocationPropertyType, SiteLocation>(
-                        singleLogItemConverter(new SiteLocationMapper())
+                        singleItemConverter(new SiteLocationMapper())
                 ) {});
 
         converters.registerConverter("gnssReceivers",
@@ -570,12 +570,12 @@ public class GenericMapper {
 
         converters.registerConverter("moreInformation",
                 new BidirectionalConverterWrapper<MoreInformationPropertyType, MoreInformation>(
-                        singleLogItemConverter(moreInformationMapper)
+                        singleItemConverter(moreInformationMapper)
                 ) {});
 
         converters.registerConverter("formInformation",
                 new BidirectionalConverterWrapper<FormInformationPropertyType, FormInformation>(
-                        singleLogItemConverter(formInformationMapper)
+                        singleItemConverter(formInformationMapper)
                 ) {});
 
         converters.registerConverter("collocationInformation",
@@ -630,11 +630,11 @@ public class GenericMapper {
 
     /**
      * Given a GMLPropertyType isomorphism (from DTO to domain model), return a
-     * bidirectional converter from a GML property type to a single domain model log item.
+     * bidirectional converter from a GML property type to a single domain model.
      */
     private <P extends GMLPropertyType, T extends AbstractGMLType, L>
-    BidirectionalConverter<P, L> singleLogItemConverter(Iso<T, L> propertyTypeIso) {
-        return new IsoConverter<>(new SingleLogItemPropertyTypeMapper<>(propertyTypeIso));
+    BidirectionalConverter<P, L> singleItemConverter(Iso<T, L> propertyTypeIso) {
+        return new IsoConverter<>(new GMLPropertyTypeMapper<P, T>().compose(propertyTypeIso));
     }
 
     /**
