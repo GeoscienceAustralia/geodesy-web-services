@@ -42,7 +42,7 @@ public class SiteLogEndpointITest extends IntegrationTest {
                 .log().body()
                 .statusCode(HttpStatus.OK.value())
                 .contentType("application/xml")
-                .body("geo:GeodesyML.geo:siteLog.geo:siteIdentification.geo:siteName.text()", equalTo("Alice Springs AU012"))
+                .body("geo:GeodesyML.geo:siteLog.geo:siteIdentification.geo:SiteIdentification.geo:siteName.text()", equalTo("Alice Springs AU012"))
                 .apply(document("findSiteLogByFourCharacterId"));
     }
 

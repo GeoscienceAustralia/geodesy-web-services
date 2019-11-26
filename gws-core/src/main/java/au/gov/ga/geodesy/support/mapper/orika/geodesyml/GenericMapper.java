@@ -35,10 +35,12 @@ import au.gov.ga.geodesy.domain.model.sitelog.SiteLog;
 import au.gov.ga.geodesy.domain.model.sitelog.SurveyedLocalTieLogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.TemperatureSensorLogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.WaterVaporSensorLogItem;
+import au.gov.ga.geodesy.support.gml.GMLPropertyType;
 import au.gov.ga.geodesy.support.gml.LogItemPropertyType;
 import au.gov.ga.geodesy.support.java.util.Iso;
 import au.gov.xml.icsm.geodesyml.v_0_5.BaseSensorEquipmentType;
 import au.gov.xml.icsm.geodesyml.v_0_5.CollocationInformationType;
+import au.gov.xml.icsm.geodesyml.v_0_5.FormInformationPropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_5.FormInformationType;
 import au.gov.xml.icsm.geodesyml.v_0_5.FrequencyStandardType;
 import au.gov.xml.icsm.geodesyml.v_0_5.GnssAntennaPropertyType;
@@ -50,6 +52,7 @@ import au.gov.xml.icsm.geodesyml.v_0_5.IgsRadomeModelCodeType;
 import au.gov.xml.icsm.geodesyml.v_0_5.IgsReceiverModelCodeType;
 import au.gov.xml.icsm.geodesyml.v_0_5.LocalEpisodicEffectPropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_5.LocalEpisodicEffectType;
+import au.gov.xml.icsm.geodesyml.v_0_5.MoreInformationPropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_5.MoreInformationType;
 import au.gov.xml.icsm.geodesyml.v_0_5.MultipathSourcePropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_5.MultipathSourceType;
@@ -59,7 +62,9 @@ import au.gov.xml.icsm.geodesyml.v_0_5.RadioInterferencePropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_5.RadioInterferenceType;
 import au.gov.xml.icsm.geodesyml.v_0_5.SignalObstructionPropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_5.SignalObstructionType;
+import au.gov.xml.icsm.geodesyml.v_0_5.SiteIdentificationPropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_5.SiteIdentificationType;
+import au.gov.xml.icsm.geodesyml.v_0_5.SiteLocationPropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_5.SiteLocationType;
 import au.gov.xml.icsm.geodesyml.v_0_5.SiteLogType;
 import au.gov.xml.icsm.geodesyml.v_0_5.SurveyedLocalTieType;
@@ -482,10 +487,14 @@ public class GenericMapper {
 
         // ********
         converters.registerConverter("siteIdentification",
-                new IsoConverter<SiteIdentificationType, SiteIdentification>(siteIdentificationMapper) {});
+                new BidirectionalConverterWrapper<SiteIdentificationPropertyType, SiteIdentification>(
+                        singleLogItemConverter(siteIdentificationMapper)
+                ) {});
 
         converters.registerConverter("siteLocation",
-                new IsoConverter<SiteLocationType, SiteLocation>(new SiteLocationMapper()) {});
+                new BidirectionalConverterWrapper<SiteLocationPropertyType, SiteLocation>(
+                        singleLogItemConverter(new SiteLocationMapper())
+                ) {});
 
         converters.registerConverter("gnssReceivers",
                 new BidirectionalConverterWrapper<List<LogItemPropertyType>, Set<GnssReceiverLogItem>>(
@@ -560,10 +569,14 @@ public class GenericMapper {
         );
 
         converters.registerConverter("moreInformation",
-                new IsoConverter<MoreInformationType, MoreInformation>(moreInformationMapper) {});
+                new BidirectionalConverterWrapper<MoreInformationPropertyType, MoreInformation>(
+                        singleLogItemConverter(moreInformationMapper)
+                ) {});
 
         converters.registerConverter("formInformation",
-                new IsoConverter<FormInformationType, FormInformation>(formInformationMapper) {});
+                new BidirectionalConverterWrapper<FormInformationPropertyType, FormInformation>(
+                        singleLogItemConverter(formInformationMapper)
+                ) {});
 
         converters.registerConverter("collocationInformation",
                 new BidirectionalConverterWrapper<List<LogItemPropertyType>, Set<CollocationInformationLogItem>>(
@@ -613,6 +626,15 @@ public class GenericMapper {
     BidirectionalConverter<List<P>, Set<L>> logItemsConverter(Iso<T, L> logItemsIso) {
 
         return new IsoConverter<>(new ListToSet<>(new LogItemPropertyTypeMapper<>(logItemsIso)));
+    }
+
+    /**
+     * Given a GMLPropertyType isomorphism (from DTO to domain model), return a
+     * bidirectional converter from a GML property type to a single domain model log item.
+     */
+    private <P extends GMLPropertyType, T extends AbstractGMLType, L>
+    BidirectionalConverter<P, L> singleLogItemConverter(Iso<T, L> propertyTypeIso) {
+        return new IsoConverter<>(new SingleLogItemPropertyTypeMapper<>(propertyTypeIso));
     }
 
     /**
