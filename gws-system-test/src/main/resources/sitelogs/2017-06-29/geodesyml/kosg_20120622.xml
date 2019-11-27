@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="KOSG00NLD" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="KOSG00NLD" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="kosg_20120622.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Hans van der Marel</geo:preparedBy>
             <geo:datePrepared>2012-06-22</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>Kootwijk Observatory for Satellite Geodesy</geo:siteName>
             <geo:fourCharacterID>KOSG</geo:fourCharacterID>
             <geo:monumentInscription>KOSG-25</geo:monumentInscription>
@@ -24,11 +27,13 @@
             <geo:fractureSpacing>(0 cm/1-10 cm/11-50 cm/51-200 cm/over 200 cm)</geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type">NO</geo:faultZonesNearby>
             <geo:notes>The GPS receiver is located at the site of the former Kootwijk Observatory for Satellite Geodesy (KOSG). The buildings at the site were vacated and pulled down in 2005, with the exception of the GPS mast. Since 28 August 2008 the receiver is running under solar power. The receiver is operating under responsibility of the Department of Earth Observation (DEOS) of the Delft University of Technology. The steel GPS mast has been in place since January 1991 (exact date unknown).</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Kootwijk</geo:city>
             <geo:state>Gelderland</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Netherlands" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">NLD</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Netherlands" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">NLD</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">EURASIAN</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -43,11 +48,12 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes>Near Apeldoorn</geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:manufacturerSerialNumber>R117</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>Meenix 7.8</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>5.0</geo:elevationCutoffSetting>
@@ -60,7 +66,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:manufacturerSerialNumber>T175</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8000" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8000</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8000" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8000</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>2.8</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>5.0</geo:elevationCutoffSetting>
@@ -73,7 +79,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-3">
                 <geo:manufacturerSerialNumber>R117</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>Meenix 7.8</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -86,7 +92,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-4">
                 <geo:manufacturerSerialNumber>T209</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-12 RM" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-12 RM</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-12 RM" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-12 RM</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.2.32.1</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -99,7 +105,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-5">
                 <geo:manufacturerSerialNumber>T229</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-12 RM" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-12 RM</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-12 RM" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-12 RM</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.2.32.1</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -112,7 +118,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-6">
                 <geo:manufacturerSerialNumber>T222</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-12 RM" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-12 RM</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-12 RM" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-12 RM</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.2.32.1</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -125,7 +131,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-7">
                 <geo:manufacturerSerialNumber>T222</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-12 RM" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-12 RM</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-12 RM" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-12 RM</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.2.32.9</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -138,7 +144,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-8">
                 <geo:manufacturerSerialNumber>224</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA SNR-12 ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA SNR-12 ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.4</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -151,7 +157,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-9">
                 <geo:manufacturerSerialNumber>229</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA SNR-12 ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA SNR-12 ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.4</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -165,7 +171,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-10">
                 <geo:notes>The receiver has actually been installed on 2008-07-31T08:00Z and has been collecting data in parallel to KOSG as KOS2 until 2008-08-28, at which time it became the official receiver for this site. Data for this parallel period is available from the LDC at http://gnss1.lr.tudelft.nl</geo:notes>
                 <geo:manufacturerSerialNumber>356091</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200GGPRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200GGPRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>6.00/3.14</geo:firmwareVersion>
@@ -180,7 +186,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-11">
                 <geo:notes>Firmware update</geo:notes>
                 <geo:manufacturerSerialNumber>356091</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200GGPRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200GGPRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>6.00/3.017</geo:firmwareVersion>
@@ -195,7 +201,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-12">
                 <geo:notes>Firmware update</geo:notes>
                 <geo:manufacturerSerialNumber>356091</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200GGPRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200GGPRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>7.50/3.017</geo:firmwareVersion>
@@ -210,7 +216,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-13">
                 <geo:notes>Firmware update</geo:notes>
                 <geo:manufacturerSerialNumber>356091</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200GGPRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200GGPRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>7.80/3.018</geo:firmwareVersion>
@@ -225,7 +231,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-14">
                 <geo:notes>Firmware update</geo:notes>
                 <geo:manufacturerSerialNumber>356091</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200GGPRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200GGPRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>7.80/3.019</geo:firmwareVersion>
@@ -240,7 +246,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-15">
                 <geo:notes>Receiver removed for off-site testing</geo:notes>
                 <geo:manufacturerSerialNumber>356091</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200GGPRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200GGPRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>8.20/3.019</geo:firmwareVersion>
@@ -255,7 +261,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-16">
                 <geo:notes>Receiver reinstalled</geo:notes>
                 <geo:manufacturerSerialNumber>356091</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200GGPRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200GGPRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>8.20/3.019</geo:firmwareVersion>
@@ -270,7 +276,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:notes>Model C146-6-1 DUT design (polyester cone) Power and Signal cable separated, power submitted by original GPS-receiver ROGUE SNR-8, and later batteries</geo:notes>
                 <geo:manufacturerSerialNumber>119</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_B DUTD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_B        DUTD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_B DUTD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_B        DUTD</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BCR</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.105</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -289,7 +295,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-2">
                 <geo:notes>On 18 Sep 2011 it was discovered that the radome has fallen off the station. The exact date and time that the Radome fell off is unknown, but from the inspection of the timeseries we believe it fell off on 12 Sep 2011. However, there may have been a prolonged period when the dome was only loosely connected resulting in rather unstable coordinate time series. We believe this started on June 20 2011, although there is also some increased scatter in the period leading up to this date (starting end of March).</geo:notes>
                 <geo:manufacturerSerialNumber>119</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_B UNKN" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_B        UNKN</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_B UNKN" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_B        UNKN</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BCR</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.105</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -308,7 +314,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-3">
                 <geo:notes>Model C146-6-1 Power and Signal cable separated, power submitted by batteries The antenna itself remains unaltered since 1991</geo:notes>
                 <geo:manufacturerSerialNumber>119</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_B NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_B        NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_B NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_B        NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BCR</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.105</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -716,6 +722,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>BKGI</geo:dataCenter>
             <geo:dataCenter>IGNI</geo:dataCenter>
             <geo:urlForMoreInformation>http://gnss1.tudelft.nl/dpga/</geo:urlForMoreInformation>
@@ -728,6 +735,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="NYAL00NOR" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="NYAL00NOR" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="nyal_20170322.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Aasmund Steen Skjaeveland</geo:preparedBy>
             <geo:datePrepared>2017-03-22</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>Ny-Alesund</geo:siteName>
             <geo:fourCharacterID>NYAL</geo:fourCharacterID>
             <geo:monumentInscription>None</geo:monumentInscription>
@@ -24,11 +27,13 @@
             <geo:fractureSpacing>over 200 cm</geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type">YES</geo:faultZonesNearby>
             <geo:notes>Investigations concludes that the reinforced concrete carrying the steel tower, most likely, is not well fixed to the solid bedrock. It is assumed that there might be a layer of frozen gravel separating the solid bedrock and the concrete. Antenna mounted in steel tower Exact date in Jan 1993 not known</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Ny-Alesund</geo:city>
             <geo:state>Svalbard</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Norway" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">NOR</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Norway" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">NOR</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">EURASIAN</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -43,12 +48,13 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes></geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:notes>This receiver observed in parallel with a TorboRogue SNR-12 RM in station NYA1. Exact date in 1993 not known.</geo:notes>
                 <geo:manufacturerSerialNumber>R106/010/014</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>Conan Release 4 4/12/94</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -62,7 +68,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:notes>This receiver will continue to observe in parallel with NYA1.</geo:notes>
                 <geo:manufacturerSerialNumber>2020</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA BENCHMARK ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA BENCHMARK ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA BENCHMARK ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA BENCHMARK ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.2</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>1.0</geo:elevationCutoffSetting>
@@ -76,7 +82,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-3">
                 <geo:notes>This receiver will continue to observe in parallel with NYA1.</geo:notes>
                 <geo:manufacturerSerialNumber>4439239123</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETRS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETRS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>1.1-5</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -89,7 +95,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-4">
                 <geo:manufacturerSerialNumber>4439239123</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETRS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETRS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>1.3-2</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -103,7 +109,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:notes>The antenna was connected to receiver 3.1 (ROGUE SNR-8). Antenna Radome Type 'Danny Van Loon' Exact date in Jan 1993 not known</geo:notes>
                 <geo:manufacturerSerialNumber>R106</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_B DOME" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_B        DOME</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_B DOME" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_B        DOME</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BCR</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>5.216</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.004</geo:marker-arpNorthEcc.>
@@ -485,6 +491,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>BKG</geo:dataCenter>
             <geo:dataCenter>OLG</geo:dataCenter>
             <geo:urlForMoreInformation></geo:urlForMoreInformation>
@@ -497,6 +504,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

@@ -12,9 +12,9 @@ import au.gov.ga.geodesy.support.TestResources;
 import au.gov.ga.geodesy.support.marshalling.moxy.GeodesyMLMoxy;
 import au.gov.ga.geodesy.support.spring.UnitTest;
 import au.gov.ga.geodesy.support.utils.GMLDateUtils;
-import au.gov.xml.icsm.geodesyml.v_0_4.FormInformationType;
-import au.gov.xml.icsm.geodesyml.v_0_4.GeodesyMLType;
-import au.gov.xml.icsm.geodesyml.v_0_4.SiteLogType;
+import au.gov.xml.icsm.geodesyml.v_0_5.FormInformationType;
+import au.gov.xml.icsm.geodesyml.v_0_5.GeodesyMLType;
+import au.gov.xml.icsm.geodesyml.v_0_5.SiteLogType;
 import org.testng.annotations.Test;
 
 
@@ -38,7 +38,7 @@ public class FormInformationMapperTest extends UnitTest {
         SiteLogType siteLog = GeodesyMLUtils.getElementFromJAXBElements(mobs.getElements(), SiteLogType.class)
                 .findFirst().get();
 
-        FormInformationType formInfoTypeA = siteLog.getFormInformation();
+        FormInformationType formInfoTypeA = siteLog.getFormInformation().getFormInformation();
 
         FormInformation formInfo = mapper.to(formInfoTypeA);
         assertThat(formInfo.getPreparedBy(), is(formInfoTypeA.getPreparedBy()));

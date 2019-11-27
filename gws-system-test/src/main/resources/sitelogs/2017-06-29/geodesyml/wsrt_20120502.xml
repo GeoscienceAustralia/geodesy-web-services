@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="WSRT00NLD" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="WSRT00NLD" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="wsrt_20120502.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Hans van der Marel</geo:preparedBy>
             <geo:datePrepared>2012-05-02</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>Westerbork Synthesis Radio Telescope</geo:siteName>
             <geo:fourCharacterID>WSRT</geo:fourCharacterID>
             <geo:monumentInscription>--</geo:monumentInscription>
@@ -24,11 +27,13 @@
             <geo:fractureSpacing>(0 cm/1-10 cm/11-50 cm/51-200 cm/over 200 cm)</geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type">NO</geo:faultZonesNearby>
             <geo:notes>(multiple lines) WSRT is operating under responsibility of the Institute for Earth-Oriented Space research (DEOS) of the Delft University of Technology. Netherlands Triangulation Network No. RD 179811 Netherlands Height System No. NAP 0A-2628</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Westerbork</geo:city>
             <geo:state>Drente</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Netherlands" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">NLD</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Netherlands" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">NLD</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">EURASIAN</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -43,12 +48,13 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes></geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:notes>(multiples lines)</geo:notes>
                 <geo:manufacturerSerialNumber>T209</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-12 RM" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-12 RM</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-12 RM" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-12 RM</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.2.32.1</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -62,7 +68,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:notes>(multiples lines)</geo:notes>
                 <geo:manufacturerSerialNumber>T209</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-12 RM" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-12 RM</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-12 RM" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-12 RM</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.2.32.9</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -76,7 +82,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-3">
                 <geo:notes>(multiples lines)</geo:notes>
                 <geo:manufacturerSerialNumber>225</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA SNR-12 ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA SNR-12 ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.3</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -90,7 +96,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-4">
                 <geo:notes>(multiples lines)</geo:notes>
                 <geo:manufacturerSerialNumber>225</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA SNR-12 ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA SNR-12 ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.4</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -104,7 +110,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-5">
                 <geo:notes>(multiples lines)</geo:notes>
                 <geo:manufacturerSerialNumber>224</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA SNR-12 ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA SNR-12 ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.4</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -118,7 +124,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-6">
                 <geo:notes>(multiples lines)</geo:notes>
                 <geo:manufacturerSerialNumber>251</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA SNR-12 ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA SNR-12 ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.4</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -132,7 +138,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-7">
                 <geo:notes>(multiples lines)</geo:notes>
                 <geo:manufacturerSerialNumber>251</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA SNR-12 ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA SNR-12 ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.2N</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -146,7 +152,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-8">
                 <geo:notes>(multiples lines)</geo:notes>
                 <geo:manufacturerSerialNumber>229</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA SNR-12 ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA SNR-12 ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.2N</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -160,7 +166,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-9">
                 <geo:notes>(multiples lines)</geo:notes>
                 <geo:manufacturerSerialNumber>224</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA SNR-12 ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA SNR-12 ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.2N</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -174,7 +180,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-10">
                 <geo:notes>(multiples lines)</geo:notes>
                 <geo:manufacturerSerialNumber>225</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA SNR-12 ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA SNR-12 ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.2N</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -188,7 +194,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-11">
                 <geo:notes>(multiples lines)</geo:notes>
                 <geo:manufacturerSerialNumber>229</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA SNR-12 ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-12 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA SNR-12 ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.2N</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -202,7 +208,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:notes>DUTD = polyester cone</geo:notes>
                 <geo:manufacturerSerialNumber>273</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T DUTD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        DUTD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T DUTD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        DUTD</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.3795</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -221,7 +227,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-2">
                 <geo:notes>DUTD = polyester cone</geo:notes>
                 <geo:manufacturerSerialNumber>273</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T DUTD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        DUTD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T DUTD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        DUTD</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.3888</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -505,6 +511,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>DUT</geo:dataCenter>
             <geo:dataCenter>BKGI</geo:dataCenter>
             <geo:urlForMoreInformation>http://gnss1.tudelft.nl/dpga</geo:urlForMoreInformation>
@@ -517,6 +524,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

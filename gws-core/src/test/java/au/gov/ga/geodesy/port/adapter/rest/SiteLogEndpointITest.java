@@ -35,14 +35,14 @@ public class SiteLogEndpointITest extends IntegrationTest {
     @Rollback(false)
     public void testFindGeodesyMLSiteLog() throws Exception {
         given()
-            .config(RestAssuredMockMvc.config().xmlConfig(xmlConfig().declareNamespace("geo", "urn:xml-gov-au:icsm:egeodesy:0.4")))
+            .config(RestAssuredMockMvc.config().xmlConfig(xmlConfig().declareNamespace("geo", "urn:xml-gov-au:icsm:egeodesy:0.5")))
             .when()
             .get("/siteLogs/search/findByFourCharacterId?id=ALIC&format=geodesyml")
             .then()
                 .log().body()
                 .statusCode(HttpStatus.OK.value())
                 .contentType("application/xml")
-                .body("geo:GeodesyML.geo:siteLog.geo:siteIdentification.geo:siteName.text()", equalTo("Alice Springs AU012"))
+                .body("geo:GeodesyML.geo:siteLog.geo:siteIdentification.geo:SiteIdentification.geo:siteName.text()", equalTo("Alice Springs AU012"))
                 .apply(document("findSiteLogByFourCharacterId"));
     }
 
