@@ -23,16 +23,18 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
     # Default TMPDIR is in /run, which is in memory, so we change it to disk to
     # avoid running out of space. `aws codedeploy push` writes the codedeploy
     # zip bundle to $TMPDIR.
-    export TMPDIR=/tmp
-    case "${TRAVIS_BRANCH}" in
-        "release-0.2.0")
-            ./aws/codedeploy-WebServices/deploy.sh test
-        ;;
-        "master")
-            mvn --settings ./travis/maven-settings.xml site-deploy -DskipTests -pl gws-core
-            ./aws/codedeploy-WebServices/deploy.sh test
-        ;;
-    esac
+
+    # TODO: Temporarily disable automatic deployments.
+    # export TMPDIR=/tmp
+    # case "${TRAVIS_BRANCH}" in
+    #     "release-0.2.0")
+    #         ./aws/codedeploy-WebServices/deploy.sh test
+    #     ;;
+    #     "master")
+    #         mvn --settings ./travis/maven-settings.xml site-deploy -DskipTests -pl gws-core
+    #         ./aws/codedeploy-WebServices/deploy.sh test
+    #     ;;
+    # esac
 else
     mvn --settings ./travis/maven-settings.xml verify -pl '!gws-system-test' -DredirectTestOutputToFile
 fi
