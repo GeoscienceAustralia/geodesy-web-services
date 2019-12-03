@@ -33,6 +33,7 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
         "master")
             mvn --settings ./travis/maven-settings.xml site-deploy -DskipTests -pl gws-core
             ./aws/codedeploy-WebServices/deploy.sh dev
+            ./aws/codedeploy-GeoServer/deploy.sh dev
         ;;
     esac
 else
