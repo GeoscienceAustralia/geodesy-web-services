@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 
-import au.gov.ga.geodesy.domain.model.sitelog.AssociatedDocumentRepository;
 import au.gov.ga.geodesy.domain.model.sitelog.SiteLogRepository;
 import au.gov.ga.geodesy.domain.service.SetupService;
 
@@ -16,9 +15,6 @@ import au.gov.ga.geodesy.domain.service.SetupService;
 public class Repositories {
 
     private static final Logger log = LoggerFactory.getLogger(Repositories.class);
-
-    @Autowired
-    private AssociatedDocumentRepository associatedDocuments;
 
     @Autowired
     private SiteLogRepository siteLogs;
@@ -36,7 +32,6 @@ public class Repositories {
      * Delete all persistent entitites.
      */
     public void deleteAll() {
-        associatedDocuments.deleteAll();
         siteLogs.deleteAll();
         nodes.deleteAll();
         setupService.deleteSetups();

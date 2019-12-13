@@ -36,6 +36,9 @@ public class AssociatedDocument implements Comparable<AssociatedDocument> {
     @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGASSOCIATEDDOCUMENT")
     private Integer id;
 
+    @Column(name = "SITE_ID")
+    private Integer siteId;
+
     @Size(max = 256)
     @Column(name = "NAME", length = 256, unique = true, nullable = false)
     protected String name;
@@ -64,6 +67,14 @@ public class AssociatedDocument implements Comparable<AssociatedDocument> {
     @SuppressWarnings("unused")
     private void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getSiteId() {
+        return siteId;
+    }
+
+    public void setSiteId(Integer siteId) {
+        this.siteId = siteId;
     }
 
     /**

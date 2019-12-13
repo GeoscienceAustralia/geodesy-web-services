@@ -38,7 +38,7 @@ public class UploadAliceGeodesyMLSiteLogRestITest extends IntegrationTest {
     @Test
     @Rollback(false)
     public void upload() throws Exception {
-        String geodesyML = IOUtils.toString(TestResources.customGeodesyMLSiteLogReader("ALIC"));
+        String geodesyML = IOUtils.toString(TestResources.customGeodesyMLSiteLogReader("ALIC-with-2-associated-documents"));
         given()
             .auth().with(super.superuserToken())
             .body(geodesyML).
