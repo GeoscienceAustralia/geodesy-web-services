@@ -12,6 +12,7 @@ import org.opengis.metadata.citation.ResponsibleParty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import au.gov.ga.geodesy.domain.model.sitelog.AssociatedDocument;
 import au.gov.ga.geodesy.domain.model.sitelog.CollocationInformationLogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.DifferentialFromMarker;
 import au.gov.ga.geodesy.domain.model.sitelog.EffectiveDates;
@@ -40,6 +41,8 @@ import au.gov.ga.geodesy.support.gml.LogItemPropertyType;
 import au.gov.ga.geodesy.support.java.util.Iso;
 import au.gov.xml.icsm.geodesyml.v_0_5.BaseSensorEquipmentType;
 import au.gov.xml.icsm.geodesyml.v_0_5.CollocationInformationType;
+import au.gov.xml.icsm.geodesyml.v_0_5.DocumentPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.DocumentType;
 import au.gov.xml.icsm.geodesyml.v_0_5.FormInformationPropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_5.FormInformationType;
 import au.gov.xml.icsm.geodesyml.v_0_5.FrequencyStandardType;
@@ -84,6 +87,8 @@ import ma.glasnost.orika.metadata.TypeFactory;
 
 import net.opengis.gml.v_3_2_1.AbstractGMLType;
 import net.opengis.gml.v_3_2_1.CodeType;
+import net.opengis.gml.v_3_2_1.ReferenceType;
+import net.opengis.gml.v_3_2_1.StringOrRefType;
 import net.opengis.gml.v_3_2_1.TimeIndeterminateValueType;
 import net.opengis.gml.v_3_2_1.TimePeriodType;
 import net.opengis.gml.v_3_2_1.TimePositionType;
@@ -152,6 +157,9 @@ public class GenericMapper {
     @Autowired
     private MoreInformationMapper moreInformationMapper;
 
+    @Autowired
+    private AssociatedDocumentMapper associatedDocumentMapper;
+
 
     @PostConstruct
     public void init() {
@@ -189,8 +197,8 @@ public class GenericMapper {
                 .byDefault()
                 .register();
 
-       // Site Identification
-       mapperFactory.classMap(SiteIdentificationType.class, SiteIdentification.class)
+        // Site Identification
+        mapperFactory.classMap(SiteIdentificationType.class, SiteIdentification.class)
             .field("fourCharacterID", "fourCharacterId")
             .fieldMap("monumentDescription", "monumentDescription").converter("monumentDescription").add()
             .field("heightOfTheMonument", "heightOfMonument")
@@ -210,7 +218,6 @@ public class GenericMapper {
                 .fieldMap("validTime.abstractTimePrimitive", "effectiveDates").converter("validTimeConverter").add()
                 .byDefault()
                 .register();
-
 
         converters.registerConverter("instrumentTypeConverter", new StringToCodeTypeConverter("eGeodesy/instrumentType") {});
         converters.registerConverter("statusTypeConverter", new StringToCodeTypeConverter("eGeodesy/status") {});
@@ -342,6 +349,7 @@ public class GenericMapper {
             .fieldMap("formInformation", "formInformation").converter("formInformation").add()
             .fieldMap("collocationInformation", "collocationInformation").converter("collocationInformation").add()
             .fieldMap("surveyedLocalTies", "surveyedLocalTies").converter("surveyedLocalTies").add()
+            .fieldMap("associatedDocument", "associatedDocuments").converter("associatedDocuments").add()
             .customize(responsiblePartiesMapper)
             .register();
 
@@ -378,8 +386,8 @@ public class GenericMapper {
                 .register();
 
         // Local Episodic Effect
-		mapperFactory.classMap(LocalEpisodicEffectType.class, LocalEpisodicEffectLogItem.class)
-				.fieldMap("validTime.abstractTimePrimitive", "effectiveDates").converter("validTimeConverter").add()
+        mapperFactory.classMap(LocalEpisodicEffectType.class, LocalEpisodicEffectLogItem.class)
+                .fieldMap("validTime.abstractTimePrimitive", "effectiveDates").converter("validTimeConverter").add()
                 .byDefault()
                 .register();
 
@@ -387,7 +395,7 @@ public class GenericMapper {
         CustomMapper<BaseSensorEquipmentType, SensorEquipmentLogItem> indeterminateCalibrationDateMapper = new CustomMapper<BaseSensorEquipmentType, SensorEquipmentLogItem>() {
 
             @Override
-            public void mapBtoA(SensorEquipmentLogItem sensorLogItem, BaseSensorEquipmentType sensorLogItemDto, MappingContext ctx) { 
+            public void mapBtoA(SensorEquipmentLogItem sensorLogItem, BaseSensorEquipmentType sensorLogItemDto, MappingContext ctx) {
                 if (sensorLogItem.getCalibrationDate() == null) {
                     sensorLogItemDto.setCalibrationDate(new TimePositionType()
                         .withIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN)
@@ -463,7 +471,7 @@ public class GenericMapper {
                 .fieldMap("validTime.abstractTimePrimitive", "effectiveDates").converter("validTimeConverter").add()
                 .byDefault()
                 .register();
-        
+
         // More Information
         mapperFactory.classMap(MoreInformationType.class, MoreInformation.class)
                 .fieldBToA("primaryDataCenter", "dataCenter[0]")
@@ -484,6 +492,49 @@ public class GenericMapper {
                 .register();
 
         converters.registerConverter("doiCodeTypeConverter", new StringToCodeTypeConverter("eGeodesy/doi") {});
+
+        // Associated Document
+        mapperFactory.classMap(AssociatedDocument.class, DocumentType.class)
+            .fieldMap("type", "type").converter("eGeodesyCodeTypeConverter").add()
+            .fieldMap("name", "name[0]").converter("eGeodesyCodeTypeConverter").add()
+            .byDefault()
+            .customize(new CustomMapper<AssociatedDocument, DocumentType>() {
+                @Override
+                public void mapAtoB(AssociatedDocument associatedDocument, DocumentType documentType, MappingContext ctx) {
+                    if (associatedDocument.getCreatedDate() == null) {
+                        TimePositionType createdDate = new TimePositionType();
+                        createdDate.setIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN);
+                        documentType.setCreatedDate(createdDate);
+                    }
+                    if (associatedDocument.getFileReference() != null) {
+                        ReferenceType fileReference = new ReferenceType();
+                        fileReference.setHref(associatedDocument.getFileReference());
+                        DocumentType.Body documentBody = new DocumentType.Body();
+                        documentBody.setFileReference(fileReference);
+                        documentType.setBody(documentBody);
+                    }
+                    if (associatedDocument.getDescription() != null) {
+                        StringOrRefType descriptionType = new StringOrRefType();
+                        descriptionType.setValue(associatedDocument.getDescription());
+                        documentType.setDescription(descriptionType);
+                    }
+                }
+
+                @Override
+                public void mapBtoA(DocumentType documentType, AssociatedDocument associatedDocument, MappingContext ctx) {
+                    if (documentType.getBody().getFileReference() != null) {
+                        ReferenceType fileReference = documentType.getBody().getFileReference();
+                        associatedDocument.setFileReference(fileReference.getHref());
+                    }
+                    if (documentType.getDescription() != null) {
+                        StringOrRefType descriptionType = documentType.getDescription();
+                        associatedDocument.setDescription(descriptionType.getValue());
+                    }
+                }
+            })
+            .register();
+
+        converters.registerConverter("eGeodesyCodeTypeConverter", new StringToCodeTypeConverter("eGeodesy/type") {});
 
         // ********
         converters.registerConverter("siteIdentification",
@@ -592,6 +643,12 @@ public class GenericMapper {
 
         converters.registerConverter("responsibleParty", new IsoConverter<CIResponsiblePartyType, ResponsibleParty>(new ResponsiblePartyMapper()) {});
 
+        converters.registerConverter("associatedDocuments",
+                new BidirectionalConverterWrapper<List<DocumentPropertyType>, Set<AssociatedDocument>>(
+                        associatedDocumentsConverter(associatedDocumentMapper)
+                ) {}
+        );
+
         mapper = mapperFactory.getMapperFacade();
     }
 
@@ -615,7 +672,7 @@ public class GenericMapper {
             return delegate.convertFrom(b, type, mappingContext);
         }
     }
-     
+
     /**
      * Given a LogItemPropertyType isomorphism (from DTO to domain model), return a
      * bidirectional converter from a list of GML property types to a
@@ -626,6 +683,15 @@ public class GenericMapper {
     BidirectionalConverter<List<P>, Set<L>> logItemsConverter(Iso<T, L> logItemsIso) {
 
         return new IsoConverter<>(new ListToSet<>(new LogItemPropertyTypeMapper<>(logItemsIso)));
+    }
+
+    /**
+     * Given a DocumentPropertyType isomorphism (from DTO to domain model), return a
+     * bidirectional converter from a list of GML property types to a set of domain model items.
+     */
+    private <P extends GMLPropertyType, T extends AbstractGMLType, A extends AssociatedDocument>
+    BidirectionalConverter<List<P>, Set<A>> associatedDocumentsConverter(Iso<T, A> itemsIso) {
+        return new IsoConverter<>(new ListToSet2<>(new GMLPropertyTypeMapper<P, T>().compose(itemsIso)));
     }
 
     /**
@@ -646,6 +712,26 @@ public class GenericMapper {
         private Iso<A, B> elementIso;
 
         public ListToSet(Iso<A, B> elementIso) {
+            this.elementIso = elementIso;
+        }
+
+        public Set<B> to(List<A> list) {
+            return list.stream().map(elementIso::to).collect(Collectors.toSet());
+        }
+
+        public List<A> from(Set<B> set) {
+            return set.stream().sorted().map(elementIso::from).collect(Collectors.toList());
+        }
+    }
+
+    /**
+     * Given an isomorphism from A to B, return an isomorphism from list of A to set B.
+     */
+    private class ListToSet2<A, B> implements Iso<List<A>, Set<B>> {
+
+        private Iso<A, B> elementIso;
+
+        public ListToSet2(Iso<A, B> elementIso) {
             this.elementIso = elementIso;
         }
 

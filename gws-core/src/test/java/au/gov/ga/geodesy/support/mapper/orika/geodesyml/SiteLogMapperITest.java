@@ -25,6 +25,7 @@ import org.testng.annotations.Test;
 
 import com.vividsolutions.jts.geom.Point;
 
+import au.gov.ga.geodesy.domain.model.sitelog.AssociatedDocument;
 import au.gov.ga.geodesy.domain.model.sitelog.CollocationInformationLogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.FrequencyStandardLogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.GnssAntennaLogItem;
@@ -50,6 +51,8 @@ import au.gov.ga.geodesy.support.marshalling.moxy.GeodesyMLMoxy;
 import au.gov.ga.geodesy.support.spring.IntegrationTest;
 import au.gov.ga.geodesy.support.utils.DateTimeFormatDecorator;
 import au.gov.ga.geodesy.support.utils.GMLDateUtils;
+import au.gov.xml.icsm.geodesyml.v_0_5.DocumentPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.DocumentType;
 import au.gov.xml.icsm.geodesyml.v_0_5.CollocationInformationPropertyType;
 import au.gov.xml.icsm.geodesyml.v_0_5.CollocationInformationType;
 import au.gov.xml.icsm.geodesyml.v_0_5.FrequencyStandardPropertyType;
@@ -575,6 +578,28 @@ public class SiteLogMapperITest extends IntegrationTest {
         }
     }
 
+    @Test
+    public void testAssociatedDocumentMapping() throws IOException, MarshallingException {
+        GeodesyMLType mobs = marshaller.unmarshal(TestResources.customGeodesyMLSiteLogReader("ALIC-with-2-associated-documents"), GeodesyMLType.class)
+                .getValue();
+
+        SiteLogType siteLogType = GeodesyMLUtils.getElementFromJAXBElements(mobs.getElements(), SiteLogType.class)
+                .findFirst().get();
+
+        SiteLog siteLog = mapper.to(siteLogType);
+
+        List<DocumentPropertyType> associatedDocumentPropertyTypes = siteLogType.getAssociatedDocument();
+        sortDocumentPropertyTypes(associatedDocumentPropertyTypes);
+        assertThat(siteLog.getAssociatedDocuments().size(), equalTo(2));
+        assertThat(associatedDocumentPropertyTypes.size(), equalTo(2));
+
+        int i = 0;
+        for (AssociatedDocument associatedDocument : sortAssociatedDocuments(siteLog.getAssociatedDocuments())) {
+            DocumentType associatedDocumentType = associatedDocumentPropertyTypes.get(i++).getDocument();
+            assertThat(associatedDocument.getName(), equalTo(associatedDocumentType.getName().get(0).getValue()));
+        }
+    }
+
     /**
      * Sort set of log items by installation date.
      */
@@ -692,6 +717,32 @@ public class SiteLogMapperITest extends IntegrationTest {
             }
         });
         sorted.addAll(info);
+        return sorted;
+    }
+
+    /**
+     * Sort a list of DocumentPropertyType objects by names.
+     */
+    private void sortDocumentPropertyTypes(List<DocumentPropertyType> list) {
+        Collections.sort(list, new Comparator<DocumentPropertyType>() {
+            public int compare(DocumentPropertyType d1, DocumentPropertyType d2) {
+                return d1.getDocument().getName().get(0).getValue().compareTo(d2.getDocument().getName().get(0).getValue());
+            }
+        });
+    }
+
+    /**
+     * Sort a set of AssociatedDocument by names.
+     */
+    private SortedSet<AssociatedDocument> sortAssociatedDocuments(Set<AssociatedDocument> set) {
+        SortedSet<AssociatedDocument> sorted = new TreeSet<>(new Comparator<AssociatedDocument>() {
+            public int compare(AssociatedDocument d1, AssociatedDocument d2) {
+                int result = d1.getName().compareTo(d2.getName());
+                // keep duplicates
+                return result != 0 ? result : 1;
+            }
+        });
+        sorted.addAll(set);
         return sorted;
     }
 
