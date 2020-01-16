@@ -17,8 +17,13 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
     cp ./gws-webapp/target/geodesy-web-services.war ./gws-system-test/target/gws-system-test.jar ./aws/codedeploy-WebServices/
     aws configure set aws_access_key_id "${TRAVIS_AWS_ACCESS_KEY_ID}" --profile geodesy
     aws configure set aws_secret_access_key "${TRAVIS_AWS_SECRET_KEY_ID}" --profile geodesy
-    aws configure set region ap-southeast-2 --profile geodesy
+    aws configure set region ${AWS_DEFAULT_REGION} --profile geodesy
     aws configure set output json --profile geodesy
+
+    aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID}" --profile geodesy2
+    aws configure set aws_secret_access_key "${AWS_SECRET_KEY_ID}" --profile geodesy2
+    aws configure set region ${AWS_DEFAULT_REGION} --profile geodesy2
+    aws configure set output json --profile geodesy2
 
     # Default TMPDIR is in /run, which is in memory, so we change it to disk to
     # avoid running out of space. `aws codedeploy push` writes the codedeploy

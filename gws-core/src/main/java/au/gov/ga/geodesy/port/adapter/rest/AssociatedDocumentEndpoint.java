@@ -17,9 +17,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -61,9 +63,8 @@ public class AssociatedDocumentEndpoint {
         this.bucketName = (String) context.getBean("bucketName");
     }
 
-    @RequestMapping(
+    @GetMapping(
         value = "/search/findById",
-        method = RequestMethod.GET,
         produces = "application/json"
     )
     @ResponseBody
@@ -80,9 +81,8 @@ public class AssociatedDocumentEndpoint {
         }
     }
 
-    @RequestMapping(
+    @GetMapping(
         value = "/search/findByName",
-        method = RequestMethod.GET,
         produces = "application/json"
     )
     @ResponseBody
@@ -98,9 +98,8 @@ public class AssociatedDocumentEndpoint {
         }
     }
 
-    @RequestMapping(
+    @PostMapping(
         value = "/upload",
-        method = RequestMethod.POST,
         consumes = MediaType.MULTIPART_FORM_DATA_VALUE
     )
     public ResponseEntity<String> upload(
@@ -125,10 +124,7 @@ public class AssociatedDocumentEndpoint {
         }
     }
 
-    @RequestMapping(
-        value = "/{name}",
-        method = RequestMethod.DELETE
-    )
+    @DeleteMapping("/{name}")
     public ResponseEntity<String> remove(@PathVariable("name") String documentName) {
         try {
             if (doesBucketContainObject(this.bucketName, documentName)) {
@@ -162,7 +158,7 @@ public class AssociatedDocumentEndpoint {
                 .withCredentials(
                     new AWSCredentialsProviderChain(
                         new InstanceProfileCredentialsProvider(false),
-                        new ProfileCredentialsProvider("geodesy"),
+                        new ProfileCredentialsProvider("geodesy2"),
                         new EnvironmentVariableCredentialsProvider()
                     )
                 )
