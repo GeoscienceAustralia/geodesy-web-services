@@ -29,7 +29,7 @@ public class AssociatedDocumentEndpointITest extends IntegrationTest {
 
     private String documentName = "ALIC_ant_000_20191027T143000.jpg";
     private String description = "Antenna North Facing";
-    private String fileReference = "https://s3-ap-southeast-2.amazonaws.com/gnss-metadata-document-storage-dev/" + this.documentName;
+    private String fileReference = "http://localhost:4572/gnss-metadata-document-storage-local/" + this.documentName;
 
     @Autowired
     private CorsSiteLogService siteLogService;
