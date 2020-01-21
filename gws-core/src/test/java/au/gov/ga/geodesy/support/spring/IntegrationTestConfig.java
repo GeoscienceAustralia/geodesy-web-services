@@ -14,6 +14,10 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 
+import com.amazonaws.client.builder.AwsClientBuilder;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+
 
 /**
  * Spring context configuration for integration tests.
@@ -45,9 +49,27 @@ public class IntegrationTestConfig {
     @Value("${dbPassword}")
     private String dbPassword;
 
+    @Value("${gnss_metadata_document_bucket_name}")
+    private String documentBucketName;
+
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
+    }
+
+    @Bean
+    public String gnssMetadataDocumentBucketName() {
+        return this.documentBucketName;
+    }
+
+    @Bean
+    public AmazonS3 s3Client() {
+        return AmazonS3ClientBuilder
+            .standard()
+            .withPathStyleAccessEnabled(true)
+            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://localhost:4572", "ap-southeast-2"))
+            .disableChunkedEncoding()
+            .build();
     }
 
     public String getDbUrl() {

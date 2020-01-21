@@ -41,6 +41,7 @@
         <github.global.server>github</github.global.server>
         <aws-java-sdk.version>1.11.105</aws-java-sdk.version>
         <redirectTestOutputToFile>false</redirectTestOutputToFile>
+        <dockerMavenPlugin.version>0.31.0</dockerMavenPlugin.version>
     </properties>
     <repositories>
         <repository>
@@ -537,7 +538,7 @@
             <plugin>
               <groupId>io.fabric8</groupId>
               <artifactId>docker-maven-plugin</artifactId>
-              <version>0.31.0</version>
+              <version>${dockerMavenPlugin.version}</version>
               <configuration>
                  <images>
                     <image>
@@ -1033,6 +1034,64 @@
                         <!--The JaCoCo report files need to be combined into one for the code coverage check.  See eGeodesy-parent pom -->
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-antrun-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>run-localstack</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>${dockerMavenPlugin.version}</version>
+                        <configuration>
+                            <images combine.children="append">
+                                <image>
+                                    <alias>localstack</alias>
+                                    <name>localstack/localstack:0.10.2</name>
+                                    <run>
+                                        <env>
+                                            <SERVICES>s3</SERVICES>
+                                        </env>
+                                        <ports>
+                                            <port>4572:4572</port>
+                                        </ports>
+                                        <network>
+                                            <mode>bridge</mode>
+                                        </network>
+                                        <wait>
+                                            <tcp>
+                                                <ports>
+                                                    <port>4572</port>
+                                                </ports>
+                                            </tcp>
+                                            <time>20000</time>
+                                        </wait>
+                                    </run>
+                                </image>
+                            </images>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <phase>pre-integration-test</phase>
+                                <configuration>
+                                    <executable>${basedir}/../travis/deploy-local.sh</executable>
+                                    <skip>${skipUnitTests}</skip>
+                                </configuration>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>
