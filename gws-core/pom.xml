@@ -567,9 +567,6 @@
                             <ports>
                                 <port>4572:4572</port>
                             </ports>
-                            <network>
-                                <mode>bridge</mode>
-                            </network>
                             <wait>
                                 <tcp>
                                     <ports>
