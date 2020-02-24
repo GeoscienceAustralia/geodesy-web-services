@@ -33,12 +33,6 @@
                                  onUpdate="NO ACTION"
                                  referencedColumnNames="id"
                                  referencedTableName="sitelog_site"/>
-        <addUniqueConstraint columnNames="name"
-                             constraintName="uk_sitelog_associateddocument_name"
-                             tableName="sitelog_associateddocument"/>
-        <addUniqueConstraint columnNames="file_reference"
-                             constraintName="uk_sitelog_associateddocument_filereference"
-                             tableName="sitelog_associateddocument"/>
         <setTableRemarks remarks="table contains associated documents (site map, site diagram, site images, etc.) in site log"
                          tableName="sitelog_associateddocument"/>
         <createSequence sequenceName="seq_sitelogassociateddocument" incrementBy="50"/>
