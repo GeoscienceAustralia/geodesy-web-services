@@ -34,11 +34,15 @@
                                  referencedColumnNames="id"
                                  referencedTableName="sitelog_site"/>
         <addUniqueConstraint columnNames="name"
+                             tableName="sitelog_associateddocument"
                              constraintName="uk_sitelog_associateddocument_name"
-                             tableName="sitelog_associateddocument"/>
+                             deferrable="true"
+                             initiallyDeferred="true"/>
         <addUniqueConstraint columnNames="file_reference"
+                             tableName="sitelog_associateddocument"
                              constraintName="uk_sitelog_associateddocument_filereference"
-                             tableName="sitelog_associateddocument"/>
+                             deferrable="true"
+                             initiallyDeferred="true"/>
         <setTableRemarks remarks="table contains associated documents (site map, site diagram, site images, etc.) in site log"
                          tableName="sitelog_associateddocument"/>
         <createSequence sequenceName="seq_sitelogassociateddocument" incrementBy="50"/>
