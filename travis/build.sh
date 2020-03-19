@@ -1,14 +1,14 @@
 #!/usr/bin/env nix-shell
 #!nix-shell ../shell.nix -i bash
 
-set -e
+set -ex
 
 # A local installation of maven prefers to run the global installation, if available.
 sudo rm -f /etc/mavenrc
 
 # We redirect maven test output to file, because Travis CI limits stdout log size to 4MB.
 
-mvn --settings ./travis/maven-settings.xml -U install -DskipTests > /dev/null
+mvn --settings ./travis/maven-settings.xml -U install -DskipTests
 
 if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
     mvn --settings ./travis/maven-settings.xml deploy -pl '!gws-system-test' -DredirectTestOutputToFile
@@ -37,5 +37,5 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
         ;;
     esac
 else
-    mvn --settings ./travis/maven-settings.xml verify -pl '!gws-system-test' -DredirectTestOutputToFile
+    mvn --settings ./travis/maven-settings.xml verify -pl '!gws-system-test'
 fi
