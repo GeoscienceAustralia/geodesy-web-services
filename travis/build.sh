@@ -28,9 +28,11 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
     export TMPDIR=/tmp
     case "${TRAVIS_BRANCH}" in
         "release-0.2.0")
+            ./aws/deploy.sh test
             ./aws/codedeploy-WebServices/deploy.sh test
         ;;
         "master")
+            ./aws/deploy.sh dev
             mvn --settings ./travis/maven-settings.xml site-deploy -DskipTests -pl gws-core
             ./aws/codedeploy-WebServices/deploy.sh dev
             ./aws/codedeploy-GeoServer/deploy.sh dev
@@ -38,4 +40,5 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
     esac
 else
     mvn --settings ./travis/maven-settings.xml verify -pl '!gws-system-test' -DredirectTestOutputToFile
+    ./aws/deploy.sh dev --dry-run
 fi
