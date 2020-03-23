@@ -751,6 +751,16 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <executions>
                     <execution>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>pre-integration-test</phase>
+                        <configuration>
+                            <executable>${basedir}/../aws/deploy-local.sh</executable>
+                            <skip>${skipUnitTests}</skip>
+                        </configuration>
+                    </execution>
+                    <execution>
                         <id>generate-create-db-script</id>
                         <phase>site</phase>
                         <goals>
