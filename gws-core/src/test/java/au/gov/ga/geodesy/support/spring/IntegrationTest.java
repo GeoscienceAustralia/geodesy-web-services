@@ -65,7 +65,7 @@ public class IntegrationTest extends AbstractTransactionalTestNGSpringContextTes
             .build();
         RestAssuredMockMvc.mockMvc(mvc);
 
-        // Fix SdkClientException: Unable to verify integrity of data download
+        // TODO: remove later once the issue is fixed: Fix SdkClientException: Unable to verify integrity of data download
         // https://github.com/localstack/localstack/issues/869
         System.setProperty(SkipMd5CheckStrategy.DISABLE_GET_OBJECT_MD5_VALIDATION_PROPERTY, "true");
     }

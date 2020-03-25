@@ -24,10 +24,10 @@ public class AssociatedDocumentEndpointITest extends IntegrationTest {
 
     @Test
     @Rollback(false)
-    public void uploadSiteImageToS3Bucket() throws Exception {
+    public void uploadDocument() throws Exception {
         InputStream fileContent = new ByteArrayInputStream("Dummy testing image content".getBytes());
         MockMultipartFile mockFile = new MockMultipartFile("file", documentName, "image/jpg", fileContent);
-        mvc.perform(fileUpload("/associatedDocuments/upload")
+        mvc.perform(fileUpload("/associatedDocuments/")
             .file(mockFile)
             .with(super.superuserToken()))
             .andDo(print)
@@ -35,12 +35,12 @@ public class AssociatedDocumentEndpointITest extends IntegrationTest {
             .andExpect(content().string(containsString(this.fileReference)));
     }
 
-    @Test(dependsOnMethods = {"uploadSiteImageToS3Bucket"})
+    @Test(dependsOnMethods = {"uploadDocument"})
     @Rollback(false)
-    public void deleteSiteImageFromS3Bucket() throws Exception {
+    public void deleteDocument() throws Exception {
         mvc.perform(delete("/associatedDocuments/" + this.documentName)
             .with(super.superuserToken()))
             .andDo(print)
-            .andExpect(status().isOk());
+            .andExpect(status().isNoContent());
     }
 }

@@ -49,7 +49,7 @@ public class IntegrationTestConfig {
     @Value("${dbPassword}")
     private String dbPassword;
 
-    @Value("${gnss_metadata_document_bucket_name}")
+    @Value("${gnssMetadataDocumentBucketName}")
     private String documentBucketName;
 
     @Bean

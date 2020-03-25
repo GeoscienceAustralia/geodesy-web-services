@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eE
+set -eEuo pipefail
 
 script="$(basename "${BASH_SOURCE[0]}")"
 
@@ -21,7 +21,7 @@ export TF_VAR_environment=$environment
 cd "$(dirname "$(realpath "$0")")"
 cd ../
 
-pushd aws/terraform
+cd aws/terraform
 rm -frv terraform.tfstate.d/$environment/terraform.tfstate
 rm -frv .terraform
 
@@ -51,4 +51,3 @@ function onExit {
 onExit
 trap onExit ERR
 trap "onExit; exit 1" SIGINT
-popd
