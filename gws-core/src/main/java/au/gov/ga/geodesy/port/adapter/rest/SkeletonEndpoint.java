@@ -40,7 +40,7 @@ public class SkeletonEndpoint {
 
     @Transactional(readOnly = true)
     @RequestMapping(
-        value = "/{filename}",
+        value = "/{filename:[a-zA-Z0-9_]{4}([0-9]{2}[a-zA-Z]{3})?\\.((SKL)|(skl))}",
         method = RequestMethod.GET,
         produces = "text/plain")
     @ResponseBody
@@ -50,7 +50,7 @@ public class SkeletonEndpoint {
         String fourCharId = extractFourCharacterId(filename);
         if (fourCharId == null) {
             log.error("Invalid skeleton file request received: " + filename);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
         SiteLog siteLog = siteLogs.findByFourCharacterId(fourCharId);
@@ -59,22 +59,11 @@ public class SkeletonEndpoint {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        /***
-         * SOLO                                                        MARKER NAME
-         * 51202M001                                                   MARKER NUMBER
-         *                     Geoscience Australia                    OBSERVER / AGENCY
-         * 5041K71018          TRIMBLE NETR9       5.44                REC # / TYPE / VERS
-         * 954                 JAVRINGANT_DM   NONE                    ANT # / TYPE
-         *  -5911340.1240  2156887.2990 -1038664.0050                  APPROX POSITION XYZ
-         *         0.0010        0.0000        0.0000                  ANTENNA: DELTA H/E/N
-         *                                                             END OF HEADER
-         */
-
         String markerName = fourCharId;
         String markerNumber = siteLog.getSiteIdentification().getIersDOMESNumber();
 
-        String agency = "N/A";
-        String observer = "N/A";
+        String agency = "Agency";
+        String observer = "Observer";
         List<SiteResponsibleParty> siteContacts = siteLog.getSiteContacts();
         if (!siteContacts.isEmpty()) {
             agency = siteContacts.get(0).getParty().getOrganisationName().toString();
@@ -90,7 +79,7 @@ public class SkeletonEndpoint {
         List<GnssReceiverLogItem> receiverLogItemList = new ArrayList<>(siteLog.getGnssReceivers());
         if (receiverLogItemList.isEmpty()) {
             log.error("No receiver record for station " + fourCharId);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         receiverLogItemList.sort(Comparator.comparing(GnssReceiverLogItem::getDateInstalled).reversed());
 
@@ -102,7 +91,7 @@ public class SkeletonEndpoint {
         List<GnssAntennaLogItem> antennaLogItemList = new ArrayList<>(siteLog.getGnssAntennas());
         if (antennaLogItemList.isEmpty()) {
             log.error("No antenna record for station " + fourCharId);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         antennaLogItemList.sort(Comparator.comparing(GnssAntennaLogItem::getDateInstalled).reversed());
 
