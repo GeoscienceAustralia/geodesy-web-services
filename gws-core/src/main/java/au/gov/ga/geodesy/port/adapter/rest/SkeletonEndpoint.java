@@ -21,7 +21,6 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @RestController
@@ -47,11 +46,7 @@ public class SkeletonEndpoint {
     public ResponseEntity<StreamingResponseBody> findByFourCharacterId(
             @PathVariable String filename) {
 
-        String fourCharId = extractFourCharacterId(filename);
-        if (fourCharId == null) {
-            log.error("Invalid skeleton file request received: " + filename);
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        String fourCharId = filename.substring(0, 4);
 
         SiteLog siteLog = siteLogs.findByFourCharacterId(fourCharId);
         if (siteLog == null) {
@@ -109,16 +104,5 @@ public class SkeletonEndpoint {
         rinexFileHeader.getAntennaMarkerArp().setRight(antennaLogItem.getMarkerArpNorthEcc());
 
         return ResponseEntity.ok(outputStream -> rinexFileHeader.write(new OutputStreamWriter(outputStream)));
-    }
-
-    /**
-     * Extract the four character id from skeleton file request.
-     */
-    private String extractFourCharacterId(String identifier) {
-        Matcher matcher = pattern.matcher(identifier);
-        if (matcher.find()) {
-            return matcher.group("site");
-        }
-        return null;
     }
 }
