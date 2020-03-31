@@ -61,9 +61,22 @@
             <name>S3 GNSS Artifactory</name>
             <url>s3://gnss-artifactory/maven-snapshots/</url>
         </repository>
+        <repository>
+            <id>gnss-maven-artifactory-snapshots</id>
+            <url>https://gnss-maven-artifactory-prod.s3-ap-southeast-2.amazonaws.com/snapshots/</url>
+        </repository>
+        <repository>
+            <id>gnss-maven-artifactory-releases</id>
+            <url>https://gnss-maven-artifactory-prod.s3-ap-southeast-2.amazonaws.com/releases/</url>
+        </repository>
     </repositories>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>au.gov.ga.gnss</groupId>
+                <artifactId>gnss-support-rinex</artifactId>
+                <version>1.0.1-SNAPSHOT</version>
+            </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
@@ -130,6 +143,10 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
+        <dependency>
+            <groupId>au.gov.ga.gnss</groupId>
+            <artifactId>gnss-support-rinex</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
