@@ -21,7 +21,6 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.regex.Pattern;
 
 @RestController
 @EnableEntityLinks
@@ -29,10 +28,6 @@ import java.util.regex.Pattern;
 public class SkeletonEndpoint {
 
     private static final Logger log = LoggerFactory.getLogger(SiteLogEndpoint.class);
-
-    private static final String regex = "^(?<site>[A-Z0-9_]{4})([0-9]{2}[A-Z]{3})?\\.SKL$";
-
-    private static final Pattern pattern = Pattern.compile(regex);
 
     @Autowired
     private SiteLogRepository siteLogs;
