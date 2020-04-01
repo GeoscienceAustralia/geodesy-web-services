@@ -11,7 +11,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.config.EnableEntityLinks;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -27,21 +29,21 @@ import java.util.List;
 @RequestMapping("/skeleton")
 public class SkeletonEndpoint {
 
-    private static final Logger log = LoggerFactory.getLogger(SiteLogEndpoint.class);
+    private static final Logger log = LoggerFactory.getLogger(SkeletonEndpoint.class);
 
     @Autowired
     private SiteLogRepository siteLogs;
 
     @Transactional(readOnly = true)
     @RequestMapping(
-        value = "/{filename:[a-zA-Z0-9_]{4}([0-9]{2}[a-zA-Z]{3})?\\.((SKL)|(skl))}",
+        value = "/{filename:[a-zA-Z0-9_]{4}(?:[0-9]{2}[a-zA-Z]{3})?\\.(?:(?:SKL)|(?:skl))}",
         method = RequestMethod.GET,
         produces = "text/plain")
     @ResponseBody
     public ResponseEntity<StreamingResponseBody> findByFourCharacterId(
-            @PathVariable String filename) {
+        @PathVariable String filename) {
 
-        String fourCharId = filename.substring(0, 4);
+        String fourCharId = filename.substring(0, 4).toUpperCase();
 
         SiteLog siteLog = siteLogs.findByFourCharacterId(fourCharId);
         if (siteLog == null) {
@@ -98,6 +100,11 @@ public class SkeletonEndpoint {
         rinexFileHeader.getAntennaMarkerArp().setMiddle(antennaLogItem.getMarkerArpEastEcc());
         rinexFileHeader.getAntennaMarkerArp().setRight(antennaLogItem.getMarkerArpNorthEcc());
 
-        return ResponseEntity.ok(outputStream -> rinexFileHeader.write(new OutputStreamWriter(outputStream)));
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentType(MediaType.TEXT_PLAIN);
+
+        return ResponseEntity.ok()
+            .headers(httpHeaders)
+            .body(outputStream -> rinexFileHeader.write(new OutputStreamWriter(outputStream)));
     }
 }
