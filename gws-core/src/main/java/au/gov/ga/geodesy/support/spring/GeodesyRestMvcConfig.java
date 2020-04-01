@@ -12,8 +12,11 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,6 +43,14 @@ public class GeodesyRestMvcConfig extends WebMvcConfigurerAdapter {
         return objMapper;
     }
 
+    @Bean(name = "multipartResolver")
+    public MultipartResolver multipartResolver() {
+        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+        resolver.setMaxUploadSize(20971520);   // 20MB
+        resolver.setMaxInMemorySize(1048576);  // 1MB
+        return resolver;
+    }
+
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         super.configureMessageConverters(converters);
@@ -53,5 +64,10 @@ public class GeodesyRestMvcConfig extends WebMvcConfigurerAdapter {
             .favorParameter(true)
             .useJaf(false)
             .mediaType("geodesyml", MediaType.APPLICATION_XML);
+    }
+
+    @Override
+    public void configurePathMatch(PathMatchConfigurer configurer) {
+        configurer.setUseSuffixPatternMatch(false);
     }
 }

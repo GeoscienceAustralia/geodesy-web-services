@@ -8,6 +8,7 @@ import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 import org.springframework.data.repository.query.Param;
 
 public interface AssociatedDocumentRepository extends
+        AssociatedDocumentRepositoryCustom,
         JpaRepository<AssociatedDocument, Integer>,
         QueryDslPredicateExecutor<AssociatedDocument> {
 

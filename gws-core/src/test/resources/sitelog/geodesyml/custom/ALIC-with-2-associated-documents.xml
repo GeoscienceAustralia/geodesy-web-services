@@ -865,7 +865,7 @@ AUSTRALIA</gco:CharacterString>
                 <geo:createdDate>2019-10-27T14:30:00Z</geo:createdDate>
                 <geo:body>
                     <geo:fileReference
-                        xlink:href="https://gnss-site-images-dev.s3-ap-southeast-2.amazonaws.com/ALIC_ant_000_20191027T143000.jpg"/>
+                        xlink:href="http://localhost:4572/gnss-metadata-document-storage-local/ALIC_ant_000_20191027T143000.jpg"/>
                 </geo:body>
             </geo:Document>
         </geo:associatedDocument>
@@ -877,7 +877,7 @@ AUSTRALIA</gco:CharacterString>
                 <geo:createdDate>2019-10-27T14:35:00Z</geo:createdDate>
                 <geo:body>
                     <geo:fileReference
-                        xlink:href="https://gnss-site-images-dev.s3-ap-southeast-2.amazonaws.com/ALIC_ant_090_20191027T143500.jpg"/>
+                        xlink:href="http://localhost:4572/gnss-metadata-document-storage-local/ALIC_ant_090_20191027T143500.jpg"/>
                 </geo:body>
             </geo:Document>
         </geo:associatedDocument>

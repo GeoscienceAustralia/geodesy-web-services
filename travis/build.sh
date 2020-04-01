@@ -20,6 +20,11 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
     aws configure set region ap-southeast-2 --profile geodesy
     aws configure set output json --profile geodesy
 
+    aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID_GNSS_METADATA}" --profile gnss-metadata
+    aws configure set aws_secret_access_key "${AWS_SECRET_ACCESS_KEY_GNSS_METADATA}" --profile gnss-metadata
+    aws configure set region ${AWS_DEFAULT_REGION} --profile gnss-metadata
+    aws configure set output json --profile gnss-metadata
+
     # Default TMPDIR is in /run, which is in memory, so we change it to disk to
     # avoid running out of space. `aws codedeploy push` writes the codedeploy
     # zip bundle to $TMPDIR.

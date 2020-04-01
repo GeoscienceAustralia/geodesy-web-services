@@ -36,6 +36,7 @@ import org.testng.annotations.BeforeMethod;
 import au.gov.ga.geodesy.domain.model.Repositories;
 
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
+import com.amazonaws.services.s3.internal.SkipMd5CheckStrategy;
 
 @WebAppConfiguration
 @Transactional("geodesyTransactionManager")
@@ -63,6 +64,10 @@ public class IntegrationTest extends AbstractTransactionalTestNGSpringContextTes
                 .uris().withScheme("https").withHost("gws.geodesy.ga.gov.au").withPort(443))
             .build();
         RestAssuredMockMvc.mockMvc(mvc);
+
+        // TODO: remove later once the issue is fixed: Fix SdkClientException: Unable to verify integrity of data download
+        // https://github.com/localstack/localstack/issues/869
+        System.setProperty(SkipMd5CheckStrategy.DISABLE_GET_OBJECT_MD5_VALIDATION_PROPERTY, "true");
     }
 
     @AfterClass(alwaysRun = true)

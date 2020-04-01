@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -eEuo pipefail
 
 script="$(basename "${BASH_SOURCE[0]}")"
 
@@ -48,7 +48,7 @@ cd "$(dirname "$(realpath "$0")")"
 cd ..
 terraform_workspace="$(pwd)/aws/terraform/workspaces/$env"
 
-pushd aws/terraform
+cd aws/terraform
 rm -frv terraform.tfstate.d/
 
 terraform init -backend-config="$terraform_workspace/backend.cfg"
@@ -59,4 +59,3 @@ if [ -z "$dryRun" ]; then
 else
     terraform plan -input=false
 fi
-popd
