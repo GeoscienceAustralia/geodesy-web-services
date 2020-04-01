@@ -11,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.config.EnableEntityLinks;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -100,11 +99,8 @@ public class SkeletonEndpoint {
         rinexFileHeader.getAntennaMarkerArp().setMiddle(antennaLogItem.getMarkerArpEastEcc());
         rinexFileHeader.getAntennaMarkerArp().setRight(antennaLogItem.getMarkerArpNorthEcc());
 
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.setContentType(MediaType.TEXT_PLAIN);
-
         return ResponseEntity.ok()
-            .headers(httpHeaders)
+            .contentType(MediaType.TEXT_PLAIN)
             .body(outputStream -> rinexFileHeader.write(new OutputStreamWriter(outputStream)));
     }
 }
