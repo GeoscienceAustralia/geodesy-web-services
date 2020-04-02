@@ -41,4 +41,21 @@ public class SkeletonEndpointITest extends IntegrationTest {
         assertThat(text, containsString("ANTENNA: DELTA"));
         assertThat(text, containsString("50137M001"));
     }
+
+    @Test(dependsOnMethods = {"upload"})
+    @Rollback(false)
+    public void testFindSkeletonHeaderForALIC() throws Exception {
+        String text = given()
+            .when()
+            .get("/skeleton/alic.skl")
+            .then()
+            .log().body()
+            .statusCode(HttpStatus.OK.value())
+            .contentType("text/plain")
+            .extract().body().asString();
+
+        assertThat(text, containsString("AGENCY"));
+        assertThat(text, containsString("50137M001"));
+    }
+
 }

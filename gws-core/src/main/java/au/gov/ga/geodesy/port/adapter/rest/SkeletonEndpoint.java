@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
+import org.springframework.transaction.annotation.Propagation;
 
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
@@ -33,12 +34,11 @@ public class SkeletonEndpoint {
     @Autowired
     private SiteLogRepository siteLogs;
 
-    @Transactional(readOnly = true)
+    @Transactional(readOnly=true, propagation=Propagation.REQUIRES_NEW, noRollbackFor=RuntimeException.class)
     @RequestMapping(
         value = "/{filename:[a-zA-Z0-9_]{4}(?:[0-9]{2}[a-zA-Z]{3})?\\.(?:(?:SKL)|(?:skl))}",
         method = RequestMethod.GET,
         produces = "text/plain")
-    @ResponseBody
     public ResponseEntity<StreamingResponseBody> findByFourCharacterId(
         @PathVariable String filename) {
 
