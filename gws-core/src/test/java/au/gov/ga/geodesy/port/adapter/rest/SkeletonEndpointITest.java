@@ -58,4 +58,12 @@ public class SkeletonEndpointITest extends IntegrationTest {
         assertThat(text, containsString("50137M001"));
     }
 
+    @Test
+    public void testNotFound() throws Exception {
+        given()
+            .when()
+            .get("/skeleton/0000.SKL")
+            .then()
+            .statusCode(HttpStatus.NOT_FOUND.value());
+    }
 }

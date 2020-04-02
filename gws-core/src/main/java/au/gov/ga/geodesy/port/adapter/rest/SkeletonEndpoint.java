@@ -16,10 +16,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
-import org.springframework.transaction.annotation.Propagation;
 
-import java.io.OutputStreamWriter;
+import java.io.IOException;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -34,13 +33,14 @@ public class SkeletonEndpoint {
     @Autowired
     private SiteLogRepository siteLogs;
 
-    @Transactional(readOnly=true, propagation=Propagation.REQUIRES_NEW, noRollbackFor=RuntimeException.class)
+    @Transactional(readOnly = true)
     @RequestMapping(
         value = "/{filename:[a-zA-Z0-9_]{4}(?:[0-9]{2}[a-zA-Z]{3})?\\.(?:(?:SKL)|(?:skl))}",
         method = RequestMethod.GET,
         produces = "text/plain")
-    public ResponseEntity<StreamingResponseBody> findByFourCharacterId(
-        @PathVariable String filename) {
+    @ResponseBody
+    public ResponseEntity<String> findByFourCharacterId(
+        @PathVariable String filename) throws IOException {
 
         String fourCharId = filename.substring(0, 4).toUpperCase();
 
@@ -99,8 +99,11 @@ public class SkeletonEndpoint {
         rinexFileHeader.getAntennaMarkerArp().setMiddle(antennaLogItem.getMarkerArpEastEcc());
         rinexFileHeader.getAntennaMarkerArp().setRight(antennaLogItem.getMarkerArpNorthEcc());
 
+        StringWriter stringWriter = new StringWriter();
+        rinexFileHeader.write(stringWriter);
+
         return ResponseEntity.ok()
             .contentType(MediaType.TEXT_PLAIN)
-            .body(outputStream -> rinexFileHeader.write(new OutputStreamWriter(outputStream)));
+            .body(stringWriter.toString());
     }
 }
