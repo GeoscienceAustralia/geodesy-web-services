@@ -49,17 +49,17 @@ public class SkeletonEndpoint {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        String markerNumber = siteLog.getSiteIdentification().getIersDOMESNumber();
-        String agency = "";
-        List<SiteResponsibleParty> siteContacts = siteLog.getSiteContacts();
-        if (!siteContacts.isEmpty()) {
-            agency = siteContacts.get(0).getParty().getOrganisationName().toString();
-        }
-
         RinexFileHeader rinexFileHeader = new RinexFileHeader();
         rinexFileHeader.setMarkerName(fourCharId);
+
+        String markerNumber = siteLog.getSiteIdentification().getIersDOMESNumber();
         rinexFileHeader.setMarkerNumber(markerNumber);
-        rinexFileHeader.setAgency(agency);
+
+        List<SiteResponsibleParty> siteContacts = siteLog.getSiteContacts();
+        if (!siteContacts.isEmpty()) {
+            String agency = siteContacts.get(0).getParty().getOrganisationName().toString();
+            rinexFileHeader.setAgency(agency);
+        }
 
         List<GnssReceiverLogItem> receiverLogItemList = new ArrayList<>(siteLog.getGnssReceivers());
         if (receiverLogItemList.isEmpty()) {
