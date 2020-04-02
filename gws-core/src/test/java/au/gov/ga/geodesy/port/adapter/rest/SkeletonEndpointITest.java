@@ -31,7 +31,7 @@ public class SkeletonEndpointITest extends IntegrationTest {
     public void testFindSkeletonHeaderForALIC00AUS() throws Exception {
         String text = given()
             .when()
-            .get("/skeleton/ALIC00AUS.SKL")
+            .get("/skeletonFiles/ALIC00AUS.SKL")
             .then()
             .log().body()
             .statusCode(HttpStatus.OK.value())
@@ -47,7 +47,7 @@ public class SkeletonEndpointITest extends IntegrationTest {
     public void testFindSkeletonHeaderForALIC() throws Exception {
         String text = given()
             .when()
-            .get("/skeleton/alic.skl")
+            .get("/skeletonFiles/alic.skl")
             .then()
             .log().body()
             .statusCode(HttpStatus.OK.value())
@@ -62,7 +62,16 @@ public class SkeletonEndpointITest extends IntegrationTest {
     public void testNotFound() throws Exception {
         given()
             .when()
-            .get("/skeleton/0000.SKL")
+            .get("/skeletonFiles/0000.SKL")
+            .then()
+            .statusCode(HttpStatus.NOT_FOUND.value());
+    }
+
+    @Test
+    public void testInvalid() throws Exception {
+        given()
+            .when()
+            .get("/skeletonFiles/123456789.xyz")
             .then()
             .statusCode(HttpStatus.NOT_FOUND.value());
     }

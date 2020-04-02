@@ -24,8 +24,7 @@ import java.util.Comparator;
 import java.util.List;
 
 @RestController
-@EnableEntityLinks
-@RequestMapping("/skeleton")
+@RequestMapping("/skeletonFiles")
 public class SkeletonEndpoint {
 
     private static final Logger log = LoggerFactory.getLogger(SkeletonEndpoint.class);
@@ -50,21 +49,16 @@ public class SkeletonEndpoint {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        String markerName = fourCharId;
         String markerNumber = siteLog.getSiteIdentification().getIersDOMESNumber();
-
-        String agency = "Agency";
-        String observer = "Observer";
+        String agency = "";
         List<SiteResponsibleParty> siteContacts = siteLog.getSiteContacts();
         if (!siteContacts.isEmpty()) {
             agency = siteContacts.get(0).getParty().getOrganisationName().toString();
-            observer = siteContacts.get(0).getParty().getIndividualName();
         }
 
         RinexFileHeader rinexFileHeader = new RinexFileHeader();
-        rinexFileHeader.setMarkerName(markerName);
+        rinexFileHeader.setMarkerName(fourCharId);
         rinexFileHeader.setMarkerNumber(markerNumber);
-        rinexFileHeader.setObserver(observer);
         rinexFileHeader.setAgency(agency);
 
         List<GnssReceiverLogItem> receiverLogItemList = new ArrayList<>(siteLog.getGnssReceivers());
