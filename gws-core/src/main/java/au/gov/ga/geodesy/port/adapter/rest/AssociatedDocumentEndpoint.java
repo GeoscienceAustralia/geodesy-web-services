@@ -76,7 +76,7 @@ public class AssociatedDocumentEndpoint {
         log.info("Uploaded " + documentName + " to S3 bucket: " + objectUrl);
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.setLocation(new URI(objectUrl));
-        return new ResponseEntity<String>(responseHeaders, HttpStatus.OK);
+        return new ResponseEntity<String>(responseHeaders, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{name}")

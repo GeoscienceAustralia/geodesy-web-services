@@ -31,7 +31,7 @@ public class AssociatedDocumentEndpointITest extends IntegrationTest {
             .file(mockFile)
             .with(super.superuserToken()))
             .andDo(print)
-            .andExpect(status().isOk())
+            .andExpect(status().isCreated())
             .andExpect(header().string("location", this.fileReference));
     }
 
