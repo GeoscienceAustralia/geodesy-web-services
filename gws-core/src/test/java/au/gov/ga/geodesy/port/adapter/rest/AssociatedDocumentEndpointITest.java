@@ -3,7 +3,7 @@ package au.gov.ga.geodesy.port.adapter.rest;
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import static au.gov.ga.geodesy.port.adapter.rest.ResultHandlers.print;
@@ -32,7 +32,7 @@ public class AssociatedDocumentEndpointITest extends IntegrationTest {
             .with(super.superuserToken()))
             .andDo(print)
             .andExpect(status().isOk())
-            .andExpect(content().string(containsString(this.fileReference)));
+            .andExpect(header().string("location", this.fileReference));
     }
 
     @Test(dependsOnMethods = {"uploadDocument"})
