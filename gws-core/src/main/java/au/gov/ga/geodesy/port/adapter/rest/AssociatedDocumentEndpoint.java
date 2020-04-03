@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +34,8 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 @RepositoryRestController
 @RequestMapping("/associatedDocuments")
@@ -59,7 +62,7 @@ public class AssociatedDocumentEndpoint {
         consumes = MediaType.MULTIPART_FORM_DATA_VALUE
     )
     public ResponseEntity<String> upload(@RequestPart("file") MultipartFile file)
-            throws SdkClientException, AmazonServiceException, IOException {
+            throws SdkClientException, AmazonServiceException, URISyntaxException, IOException {
         String documentName = file.getOriginalFilename();
         ObjectMetadata objectMetadata = new ObjectMetadata();
         objectMetadata.setContentLength(file.getSize());
@@ -71,7 +74,9 @@ public class AssociatedDocumentEndpoint {
         s3Client.putObject(putObjectRequest);
         String objectUrl = s3Client.getUrl(this.bucketName, documentName).toExternalForm();
         log.info("Uploaded " + documentName + " to S3 bucket: " + objectUrl);
-        return new ResponseEntity<String>(objectUrl, HttpStatus.OK);
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.setLocation(new URI(objectUrl));
+        return new ResponseEntity<String>(responseHeaders, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{name}")
@@ -87,7 +92,7 @@ public class AssociatedDocumentEndpoint {
         }
     }
 
-    @ExceptionHandler(value = {AmazonServiceException.class, SdkClientException.class})
+    @ExceptionHandler(value = {AmazonServiceException.class, SdkClientException.class, URISyntaxException.class})
     public ResponseEntity<String> handleExceptions(Exception e) {
         log.error(e.getMessage(), e);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
