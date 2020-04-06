@@ -38,6 +38,7 @@ public class SkeletonEndpointITest extends IntegrationTest {
             .contentType("text/plain")
             .extract().body().asString();
 
+        assertThat(text, containsString("ALIC00AUS"));
         assertThat(text, containsString("ANTENNA: DELTA"));
         assertThat(text, containsString("50137M001"));
     }
