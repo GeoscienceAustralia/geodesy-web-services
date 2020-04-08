@@ -31,6 +31,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
             rsp.setHeader("Access-Control-Allow-Origin", "*");
             rsp.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE, PATCH");
             rsp.setHeader("Access-Control-Allow-Headers", "origin, content-type, accept, x-requested-with, authorization");
+            rsp.setHeader("Access-Control-Expose-Headers", "location");
             rsp.setHeader("Access-Control-Max-Age", "3600");
 
             chain.doFilter(request, response);
