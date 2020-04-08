@@ -14,6 +14,7 @@ function usage {
     exit 1
 }
 
+dryRun=""
 while [[ $# -gt 0 ]]; do
     case $1 in
         -d|--dry-run )
