@@ -50,7 +50,12 @@ public class SkeletonEndpoint {
         }
 
         RinexFileHeader rinexFileHeader = new RinexFileHeader();
-        rinexFileHeader.setMarkerName(fourCharId);
+
+        if (filename.length() == 13) {
+            rinexFileHeader.setMarkerName(filename.substring(0, 9).toUpperCase());
+        } else {
+            rinexFileHeader.setMarkerName(fourCharId);
+        }
 
         String markerNumber = siteLog.getSiteIdentification().getIersDOMESNumber();
         rinexFileHeader.setMarkerNumber(markerNumber);
