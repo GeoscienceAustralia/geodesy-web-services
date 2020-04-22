@@ -25,9 +25,14 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
     # zip bundle to $TMPDIR.
     export TMPDIR=/tmp
 
+    if  [[ $TRAVIS_BRANCH == "test" || $TRAVIS_BRANCH == "prod" ]]; then
+        targetEnv=$TRAVIS_BRANCH
+    else
+        targetEnv=dev
+    fi
     mvn --settings ./travis/maven-settings.xml site-deploy -DskipTests -pl gws-core
-    ./aws/codedeploy-WebServices/deploy.sh dev
-    ./aws/codedeploy-GeoServer/deploy.sh dev
+    ./aws/codedeploy-WebServices/deploy.sh $targetEnv
+    ./aws/codedeploy-GeoServer/deploy.sh $targetEnv
 else
     mvn --settings ./travis/maven-settings.xml verify -pl '!gws-system-test' -DredirectTestOutputToFile
 fi

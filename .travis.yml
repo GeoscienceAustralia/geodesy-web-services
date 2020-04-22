@@ -6,6 +6,8 @@ branches:
   only:
   - geodesyml-0.4
   - prod-0.2.2
+  - test
+  - prod
 cache:
   timeout: 86400
   directories:
