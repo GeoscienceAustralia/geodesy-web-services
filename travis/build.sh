@@ -10,7 +10,7 @@ sudo rm -f /etc/mavenrc
 
 mvn --settings ./travis/maven-settings.xml -U install -DskipTests > /dev/null
 
-#if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
+if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
     mvn --settings ./travis/maven-settings.xml deploy -pl '!gws-system-test' -DredirectTestOutputToFile
     mvn --settings ./travis/maven-settings.xml deploy -pl gws-system-test -DskipTests
     mvn --settings ./travis/maven-settings.xml site -DskipTests -pl gws-core
@@ -28,3 +28,6 @@ mvn --settings ./travis/maven-settings.xml -U install -DskipTests > /dev/null
     mvn --settings ./travis/maven-settings.xml site-deploy -DskipTests -pl gws-core
     ./aws/codedeploy-WebServices/deploy.sh dev
     ./aws/codedeploy-GeoServer/deploy.sh dev
+else
+    mvn --settings ./travis/maven-settings.xml verify -pl '!gws-system-test' -DredirectTestOutputToFile
+fi

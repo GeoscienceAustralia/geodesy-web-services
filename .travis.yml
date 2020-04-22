@@ -4,9 +4,6 @@ services:
 - docker
 branches:
   only:
-  - master
-  - next
-  - release-0.2.0
   - geodesyml-0.4
 cache:
   timeout: 86400
