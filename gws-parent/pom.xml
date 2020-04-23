@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>au.gov.ga.geodesy.gws</groupId>
     <artifactId>gws-parent</artifactId>
-    <version>0.2.1</version>
+    <version>0.2.2</version>
     <packaging>pom</packaging>
     <name>Geodesy Web Services Parent</name>
     <issueManagement>
@@ -50,6 +50,18 @@
         <argLine>-Xmx2048m -Xms1024m</argLine>
         <encoding>UTF-8</encoding>
     </properties>
+    <repositories>
+        <repository>
+            <id>gnss-artifactory-release</id>
+            <name>S3 GNSS Artifactory</name>
+            <url>s3://gnss-artifactory/maven-releases/</url>
+        </repository>
+        <repository>
+            <id>gnss-artifactory-snapshot</id>
+            <name>S3 GNSS Artifactory</name>
+            <url>s3://gnss-artifactory/maven-snapshots/</url>
+        </repository>
+    </repositories>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -157,6 +169,13 @@
         </dependency>
     </dependencies>
     <build>
+        <extensions>
+            <extension>
+                <groupId>com.gkatzioura.maven.cloud</groupId>
+                <artifactId>s3-storage-wagon</artifactId>
+                <version>2.0</version>
+            </extension>
+        </extensions>
         <defaultGoal>install</defaultGoal>
         <pluginManagement>
             <plugins>
@@ -327,12 +346,12 @@
     </profiles>
     <distributionManagement>
         <repository>
-            <id>nexus.gadevs</id>
-            <url>https://nexus.gadevs.ga/repository/maven-releases/</url>
+            <id>gnss-artifactory-release</id>
+            <url>s3://gnss-artifactory/maven-releases/</url>
         </repository>
         <snapshotRepository>
-            <id>nexus.gadevs</id>
-            <url>https://nexus.gadevs.ga/repository/maven-snapshots/</url>
+            <id>gnss-artifactory-snapshot</id>
+            <url>s3://gnss-artifactory/maven-snapshots/</url>
         </snapshotRepository>
         <site>
             <id>github-pages-site</id>
