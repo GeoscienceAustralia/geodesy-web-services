@@ -2,6 +2,7 @@ package au.gov.ga.geodesy.support.spring;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Set;
 import java.util.TimeZone;
 
 import org.geotools.metadata.iso.citation.TelephoneImpl;
@@ -162,7 +163,7 @@ public class GeodesyRepositoryRestMvcConfig extends RepositoryRestConfigurerAdap
             super(source, objectIdWriter, filterId);
         }
 
-        public CustomSerializer(CustomSerializer source, String[] toIgnore) {
+        public CustomSerializer(CustomSerializer source, Set<String> toIgnore) {
             super(source, toIgnore);
         }
 
@@ -170,7 +171,7 @@ public class GeodesyRepositoryRestMvcConfig extends RepositoryRestConfigurerAdap
             return new CustomSerializer(this, objectIdWriter);
         }
 
-        public BeanSerializerBase withIgnorals(String[] toIgnore) {
+        public BeanSerializerBase withIgnorals(Set<String> toIgnore) {
             return new CustomSerializer(this, toIgnore);
         }
 
