@@ -20,7 +20,7 @@ public class SetupSystemTest extends BaseSystemTest {
             .extract().response();
 
        assertThat(response.jsonPath().get("page.totalElements"), is(3));
-       assertThat(response.jsonPath().get("_embedded.setups[0].type"), is("GNSS CORS Setup"));
+       assertThat(response.jsonPath().get("_embedded.setups[0].type"), is("CorsSetup"));
        assertThat(response.jsonPath().get("_embedded.setups[0].effectivePeriod.from"), is("2011-07-20T00:00:00Z"));
        assertThat(response.jsonPath().get("_embedded.setups[0].effectivePeriod.to"), is("2013-03-08T00:00:00Z"));
     }
