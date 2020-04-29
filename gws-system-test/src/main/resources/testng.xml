@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="SystemTestSuite" verbose="1">
+<suite name="SystemTestSuite" verbose="2">
     <test name="Test">
         <classes>
             <class name="au.gov.ga.geodesy.gws.systemtest.AwsSystemTest"/>
