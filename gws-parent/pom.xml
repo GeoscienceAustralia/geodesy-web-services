@@ -76,6 +76,12 @@
                 <groupId>au.gov.ga.gnss</groupId>
                 <artifactId>gnss-support-rinex</artifactId>
                 <version>1.0.1-SNAPSHOT</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-beans</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
