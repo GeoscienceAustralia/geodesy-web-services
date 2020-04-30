@@ -1,7 +1,7 @@
 #!/usr/bin/env nix-shell
 #!nix-shell ../shell.nix -i bash
 
-set -e
+set -euo pipefail
 
 # A local installation of maven prefers to run the global installation, if available.
 sudo rm -f /etc/mavenrc
@@ -9,6 +9,14 @@ sudo rm -f /etc/mavenrc
 # We redirect maven test output to file, because Travis CI limits stdout log size to 4MB.
 
 mvn --settings ./travis/maven-settings.xml -U install -DskipTests > /dev/null
+
+case $TRAVIS_BRANCH in
+    test|prod)
+        targetEnv=$TRAVIS_BRANCH
+    ;;
+    *)
+        targetEnv=dev
+esac
 
 if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
     mvn --settings ./travis/maven-settings.xml deploy -pl '!gws-system-test' -DredirectTestOutputToFile
@@ -26,19 +34,15 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
 
     # TODO: Temporarily disable automatic deployments.
     export TMPDIR=/tmp
-    case "${TRAVIS_BRANCH}" in
-        "release-0.2.0")
-            ./aws/deploy.sh test
-            ./aws/codedeploy-WebServices/deploy.sh test
-        ;;
-        "master")
-            ./aws/deploy.sh dev
-            mvn --settings ./travis/maven-settings.xml site-deploy -DskipTests -pl gws-core
-            ./aws/codedeploy-WebServices/deploy.sh dev
-            ./aws/codedeploy-GeoServer/deploy.sh dev
-        ;;
-    esac
+
+    ./aws/deploy.sh $targetEnv
+    ./aws/codedeploy-WebServices/deploy.sh $targetEnv
+    ./aws/codedeploy-GeoServer/deploy.sh $targetEnv
+
+    if [[ $targetEnv = "prod" ]]; then
+        mvn --settings ./travis/maven-settings.xml site-deploy -DskipTests -pl gws-core
+    fi
 else
     mvn --settings ./travis/maven-settings.xml verify -pl '!gws-system-test' -DredirectTestOutputToFile
-    ./aws/deploy.sh dev --dry-run
+    ./aws/deploy.sh $targetEnv --dry-run
 fi
