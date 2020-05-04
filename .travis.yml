@@ -5,7 +5,7 @@ services:
 branches:
   only:
   - geodesyml-0.4
-  - prod-0.2.2
+  - deploy-prod-0.2.2-to-dev
   - test
   - prod
 cache:
