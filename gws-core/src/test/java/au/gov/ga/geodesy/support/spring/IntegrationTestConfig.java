@@ -8,7 +8,15 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.transaction.annotation.Transactional;
+
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+
+import com.amazonaws.client.builder.AwsClientBuilder;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 
 
 /**
@@ -41,9 +49,27 @@ public class IntegrationTestConfig {
     @Value("${dbPassword}")
     private String dbPassword;
 
+    @Value("${gnssMetadataDocumentBucketName}")
+    private String documentBucketName;
+
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
+    }
+
+    @Bean
+    public String gnssMetadataDocumentBucketName() {
+        return this.documentBucketName;
+    }
+
+    @Bean
+    public AmazonS3 s3Client() {
+        return AmazonS3ClientBuilder
+            .standard()
+            .withPathStyleAccessEnabled(true)
+            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://localhost:4572", "ap-southeast-2"))
+            .disableChunkedEncoding()
+            .build();
     }
 
     public String getDbUrl() {

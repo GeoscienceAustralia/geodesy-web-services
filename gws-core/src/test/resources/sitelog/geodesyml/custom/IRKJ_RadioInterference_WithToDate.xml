@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="IRKJ00RUS" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2">
+<geo:GeodesyML gml:id="IRKJ00RUS" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2">
     <geo:siteLog gml:id="irkj_20170130.log">
         <geo:formInformation>
-            <geo:preparedBy>Valeriy A. Emelyanov</geo:preparedBy>
-            <geo:datePrepared>2017-01-30</geo:datePrepared>
-            <geo:reportType>Update</geo:reportType>
+            <geo:FormInformation gml:id="form-information">
+                <geo:preparedBy>Valeriy A. Emelyanov</geo:preparedBy>
+                <geo:datePrepared>2017-01-30</geo:datePrepared>
+                <geo:reportType>Update</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
-            <geo:siteName>Irkutsk</geo:siteName>
-            <geo:fourCharacterID>IRKJ</geo:fourCharacterID>
-            <geo:monumentInscription>West GPS/GLONASS Geodynamical Pillar</geo:monumentInscription>
-            <geo:iersDOMESNumber>12313M002</geo:iersDOMESNumber>
-            <geo:cdpNumber></geo:cdpNumber>
-            <geo:monumentDescription codeSpace="urn:ga-gov-au:monument-description-type">PILLAR</geo:monumentDescription>
-            <geo:heightOfTheMonument>2.5</geo:heightOfTheMonument>
-            <geo:monumentFoundation>CONCRETE BLOCK</geo:monumentFoundation>
-            <geo:foundationDepth>2.7</geo:foundationDepth>
-            <geo:markerDescription>Metal bolt with chiseled point</geo:markerDescription>
-            <geo:dateInstalled>1995-08-23T00:00:00Z</geo:dateInstalled>
-            <geo:geologicCharacteristic codeSpace="urn:ga-gov-au:geologic-characteristic-type">Jurassic sandstone with low fracture</geo:geologicCharacteristic>
-            <geo:bedrockType>SEDIMENTARY</geo:bedrockType>
-            <geo:bedrockCondition>WEATHERED</geo:bedrockCondition>
-            <geo:fractureSpacing>1-10 cm</geo:fractureSpacing>
-            <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type">Baikal Rift Zone</geo:faultZonesNearby>
-            <geo:notes>on a distance near 70 km. Distance to the
+            <geo:SiteIdentification gml:id="site-identification">
+                <geo:siteName>Irkutsk</geo:siteName>
+                <geo:fourCharacterID>IRKJ</geo:fourCharacterID>
+                <geo:monumentInscription>West GPS/GLONASS Geodynamical Pillar</geo:monumentInscription>
+                <geo:iersDOMESNumber>12313M002</geo:iersDOMESNumber>
+                <geo:cdpNumber></geo:cdpNumber>
+                <geo:monumentDescription codeSpace="urn:ga-gov-au:monument-description-type">PILLAR</geo:monumentDescription>
+                <geo:heightOfTheMonument>2.5</geo:heightOfTheMonument>
+                <geo:monumentFoundation>CONCRETE BLOCK</geo:monumentFoundation>
+                <geo:foundationDepth>2.7</geo:foundationDepth>
+                <geo:markerDescription>Metal bolt with chiseled point</geo:markerDescription>
+                <geo:dateInstalled>1995-08-23T00:00:00Z</geo:dateInstalled>
+                <geo:geologicCharacteristic codeSpace="urn:ga-gov-au:geologic-characteristic-type">Jurassic sandstone with low fracture</geo:geologicCharacteristic>
+                <geo:bedrockType>SEDIMENTARY</geo:bedrockType>
+                <geo:bedrockCondition>WEATHERED</geo:bedrockCondition>
+                <geo:fractureSpacing>1-10 cm</geo:fractureSpacing>
+                <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type">Baikal Rift Zone</geo:faultZonesNearby>
+                <geo:notes>on a distance near 70 km. Distance to the
 nearest possible landslide spot is 1 km.
 Local earthquakes not observed. Transit
 earthquakes from Baikal Rift Zone are possible
@@ -34,30 +37,33 @@ installed on a bedrock. Pillar is surrounded
 by metal tube having diameter 1m. The space
 between a pillar and tube filled up by coal
 clinker.</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
-            <geo:city>Irkutsk</geo:city>
-            <geo:state></geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_CountryTypeCode" codeListValue="Russian Federation" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">Russian Federation</geo:countryCodeISO>
-            <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">EURASIAN, SIBERIAN PLATFORM</geo:tectonicPlate>
-            <geo:approximatePositionITRF>
-                <geo:cartesianPosition>
-                    <gml:Point gml:id="itrf_cartesian" srsName="EPSG:7789">
-                        <gml:pos>-4130636.589 2894953.121 -3890530.442</gml:pos>
-                    </gml:Point>
-                </geo:cartesianPosition>
-                <geo:geodeticPosition>
-                    <gml:Point gml:id="itrf_geodetic" srsName="EPSG:7912">
-                        <gml:pos>-37.8294054083 144.975340194 40.578</gml:pos>
-                    </gml:Point>
-                </geo:geodeticPosition>
-            </geo:approximatePositionITRF>
-            <geo:notes></geo:notes>
+            <geo:SiteLocation gml:id="site-location">
+                <geo:city>Irkutsk</geo:city>
+                <geo:state></geo:state>
+                <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_CountryTypeCode" codeListValue="Russian Federation" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">Russian Federation</geo:countryCodeISO>
+                <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">EURASIAN, SIBERIAN PLATFORM</geo:tectonicPlate>
+                <geo:approximatePositionITRF>
+                    <geo:cartesianPosition>
+                        <gml:Point gml:id="itrf_cartesian" srsName="EPSG:7789">
+                            <gml:pos>-4130636.589 2894953.121 -3890530.442</gml:pos>
+                        </gml:Point>
+                    </geo:cartesianPosition>
+                    <geo:geodeticPosition>
+                        <gml:Point gml:id="itrf_geodetic" srsName="EPSG:7912">
+                            <gml:pos>-37.8294054083 144.975340194 40.578</gml:pos>
+                        </gml:Point>
+                    </geo:geodeticPosition>
+                </geo:approximatePositionITRF>
+                <geo:notes></geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:manufacturerSerialNumber>00517 Rev.3</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS LEGACY</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS LEGACY</geo:igsModelCode>
                 <geo:satelliteSystem>GPS+GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.2</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>10.0</geo:elevationCutoffSetting>
@@ -70,7 +76,7 @@ clinker.</geo:notes>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:manufacturerSerialNumber>00517 Rev.3</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS LEGACY</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS LEGACY</geo:igsModelCode>
                 <geo:satelliteSystem>GPS+GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.6.0 OCT,24,2007 OB</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -96,7 +102,7 @@ confirmation of the actual antenna subtype, the
 change is being made for RINEX consistency and
 consistency of the ACs.</geo:notes>
                 <geo:manufacturerSerialNumber>RA0225</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="JPSREGANT_SD_E1 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPSREGANT_SD_E1 NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="JPSREGANT_SD_E1 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPSREGANT_SD_E1 NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.128</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -376,15 +382,16 @@ RUSSIA</gco:CharacterString>
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
-            <geo:dataCenter></geo:dataCenter>
-            <geo:dataCenter></geo:dataCenter>
-            <geo:urlForMoreInformation></geo:urlForMoreInformation>
-            <geo:siteMap>N</geo:siteMap>
-            <geo:siteDiagram>N</geo:siteDiagram>
-            <geo:horizonMask>N</geo:horizonMask>
-            <geo:monumentDescription>N</geo:monumentDescription>
-            <geo:sitePictures>N</geo:sitePictures>
-            <geo:notes>There are next pictures in electronic
+            <geo:MoreInformation gml:id="more-information">
+                <geo:dataCenter></geo:dataCenter>
+                <geo:dataCenter></geo:dataCenter>
+                <geo:urlForMoreInformation></geo:urlForMoreInformation>
+                <geo:siteMap>N</geo:siteMap>
+                <geo:siteDiagram>N</geo:siteDiagram>
+                <geo:horizonMask>N</geo:horizonMask>
+                <geo:monumentDescription>N</geo:monumentDescription>
+                <geo:sitePictures>N</geo:sitePictures>
+                <geo:notes>There are next pictures in electronic
 form attaching to this Log-file
 Site Maps named IrkSitMap.gif and SITMAP.BMP
 Site Diagram named SITEDIAG.BMP
@@ -393,9 +400,10 @@ Monument Design named GGPILLAR.BMP
 Antenna installation on a top of pillar
 named ANTINST.BMP
 Site Pictures</geo:notes>
-            <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
-            <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
-            <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+                <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
+                <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
+                <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

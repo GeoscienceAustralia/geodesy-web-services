@@ -40,6 +40,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
             .antMatchers(HttpMethod.PUT, "/setups/request/updateSetups").hasAuthority("superuser")
 
+            .antMatchers(HttpMethod.POST, "/associatedDocuments/").authenticated()
+            .antMatchers(HttpMethod.DELETE, "/associatedDocuments/**").authenticated()
+
             .antMatchers(HttpMethod.POST, "/newCorsSiteRequests").authenticated()
             .antMatchers(HttpMethod.POST, "/siteLogs/upload").authenticated()
             .antMatchers(HttpMethod.GET, "/siteLogs/isAuthorisedToUpload").authenticated()

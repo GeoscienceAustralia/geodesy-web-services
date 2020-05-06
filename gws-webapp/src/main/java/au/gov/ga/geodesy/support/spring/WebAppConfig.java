@@ -50,7 +50,7 @@ public class WebAppConfig {
         try {
             // TODO: find the best way to load resources, javadoc says that ResourceUtils is
             // mosty a spring-internal utility class.
-            URL catalogURL = ResourceUtils.getURL("classpath:xsd/geodesyml-0.2.0/catalog.xml");
+            URL catalogURL = ResourceUtils.getURL("classpath:xsd/geodesyml-0.3.0/catalog.xml");
             catalogPath = catalogURL.getPath();
         } catch (IOException e) {
             logger.error("Failed to find the catalog.xml file on the classpath. Check the package structure.", e);

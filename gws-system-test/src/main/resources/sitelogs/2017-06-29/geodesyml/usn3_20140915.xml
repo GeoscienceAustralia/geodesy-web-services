@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="USN300USA" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="USN300USA" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="usn3_20140915.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Tatevik Shakhbandaryan</geo:preparedBy>
             <geo:datePrepared>2014-09-15</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>U.S. Naval Observatory Time Service</geo:siteName>
             <geo:fourCharacterID>USN3</geo:fourCharacterID>
             <geo:monumentInscription>NONE</geo:monumentInscription>
@@ -23,11 +26,13 @@
             <geo:fractureSpacing></geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type"></geo:faultZonesNearby>
             <geo:notes>(multiple lines) The antenna is mounted on a baseball diamond shaped aluminum structure mounted on the roof (2 stories) of the Time Service department building at the U.S. Naval Observatory, Washington. D.C..  There are nearby geodetic markers, but this antenna has not been surveyed to those markers. (see accompanying pictures). USN3 functionally replaces USN1.</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Washington</geo:city>
             <geo:state>D.C.</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="United States" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">USA</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="United States" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">USA</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">NORTH AMERICAN</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -42,11 +47,12 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes></geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:manufacturerSerialNumber>RT920012203</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH Z-XII3T" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASHTECH Z-XII3T</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH Z-XII3T" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASHTECH Z-XII3T</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>IL01-1D04-MCF-12MX</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -60,7 +66,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:notes>This antenna is a standard AOAD/M_T using a special LNA designed to have a flat group delay response at both L1 and L2.  Because of this flat group delay response the thermal sensitivity of this antenna should be much improved over what is typically found in this antenna type. Antenna Group Delay at L1 = 26.63 NS Antenna Group Delay at L2 = 27.93 NS  Antenna cable 28-JUNE-2004 to present - Andrew FSJ1-50A (35422-33 phase stabilized) 1/4 inch Superflexible Foam Dielectric Heliax -- physical length 150 feet (45 m), mostly run in ceiling and floor of USNO Bldg 78; specifications - Velocity factor 0.84 DC resistance 2 to 3 ohms per 1000 foot Capacitance, 24.2 pF/foot Inductance, .061 uH/foot Loss at 1250 MHz   6.77 dB/100 foot Loss at 1500 MHz   7.47 dB/100 foot Electrical Length Change versus Temperature - 400 PPM over (-40 to 30 C) or 5.7 PPM/C =&gt; 0.02 ps/m/C  Antenna splitter - USNO specially designed antenna splitter that has &gt; 100 db port to port isolation and flat group delay response at L1 and L2. Antenna splitter cable - from splitter to receiver. The Antenna splitter cable is attached to a DC block and 20db PAD at the receiver input to improve impedance matching.  The measured delays through each component of the system are summarized in the table below - L1(ns)          L2(ns) ---------       --------- antenna total      26.63           27.93 antenna cable     182.4           182.4 antenna splitter    5.76            6.31 cable to receiver   8.57            8.57 DC block and 20db PAD                 0.50            0.50 receiver w/ a +5.0 ns delay between on-time signal and 20MHZ.            246.4           257.8 Total               470.26          483.51  Net Delay at P3 would be 449.86 ns  Note - These delay have already been added to RAW psudorange data and they should not be added to any solutions.</geo:notes>
                 <geo:manufacturerSerialNumber>458</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -79,7 +85,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-2">
                 <geo:notes>This antenna is a standard AOAD/M_T using a special LNA designed to have a flat group delay response at both L1 and L2.  Because of this flat group delay response the thermal sensitivity of this antenna should be much improved over what is typically found in this antenna type. Antenna Group Delay at L1 = 24.13 NS Antenna Group Delay at L2 = 25.93 NS  Antenna cable 28-JUNE-2004 to present - Andrew FSJ1-50A (35422-33 phase stabilized) 1/4 inch Superflexible Foam Dielectric Heliax -- physical length 150 feet (45 m), mostly run in ceiling and floor of USNO Bldg 78; specifications - Velocity factor 0.84 DC resistance 2 to 3 ohms per 1000 foot Capacitance, 24.2 pF/foot Inductance, .061 uH/foot Loss at 1250 MHz   6.77 dB/100 foot Loss at 1500 MHz   7.47 dB/100 foot Electrical Length Change versus Temperature - 400 PPM over (-40 to 30 C) or 5.7 PPM/C =&gt; 0.02 ps/m/C  Antenna splitter - USNO specially designed antenna splitter that has &gt; 100 db port to port isolation and flat group delay response at L1 and L2. Antenna splitter cable - from splitter to receiver. The Antenna splitter cable is attached to a DC block and 20db PAD at the receiver input to improve impedance matching.  The measured delays through each component of the system are summarized in the table below - L1(ns)          L2(ns) ---------       --------- antenna total      24.13           25.93 antenna cable     182.40          182.40 antenna splitter    7.04            7.25 cable to receiver   8.57            8.57 DC block and 20db PAD                 0.50            0.50 receiver w/ a +5.0 ns delay between on-time signal and 20MHZ.          239.71          253.75 Total             462.35          478.40  Net Delay at P3 would be 437.54 ns  NOTE: These delays have already been added to RAW psudorange data and they should not be added to any solutions.</geo:notes>
                 <geo:manufacturerSerialNumber>KW5-0258</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -98,7 +104,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-3">
                 <geo:notes>This antenna is a standard AOAD/M_T using a special LNA designed to have a flat group delay response at both L1 and L2.  Because of this flat group delay response the thermal sensitivity of this antenna should be much improved over what is typically found in this antenna type. Antenna Group Delay at L1 = 24.13 NS Antenna Group Delay at L2 = 25.93 NS  Antenna cable 28-JUNE-2004 to present - Andrew FSJ1-50A (35422-33 phase stabilized) 1/4 inch Superflexible Foam Dielectric Heliax -- physical length 150 feet (45 m), mostly run in ceiling and floor of USNO Bldg 78; specifications - Velocity factor 0.84 DC resistance 2 to 3 ohms per 1000 foot Capacitance, 24.2 pF/foot Inductance, .061 uH/foot Loss at 1250 MHz   6.77 dB/100 foot Loss at 1500 MHz   7.47 dB/100 foot Electrical Length Change versus Temperature - 400 PPM over (-40 to 30 C) or 5.7 PPM/C =&gt; 0.02 ps/m/C  Antenna splitter - USNO specially designed antenna splitter that has &gt; 100 db port to port isolation and flat group delay response at L1 and L2. Antenna splitter cable - from splitter to receiver. The Antenna splitter cable is attached to a DC block and 20db PAD at the receiver input to improve impedance matching.  The measured delays through each component of the system are summarized in the table below - L1(ns)          L2(ns) ---------       --------- antenna total      24.13           25.93 antenna cable     182.40          182.40 antenna splitter    7.04            7.25 cable to receiver   8.57            8.57 DC block and 20db PAD                 0.50            0.50 receiver w/ a +5.0 ns delay between on-time signal and 20MHZ.          256.73          270.95 Total             479.37          495.60  Net Delay at P3 would be 454.28 ns  NOTE: These delays have already been added to RAW psudorange data and they should not be added to any solutions.</geo:notes>
                 <geo:manufacturerSerialNumber>KW5-0258</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -117,7 +123,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-4">
                 <geo:notes>This antenna is a standard AOAD/M_T using a special LNA designed to have a flat group delay response at both L1 and L2.  Because of this flat group delay response the thermal sensitivity of this antenna should be much improved over what is typically found in this antenna type. Antenna Group Delay at L1 = 24.13 NS Antenna Group Delay at L2 = 25.93 NS  Antenna cable 14-April-2009 to present - Andrew FSJ1-50A (35422-33 phase stabilized) 1/4 inch Superflexible Foam Dielectric Heliax -- physical length 130 feet (39 m), mostly run in ceiling and floor of USNO Bldg 78; specifications - Velocity factor 0.84 DC resistance 2 to 3 ohms per 1000 foot Capacitance, 24.2 pF/foot Inductance, .061 uH/foot Loss at 1250 MHz   6.77 dB/100 foot Loss at 1500 MHz   7.47 dB/100 foot Electrical Length Change versus Temperature - 400 PPM over (-40 to 30 C) or 5.7 PPM/C =&gt; 0.02 ps/m/C  Antenna splitter - USNO specially designed antenna splitter that has &gt; 100 db port to port isolation and flat group delay response at L1 and L2. Antenna splitter cable - from splitter to receiver. The Antenna splitter cable is attached to a DC block and 20db PAD at the receiver input to improve impedance matching.  The measured delays through each component of the system are summarized in the table below - L1(ns)          L2(ns) ---------       --------- antenna total      24.13           25.93 antenna cable     150.10          150.10 antenna splitter    7.70            7.90 cable to receiver   6.36            6.36 DC block and 20db PAD                 0.50            0.50 receiver w/ a +5.0 ns delay between on-time signal and 20MHZ.          278.98          293.20 Total             467.77          483.99  Net Delay at P3 would be 442.70 ns  NOTE: These delays have already been added to RAW psudorange data and they should not be added to any solutions.</geo:notes>
                 <geo:manufacturerSerialNumber>KW5-0258</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -374,6 +380,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>JPL</geo:dataCenter>
             <geo:dataCenter>CDDIS</geo:dataCenter>
             <geo:urlForMoreInformation></geo:urlForMoreInformation>
@@ -386,6 +393,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>
