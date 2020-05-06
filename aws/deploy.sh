@@ -37,7 +37,10 @@ if [[ -z $env ]]; then
     usage
 fi
 
-if [[ $env != "prod" ]]; then
+if [[ $env == "prod" ]]; then
+    export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_GNSS_METADATA_PROD
+    export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_GNSS_METADATA_PROD
+else
     export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_GNSS_METADATA_NONPROD
     export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_GNSS_METADATA_NONPROD
 fi
