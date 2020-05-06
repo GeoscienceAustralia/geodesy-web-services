@@ -81,6 +81,11 @@ public class SiteLog {
 
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOG_ASSOCIATEDDOCUMENT"))
+    protected Set<AssociatedDocument> associatedDocuments = new HashSet<>();
+
+    @Valid
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOG_GNSS_RECEIVER"))
     protected Set<GnssReceiverLogItem> gnssReceivers = new HashSet<>();
 
@@ -229,6 +234,20 @@ public class SiteLog {
      */
     public void setSiteLocation(SiteLocation value) {
         this.siteLocation = value;
+    }
+
+    /**
+     * Return associated documents.
+     */
+    public Set<AssociatedDocument> getAssociatedDocuments() {
+        return associatedDocuments;
+    }
+
+    /**
+     * Set associated documents.
+     */
+    public void setAssociatedDocuments(Set<AssociatedDocument> documents) {
+        this.associatedDocuments = documents;
     }
 
     /**

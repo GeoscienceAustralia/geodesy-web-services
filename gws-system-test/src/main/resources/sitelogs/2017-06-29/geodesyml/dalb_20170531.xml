@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="DALB00AUS" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="DALB00AUS" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="dalb_20170531.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Darren Burns</geo:preparedBy>
             <geo:datePrepared>2017-05-31</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>Dalby SunPOZ</geo:siteName>
             <geo:fourCharacterID>DALB</geo:fourCharacterID>
             <geo:monumentInscription></geo:monumentInscription>
@@ -24,11 +27,13 @@
             <geo:fractureSpacing>(1-10 cm/11-50 cm/51-200 cm/over 200 cm)</geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type">(YES/NO/Name of the zone)</geo:faultZonesNearby>
             <geo:notes>Monument is a Braced Steel Mast bolted to the roof bearers of a steel framed industrial building.  State Permanent Survey Mark No. 753334 in Survey Control Database.</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Dalby</geo:city>
             <geo:state>Queensland</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Australia" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AUS</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Australia" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AUS</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">Australian</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -43,11 +48,12 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes>SunPOZ Network GDA coordinates from GA Regulation 13 Processing</geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:manufacturerSerialNumber>4720K05871</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR5" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETR5</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR5" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETR5</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>4.03</geo:firmwareVersion>
@@ -61,7 +67,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:manufacturerSerialNumber>4720K05871</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR5" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETR5</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR5" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETR5</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>4.17</geo:firmwareVersion>
@@ -76,7 +82,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-3">
                 <geo:notes>Firmware Update</geo:notes>
                 <geo:manufacturerSerialNumber>4720K05871</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR5" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETR5</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR5" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETR5</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>4.22</geo:firmwareVersion>
@@ -91,7 +97,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-4">
                 <geo:notes>Firmware Update</geo:notes>
                 <geo:manufacturerSerialNumber>4720K05871</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR5" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETR5</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR5" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETR5</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>4.48</geo:firmwareVersion>
@@ -106,7 +112,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-5">
                 <geo:notes>Receiver Replacement</geo:notes>
                 <geo:manufacturerSerialNumber>5543R50138</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETR9</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETR9</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -124,7 +130,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-6">
                 <geo:notes>Firmware Update</geo:notes>
                 <geo:manufacturerSerialNumber>5543R50138</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETR9</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETR9</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -142,7 +148,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-7">
                 <geo:notes>Firmware Update</geo:notes>
                 <geo:manufacturerSerialNumber>5543R50138</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETR9</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETR9</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -159,7 +165,7 @@
         <geo:gnssAntenna>
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:manufacturerSerialNumber>4822A53935</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM59800.00 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRM59800.00     NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM59800.00 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRM59800.00     NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.006</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -371,6 +377,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>SunPOZ (QDNRM)</geo:dataCenter>
             <geo:dataCenter>Geoscience Australia</geo:dataCenter>
             <geo:urlForMoreInformation></geo:urlForMoreInformation>
@@ -383,6 +390,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

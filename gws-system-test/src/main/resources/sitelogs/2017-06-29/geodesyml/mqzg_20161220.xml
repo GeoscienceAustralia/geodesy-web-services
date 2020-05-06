@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="MQZG00NZL" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="MQZG00NZL" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="mqzg_20161220.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Elisabetta D'Anastasio</geo:preparedBy>
             <geo:datePrepared>2016-12-20</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>McQueens Valley</geo:siteName>
             <geo:fourCharacterID>MQZG</geo:fourCharacterID>
             <geo:monumentInscription>none</geo:monumentInscription>
@@ -24,11 +27,13 @@
             <geo:fractureSpacing>unknown</geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type">YES</geo:faultZonesNearby>
             <geo:notes>Monument construction: Three lengths of 10 mm diameter stainless steel threaded rod were grouted into holes drilled 200-250 mm into the surface outcrop.  Then a vertical reinforced concrete pillar was built around the threaded rod using a 400 mm diameter PVC pipe as a form. The concrete for the pillar was poured some weeks earlier than the installation of the GPS equipment and start of recording. Foundation: 10-mm diameter stainless threaded rod drilled and grouted to a depth of 200-250 mm in solid surface outcrop. Marker description: 5/8 inch thread in centre of 150 mm diameter stainless steel plate set horizontally in top of 400 mm diameter concrete pillar.  The surface of the stainless plate serves as the height reference point.</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Christchurch</geo:city>
             <geo:state>Canterbury</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="New Zealand" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">NZL</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="New Zealand" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">NZL</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">PACIFIC</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -43,12 +48,13 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes>Less than 1 km from the MQZ national broad-band seismic station. Communication is by radio-modem to the seismic station then by VSAT. Solar powered.</geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:notes>Only sporadic data collected prior to 7 January 2000.</geo:notes>
                 <geo:manufacturerSerialNumber>3832A23786</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE 4000SSI" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE 4000SSI</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE 4000SSI" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE 4000SSI</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>7.29</geo:firmwareVersion>
                 <geo:elevationCutoffSetting xsi:nil="true"></geo:elevationCutoffSetting>
@@ -62,7 +68,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:notes>Changed in order to reduce the number of receiver and antenna types in the GNS CGPS network. A temporary station was operated a few metres away for a few days before and after the exchange in order to calibrate any offset.  This station is 1MQZ in the GNS rinex database.</geo:notes>
                 <geo:manufacturerSerialNumber>419994103</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH Z-XII3" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASHTECH Z-XII3</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH Z-XII3" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASHTECH Z-XII3</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>CD00</geo:firmwareVersion>
                 <geo:elevationCutoffSetting xsi:nil="true"></geo:elevationCutoffSetting>
@@ -75,7 +81,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-3">
                 <geo:manufacturerSerialNumber>4435237663</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETRS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETRS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>0.0-1</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -88,7 +94,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-4">
                 <geo:manufacturerSerialNumber>4435237663</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETRS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETRS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>1.0-3</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -101,7 +107,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-5">
                 <geo:manufacturerSerialNumber>4435237663</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETRS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETRS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>1.1-3</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -114,7 +120,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-6">
                 <geo:manufacturerSerialNumber>4435237663</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETRS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETRS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>1.1-5</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -127,7 +133,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-7">
                 <geo:manufacturerSerialNumber>4445240416</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETRS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETRS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>1.1-5</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -141,7 +147,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-8">
                 <geo:notes>An nearby temporary mark was observed for several days before and after the exchange in order to calibrate any offset in the position time series.</geo:notes>
                 <geo:manufacturerSerialNumber>5049K72153</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETR9</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETR9</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>4.17</geo:firmwareVersion>
@@ -155,7 +161,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-9">
                 <geo:manufacturerSerialNumber>5049K72153</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETR9</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETR9</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>4.85</geo:firmwareVersion>
@@ -170,7 +176,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-10">
                 <geo:notes>Galileo, BeiDou and QZSS enabled with this firmware upgrade</geo:notes>
                 <geo:manufacturerSerialNumber>5049K72153</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETR9</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETR9</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -188,7 +194,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-11">
                 <geo:notes>firmware upgrade</geo:notes>
                 <geo:manufacturerSerialNumber>5049K72153</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETR9</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETR9</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -205,7 +211,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-12">
                 <geo:manufacturerSerialNumber>5049K72153</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETR9</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETR9</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -223,7 +229,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:notes>Antenna was oriented at 135 magnetic azimuth prior to 21 January 2000, after which it was oriented to true north.</geo:notes>
                 <geo:manufacturerSerialNumber>0220148020</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM29659.00 LEIS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRM29659.00     LEIS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM29659.00 LEIS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRM29659.00     LEIS</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -242,7 +248,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-2">
                 <geo:notes>Antenna now correctly oriented.</geo:notes>
                 <geo:manufacturerSerialNumber>0220148020</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM29659.00 LEIS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRM29659.00     LEIS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM29659.00 LEIS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRM29659.00     LEIS</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0011</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -261,7 +267,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-3">
                 <geo:notes>A temporary station was operated a few metres away for a few days before and after the antenna exchange in order to calibrate any offset.  This station is 1MQZ in the GNS rinex database.</geo:notes>
                 <geo:manufacturerSerialNumber>19993905</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701945B_M SCIS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASH701945B_M    SCIS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701945B_M SCIS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASH701945B_M    SCIS</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0002</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -280,7 +286,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-4">
                 <geo:notes>A temporary station was operated a few metres away for a few days before and after the antenna exchange in order to calibrate any apparent offset.  This is MQZT in the GNS rinex database.</geo:notes>
                 <geo:manufacturerSerialNumber>12379191</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM41249.00 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRM41249.00     NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM41249.00 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRM41249.00     NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BAM</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.055</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -299,7 +305,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-5">
                 <geo:notes>A temporary station was operated a few metres away for a few days before and after the antenna exchange in order to calibrate any apparent offset.</geo:notes>
                 <geo:manufacturerSerialNumber>1441031138</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM57971.00 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRM57971.00     NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM57971.00 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRM57971.00     NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BAM</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.055</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -602,6 +608,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>CDDIS</geo:dataCenter>
             <geo:dataCenter>IGN</geo:dataCenter>
             <geo:urlForMoreInformation>www.geonet.org.nz</geo:urlForMoreInformation>
@@ -614,6 +621,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

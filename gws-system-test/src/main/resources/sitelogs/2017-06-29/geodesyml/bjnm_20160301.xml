@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="BJNM00CHN" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="BJNM00CHN" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="bjnm_20160301.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>LIANG Kun</geo:preparedBy>
             <geo:datePrepared>2016-03-01</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>BJNM antenna at NIM</geo:siteName>
             <geo:fourCharacterID>BJNM</geo:fourCharacterID>
             <geo:monumentInscription></geo:monumentInscription>
@@ -22,11 +25,13 @@
             <geo:fractureSpacing></geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type"></geo:faultZonesNearby>
             <geo:notes>Antenna is fixed in the round northeast corner of the metal rack layed in the fixed position on the top of Building 20# of the experimental base at NIM</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Beijing</geo:city>
             <geo:state>Beijing</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="China" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">CHN</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="China" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">CHN</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">EURASIAN</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -41,12 +46,13 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes></geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:notes>Firmware corrected on 2016-03-01</geo:notes>
                 <geo:manufacturerSerialNumber>2001087</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX3ETR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">SEPT POLARX3ETR</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX3ETR" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">SEPT POLARX3ETR</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.1</geo:firmwareVersion>
@@ -61,7 +67,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:notes>Antenna serial number corrected on 2016-03-01</geo:notes>
                 <geo:manufacturerSerialNumber>NAE09190046</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="NOV702GG NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">NOV702GG        NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="NOV702GG NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">NOV702GG        NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BAM</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -317,6 +323,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>CDDIS</geo:dataCenter>
             <geo:dataCenter>SIO</geo:dataCenter>
             <geo:urlForMoreInformation></geo:urlForMoreInformation>
@@ -329,6 +336,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="NIST00USA" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="NIST00USA" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="nist_20150514.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Bijunath R. Patla</geo:preparedBy>
             <geo:datePrepared>2015-05-14</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>NIST antenna at NIST</geo:siteName>
             <geo:fourCharacterID>NIST</geo:fourCharacterID>
             <geo:monumentInscription></geo:monumentInscription>
@@ -22,11 +25,13 @@
             <geo:fractureSpacing></geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type"></geo:faultZonesNearby>
             <geo:notes>The reference is antenna ARP only, mounted on a forced centering threaded rod that is bolted to a metal tower.  The tower sits on the roof of NIST Building 1.</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Boulder</geo:city>
             <geo:state>Colorado</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="United States" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">USA</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="United States" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">USA</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">NORTH AMERICAN</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -41,11 +46,12 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes>Lattitude = 39.99506714 (deg) WGS84 Longitude = -105.26260446 (deg) WGS84 Height    = 1648.488 (m) WGS84 Ell.</geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:manufacturerSerialNumber>SWU04029169</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="NOV OEM4-G2" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">NOV OEM4-G2</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="NOV OEM4-G2" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">NOV OEM4-G2</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>2.200-L1L2W</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>5.0</geo:elevationCutoffSetting>
@@ -58,7 +64,7 @@
         <geo:gnssAntenna>
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:manufacturerSerialNumber>04230007</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="NOV702 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">NOV702          NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="NOV702 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">NOV702          NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BAM</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -320,6 +326,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>JPL</geo:dataCenter>
             <geo:dataCenter>NONE</geo:dataCenter>
             <geo:urlForMoreInformation>http://tf.nist.gov/</geo:urlForMoreInformation>
@@ -332,6 +339,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

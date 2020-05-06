@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="YAR100AUS" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="YAR100AUS" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="yar1_20140926.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Tatevik Shakhbandaryan</geo:preparedBy>
             <geo:datePrepared>2014-09-26</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>Yaragadee</geo:siteName>
             <geo:fourCharacterID>YAR1</geo:fourCharacterID>
             <geo:monumentInscription>7090-RM4</geo:monumentInscription>
@@ -24,11 +27,13 @@
             <geo:fractureSpacing></geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type"></geo:faultZonesNearby>
             <geo:notes>Jurassic Yaragadee Formation; sandstone, siltstone, shale. The terrain is covered by low scrub. The site is on the edge of an escarpment running northeast from which a flat plateau extends towards the north. Geologic Province DONGARA 95,RM4 is the unique national identifier for the punch mark in the top centre of a brass rod 0.010 meter diameter set in concrete. The GPS antenna is set over this mark. Geological information from &quot;NASA Space Geodesy Program Memorandum 4482&quot; p631. No CDP number listed in &quot;ITRF94 Table T2, Directory of IERS Stations&quot; pT25. exact date in 1990 not known</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Mingenew</geo:city>
             <geo:state>Western Australia</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Australia" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AUS</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Australia" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AUS</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">AUSTRALIAN</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -43,12 +48,13 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes>The site is located on the west coast of Australia, 53 miles east southeast of Geraldtown and 218 miles north of Perth. Site description information from &quot;NASA Space Geodesy Program Tech. Memorandum 4482&quot; p631. Latitude and Longitude derived from Table 6 &quot;ITRF94 Class B Station Coordinates at Epoch 1993.0&quot;, pT69.</geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:notes>Frequency standard-Cesium</geo:notes>
                 <geo:manufacturerSerialNumber>09</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>5.6</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -62,7 +68,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:notes>Frequency standard-Cesium</geo:notes>
                 <geo:manufacturerSerialNumber>09</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>7.0</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -76,7 +82,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-3">
                 <geo:notes>Frequency standard-Cesium</geo:notes>
                 <geo:manufacturerSerialNumber>09</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>7.3</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -90,7 +96,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-4">
                 <geo:notes>Frequency standard-Cesium</geo:notes>
                 <geo:manufacturerSerialNumber>09</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>7.4</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -104,7 +110,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-5">
                 <geo:notes>Frequency standard-Cesium</geo:notes>
                 <geo:manufacturerSerialNumber>09</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>7.5</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -118,7 +124,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-6">
                 <geo:notes>Frequency standard-Cesium</geo:notes>
                 <geo:manufacturerSerialNumber>09</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>7.8</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -131,7 +137,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-7">
                 <geo:manufacturerSerialNumber>R133</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8100" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8100</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8100" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8100</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.2</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -144,7 +150,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-8">
                 <geo:manufacturerSerialNumber>R133</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8100" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8100</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8100" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8100</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.2.32.8</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -158,7 +164,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:notes>JPL Design</geo:notes>
                 <geo:manufacturerSerialNumber>03 (JPL choke ring #010)</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="JPLD/M_R NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPLD/M_R        NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="JPLD/M_R NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPLD/M_R        NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BCR</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.073</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -177,7 +183,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-2">
                 <geo:notes>New antenna mount</geo:notes>
                 <geo:manufacturerSerialNumber>489</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0814</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -196,7 +202,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-3">
                 <geo:notes>both YAR1/YAR2 had tracking problems with the previous antenna</geo:notes>
                 <geo:manufacturerSerialNumber>310</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0814</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -544,6 +550,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>JPL</geo:dataCenter>
             <geo:dataCenter>CDDIS</geo:dataCenter>
             <geo:urlForMoreInformation></geo:urlForMoreInformation>
@@ -556,6 +563,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

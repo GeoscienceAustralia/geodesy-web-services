@@ -35,5 +35,8 @@ in
     ];
     shellHook = ''
       export SSL_CERT_FILE="${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"
+      if [ -e "./aws/aws-env.sh" ]; then
+        . ./aws/aws-env.sh
+      fi
     '';
   } ""

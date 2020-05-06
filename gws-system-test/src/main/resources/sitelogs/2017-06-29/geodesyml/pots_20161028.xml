@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="POTS00DEU" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="POTS00DEU" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="pots_20161028.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Markus Bradke</geo:preparedBy>
             <geo:datePrepared>2016-10-28</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>Potsdam, GeoForschungsZentrum</geo:siteName>
             <geo:fourCharacterID>POTS</geo:fourCharacterID>
             <geo:monumentInscription>Geodetic pillar North-East on building</geo:monumentInscription>
@@ -23,11 +26,13 @@
             <geo:fractureSpacing></geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type"></geo:faultZonesNearby>
             <geo:notes></geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Potsdam</geo:city>
             <geo:state>Brandenburg</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Germany" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">DEU</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Germany" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">DEU</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">EURASIAN</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -42,11 +47,12 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes></geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:manufacturerSerialNumber>289</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8000" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8000</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8000" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8000</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>2.8.32.1X</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -59,7 +65,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:manufacturerSerialNumber>279</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8000" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8000</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8000" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8000</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.2</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -72,7 +78,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-3">
                 <geo:manufacturerSerialNumber>289</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8000" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8000</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8000" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8000</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.2</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -85,7 +91,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-4">
                 <geo:manufacturerSerialNumber>281</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-8000 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA SNR-8000 ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-8000 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA SNR-8000 ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.2.32.9</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>4.0</geo:elevationCutoffSetting>
@@ -98,7 +104,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-5">
                 <geo:manufacturerSerialNumber>281-U</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-8000 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA SNR-8000 ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-8000 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA SNR-8000 ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.3</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -111,7 +117,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-6">
                 <geo:manufacturerSerialNumber>1358</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX2" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">SEPT POLARX2</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="SEPT POLARX2" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">SEPT POLARX2</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>2.5.0</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -124,7 +130,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-7">
                 <geo:manufacturerSerialNumber>205</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -139,7 +145,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-8">
                 <geo:manufacturerSerialNumber>205</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -154,7 +160,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-9">
                 <geo:manufacturerSerialNumber>205</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -169,7 +175,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-10">
                 <geo:manufacturerSerialNumber>205</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -184,7 +190,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-11">
                 <geo:manufacturerSerialNumber>205</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -199,7 +205,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-12">
                 <geo:manufacturerSerialNumber>205</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -215,7 +221,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-13">
                 <geo:notes>enables tracking of E01/E02</geo:notes>
                 <geo:manufacturerSerialNumber>205</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -230,7 +236,7 @@
         <geo:gnssAntenna>
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:manufacturerSerialNumber>261</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.046</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -248,7 +254,7 @@
         <geo:gnssAntenna>
             <geo:GnssAntenna gml:id="gnss-antenna-2">
                 <geo:manufacturerSerialNumber>235</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.046</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -266,7 +272,7 @@
         <geo:gnssAntenna>
             <geo:GnssAntenna gml:id="gnss-antenna-3">
                 <geo:manufacturerSerialNumber>354-U</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.046</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -284,7 +290,7 @@
         <geo:gnssAntenna>
             <geo:GnssAntenna gml:id="gnss-antenna-4">
                 <geo:manufacturerSerialNumber>316</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="JAV_RINGANT_G3T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JAV_RINGANT_G3T NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="JAV_RINGANT_G3T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JAV_RINGANT_G3T NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BAM</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.1206</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -680,6 +686,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>BKG</geo:dataCenter>
             <geo:dataCenter>OLG</geo:dataCenter>
             <geo:urlForMoreInformation></geo:urlForMoreInformation>
@@ -692,6 +699,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

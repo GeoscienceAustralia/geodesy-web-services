@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="HKWS00CHN" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="HKWS00CHN" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="hkws_20161215.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Lands Department, Hong Kong</geo:preparedBy>
             <geo:datePrepared>2016-12-15</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>Wong Shek</geo:siteName>
             <geo:fourCharacterID>HKWS</geo:fourCharacterID>
             <geo:monumentInscription></geo:monumentInscription>
@@ -23,11 +26,13 @@
             <geo:fractureSpacing></geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type"></geo:faultZonesNearby>
             <geo:notes></geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Wong Shek</geo:city>
             <geo:state>Hong Kong</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="China" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">CHN</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="China" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">CHN</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">EURASIAN</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -42,11 +47,12 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes>Approximate coordinate refer to ITRF96</geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:manufacturerSerialNumber>137256</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA SR530" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA SR530</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA SR530" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA SR530</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>4.22/1.39</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -59,7 +65,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>2.00/2.121</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -72,7 +78,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-3">
                 <geo:manufacturerSerialNumber>450234</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>2.47/2.121</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -85,7 +91,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-4">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>2.00/2.121</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -98,7 +104,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-5">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>4.10/2.125</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -111,7 +117,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-6">
                 <geo:manufacturerSerialNumber>450235</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>4.10/2.125</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -124,7 +130,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-7">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>4.10/2.125</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -137,7 +143,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-8">
                 <geo:manufacturerSerialNumber>450234</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>4.10/2.125</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -150,7 +156,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-9">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>4.10/2.125</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -163,7 +169,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-10">
                 <geo:manufacturerSerialNumber>450234</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>4.10/2.125</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -176,7 +182,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-11">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>5.62/2.125</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -189,7 +195,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-12">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>6.00/2.125</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -202,7 +208,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-13">
                 <geo:manufacturerSerialNumber>450234</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>6.02/2.125</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -215,7 +221,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-14">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>6.00/2.125</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -228,7 +234,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-15">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>7.53/2.125</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -241,7 +247,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-16">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>7.80/2.125</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -254,7 +260,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-17">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>8.00/2.125</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -267,7 +273,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-18">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>8.01/2.125</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -280,7 +286,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-19">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>8.10/2.125</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -293,7 +299,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-20">
                 <geo:manufacturerSerialNumber>450235</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200PRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200PRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200PRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>8.20/2.125</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -306,7 +312,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-21">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200+GNSS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200+GNSS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200+GNSS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200+GNSS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>8.20/4.007</geo:firmwareVersion>
@@ -320,7 +326,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-22">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200+GNSS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200+GNSS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200+GNSS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200+GNSS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>8.51/6.110</geo:firmwareVersion>
@@ -334,7 +340,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-23">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200+GNSS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200+GNSS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200+GNSS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200+GNSS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>9.20/6.404</geo:firmwareVersion>
@@ -348,7 +354,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-24">
                 <geo:manufacturerSerialNumber>455687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200+GNSS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200+GNSS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200+GNSS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200+GNSS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">BDS</geo:satelliteSystem>
@@ -363,7 +369,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-25">
                 <geo:manufacturerSerialNumber>1870213</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GR25" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GR25</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GR25" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GR25</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -381,7 +387,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-26">
                 <geo:manufacturerSerialNumber>1870213</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GR25" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GR25</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GR25" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GR25</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -400,7 +406,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-27">
                 <geo:notes>Disable tracking GAL, QZSS, SBAS signal due to the firmware problem.</geo:notes>
                 <geo:manufacturerSerialNumber>1870213</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GR25" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GR25</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GR25" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GR25</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">BDS</geo:satelliteSystem>
@@ -415,7 +421,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-28">
                 <geo:manufacturerSerialNumber>1870213</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GR25" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GR25</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GR25" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GR25</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -434,7 +440,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-29">
                 <geo:notes>Due to the limitation of available channels, only GPS+GLO+BDS satellites are tracked.  More satellite systems will be tracked in near future.</geo:notes>
                 <geo:manufacturerSerialNumber>1870213</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GR25" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GR25</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GR25" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GR25</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">BDS</geo:satelliteSystem>
@@ -449,7 +455,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-30">
                 <geo:manufacturerSerialNumber>1870257</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GR50" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GR50</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GR50" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GR50</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -468,7 +474,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:notes>No record of serial number</geo:notes>
                 <geo:manufacturerSerialNumber></geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="LEIAT504 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEIAT504        NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="LEIAT504 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEIAT504        NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0083</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -487,7 +493,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-2">
                 <geo:notes>No record of serial number</geo:notes>
                 <geo:manufacturerSerialNumber></geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="LEIAT504 LEIS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEIAT504        LEIS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="LEIAT504 LEIS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEIAT504        LEIS</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0083</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -505,7 +511,7 @@
         <geo:gnssAntenna>
             <geo:GnssAntenna gml:id="gnss-antenna-3">
                 <geo:manufacturerSerialNumber>725198</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="LEIAR25.R4 LEIT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEIAR25.R4      LEIT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="LEIAR25.R4 LEIT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEIAR25.R4      LEIT</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0083</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -747,6 +753,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>CDDIS</geo:dataCenter>
             <geo:dataCenter>IGN</geo:dataCenter>
             <geo:urlForMoreInformation></geo:urlForMoreInformation>
@@ -759,6 +766,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

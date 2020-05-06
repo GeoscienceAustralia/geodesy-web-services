@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="WILL00CAN" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="WILL00CAN" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="will_20141204.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Brian Schofield</geo:preparedBy>
             <geo:datePrepared>2014-12-04</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>Williams Lake</geo:siteName>
             <geo:fourCharacterID>WILL</geo:fourCharacterID>
             <geo:monumentInscription>937011</geo:monumentInscription>
@@ -24,11 +27,13 @@
             <geo:fractureSpacing></geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type">NO</geo:faultZonesNearby>
             <geo:notes>This station is part of the Western Canada Deformation Array (WCDA) as well as the Canadian Active Control System (CACS). The following information is current as of 26-FEB-97:: ******************************************** The GPS reference mark consists of a brass plate with a forced centered stainless steel bolt. The brass plate is embedded on top of a 2.3 metre high concrete pier, 60 cm in diameter. The concrete pier is anchored to exposed bedrock using steel re-enforcement bars to a depth of 3.0 m. The antenna is attached to the brass forced centered plate via a 10 cm high anodized aluminum base. This base provides a constant height above the brass plate and also permits the antenna to be referenced to north. ** File Audited as of 2008-06-23</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Williams Lake</geo:city>
             <geo:state>B.C.</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Canada" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">CAN</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Canada" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">CAN</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">NORTH AMERICAN</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -43,12 +48,13 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes>~540km north of Vancouver, B.C.; site is ~10km north of the town of Williams Lake, B.C. located at NavCanada's VOR / TACAN site</geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:notes>site installed</geo:notes>
                 <geo:manufacturerSerialNumber>165</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8000" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8000</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8000" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8000</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>0.0 SFG2 lk 93/08/27</geo:firmwareVersion>
                 <geo:elevationCutoffSetting xsi:nil="true"></geo:elevationCutoffSetting>
@@ -62,7 +68,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:notes>Receiver / firmware change</geo:notes>
                 <geo:manufacturerSerialNumber>340</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8000" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8000</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8000" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8000</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.2 lk 95/03/09 JPL</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>10.0</geo:elevationCutoffSetting>
@@ -76,7 +82,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-3">
                 <geo:notes>firmware change RF surge suppressor installed at receiver</geo:notes>
                 <geo:manufacturerSerialNumber>340</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8000" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ROGUE SNR-8000</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ROGUE SNR-8000" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ROGUE SNR-8000</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.2.32.8 lk 98/12/28</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>10.0</geo:elevationCutoffSetting>
@@ -90,7 +96,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-4">
                 <geo:notes>No data from 2003-11-16 to 2004-01-06 inclusive</geo:notes>
                 <geo:manufacturerSerialNumber>2028</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA BENCHMARK ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA BENCHMARK ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA BENCHMARK ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA BENCHMARK ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.5</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>5.0</geo:elevationCutoffSetting>
@@ -104,7 +110,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-5">
                 <geo:notes>No data from 2012-06-06 to 2012-06-11</geo:notes>
                 <geo:manufacturerSerialNumber>2026</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA BENCHMARK ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA BENCHMARK ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA BENCHMARK ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA BENCHMARK ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.5 lk 00/12/03</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>5.0</geo:elevationCutoffSetting>
@@ -118,7 +124,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-6">
                 <geo:notes>New Receiver</geo:notes>
                 <geo:manufacturerSerialNumber>2042</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA BENCHMARK ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA BENCHMARK ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA BENCHMARK ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA BENCHMARK ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.5 lk 00/12/03</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>5.0</geo:elevationCutoffSetting>
@@ -132,7 +138,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-7">
                 <geo:notes>New Receiver No data from 2012-07-15 to 2012-08-22</geo:notes>
                 <geo:manufacturerSerialNumber>T381-U</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-8000 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOA SNR-8000 ACT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="AOA SNR-8000 ACT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOA SNR-8000 ACT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3.32.3 lk 99/06/11</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>5.0</geo:elevationCutoffSetting>
@@ -146,7 +152,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-8">
                 <geo:notes>New Receiver</geo:notes>
                 <geo:manufacturerSerialNumber>495008</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200+GNSS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200+GNSS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200+GNSS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200+GNSS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>7.80/4.004</geo:firmwareVersion>
@@ -161,7 +167,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-9">
                 <geo:notes>New Receiver</geo:notes>
                 <geo:manufacturerSerialNumber>5107K73864</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETR9</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETR9</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>4.81</geo:firmwareVersion>
@@ -176,7 +182,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-10">
                 <geo:notes>New Firmware</geo:notes>
                 <geo:manufacturerSerialNumber>5107K73864</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETR9</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETR9" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETR9</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>4.85</geo:firmwareVersion>
@@ -191,7 +197,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:notes>ref. Antenna Diagram 'A' below degrees offset from North refers to 'True North' Antenna p/n 7490400-1</geo:notes>
                 <geo:manufacturerSerialNumber>92168</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.001</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -210,7 +216,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-2">
                 <geo:notes>ref. Antenna Diagram 'B' below; degrees offset from North refers to 'True North' The dome is installed using an aluminum flange ring attached to the choke ring. The flange ring extends the radius of the ground plane by 2.5 cm. Antenna p/n 7490400-1</geo:notes>
                 <geo:manufacturerSerialNumber>92168</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T EMRA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        EMRA</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T EMRA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        EMRA</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0015</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -229,7 +235,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-3">
                 <geo:notes>ref. Antenna Diagram 'C' below; degrees offset from North refers to 'True North' The dome is installed using an aluminum flange ring attached to the choke ring. The flange ring extends the radius of the ground plane by 2.5 cm. Note &quot;RF&quot; screening skirt Antenna p/n 7490582-1</geo:notes>
                 <geo:manufacturerSerialNumber>95166</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T EMRA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        EMRA</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T EMRA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        EMRA</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.1</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -248,7 +254,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-4">
                 <geo:notes>ref. Antenna Diagram 'C' below; The dome is installed using an aluminum flange ring attached to the choke ring. The flange ring extends the radius of the ground plane by 2.5 cm.' &quot;RF&quot; screening skirt replaced; Antenna p/n 7490582-1 RF surge suppressor installed at antenna</geo:notes>
                 <geo:manufacturerSerialNumber>95166</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T EMRA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        EMRA</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T EMRA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        EMRA</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.1</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -267,7 +273,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-5">
                 <geo:notes>ref. Antenna Diagram 'C' below; The dome is installed using an aluminum flange ring attached to the choke ring. The flange ring extends the radius of the ground plane by 2.5 cm.' Antenna p/n 7490582-1 Cable severed  2004-02-03T20:18Z No data 2004-02-03T20:18Z to 2004-06-16T02:00Z</geo:notes>
                 <geo:manufacturerSerialNumber>95166</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T EMRA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        EMRA</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T EMRA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        EMRA</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.1</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -286,7 +292,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-6">
                 <geo:notes>ref. Antenna Diagram 'C' below; The dome is installed using an aluminum flange ring attached to the choke ring. The flange ring extends the radius of the ground plane by 2.5 cm.' Antenna p/n 7490582-1 Antenna cable replaced</geo:notes>
                 <geo:manufacturerSerialNumber>95166</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T EMRA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">AOAD/M_T        EMRA</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="AOAD/M_T EMRA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">AOAD/M_T        EMRA</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.1</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -305,7 +311,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-7">
                 <geo:notes>ref. Antenna Diagram 'D' below;</geo:notes>
                 <geo:manufacturerSerialNumber>4931353414</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM59800.00 SCIS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRM59800.00     SCIS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM59800.00 SCIS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRM59800.00     SCIS</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.1</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -517,6 +523,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>ftp://wcda.pgc.nrcan.gc.ca</geo:dataCenter>
             <geo:dataCenter>NONE</geo:dataCenter>
             <geo:urlForMoreInformation>http://gsc.nrcan.gc.ca/geodyn/wcda/index_e.php</geo:urlForMoreInformation>
@@ -529,6 +536,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

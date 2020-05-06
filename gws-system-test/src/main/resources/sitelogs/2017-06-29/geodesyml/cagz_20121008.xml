@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="CAGZ00ITA" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="CAGZ00ITA" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="cagz_20121008.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Aldo Banni</geo:preparedBy>
             <geo:datePrepared>2012-10-08</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>CAGLIARI</geo:siteName>
             <geo:fourCharacterID>CAGZ</geo:fourCharacterID>
             <geo:monumentInscription></geo:monumentInscription>
@@ -24,11 +27,13 @@
             <geo:fractureSpacing>0 cm</geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type">NO</geo:faultZonesNearby>
             <geo:notes>Exact date in Feb 1995 not known</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Capoterra</geo:city>
             <geo:state>SARDINIA</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Italy" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ITA</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Italy" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ITA</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">EURASIAN</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -43,12 +48,13 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes></geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:notes>Exact date in October not known</geo:notes>
                 <geo:manufacturerSerialNumber>LE2998</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS EUROCARD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS EUROCARD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS EUROCARD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS EUROCARD</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>MT310305520</geo:firmwareVersion>
@@ -63,7 +69,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:notes>Spare receiver until repair of 3.1</geo:notes>
                 <geo:manufacturerSerialNumber>LE4687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS E_GGD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS E_GGD</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>AGNV7TGA2O0</geo:firmwareVersion>
@@ -78,7 +84,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-3">
                 <geo:notes>Spare receiver until repair of 3.1</geo:notes>
                 <geo:manufacturerSerialNumber>235-1757</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS E_GGD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS E_GGD</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>AE82EUA01KW</geo:firmwareVersion>
@@ -93,7 +99,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-4">
                 <geo:notes>re-installing of the receiver 3.1</geo:notes>
                 <geo:manufacturerSerialNumber>LE2998</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS EUROCARD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS EUROCARD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS EUROCARD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS EUROCARD</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>MT310305520</geo:firmwareVersion>
@@ -108,7 +114,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-5">
                 <geo:notes>Spare receiver until repair of 3.4</geo:notes>
                 <geo:manufacturerSerialNumber>235-2098</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS E_GGD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS E_GGD</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>AE6A2FQG160</geo:firmwareVersion>
@@ -123,7 +129,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-6">
                 <geo:notes>receiver 3.2 Case label: TOPCON LEGACY-E</geo:notes>
                 <geo:manufacturerSerialNumber>LE4687</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS E_GGD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS E_GGD</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>AGNV7TGA2O0</geo:firmwareVersion>
@@ -138,7 +144,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-7">
                 <geo:notes>receiver 3.2 Case label: TOPCON LEGACY-E</geo:notes>
                 <geo:manufacturerSerialNumber>AGNV7TGA2O0</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TPS E_GGD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TPS E_GGD</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.4 Sep,02,2004</geo:firmwareVersion>
@@ -153,7 +159,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-8">
                 <geo:notes>receiver 3.2 Case label: TOPCON LEGACY-E</geo:notes>
                 <geo:manufacturerSerialNumber>AGNV7TGA2O0</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TPS E_GGD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TPS E_GGD</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.6 Mar,16,2006</geo:firmwareVersion>
@@ -168,7 +174,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-9">
                 <geo:notes>receiver 3.2 Case label: TOPCON LEGACY-E</geo:notes>
                 <geo:manufacturerSerialNumber>AGNV7TGA2O0</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TPS E_GGD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TPS E_GGD</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>3.1 Mar,13,2007 p2</geo:firmwareVersion>
@@ -183,7 +189,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-10">
                 <geo:notes>receiver 3.2 Case label: TOPCON LEGACY-E</geo:notes>
                 <geo:manufacturerSerialNumber>AGNV7TGA2O0</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TPS E_GGD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TPS E_GGD</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>3.3 Jul,10,2008 p4</geo:firmwareVersion>
@@ -198,7 +204,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:notes>Exact date in October not known. The former valuation Marker-&gt;ARP Up Ecc. = 0.1095 was wrong (ARP misundertood).  Antenna type listed in this section retro- actively changed from JPSREGANT_DD_E to JPSREGANT_DD_E2 starting with log file cagz_20121007.log. See IGSMAIL-6662 and IGSMAIL-6663 for details.</geo:notes>
                 <geo:manufacturerSerialNumber>RRA052</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="JPSREGANT_DD_E2 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPSREGANT_DD_E2 NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="JPSREGANT_DD_E2 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPSREGANT_DD_E2 NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0945</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -505,6 +511,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>BKGI</geo:dataCenter>
             <geo:dataCenter>ASI</geo:dataCenter>
             <geo:urlForMoreInformation>http://topografia.unica.it</geo:urlForMoreInformation>
@@ -517,6 +524,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

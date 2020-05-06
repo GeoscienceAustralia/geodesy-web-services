@@ -1,49 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="METZ00FIN" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2">
+<geo:GeodesyML gml:id="METZ00FIN" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2">
     <geo:siteLog gml:id="metz_20080930.log">
         <geo:formInformation>
-            <geo:preparedBy>Hannu Koivula</geo:preparedBy>
-            <geo:datePrepared>2008-09-30</geo:datePrepared>
-            <geo:reportType>UPDATE</geo:reportType>
+            <geo:FormInformation gml:id="form-information">
+                <geo:preparedBy>Hannu Koivula</geo:preparedBy>
+                <geo:datePrepared>2008-09-30</geo:datePrepared>
+                <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
-            <geo:siteName>METSAHOVI</geo:siteName>
-            <geo:fourCharacterID>METZ</geo:fourCharacterID>
-            <geo:monumentInscription></geo:monumentInscription>
-            <geo:iersDOMESNumber>10503M005</geo:iersDOMESNumber>
-            <geo:cdpNumber></geo:cdpNumber>
-            <geo:monumentDescription codeSpace="urn:ga-gov-au:monument-description-type">STEEL MAST</geo:monumentDescription>
-            <geo:heightOfTheMonument>20.0</geo:heightOfTheMonument>
-            <geo:monumentFoundation>BEDROCK</geo:monumentFoundation>
-            <geo:markerDescription></geo:markerDescription>
-            <geo:dateInstalled>1992-05-01T12:00:00Z</geo:dateInstalled>
-            <geo:geologicCharacteristic codeSpace="urn:ga-gov-au:geologic-characteristic-type">BEDROCK</geo:geologicCharacteristic>
-            <geo:bedrockType>METAMORPHIC</geo:bedrockType>
-            <geo:bedrockCondition>WEATHERED</geo:bedrockCondition>
-            <geo:fractureSpacing>over 200 cm</geo:fractureSpacing>
-            <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type">NO</geo:faultZonesNearby>
-            <geo:notes>20-m high steel mast, height change of
+            <geo:SiteIdentification gml:id="site-identification">
+                <geo:siteName>METSAHOVI</geo:siteName>
+                <geo:fourCharacterID>METZ</geo:fourCharacterID>
+                <geo:monumentInscription></geo:monumentInscription>
+                <geo:iersDOMESNumber>10503M005</geo:iersDOMESNumber>
+                <geo:cdpNumber></geo:cdpNumber>
+                <geo:monumentDescription codeSpace="urn:ga-gov-au:monument-description-type">STEEL MAST</geo:monumentDescription>
+                <geo:heightOfTheMonument>20.0</geo:heightOfTheMonument>
+                <geo:monumentFoundation>BEDROCK</geo:monumentFoundation>
+                <geo:markerDescription></geo:markerDescription>
+                <geo:dateInstalled>1992-05-01T12:00:00Z</geo:dateInstalled>
+                <geo:geologicCharacteristic codeSpace="urn:ga-gov-au:geologic-characteristic-type">BEDROCK</geo:geologicCharacteristic>
+                <geo:bedrockType>METAMORPHIC</geo:bedrockType>
+                <geo:bedrockCondition>WEATHERED</geo:bedrockCondition>
+                <geo:fractureSpacing>over 200 cm</geo:fractureSpacing>
+                <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type">NO</geo:faultZonesNearby>
+                <geo:notes>20-m high steel mast, height change of
 w.r.t. given position is 0.23 x (T-5) mm,
 where T is the mast temperature in Deg C</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
-            <geo:city>Kirkkonummi (40 km west from Helsinki)</geo:city>
-            <geo:state></geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_CountryTypeCode" codeListValue="Finland" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">Finland</geo:countryCodeISO>
-            <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">Eurasian</geo:tectonicPlate>
-            <geo:approximatePositionITRF>
-                <geo:cartesianPosition>
-                    <gml:Point gml:id="itrf_cartesian" srsName="EPSG:7789">
-                        <gml:pos>-4130636.589 2894953.121 -3890530.442</gml:pos>
-                    </gml:Point>
-                </geo:cartesianPosition>
-                <geo:geodeticPosition>
-                    <gml:Point gml:id="itrf_geodetic" srsName="EPSG:7912">
-                        <gml:pos>-37.8294054083 144.975340194 40.578</gml:pos>
-                    </gml:Point>
-                </geo:geodeticPosition>
-            </geo:approximatePositionITRF>
-            <geo:notes></geo:notes>
+            <geo:SiteLocation gml:id="site-location">
+                <geo:city>Kirkkonummi (40 km west from Helsinki)</geo:city>
+                <geo:state></geo:state>
+                <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_CountryTypeCode" codeListValue="Finland" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">Finland</geo:countryCodeISO>
+                <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">Eurasian</geo:tectonicPlate>
+                <geo:approximatePositionITRF>
+                    <geo:cartesianPosition>
+                        <gml:Point gml:id="itrf_cartesian" srsName="EPSG:7789">
+                            <gml:pos>-4130636.589 2894953.121 -3890530.442</gml:pos>
+                        </gml:Point>
+                    </geo:cartesianPosition>
+                    <geo:geodeticPosition>
+                        <gml:Point gml:id="itrf_geodetic" srsName="EPSG:7912">
+                            <gml:pos>-37.8294054083 144.975340194 40.578</gml:pos>
+                        </gml:Point>
+                    </geo:geodeticPosition>
+                </geo:approximatePositionITRF>
+                <geo:notes></geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
@@ -51,7 +57,7 @@ where T is the mast temperature in Deg C</geo:notes>
 1999-08-17, defective, broken again
 2000-02-12</geo:notes>
                 <geo:manufacturerSerialNumber>00117</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH Z18" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASHTECH Z18</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH Z18" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASHTECH Z18</geo:igsModelCode>
                 <geo:satelliteSystem>GPS+GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>0057ZT12</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>5.0</geo:elevationCutoffSetting>
@@ -65,7 +71,7 @@ where T is the mast temperature in Deg C</geo:notes>
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:notes>2002-01-07 Firmware 2.2 p1 Oct 15, 2001</geo:notes>
                 <geo:manufacturerSerialNumber>MT302125212</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS EUROCARD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS EUROCARD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS EUROCARD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS EUROCARD</geo:igsModelCode>
                 <geo:satelliteSystem>GPS+GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.1,Jun16,2000</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>1.0</geo:elevationCutoffSetting>
@@ -79,7 +85,7 @@ where T is the mast temperature in Deg C</geo:notes>
             <geo:GnssReceiver gml:id="gnss-receiver-3">
                 <geo:notes>Firmware upgrade</geo:notes>
                 <geo:manufacturerSerialNumber>MT302125212</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS EUROCARD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS EUROCARD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS EUROCARD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS EUROCARD</geo:igsModelCode>
                 <geo:satelliteSystem>GPS+GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.6.1,Jan 10,2008</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>1.0</geo:elevationCutoffSetting>
@@ -92,7 +98,7 @@ where T is the mast temperature in Deg C</geo:notes>
         <geo:gnssAntenna>
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:manufacturerSerialNumber>112</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701073.1" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASH701073.1</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701073.1" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASH701073.1</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -420,18 +426,20 @@ The height of 10503S011 is stabilised</geo:notes>
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
-            <geo:dataCenter></geo:dataCenter>
-            <geo:dataCenter></geo:dataCenter>
-            <geo:urlForMoreInformation></geo:urlForMoreInformation>
-            <geo:siteMap>Y</geo:siteMap>
-            <geo:siteDiagram>Y</geo:siteDiagram>
-            <geo:horizonMask>Y</geo:horizonMask>
-            <geo:monumentDescription>Y</geo:monumentDescription>
-            <geo:sitePictures>Y</geo:sitePictures>
-            <geo:notes></geo:notes>
-            <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
-            <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
-            <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            <geo:MoreInformation gml:id="more-information">
+                <geo:dataCenter></geo:dataCenter>
+                <geo:dataCenter></geo:dataCenter>
+                <geo:urlForMoreInformation></geo:urlForMoreInformation>
+                <geo:siteMap>Y</geo:siteMap>
+                <geo:siteDiagram>Y</geo:siteDiagram>
+                <geo:horizonMask>Y</geo:horizonMask>
+                <geo:monumentDescription>Y</geo:monumentDescription>
+                <geo:sitePictures>Y</geo:sitePictures>
+                <geo:notes></geo:notes>
+                <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
+                <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
+                <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

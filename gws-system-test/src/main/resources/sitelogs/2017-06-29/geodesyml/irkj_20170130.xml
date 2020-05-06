@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="IRKJ00RUS" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2">
+<geo:GeodesyML gml:id="IRKJ00RUS" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2">
     <geo:siteLog gml:id="irkj_20170130.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Valeriy A. Emelyanov</geo:preparedBy>
             <geo:datePrepared>2017-01-30</geo:datePrepared>
             <geo:reportType>Update</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>Irkutsk</geo:siteName>
             <geo:fourCharacterID>IRKJ</geo:fourCharacterID>
             <geo:monumentInscription>West GPS/GLONASS Geodynamical Pillar</geo:monumentInscription>
@@ -24,11 +27,13 @@
             <geo:fractureSpacing>1-10 cm</geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type">Baikal Rift Zone</geo:faultZonesNearby>
             <geo:notes>Near 5 meters ferro-concrete pillar is installed on a bedrock. Pillar is surrounded by metal tube having diameter 1m. The space between a pillar and tube filled up by coal clinker.</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Irkutsk</geo:city>
             <geo:state></geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Russian Federation" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">RUS</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Russian Federation" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">RUS</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">EURASIAN, SIBERIAN PLATFORM</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -43,11 +48,12 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes></geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:manufacturerSerialNumber>00517 Rev.3</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS LEGACY</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS LEGACY</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.2</geo:firmwareVersion>
@@ -61,7 +67,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:manufacturerSerialNumber>00517 Rev.3</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS LEGACY</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS LEGACY</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.6.0 OCT,24,2007 OB</geo:firmwareVersion>
@@ -76,7 +82,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:notes>Antenna is installed at the same position as antenna of receiver Trimble 4000SGL (IRKG station) during IGEX-98(1996-10-25/1999-11-21). We apply forced centering system for the antennas installation. Antenna type listed in this section retroactively changed from JPSREGANT_SD_E to JPSREGANT_SD_E1 starting with log file irkj_20170130.log.  See IGSMAIL-6662 for details.  While there is no definite confirmation of the actual antenna subtype, the change is being made for RINEX consistency and consistency of the ACs.</geo:notes>
                 <geo:manufacturerSerialNumber>RA0225</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="JPSREGANT_SD_E1 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPSREGANT_SD_E1 NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="JPSREGANT_SD_E1 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPSREGANT_SD_E1 NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.128</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -401,6 +407,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter></geo:dataCenter>
             <geo:dataCenter></geo:dataCenter>
             <geo:urlForMoreInformation>http://www.niiftri.irk.ru</geo:urlForMoreInformation>
@@ -413,6 +420,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

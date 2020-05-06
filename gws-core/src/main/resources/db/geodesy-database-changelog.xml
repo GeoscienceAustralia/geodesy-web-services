@@ -65,4 +65,5 @@
     <include file="db/rename-cors-setup-type.sql"/>
     <include file="db/add-cors-site-removed-from-network.xml"/>
     <include file="db/remove-srid-from-site-position.sql"/>
+    <include file="db/add-associated-document-table.xml"/>
 </databaseChangeLog>

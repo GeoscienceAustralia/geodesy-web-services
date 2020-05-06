@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="BSHM00ISR" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="BSHM00ISR" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="bshm_20160217.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Tatevik Shakhbandaryan</geo:preparedBy>
             <geo:datePrepared>2016-02-17</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>Binyamin Shmuter Memorial site</geo:siteName>
             <geo:fourCharacterID>BSHM</geo:fourCharacterID>
             <geo:monumentInscription></geo:monumentInscription>
@@ -22,11 +25,13 @@
             <geo:fractureSpacing></geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type"></geo:faultZonesNearby>
             <geo:notes>Stainless steel pin attached to the roof of a stable building (Faculty of Geodesy)</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Haifa</geo:city>
             <geo:state>Haifa District</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Israel" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ISR</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Israel" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ISR</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">AFRICAN</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -41,11 +46,12 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes></geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:manufacturerSerialNumber>2334</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS EGGDT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS EGGDT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS EGGDT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS EGGDT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.7.0</geo:firmwareVersion>
@@ -60,7 +66,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:notes>See Section 10.1</geo:notes>
                 <geo:manufacturerSerialNumber>2334</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS EGGDT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS EGGDT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS EGGDT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS EGGDT</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.7.0</geo:firmwareVersion>
@@ -75,7 +81,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-3">
                 <geo:notes>Receiver has board version TRE_G3TH_8</geo:notes>
                 <geo:manufacturerSerialNumber>01704</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>3.5.5</geo:firmwareVersion>
@@ -90,7 +96,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-4">
                 <geo:notes>Receiver has board version TRE_G3TH_8</geo:notes>
                 <geo:manufacturerSerialNumber>01704</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>3.5.7b0</geo:firmwareVersion>
@@ -105,7 +111,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-5">
                 <geo:notes>Receiver has board version TRE_G3TH_8</geo:notes>
                 <geo:manufacturerSerialNumber>01704</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>3.5.8b0-12-52e9</geo:firmwareVersion>
@@ -120,7 +126,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-6">
                 <geo:notes>Receiver has board version TRE_G3TH_8</geo:notes>
                 <geo:manufacturerSerialNumber>01704</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JAVAD TRE_G3TH DELTA" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JAVAD TRE_G3TH DELTA</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>3.6.4</geo:firmwareVersion>
@@ -135,7 +141,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:notes>cable is in conduit</geo:notes>
                 <geo:manufacturerSerialNumber>4811A47089</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM59800.00 SCIS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRM59800.00     SCIS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TRM59800.00 SCIS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRM59800.00     SCIS</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -351,6 +357,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>JPL</geo:dataCenter>
             <geo:dataCenter>CDDIS</geo:dataCenter>
             <geo:urlForMoreInformation></geo:urlForMoreInformation>
@@ -363,6 +370,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

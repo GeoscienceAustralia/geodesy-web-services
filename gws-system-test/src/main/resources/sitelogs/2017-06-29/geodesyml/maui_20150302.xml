@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="MAUI00USA" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="MAUI00USA" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="maui_20150302.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Jon Avery</geo:preparedBy>
             <geo:datePrepared>2015-03-02</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>Haleakala, Maui</geo:siteName>
             <geo:fourCharacterID>MAUI</geo:fourCharacterID>
             <geo:monumentInscription></geo:monumentInscription>
@@ -22,11 +25,13 @@
             <geo:fractureSpacing>over 200 cm</geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type"></geo:faultZonesNearby>
             <geo:notes>Geodetic reference point is top-center of steel coupler atop steel mast anchored in bedrock.</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Haleakala, Maui</geo:city>
             <geo:state>Hawaii</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="United States" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">USA</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="United States" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">USA</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">PACIFIC</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -41,11 +46,12 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes>Reference frame used is ITRF97. Coordinate system used is WGS84.</geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:manufacturerSerialNumber>LP00656</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH Z-XII3" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASHTECH Z-XII3</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH Z-XII3" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASHTECH Z-XII3</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>1F50</geo:firmwareVersion>
                 <geo:elevationCutoffSetting xsi:nil="true"></geo:elevationCutoffSetting>
@@ -59,7 +65,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:notes>LP00656 removed because of bad data port</geo:notes>
                 <geo:manufacturerSerialNumber>LP00656</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH Z-XII3" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASHTECH Z-XII3</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH Z-XII3" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASHTECH Z-XII3</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>CC00</geo:firmwareVersion>
                 <geo:elevationCutoffSetting xsi:nil="true"></geo:elevationCutoffSetting>
@@ -72,7 +78,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-3">
                 <geo:manufacturerSerialNumber>LP03343</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH Z-XII3" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASHTECH Z-XII3</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH Z-XII3" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASHTECH Z-XII3</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>CC00</geo:firmwareVersion>
                 <geo:elevationCutoffSetting xsi:nil="true"></geo:elevationCutoffSetting>
@@ -85,7 +91,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-4">
                 <geo:manufacturerSerialNumber>4724134702</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETRS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETRS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>1.3-0</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -98,7 +104,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-5">
                 <geo:manufacturerSerialNumber>4724134702</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETRS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETRS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>1.3-2</geo:firmwareVersion>
                 <geo:elevationCutoffSetting xsi:nil="true"></geo:elevationCutoffSetting>
@@ -111,7 +117,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-6">
                 <geo:manufacturerSerialNumber>4427235654</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TRIMBLE NETRS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TRIMBLE NETRS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TRIMBLE NETRS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>1.3-2</geo:firmwareVersion>
                 <geo:elevationCutoffSetting xsi:nil="true"></geo:elevationCutoffSetting>
@@ -124,7 +130,7 @@
         <geo:gnssAntenna>
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:manufacturerSerialNumber>12610</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH700936D_M SNOW" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASH700936D_M    SNOW</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH700936D_M SNOW" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASH700936D_M    SNOW</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc. xsi:nil="true"></geo:marker-arpNorthEcc.>
@@ -310,6 +316,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>SIO</geo:dataCenter>
             <geo:dataCenter>NONE</geo:dataCenter>
             <geo:urlForMoreInformation></geo:urlForMoreInformation>
@@ -322,6 +329,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

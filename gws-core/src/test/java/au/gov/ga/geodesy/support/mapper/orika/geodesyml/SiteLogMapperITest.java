@@ -25,6 +25,7 @@ import org.testng.annotations.Test;
 
 import com.vividsolutions.jts.geom.Point;
 
+import au.gov.ga.geodesy.domain.model.sitelog.AssociatedDocument;
 import au.gov.ga.geodesy.domain.model.sitelog.CollocationInformationLogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.FrequencyStandardLogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.GnssAntennaLogItem;
@@ -50,36 +51,38 @@ import au.gov.ga.geodesy.support.marshalling.moxy.GeodesyMLMoxy;
 import au.gov.ga.geodesy.support.spring.IntegrationTest;
 import au.gov.ga.geodesy.support.utils.DateTimeFormatDecorator;
 import au.gov.ga.geodesy.support.utils.GMLDateUtils;
-import au.gov.xml.icsm.geodesyml.v_0_4.CollocationInformationPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_4.CollocationInformationType;
-import au.gov.xml.icsm.geodesyml.v_0_4.FrequencyStandardPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_4.FrequencyStandardType;
-import au.gov.xml.icsm.geodesyml.v_0_4.GeodesyMLType;
-import au.gov.xml.icsm.geodesyml.v_0_4.GnssAntennaPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_4.GnssAntennaType;
-import au.gov.xml.icsm.geodesyml.v_0_4.GnssReceiverPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_4.GnssReceiverType;
-import au.gov.xml.icsm.geodesyml.v_0_4.HumiditySensorPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_4.HumiditySensorType;
-import au.gov.xml.icsm.geodesyml.v_0_4.LocalEpisodicEffectPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_4.LocalEpisodicEffectType;
-import au.gov.xml.icsm.geodesyml.v_0_4.MultipathSourcePropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_4.MultipathSourceType;
-import au.gov.xml.icsm.geodesyml.v_0_4.OtherInstrumentationPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_4.OtherInstrumentationType;
-import au.gov.xml.icsm.geodesyml.v_0_4.PressureSensorPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_4.PressureSensorType;
-import au.gov.xml.icsm.geodesyml.v_0_4.RadioInterferencePropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_4.RadioInterferenceType;
-import au.gov.xml.icsm.geodesyml.v_0_4.SignalObstructionPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_4.SignalObstructionType;
-import au.gov.xml.icsm.geodesyml.v_0_4.SiteLogType;
-import au.gov.xml.icsm.geodesyml.v_0_4.SurveyedLocalTiePropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_4.SurveyedLocalTieType;
-import au.gov.xml.icsm.geodesyml.v_0_4.TemperatureSensorPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_4.TemperatureSensorType;
-import au.gov.xml.icsm.geodesyml.v_0_4.WaterVaporSensorPropertyType;
-import au.gov.xml.icsm.geodesyml.v_0_4.WaterVaporSensorType;
+import au.gov.xml.icsm.geodesyml.v_0_5.DocumentPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.DocumentType;
+import au.gov.xml.icsm.geodesyml.v_0_5.CollocationInformationPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.CollocationInformationType;
+import au.gov.xml.icsm.geodesyml.v_0_5.FrequencyStandardPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.FrequencyStandardType;
+import au.gov.xml.icsm.geodesyml.v_0_5.GeodesyMLType;
+import au.gov.xml.icsm.geodesyml.v_0_5.GnssAntennaPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.GnssAntennaType;
+import au.gov.xml.icsm.geodesyml.v_0_5.GnssReceiverPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.GnssReceiverType;
+import au.gov.xml.icsm.geodesyml.v_0_5.HumiditySensorPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.HumiditySensorType;
+import au.gov.xml.icsm.geodesyml.v_0_5.LocalEpisodicEffectPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.LocalEpisodicEffectType;
+import au.gov.xml.icsm.geodesyml.v_0_5.MultipathSourcePropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.MultipathSourceType;
+import au.gov.xml.icsm.geodesyml.v_0_5.OtherInstrumentationPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.OtherInstrumentationType;
+import au.gov.xml.icsm.geodesyml.v_0_5.PressureSensorPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.PressureSensorType;
+import au.gov.xml.icsm.geodesyml.v_0_5.RadioInterferencePropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.RadioInterferenceType;
+import au.gov.xml.icsm.geodesyml.v_0_5.SignalObstructionPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.SignalObstructionType;
+import au.gov.xml.icsm.geodesyml.v_0_5.SiteLogType;
+import au.gov.xml.icsm.geodesyml.v_0_5.SurveyedLocalTiePropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.SurveyedLocalTieType;
+import au.gov.xml.icsm.geodesyml.v_0_5.TemperatureSensorPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.TemperatureSensorType;
+import au.gov.xml.icsm.geodesyml.v_0_5.WaterVaporSensorPropertyType;
+import au.gov.xml.icsm.geodesyml.v_0_5.WaterVaporSensorType;
 
 import ma.glasnost.orika.metadata.TypeFactory;
 
@@ -167,12 +170,12 @@ public class SiteLogMapperITest extends IntegrationTest {
         
         Point cartesianPosition = siteLog.getSiteLocation().getApproximatePosition().getCartesianPosition();
         assertThat(cartesianPosition.getSRID(), 
-        		equalTo(Integer.parseInt(siteLogType.getSiteLocation().getApproximatePositionITRF()
+        		equalTo(Integer.parseInt(siteLogType.getSiteLocation().getSiteLocation().getApproximatePositionITRF()
         				.getCartesianPosition().getPoint().getSrsName().replaceAll("EPSG:", ""))));
         
         Point geodeticPosition = siteLog.getSiteLocation().getApproximatePosition().getGeodeticPosition();
         assertThat(geodeticPosition.getSRID(), 
-        		equalTo(Integer.parseInt(siteLogType.getSiteLocation().getApproximatePositionITRF()
+        		equalTo(Integer.parseInt(siteLogType.getSiteLocation().getSiteLocation().getApproximatePositionITRF()
         				.getGeodeticPosition().getPoint().getSrsName().replaceAll("EPSG:", ""))));
     }
     
@@ -408,9 +411,9 @@ public class SiteLogMapperITest extends IntegrationTest {
                 .findFirst().get();
 
         SiteLog siteLog = mapper.to(siteLogType);
-        assertThat(siteLog.getMoreInformation().getPrimaryDataCenter(), is(siteLogType.getMoreInformation().getDataCenter().get(0)));
-        assertThat(siteLog.getMoreInformation().getNotes(), is(siteLogType.getMoreInformation().getNotes()));
-        assertThat(siteLog.getMoreInformation().getDoi(), is(siteLogType.getMoreInformation().getDOI().getValue()));
+        assertThat(siteLog.getMoreInformation().getPrimaryDataCenter(), is(siteLogType.getMoreInformation().getMoreInformation().getDataCenter().get(0)));
+        assertThat(siteLog.getMoreInformation().getNotes(), is(siteLogType.getMoreInformation().getMoreInformation().getNotes()));
+        assertThat(siteLog.getMoreInformation().getDoi(), is(siteLogType.getMoreInformation().getMoreInformation().getDOI().getValue()));
     }
 
 
@@ -428,8 +431,8 @@ public class SiteLogMapperITest extends IntegrationTest {
                 .findFirst().get();
 
         SiteLog siteLog = mapper.to(siteLogType);
-        assertThat(siteLog.getFormInformation().getReportType(), is(siteLogType.getFormInformation().getReportType()));
-        assertThat(siteLog.getFormInformation().getPreparedBy(), is(siteLogType.getFormInformation().getPreparedBy()));
+        assertThat(siteLog.getFormInformation().getReportType(), is(siteLogType.getFormInformation().getFormInformation().getReportType()));
+        assertThat(siteLog.getFormInformation().getPreparedBy(), is(siteLogType.getFormInformation().getFormInformation().getPreparedBy()));
     }
 
     /**
@@ -510,8 +513,8 @@ public class SiteLogMapperITest extends IntegrationTest {
     }
 
     private void testMappingValues(SiteLogType siteLogType, SiteLog siteLog) {
-        assertThat(siteLog.getSiteIdentification().getSiteName(), equalTo(siteLogType.getSiteIdentification().getSiteName()));
-        assertThat(siteLog.getSiteLocation().getTectonicPlate(), equalTo(siteLogType.getSiteLocation().getTectonicPlate().getValue()));
+        assertThat(siteLog.getSiteIdentification().getSiteName(), equalTo(siteLogType.getSiteIdentification().getSiteIdentification().getSiteName()));
+        assertThat(siteLog.getSiteLocation().getTectonicPlate(), equalTo(siteLogType.getSiteLocation().getSiteLocation().getTectonicPlate().getValue()));
 
         List<GnssReceiverPropertyType> receiverProperties = siteLogType.getGnssReceivers();
         sortGMLPropertyTypes(receiverProperties);
@@ -572,6 +575,28 @@ public class SiteLogMapperITest extends IntegrationTest {
         for (FrequencyStandardLogItem frequencyStandardLogItem : sortLogItems(siteLog.getFrequencyStandards())) {
             FrequencyStandardType frequencyStandardType = frequencyStandardPropertyTypes.get(i++).getFrequencyStandard();
             assertThat(frequencyStandardLogItem.getType(), equalTo(frequencyStandardType.getStandardType().getValue()));
+        }
+    }
+
+    @Test
+    public void testAssociatedDocumentMapping() throws IOException, MarshallingException {
+        GeodesyMLType mobs = marshaller.unmarshal(TestResources.customGeodesyMLSiteLogReader("ALIC-with-2-associated-documents"), GeodesyMLType.class)
+                .getValue();
+
+        SiteLogType siteLogType = GeodesyMLUtils.getElementFromJAXBElements(mobs.getElements(), SiteLogType.class)
+                .findFirst().get();
+
+        SiteLog siteLog = mapper.to(siteLogType);
+
+        List<DocumentPropertyType> associatedDocumentPropertyTypes = siteLogType.getAssociatedDocument();
+        sortDocumentPropertyTypes(associatedDocumentPropertyTypes);
+        assertThat(siteLog.getAssociatedDocuments().size(), equalTo(2));
+        assertThat(associatedDocumentPropertyTypes.size(), equalTo(2));
+
+        int i = 0;
+        for (AssociatedDocument associatedDocument : sortAssociatedDocuments(siteLog.getAssociatedDocuments())) {
+            DocumentType associatedDocumentType = associatedDocumentPropertyTypes.get(i++).getDocument();
+            assertThat(associatedDocument.getName(), equalTo(associatedDocumentType.getName().get(0).getValue()));
         }
     }
 
@@ -692,6 +717,32 @@ public class SiteLogMapperITest extends IntegrationTest {
             }
         });
         sorted.addAll(info);
+        return sorted;
+    }
+
+    /**
+     * Sort a list of DocumentPropertyType objects by names.
+     */
+    private void sortDocumentPropertyTypes(List<DocumentPropertyType> list) {
+        Collections.sort(list, new Comparator<DocumentPropertyType>() {
+            public int compare(DocumentPropertyType d1, DocumentPropertyType d2) {
+                return d1.getDocument().getName().get(0).getValue().compareTo(d2.getDocument().getName().get(0).getValue());
+            }
+        });
+    }
+
+    /**
+     * Sort a set of AssociatedDocument by names.
+     */
+    private SortedSet<AssociatedDocument> sortAssociatedDocuments(Set<AssociatedDocument> set) {
+        SortedSet<AssociatedDocument> sorted = new TreeSet<>(new Comparator<AssociatedDocument>() {
+            public int compare(AssociatedDocument d1, AssociatedDocument d2) {
+                int result = d1.getName().compareTo(d2.getName());
+                // keep duplicates
+                return result != 0 ? result : 1;
+            }
+        });
+        sorted.addAll(set);
         return sorted;
     }
 

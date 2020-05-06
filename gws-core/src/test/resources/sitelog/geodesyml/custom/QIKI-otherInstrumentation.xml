@@ -1,59 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="QIKI00CAN" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="QIKI00CAN" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="qiki_20140808.log">
         <geo:formInformation>
-            <geo:preparedBy>Mike Craymer</geo:preparedBy>
-            <geo:datePrepared>2014-08-08</geo:datePrepared>
-            <geo:reportType>UPDATE</geo:reportType>
+            <geo:FormInformation gml:id="form-information">
+                <geo:preparedBy>Mike Craymer</geo:preparedBy>
+                <geo:datePrepared>2014-08-08</geo:datePrepared>
+                <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
-            <geo:siteName>Qikiqtarjuaq</geo:siteName>
-            <geo:fourCharacterID>QIKI</geo:fourCharacterID>
-            <geo:monumentInscription>M049015</geo:monumentInscription>
-            <geo:iersDOMESNumber>40166M001</geo:iersDOMESNumber>
-            <geo:cdpNumber>none</geo:cdpNumber>
-            <geo:monumentDescription codeSpace="urn:ga-gov-au:monument-description-type">Stainless steel pillar</geo:monumentDescription>
-            <geo:heightOfTheMonument>1.5</geo:heightOfTheMonument>
-            <geo:monumentFoundation>Bedrock</geo:monumentFoundation>
-            <geo:foundationDepth>1.5</geo:foundationDepth>
-            <geo:markerDescription>Steel bolt on steel plate</geo:markerDescription>
-            <geo:dateInstalled>2004-07-16T00:00:00Z</geo:dateInstalled>
-            <geo:geologicCharacteristic codeSpace="urn:ga-gov-au:geologic-characteristic-type">Bedrock</geo:geologicCharacteristic>
-            <geo:bedrockType>METAMORPHIC</geo:bedrockType>
-            <geo:bedrockCondition>WEATHERED</geo:bedrockCondition>
-            <geo:fractureSpacing>unknown</geo:fractureSpacing>
-            <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type">No</geo:faultZonesNearby>
-            <geo:notes>The GPS reference mark consists of a stainless
+            <geo:SiteIdentification gml:id="site-identification">
+                <geo:siteName>Qikiqtarjuaq</geo:siteName>
+                <geo:fourCharacterID>QIKI</geo:fourCharacterID>
+                <geo:monumentInscription>M049015</geo:monumentInscription>
+                <geo:iersDOMESNumber>40166M001</geo:iersDOMESNumber>
+                <geo:cdpNumber>none</geo:cdpNumber>
+                <geo:monumentDescription codeSpace="urn:ga-gov-au:monument-description-type">Stainless steel pillar</geo:monumentDescription>
+                <geo:heightOfTheMonument>1.5</geo:heightOfTheMonument>
+                <geo:monumentFoundation>Bedrock</geo:monumentFoundation>
+                <geo:foundationDepth>1.5</geo:foundationDepth>
+                <geo:markerDescription>Steel bolt on steel plate</geo:markerDescription>
+                <geo:dateInstalled>2004-07-16T00:00:00Z</geo:dateInstalled>
+                <geo:geologicCharacteristic codeSpace="urn:ga-gov-au:geologic-characteristic-type">Bedrock</geo:geologicCharacteristic>
+                <geo:bedrockType>METAMORPHIC</geo:bedrockType>
+                <geo:bedrockCondition>WEATHERED</geo:bedrockCondition>
+                <geo:fractureSpacing>unknown</geo:fractureSpacing>
+                <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type">No</geo:faultZonesNearby>
+                <geo:notes>The GPS reference mark consists of a stainless
 steel plate with a forced centering stainless
 steel bolt welded on top of a 1.5 m high, 14 cm
 diameter stainless steel pillar, anchored to
 exposed bedrock to a depth of 1.5 m by four
 stainless steel rods. Elevation is taken to the
 top of the steel plate/pillar.</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
-            <geo:city>Qikiqtarjuaq (Baffin Island)</geo:city>
-            <geo:state>Nunavut</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_CountryTypeCode" codeListValue="Canada" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">Canada</geo:countryCodeISO>
-            <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">NORTH AMERICAN</geo:tectonicPlate>
-            <geo:approximatePositionITRF>
-                <geo:cartesianPosition>
-                    <gml:Point gml:id="itrf_cartesian" srsName="EPSG:7789">
-                        <gml:pos>-4130636.589 2894953.121 -3890530.442</gml:pos>
-                    </gml:Point>
-                </geo:cartesianPosition>
-                <geo:geodeticPosition>
-                    <gml:Point gml:id="itrf_geodetic" srsName="EPSG:7912">
-                        <gml:pos>-37.8294054083 144.975340194 40.578</gml:pos>
-                    </gml:Point>
-                </geo:geodeticPosition>
-            </geo:approximatePositionITRF>
-            <geo:notes></geo:notes>
+            <geo:SiteLocation gml:id="site-location">
+                <geo:city>Qikiqtarjuaq (Baffin Island)</geo:city>
+                <geo:state>Nunavut</geo:state>
+                <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_CountryTypeCode" codeListValue="Canada" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">Canada</geo:countryCodeISO>
+                <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">NORTH AMERICAN</geo:tectonicPlate>
+                <geo:approximatePositionITRF>
+                    <geo:cartesianPosition>
+                        <gml:Point gml:id="itrf_cartesian" srsName="EPSG:7789">
+                            <gml:pos>-4130636.589 2894953.121 -3890530.442</gml:pos>
+                        </gml:Point>
+                    </geo:cartesianPosition>
+                    <geo:geodeticPosition>
+                        <gml:Point gml:id="itrf_geodetic" srsName="EPSG:7912">
+                            <gml:pos>-37.8294054083 144.975340194 40.578</gml:pos>
+                        </gml:Point>
+                    </geo:geodeticPosition>
+                </geo:approximatePositionITRF>
+                <geo:notes></geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:manufacturerSerialNumber>UC200303011</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH UZ-12" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASHTECH UZ-12</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH UZ-12" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASHTECH UZ-12</geo:igsModelCode>
                 <geo:satelliteSystem>GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>CN00</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -68,7 +74,7 @@ top of the steel plate/pillar.</geo:notes>
                 <geo:notes>2014-08-08: Not tracking properly since
 2014-05-08.</geo:notes>
                 <geo:manufacturerSerialNumber>UC200303011</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH UZ-12" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASHTECH UZ-12</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH UZ-12" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASHTECH UZ-12</geo:igsModelCode>
                 <geo:satelliteSystem>GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>CQ00</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -81,7 +87,7 @@ top of the steel plate/pillar.</geo:notes>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-3">
                 <geo:manufacturerSerialNumber>UC2200303009</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH UZ-12" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASHTECH UZ-12</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="ASHTECH UZ-12" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASHTECH UZ-12</geo:igsModelCode>
                 <geo:satelliteSystem>GPS</geo:satelliteSystem>
                 <geo:firmwareVersion>CQ00</geo:firmwareVersion>
                 <geo:elevationCutoffSetting>0.0</geo:elevationCutoffSetting>
@@ -95,7 +101,7 @@ top of the steel plate/pillar.</geo:notes>
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:notes>2012-06-26: Added &quot;NONE&quot; to antenna type.</geo:notes>
                 <geo:manufacturerSerialNumber>CR620024521</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701945E_M NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASH701945E_M    NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701945E_M NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASH701945E_M    NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -117,7 +123,7 @@ Make: GPS Networking Inc.
 Model: HI N AL DCB S1X2
 2012-06-26: Added &quot;NONE&quot; to antenna type.</geo:notes>
                 <geo:manufacturerSerialNumber>CR620024521</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701945E_M NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">ASH701945E_M    NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="ASH701945E_M NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">ASH701945E_M    NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -313,18 +319,20 @@ Ottawa, ON, K1A 0E9, Canada</gco:CharacterString>
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
-            <geo:dataCenter>CDDIS</geo:dataCenter>
-            <geo:dataCenter>NRCan/GSD</geo:dataCenter>
-            <geo:urlForMoreInformation></geo:urlForMoreInformation>
-            <geo:siteMap>Y</geo:siteMap>
-            <geo:siteDiagram>Y</geo:siteDiagram>
-            <geo:horizonMask>Y</geo:horizonMask>
-            <geo:monumentDescription>Y</geo:monumentDescription>
-            <geo:sitePictures>Y</geo:sitePictures>
-            <geo:notes></geo:notes>
-            <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
-            <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
-            <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            <geo:MoreInformation gml:id="more-information">
+                <geo:dataCenter>CDDIS</geo:dataCenter>
+                <geo:dataCenter>NRCan/GSD</geo:dataCenter>
+                <geo:urlForMoreInformation></geo:urlForMoreInformation>
+                <geo:siteMap>Y</geo:siteMap>
+                <geo:siteDiagram>Y</geo:siteDiagram>
+                <geo:horizonMask>Y</geo:horizonMask>
+                <geo:monumentDescription>Y</geo:monumentDescription>
+                <geo:sitePictures>Y</geo:sitePictures>
+                <geo:notes></geo:notes>
+                <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
+                <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
+                <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>

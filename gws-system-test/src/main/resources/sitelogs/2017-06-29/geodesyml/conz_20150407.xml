@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<geo:GeodesyML gml:id="CONZ00CHL" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.4" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<geo:GeodesyML gml:id="CONZ00CHL" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <geo:siteLog gml:id="conz_20150407.log">
         <geo:formInformation>
+    <geo:FormInformation gml:id="form-information">
             <geo:preparedBy>Rudolf Stoeger</geo:preparedBy>
             <geo:datePrepared>2015-04-07</geo:datePrepared>
             <geo:reportType>UPDATE</geo:reportType>
+            </geo:FormInformation>
         </geo:formInformation>
         <geo:siteIdentification>
+            <geo:SiteIdentification gml:id="site-identification">
             <geo:siteName>Concepcion - TIGO</geo:siteName>
             <geo:fourCharacterID>CONZ</geo:fourCharacterID>
             <geo:monumentInscription></geo:monumentInscription>
@@ -24,11 +27,13 @@
             <geo:fractureSpacing></geo:fractureSpacing>
             <geo:faultZonesNearby codeSpace="urn:ga-gov-au:fault-zones-type"></geo:faultZonesNearby>
             <geo:notes>The site is located in about 20km distance to the pacific ocean and about 150km from the nearest vulcanoes of the Andes.</geo:notes>
+            </geo:SiteIdentification>
         </geo:siteIdentification>
         <geo:siteLocation>
+            <geo:SiteLocation gml:id="site-location">
             <geo:city>Concepcion</geo:city>
             <geo:state>VIII Region</geo:state>
-            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Chile" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">CHL</geo:countryCodeISO>
+            <geo:countryCodeISO codeList="http://xml.gov.au/icsm/geodesyml/codelists/country-codes-codelist.xml#GeodesyML_CountryCode" codeListValue="Chile" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">CHL</geo:countryCodeISO>
             <geo:tectonicPlate codeSpace="urn:ga-gov-au:plate-type">SOUTH AMERICAN</geo:tectonicPlate>
             <geo:approximatePositionITRF>
                 <geo:cartesianPosition>
@@ -43,12 +48,13 @@
                 </geo:geodeticPosition>
             </geo:approximatePositionITRF>
             <geo:notes>The site is at the TIGO observatory at the campus of the Universidad de Concepcion.</geo:notes>
+            </geo:SiteLocation>
         </geo:siteLocation>
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-1">
                 <geo:notes>Additional number LE2130 on the type level. The receiver is located in the air conditioned gravity meter house.</geo:notes>
                 <geo:manufacturerSerialNumber>MT302041021</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS LEGACY</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS LEGACY</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>RE014 2.2</geo:firmwareVersion>
@@ -63,7 +69,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-2">
                 <geo:notes>Additional number LE2130 on the type level. The receiver is located in the air conditioned gravity meter house.</geo:notes>
                 <geo:manufacturerSerialNumber>MT302041021</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS LEGACY</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS LEGACY</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.2 Jun,13,2002 p3</geo:firmwareVersion>
@@ -78,7 +84,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-3">
                 <geo:notes>/par/lock/notvis switched to &quot;on&quot;. Additional number LE2130 on the type level. The receiver is located in the air conditioned gravity meter house.</geo:notes>
                 <geo:manufacturerSerialNumber>MT302041021</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS LEGACY</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS LEGACY</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.3p2</geo:firmwareVersion>
@@ -93,7 +99,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-4">
                 <geo:notes>/par/lock/notvis switched to &quot;on&quot;. Additional number LE4851 on the type level. The receiver is located in the air conditioned gravity meter house.</geo:notes>
                 <geo:manufacturerSerialNumber>AGBVRU1GGE8</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS LEGACY</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS LEGACY</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.3 Apr28,2004 p4</geo:firmwareVersion>
@@ -108,7 +114,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-5">
                 <geo:notes>/par/lock/notvis switched to &quot;on&quot;. Additional number LE4851 on the type level. The receiver is located in the air conditioned gravity meter house.</geo:notes>
                 <geo:manufacturerSerialNumber>AGBVRU1GGE8</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPS LEGACY</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="JPS LEGACY" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPS LEGACY</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.5 Jun,22,2005 p1</geo:firmwareVersion>
@@ -123,7 +129,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-6">
                 <geo:notes>/par/lock/notvis switched to &quot;on&quot;. Additional number LE4851 on the type level. The receiver is located in the air conditioned gravity meter house.</geo:notes>
                 <geo:manufacturerSerialNumber>AGBVRU1GGE8</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TPS E_GGD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TPS E_GGD</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.5 Jun,22,2005 p1</geo:firmwareVersion>
@@ -138,7 +144,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-7">
                 <geo:notes>/par/lock/notvis switched to &quot;on&quot;. Additional number LE4851 on the type level. The receiver is located in the air conditioned gravity meter house.</geo:notes>
                 <geo:manufacturerSerialNumber>AGBVRU1GGE8</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TPS E_GGD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TPS E_GGD</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.6.0 Apr,18,2007</geo:firmwareVersion>
@@ -153,7 +159,7 @@
             <geo:GnssReceiver gml:id="gnss-receiver-8">
                 <geo:notes>/par/lock/notvis switched to &quot;on&quot;. Additional number LE4851 on the type level. The receiver is located in the air conditioned gravity meter house.</geo:notes>
                 <geo:manufacturerSerialNumber>AGBVRU1GGE8</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TPS E_GGD</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="TPS E_GGD" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TPS E_GGD</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>2.6.1 JAN,10,2008</geo:firmwareVersion>
@@ -167,7 +173,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-9">
                 <geo:manufacturerSerialNumber>355365</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200GGPRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200GGPRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>7.50/3.017</geo:firmwareVersion>
@@ -181,7 +187,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-10">
                 <geo:manufacturerSerialNumber>355365</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200GGPRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200GGPRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>7.50/3.018</geo:firmwareVersion>
@@ -195,7 +201,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-11">
                 <geo:manufacturerSerialNumber>355365</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200GGPRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200GGPRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>7.80/3.018</geo:firmwareVersion>
@@ -209,7 +215,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-12">
                 <geo:manufacturerSerialNumber>355365</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200GGPRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200GGPRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>7.80/3.019</geo:firmwareVersion>
@@ -223,7 +229,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-13">
                 <geo:manufacturerSerialNumber>355365</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200GGPRO</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200GGPRO" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200GGPRO</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>8.10/3.019</geo:firmwareVersion>
@@ -237,7 +243,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-14">
                 <geo:manufacturerSerialNumber>495886</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200+GNSS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200+GNSS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200+GNSS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200+GNSS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>8.20/4.007</geo:firmwareVersion>
@@ -251,7 +257,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-15">
                 <geo:manufacturerSerialNumber>495886</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200+GNSS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200+GNSS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200+GNSS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200+GNSS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:firmwareVersion>8.51/6.110</geo:firmwareVersion>
@@ -265,7 +271,7 @@
         <geo:gnssReceiver>
             <geo:GnssReceiver gml:id="gnss-receiver-16">
                 <geo:manufacturerSerialNumber>495886</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200+GNSS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEICA GRX1200+GNSS</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSReceiverTypeCode" codeListValue="LEICA GRX1200+GNSS" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEICA GRX1200+GNSS</geo:igsModelCode>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GPS</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GLO</geo:satelliteSystem>
                 <geo:satelliteSystem codeSpace="urn:ga-gov-au:satellite-system-type">GAL</geo:satelliteSystem>
@@ -281,7 +287,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-1">
                 <geo:notes>The threaded reference pin is penetrating the antenna by 12.5mm. Antenna type listed in this section retro- actively changed from JPSREGANT_DD_E to JPSREGANT_DD_E1 starting with log file conz_20121007.log. See IGSMAIL-6662 and IGSMAIL-6663 for details.</geo:notes>
                 <geo:manufacturerSerialNumber>RA0178</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="JPSREGANT_DD_E1 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">JPSREGANT_DD_E1 NONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="JPSREGANT_DD_E1 NONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">JPSREGANT_DD_E1 NONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>-0.0125</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -300,7 +306,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-2">
                 <geo:notes>An error was made in the sitelog conz_20050531.log. Since 2005-05-17T14:30Z 000.0556 m was reported. The colleagues in the Transporatble Integrated Geodetic Observatory TIGO did a control survey. 000.0574 m affirm the truth.</geo:notes>
                 <geo:manufacturerSerialNumber>217 0246</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TPSCR3_GGD CONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TPSCR3_GGD      CONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TPSCR3_GGD CONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TPSCR3_GGD      CONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0574</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -319,7 +325,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-3">
                 <geo:notes>No actual change took place. Because of the usage of the NTRIP S05 the antenna identifies itself with Serial Number 217-0246</geo:notes>
                 <geo:manufacturerSerialNumber>217-0246</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TPSCR3_GGD CONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TPSCR3_GGD      CONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TPSCR3_GGD CONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TPSCR3_GGD      CONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0574</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -338,7 +344,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-4">
                 <geo:notes>No actual change took place. Because of the usage of the LEICA GRX1200GGPRO the antenna identifies itself with Serial Number 2170246</geo:notes>
                 <geo:manufacturerSerialNumber>2170246</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TPSCR3_GGD CONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TPSCR3_GGD      CONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TPSCR3_GGD CONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TPSCR3_GGD      CONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0574</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -357,7 +363,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-5">
                 <geo:notes>No actual change took place. Prior 2009-09-26 the LEICA GRX1200GGPRO could not identify a space character in the antenna serial number. Since 2009-09-30 the correct antenna serial number 217 0246 is identified.</geo:notes>
                 <geo:manufacturerSerialNumber>217 0246</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TPSCR3_GGD CONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">TPSCR3_GGD      CONE</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="TPSCR3_GGD CONE" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">TPSCR3_GGD      CONE</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0574</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -376,7 +382,7 @@
             <geo:GnssAntenna gml:id="gnss-antenna-6">
                 <geo:notes>Antenna and radome calibrated by Geo+++ GmbH Garbsen, 2010-04-28.</geo:notes>
                 <geo:manufacturerSerialNumber>10020007</geo:manufacturerSerialNumber>
-                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="LEIAR25.R3 LEIT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.4">LEIAR25.R3      LEIT</geo:igsModelCode>
+                <geo:igsModelCode codeList="http://xml.gov.au/icsm/geodesyml/codelists/antenna-receiver-codelists.xml#GeodesyML_GNSSAntennaTypeCode" codeListValue="LEIAR25.R3 LEIT" codeSpace="urn:xml-gov-au:icsm:egeodesy:0.5">LEIAR25.R3      LEIT</geo:igsModelCode>
                 <geo:antennaReferencePoint codeSpace="urn:ga-gov-au:antenna-reference-point-type">BPA</geo:antennaReferencePoint>
                 <geo:marker-arpUpEcc.>0.0574</geo:marker-arpUpEcc.>
                 <geo:marker-arpNorthEcc.>0.0</geo:marker-arpNorthEcc.>
@@ -695,6 +701,7 @@
             </gmd:CI_ResponsibleParty>
         </geo:siteMetadataCustodian>
         <geo:moreInformation>
+            <geo:MoreInformation gml:id="more-information">
             <geo:dataCenter>BKG</geo:dataCenter>
             <geo:dataCenter>OLG</geo:dataCenter>
             <geo:urlForMoreInformation>www.tigo.cl, www.fs.wettzell.de</geo:urlForMoreInformation>
@@ -707,6 +714,7 @@
             <geo:antennaGraphicsWithDimensions></geo:antennaGraphicsWithDimensions>
             <geo:insertTextGraphicFromAntenna></geo:insertTextGraphicFromAntenna>
             <geo:DOI codeSpace="urn:ga-gov-au:self.moreInformation-type">TODO</geo:DOI>
+            </geo:MoreInformation>
         </geo:moreInformation>
     </geo:siteLog>
 </geo:GeodesyML>
