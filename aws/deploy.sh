@@ -53,7 +53,7 @@ cd ..
 terraform_workspace="$(pwd)/aws/terraform/workspaces/$env"
 
 cd aws/terraform
-rm -frv terraform.tfstate.d/
+rm -frv terraform.tfstate.d/ .terraform
 
 terraform init -backend-config="$terraform_workspace/backend.cfg"
 terraform workspace select "$env" || terraform workspace new "$env"
