@@ -35,9 +35,9 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
     # TODO: Temporarily disable automatic deployments.
     export TMPDIR=/tmp
 
-    ./aws/deploy.sh $targetEnv
     ./aws/codedeploy-WebServices/deploy.sh $targetEnv
     ./aws/codedeploy-GeoServer/deploy.sh $targetEnv
+    ./aws/deploy.sh $targetEnv
 
     if [[ $targetEnv = "prod" ]]; then
         mvn --settings ./travis/maven-settings.xml site-deploy -DskipTests -pl gws-core
