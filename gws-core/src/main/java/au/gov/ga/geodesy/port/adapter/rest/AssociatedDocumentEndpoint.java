@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -20,10 +24,8 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.amazonaws.AmazonServiceException;
-import com.amazonaws.auth.AWSCredentialsProviderChain;
-import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;
-import com.amazonaws.auth.InstanceProfileCredentialsProvider;
-import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.services.s3.AmazonS3;
@@ -36,6 +38,9 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+
+import au.gov.ga.geodesy.support.credstash.Credstash;
+import au.gov.ga.geodesy.support.credstash.CredstashConfig;
 
 @RepositoryRestController
 @RequestMapping("/associatedDocuments")
@@ -98,29 +103,60 @@ public class AssociatedDocumentEndpoint {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
     }
 
+    @Configuration
+    @Import(CredstashConfig.class)
+    @PropertySource("classpath:/config.properties")
     public static class AmazonS3ContextConfiguration {
+        @Autowired
+        private Credstash credstash;
+
         @Bean
         public AmazonS3 s3Client() {
+            BasicAWSCredentials awsCredentials = new BasicAWSCredentials(
+                this.credstash.getSecret(this.checkEnvVariableSuffix(this.awsAccessKeyName)),
+                this.credstash.getSecret(this.checkEnvVariableSuffix(this.awsSecretKeyName))
+            );
             return AmazonS3ClientBuilder
                 .standard()
                 .withPathStyleAccessEnabled(true)
                 .withRegion(Regions.AP_SOUTHEAST_2)
-                .withCredentials(
-                    new AWSCredentialsProviderChain(
-                        new InstanceProfileCredentialsProvider(false),
-                        new ProfileCredentialsProvider("gnss-metadata"),
-                        new EnvironmentVariableCredentialsProvider()
-                    )
-                )
+                .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
                 .build();
         }
+
+        @Value("${gnssMetadataAccessKeyId}")
+        private String awsAccessKeyName;
+
+        @Value("${gnssMetadataSecretAccessKey}")
+        private String awsSecretKeyName;
 
         @Value("${gnssMetadataDocumentBucketName}")
         private String bucketName;
 
         @Bean
+        public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+            return new PropertySourcesPlaceholderConfigurer();
+        }
+
+        @Bean
         public String bucketName() {
             return this.bucketName;
+        }
+
+        /**
+         * Check the suffix of the variable name by replacing "-dev", "-local" or "-test" with "-nonprod",
+         * and keeping the suffix "-prod" unchanged.
+         */
+        private String checkEnvVariableSuffix(String variableName) {
+            String envVariable = variableName.toLowerCase();
+            if (envVariable.endsWith("-dev")) {
+                envVariable = envVariable.replace("-dev", "-nonprod");
+            } else if (envVariable.endsWith("-local")) {
+                envVariable = envVariable.replace("-local", "-nonprod");
+            } else if (envVariable.endsWith("-test")) {
+                envVariable = envVariable.replace("-test", "-nonprod");
+            }
+            return envVariable;
         }
     }
 }

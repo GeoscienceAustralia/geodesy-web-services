@@ -9,15 +9,9 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-
-import com.amazonaws.client.builder.AwsClientBuilder;
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-
 
 /**
  * Spring context configuration for integration tests.
@@ -49,17 +43,9 @@ public class IntegrationTestConfig {
     @Value("${dbPassword}")
     private String dbPassword;
 
-    @Value("${gnssMetadataDocumentBucketName}")
-    private String documentBucketName;
-
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
-    }
-
-    @Bean
-    public String gnssMetadataDocumentBucketName() {
-        return this.documentBucketName;
     }
 
     @Bean
@@ -67,7 +53,7 @@ public class IntegrationTestConfig {
         return AmazonS3ClientBuilder
             .standard()
             .withPathStyleAccessEnabled(true)
-            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://localhost:4572", "ap-southeast-2"))
+            .withEndpointConfiguration(new EndpointConfiguration("http://localhost:4572", "ap-southeast-2"))
             .disableChunkedEncoding()
             .build();
     }
