@@ -58,7 +58,7 @@ public class SkeletonEndpoint {
         List<SiteResponsibleParty> custodian = siteLog.getSiteMetadataCustodians();
         if (!custodian.isEmpty()) {
             rinexFileHeader.setAgency(
-                siteContacts.get(0).getParty().getOrganisationName().toString());
+                custodian.get(0).getParty().getOrganisationName().toString());
         }
 
         List<GnssReceiverLogItem> receiverLogItemList = new ArrayList<>(siteLog.getGnssReceivers());
