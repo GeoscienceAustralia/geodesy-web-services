@@ -21,10 +21,10 @@ public class SkeletonEndpointITest extends IntegrationTest {
     private String alicSkeleton =
         "ALIC                                                        MARKER NAME\n" +
         "50137M001                                                   MARKER NUMBER\n" +
-        "                    Geoscience Australia                    OBSERVER / AGENCY\n" +
-        "1830439             LEICA GR25          4.31.101            REC # / TYPE / VERS\n" +
+        "                    Geoscience Australia - Longer than 4... OBSERVER / AGENCY\n" +
+        "1830439             LEICA GR25          4.11.606/6.523      REC # / TYPE / VERS\n" +
         "09370001            LEIAR25.R3      NONE                    ANT # / TYPE\n" +
-        " -4052051.7670  4212836.2150 -2545106.0270                  APPROX POSITION XYZ\n" +
+        " -4130636.5890  2894953.1210 -3890530.4420                  APPROX POSITION XYZ\n" +
         "        0.0015        0.0000        0.0000                  ANTENNA: DELTA H/E/N\n" +
         "                                                            END OF HEADER\n";
 
