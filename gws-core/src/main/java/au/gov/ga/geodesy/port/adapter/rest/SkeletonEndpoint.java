@@ -55,10 +55,10 @@ public class SkeletonEndpoint {
         String markerNumber = siteLog.getSiteIdentification().getIersDOMESNumber();
         rinexFileHeader.setMarkerNumber(markerNumber);
 
-        List<SiteResponsibleParty> siteContacts = siteLog.getSiteContacts();
-        if (!siteContacts.isEmpty()) {
-            String agency = siteContacts.get(0).getParty().getOrganisationName().toString();
-            rinexFileHeader.setAgency(agency);
+        List<SiteResponsibleParty> custodian = siteLog.getSiteMetadataCustodians();
+        if (!custodian.isEmpty()) {
+            rinexFileHeader.setAgency(
+                custodian.get(0).getParty().getOrganisationName().toString());
         }
 
         List<GnssReceiverLogItem> receiverLogItemList = new ArrayList<>(siteLog.getGnssReceivers());
