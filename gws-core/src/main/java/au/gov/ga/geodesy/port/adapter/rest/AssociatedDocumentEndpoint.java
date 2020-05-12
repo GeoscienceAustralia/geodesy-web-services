@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -20,10 +24,8 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.amazonaws.AmazonServiceException;
-import com.amazonaws.auth.AWSCredentialsProviderChain;
-import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;
-import com.amazonaws.auth.InstanceProfileCredentialsProvider;
-import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.services.s3.AmazonS3;
@@ -98,25 +100,36 @@ public class AssociatedDocumentEndpoint {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
     }
 
+    @Configuration
+    @PropertySource("classpath:/config.properties")
     public static class AmazonS3ContextConfiguration {
         @Bean
         public AmazonS3 s3Client() {
+            BasicAWSCredentials awsCredentials = new BasicAWSCredentials(
+                this.awsAccessKeyName,
+                this.awsSecretKeyName
+            );
             return AmazonS3ClientBuilder
                 .standard()
                 .withPathStyleAccessEnabled(true)
                 .withRegion(Regions.AP_SOUTHEAST_2)
-                .withCredentials(
-                    new AWSCredentialsProviderChain(
-                        new InstanceProfileCredentialsProvider(false),
-                        new ProfileCredentialsProvider("gnss-metadata"),
-                        new EnvironmentVariableCredentialsProvider()
-                    )
-                )
+                .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
                 .build();
         }
 
+        @Value("${gnssMetadataAccessKeyId}")
+        private String awsAccessKeyName;
+
+        @Value("${gnssMetadataSecretAccessKey}")
+        private String awsSecretKeyName;
+
         @Value("${gnssMetadataDocumentBucketName}")
         private String bucketName;
+
+        @Bean
+        public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+            return new PropertySourcesPlaceholderConfigurer();
+        }
 
         @Bean
         public String bucketName() {
