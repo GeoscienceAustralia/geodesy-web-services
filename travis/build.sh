@@ -6,9 +6,6 @@ set -euo pipefail
 # A local installation of maven prefers to run the global installation, if available.
 sudo rm -f /etc/mavenrc
 
-TRAVIS_BRANCH=
-TRAVIS_PULL_REQUEST=
-
 # We redirect maven test output to file, because Travis CI limits stdout log size to 4MB.
 
 mvn --settings ./travis/maven-settings.xml -U install -DskipTests > /dev/null
