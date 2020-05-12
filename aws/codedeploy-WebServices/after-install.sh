@@ -17,3 +17,5 @@ sed -i 's/${geodesy-db-password}/'"${DB_PASSWORD}/" ROOT/META-INF/context.xml
 
 sed -i s,'${oauthProviderUrl}',"${OPENAM_ENDPOINT}"/oauth2, ROOT/WEB-INF/classes/config.properties
 sed -i s,'${env}',"${ENV}", ROOT/WEB-INF/classes/config.properties
+sed -i s,'${awsAccessKeyGnssMetadata}',"${AWS_ACCESS_KEY_GNSS_METADATA}", ROOT/WEB-INF/classes/config.properties
+sed -i s,'${awsSecretKeyGnssMetadata}',"${AWS_SECRET_KEY_GNSS_METADATA}", ROOT/WEB-INF/classes/config.properties
