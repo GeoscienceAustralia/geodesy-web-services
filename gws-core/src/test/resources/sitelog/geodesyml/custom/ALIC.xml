@@ -646,7 +646,7 @@ AUSTRALIA</gco:CharacterString>
                     <gco:CharacterString>Site Metadata Custodian</gco:CharacterString>
                 </gmd:individualName>
                 <gmd:organisationName>
-                    <gco:CharacterString>Geoscience Australia</gco:CharacterString>
+                    <gco:CharacterString>Geoscience Australia - Longer than 40 characters</gco:CharacterString>
                 </gmd:organisationName>
                 <gmd:contactInfo>
                     <gmd:CI_Contact>

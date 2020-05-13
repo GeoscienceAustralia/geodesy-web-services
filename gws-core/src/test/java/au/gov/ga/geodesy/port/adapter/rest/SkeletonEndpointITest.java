@@ -11,13 +11,22 @@ import org.springframework.test.annotation.Rollback;
 import org.testng.annotations.Test;
 
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
+import static org.junit.Assert.assertTrue;
 
 public class SkeletonEndpointITest extends IntegrationTest {
 
     @Autowired
     private CorsSiteLogService siteLogService;
+
+    private String alicSkeleton =
+        "ALIC                                                        MARKER NAME\n" +
+        "50137M001                                                   MARKER NUMBER\n" +
+        "                    Geoscience Australia - Longer than 4... OBSERVER / AGENCY\n" +
+        "1830439             LEICA GR25          4.11.606/6.523      REC # / TYPE / VERS\n" +
+        "09370001            LEIAR25.R3      NONE                    ANT # / TYPE\n" +
+        " -4130636.5890  2894953.1210 -3890530.4420                  APPROX POSITION XYZ\n" +
+        "        0.0015        0.0000        0.0000                  ANTENNA: DELTA H/E/N\n" +
+        "                                                            END OF HEADER\n";
 
     @Test
     @Rollback(false)
@@ -38,8 +47,7 @@ public class SkeletonEndpointITest extends IntegrationTest {
             .contentType("text/plain")
             .extract().body().asString();
 
-        assertThat(text, containsString("ANTENNA: DELTA"));
-        assertThat(text, containsString("50137M001"));
+        assertTrue(text.equals(alicSkeleton));
     }
 
     @Test(dependsOnMethods = {"upload"})
@@ -54,8 +62,7 @@ public class SkeletonEndpointITest extends IntegrationTest {
             .contentType("text/plain")
             .extract().body().asString();
 
-        assertThat(text, containsString("AGENCY"));
-        assertThat(text, containsString("50137M001"));
+        assertTrue(text.equals(alicSkeleton));
     }
 
     @Test
