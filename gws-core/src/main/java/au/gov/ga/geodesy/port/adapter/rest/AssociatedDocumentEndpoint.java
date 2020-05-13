@@ -106,8 +106,8 @@ public class AssociatedDocumentEndpoint {
         @Bean
         public AmazonS3 s3Client() {
             BasicAWSCredentials awsCredentials = new BasicAWSCredentials(
-                this.awsAccessKeyName,
-                this.awsSecretKeyName
+                this.awsAccessKeyId,
+                this.awsSecretAccessKey
             );
             return AmazonS3ClientBuilder
                 .standard()
@@ -117,11 +117,11 @@ public class AssociatedDocumentEndpoint {
                 .build();
         }
 
-        @Value("${gnssMetadataAccessKeyId}")
-        private String awsAccessKeyName;
+        @Value("${awsAccessKeyIdGnssMetadata}")
+        private String awsAccessKeyId;
 
-        @Value("${gnssMetadataSecretAccessKey}")
-        private String awsSecretKeyName;
+        @Value("${awsSecretAccessKeyGnssMetadata}")
+        private String awsSecretAccessKey;
 
         @Value("${gnssMetadataDocumentBucketName}")
         private String bucketName;

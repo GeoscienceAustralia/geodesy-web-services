@@ -35,11 +35,11 @@ DB_USERNAME=$(${CREDSTASH} get ${DB_USERNAME_KEY})
 DB_PASSWORD=$(${CREDSTASH} get ${DB_PASSWORD_KEY})
 
 if [[ ${ENV,,} == "prod" ]]; then
-    AWS_ACCESS_KEY_GNSS_METADATA=AKIAXBN4SPHLCDHWXFRD
-    AWS_SECRET_KEY_GNSS_METADATA=$(${CREDSTASH} get "/gnss-metadata-prod/iam-user/travis-ci/access-key/${AWS_ACCESS_KEY_GNSS_METADATA}/secret-access-key")
+    AWS_ACCESS_KEY_ID_GNSS_METADATA=AKIAXBN4SPHLFLNFNXWQ
+    AWS_SECRET_ACCESS_KEY_GNSS_METADATA=$(${CREDSTASH} get "/gnss-metadata-prod/iam-user/document-storage/access-key/${AWS_ACCESS_KEY_ID_GNSS_METADATA}/secret-access-key")
 else
-    AWS_ACCESS_KEY_GNSS_METADATA=AKIA2H4MYP4OFLXHC77W
-    AWS_SECRET_KEY_GNSS_METADATA=$(${CREDSTASH} get "/gnss-metadata-nonprod/iam-user/travis-ci/access-key/${AWS_ACCESS_KEY_GNSS_METADATA}/secret-access-key")
+    AWS_ACCESS_KEY_ID_GNSS_METADATA=AKIA2H4MYP4OOU32BIPM
+    AWS_SECRET_ACCESS_KEY_GNSS_METADATA=$(${CREDSTASH} get "/gnss-metadata-nonprod/iam-user/document-storage/access-key/${AWS_ACCESS_KEY_ID_GNSS_METADATA}/secret-access-key")
 fi
 
 unset DEPLOYMENT_GROUP_NAME_CUT
