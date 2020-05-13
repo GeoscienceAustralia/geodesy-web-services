@@ -10,7 +10,6 @@ import com.vividsolutions.jts.geom.Point;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.hateoas.config.EnableEntityLinks;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -55,9 +54,15 @@ public class SkeletonEndpoint {
         String markerNumber = siteLog.getSiteIdentification().getIersDOMESNumber();
         rinexFileHeader.setMarkerNumber(markerNumber);
 
-        List<SiteResponsibleParty> siteContacts = siteLog.getSiteContacts();
-        if (!siteContacts.isEmpty()) {
-            String agency = siteContacts.get(0).getParty().getOrganisationName().toString();
+        List<SiteResponsibleParty> custodian = siteLog.getSiteMetadataCustodians();
+        if (!custodian.isEmpty()) {
+            String agency = custodian.get(0).getParty().getOrganisationName().toString();
+            // Truncate Organisation name if longer than 40 chars
+            // TODO: Add Header comment containing untruncated Organisation Name
+            // TODO: Consider doing this in RinexFileHeader class
+            if (agency.length() > 40) {
+                agency = agency.substring(0, 36) + "...";
+            }
             rinexFileHeader.setAgency(agency);
         }
 
