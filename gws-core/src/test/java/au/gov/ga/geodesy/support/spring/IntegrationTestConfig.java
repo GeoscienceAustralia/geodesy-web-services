@@ -1,18 +1,13 @@
 package au.gov.ga.geodesy.support.spring;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.s3.AmazonS3;
@@ -49,17 +44,9 @@ public class IntegrationTestConfig {
     @Value("${dbPassword}")
     private String dbPassword;
 
-    @Value("${gnssMetadataDocumentBucketName}")
-    private String documentBucketName;
-
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
-    }
-
-    @Bean
-    public String gnssMetadataDocumentBucketName() {
-        return this.documentBucketName;
     }
 
     @Bean
