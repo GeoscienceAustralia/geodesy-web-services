@@ -42,7 +42,7 @@ EOF
 
 terraform init
 terraform workspace select $environment || terraform workspace new $environment
-terraform apply -auto-approve -input=false
+terraform apply -auto-approve -input=false -target aws_s3_bucket.gnss_metadata_document_storage
 
 function onExit {
     rm -f main_override.tf

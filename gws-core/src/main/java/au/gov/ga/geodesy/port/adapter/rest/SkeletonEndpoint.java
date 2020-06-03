@@ -71,9 +71,11 @@ public class SkeletonEndpoint {
             log.error("No receiver record for station " + fourCharId);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        receiverLogItemList.sort(Comparator.comparing(GnssReceiverLogItem::getDateInstalled).reversed());
 
-        GnssReceiverLogItem receiverLogItem = receiverLogItemList.get(0);
+        GnssReceiverLogItem receiverLogItem = receiverLogItemList.stream()
+            .max(GnssReceiverLogItem::compareTo)
+            .get();
+
         rinexFileHeader.setReceiverSerialNumber(receiverLogItem.getSerialNumber());
         rinexFileHeader.setReceiverType(receiverLogItem.getType());
         rinexFileHeader.setReceiverFirmwareVersion(receiverLogItem.getFirmwareVersion());
@@ -83,9 +85,11 @@ public class SkeletonEndpoint {
             log.error("No antenna record for station " + fourCharId);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        antennaLogItemList.sort(Comparator.comparing(GnssAntennaLogItem::getDateInstalled).reversed());
 
-        GnssAntennaLogItem antennaLogItem = antennaLogItemList.get(0);
+        GnssAntennaLogItem antennaLogItem = antennaLogItemList.stream()
+            .max(GnssAntennaLogItem::compareTo)
+            .get();
+
         rinexFileHeader.setAntennaSerialNumber(antennaLogItem.getSerialNumber());
         rinexFileHeader.setAntennaType(antennaLogItem.getType());
 
