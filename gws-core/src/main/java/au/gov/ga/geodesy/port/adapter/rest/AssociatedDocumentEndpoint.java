@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -23,7 +26,6 @@ import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.AWSCredentialsProviderChain;
 import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;
 import com.amazonaws.auth.InstanceProfileCredentialsProvider;
-import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.services.s3.AmazonS3;
@@ -98,6 +100,8 @@ public class AssociatedDocumentEndpoint {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
     }
 
+    @Configuration
+    @PropertySource("classpath:/config.properties")
     public static class AmazonS3ContextConfiguration {
         @Bean
         public AmazonS3 s3Client() {
@@ -108,7 +112,6 @@ public class AssociatedDocumentEndpoint {
                 .withCredentials(
                     new AWSCredentialsProviderChain(
                         new InstanceProfileCredentialsProvider(false),
-                        new ProfileCredentialsProvider("gnss-metadata"),
                         new EnvironmentVariableCredentialsProvider()
                     )
                 )
@@ -121,6 +124,11 @@ public class AssociatedDocumentEndpoint {
         @Bean
         public String bucketName() {
             return this.bucketName;
+        }
+
+        @Bean
+        public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+            return new PropertySourcesPlaceholderConfigurer();
         }
     }
 }

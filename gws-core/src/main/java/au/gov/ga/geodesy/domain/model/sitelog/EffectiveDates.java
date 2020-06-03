@@ -6,6 +6,10 @@ import afu.org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+
+import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.Ordering;
+
 import java.time.Instant;
 
 /**
@@ -14,7 +18,7 @@ import java.time.Instant;
  * trouble).
  */
 @Embeddable
-public class EffectiveDates implements Comparable {
+public class EffectiveDates implements Comparable<EffectiveDates> {
 
     @Column(name = "EFFECTIVE_FROM")
     private Instant from;
@@ -58,42 +62,12 @@ public class EffectiveDates implements Comparable {
         return new EqualsBuilder().append(this.from, other.from).append(this.to, other.to).isEquals();
     }
 
-    /**
-     * Implement compareTo method so that collections of EffectiveDate objects can be sorted properly
-     * Compares from and to dates, accounting for null values.
-     *
-     * @param otherObject the EffectiveDate to compare with this one
-     * @return int value of comparison
-     */
     @Override
-    public int compareTo(Object otherObject) {
-        int result = 0;
-        if (otherObject == null) {
-            result = 1;
-        }
-        if (!(otherObject instanceof EffectiveDates)) {
-            result = 1;
-        }
-        else {
-            EffectiveDates other = (EffectiveDates)otherObject;
-            if (from == null && other.getFrom() != null) {
-                result = 1;
-            } else if (from != null && other.getFrom() == null) {
-                result = -1;
-            } else if (from != null && other.getFrom() != null) {
-                result += from.compareTo(other.getFrom());
-            }
-            if (result == 0) {
-                if (to == null && other.getTo() != null) {
-                    result = 1;
-                } else if (to != null && other.getTo() == null) {
-                    result = -1;
-                } else if (to != null && other.getTo() != null) {
-                    result += to.compareTo(other.getTo());
-                }
-            }
-        }
-        return result;
+    public int compareTo(EffectiveDates x) {
+        return ComparisonChain.start()
+            .compare(this.from, x.from, Ordering.natural().nullsFirst())
+            .compare(this.to, x.to, Ordering.natural().nullsLast())
+            .result();
     }
 
     public boolean inRange(Instant time) {
