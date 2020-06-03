@@ -66,7 +66,7 @@ public class EffectiveDates implements Comparable<EffectiveDates> {
     public int compareTo(EffectiveDates x) {
         return ComparisonChain.start()
             .compare(this.from, x.from, Ordering.natural().nullsFirst())
-            .compare(this.to, x.to, Ordering.natural().nullsFirst())
+            .compare(this.to, x.to, Ordering.natural().nullsLast())
             .result();
     }
 

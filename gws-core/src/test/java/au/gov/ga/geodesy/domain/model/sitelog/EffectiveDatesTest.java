@@ -20,11 +20,11 @@ public class EffectiveDatesTest {
         );
         EffectiveDates b = new EffectiveDates(
             Instant.parse("2010-06-21T00:30:00.000Z"),
-            null
+            Instant.parse("2010-06-21T00:30:00.000Z")
         );
         EffectiveDates c = new EffectiveDates(
             Instant.parse("2010-06-21T00:30:00.000Z"),
-            Instant.parse("2010-06-21T00:30:00.000Z")
+            null
         );
 
         List<EffectiveDates> dates = Arrays.asList(b, a, c);
