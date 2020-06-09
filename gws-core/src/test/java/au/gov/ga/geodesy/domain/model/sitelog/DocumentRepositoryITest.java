@@ -1,6 +1,7 @@
 package au.gov.ga.geodesy.domain.model.sitelog;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.isIn;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.Set;
 
 import au.gov.ga.geodesy.port.adapter.geodesyml.GeodesyMLSiteLogReader;
@@ -37,5 +39,16 @@ public class DocumentRepositoryITest extends IntegrationTest {
 
         Document d2 = documentRepository.findByName(d1.getName());
         assertThat(d2.getName(), isIn(documentNames));
+    }
+
+    @Test(dependsOnMethods = {"saveDocumentsForAlic"})
+    @Rollback(false)
+    public void findDocumentNamesByFourCharacterId() throws Exception {
+        String fourCharacterId = "Alic";
+        List<String> documentNames = documentRepository.findDocumentNamesByFourCharacterId(fourCharacterId);
+        assertThat(documentNames.size(), is(2));
+        documentNames.forEach(documentName -> {
+            assertThat(documentName, startsWith(fourCharacterId.toUpperCase()));
+        });
     }
 }

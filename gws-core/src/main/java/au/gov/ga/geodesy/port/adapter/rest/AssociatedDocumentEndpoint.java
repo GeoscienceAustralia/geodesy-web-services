@@ -1,5 +1,6 @@
 package au.gov.ga.geodesy.port.adapter.rest;
 
+import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -33,20 +35,32 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.DeleteObjectRequest;
+import com.amazonaws.services.s3.model.ListObjectsRequest;
+import com.amazonaws.services.s3.model.ObjectListing;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.S3ObjectSummary;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import au.gov.ga.geodesy.domain.model.sitelog.DocumentRepository;
+
 
 @RepositoryRestController
 @RequestMapping("/associatedDocuments")
 public class AssociatedDocumentEndpoint {
 
     private static final Logger log = LoggerFactory.getLogger(AssociatedDocumentEndpoint.class);
+
+    @Autowired
+    private DocumentRepository documents;
 
     @Autowired
     private AmazonS3 s3Client;
@@ -108,10 +122,81 @@ public class AssociatedDocumentEndpoint {
         response.sendRedirect(objectUrl.toExternalForm());
     }
 
+    @DeleteMapping("/removeOrphanDocuments")
+    public ResponseEntity<String> removeOrphanDocuments(@RequestParam(required = false) Integer hoursToKeep)
+            throws SdkClientException, AmazonServiceException {
+
+        Date startDateTime = null;
+        if (hoursToKeep != null) {
+            DateTime dateTime = new DateTime().minusHours(hoursToKeep);
+            startDateTime = dateTime.toDate();
+        }
+
+        int numberOfOrphanDocuments = 0;
+        List<String> fourCharacterIds = getDistinctFourCharacterIdsInBucket();
+        for (String fourCharacterId : fourCharacterIds) {
+            List<String> documentNames = this.documents.findDocumentNamesByFourCharacterId(fourCharacterId);
+            List<String> objectKeys = this.getObjectKeys(fourCharacterId, startDateTime);
+            for (String objectKey : objectKeys) {
+                if (!documentNames.contains(objectKey)) {
+                    DeleteObjectRequest deleteObjectRequest = new DeleteObjectRequest(this.bucketName, objectKey);
+                    s3Client.deleteObject(deleteObjectRequest);
+                    numberOfOrphanDocuments++;
+                }
+            }
+        }
+
+        if (numberOfOrphanDocuments == 0) {
+            return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+        } else {
+            log.info(numberOfOrphanDocuments + " orphan documents have been removed from " + this.bucketName);
+            return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
+        }
+    }
+
     @ExceptionHandler(value = {AmazonServiceException.class, SdkClientException.class, URISyntaxException.class})
     public ResponseEntity<String> handleExceptions(Exception e) {
         log.error(e.getMessage(), e);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+    }
+
+    private List<String> getDistinctFourCharacterIdsInBucket() throws SdkClientException, AmazonServiceException {
+        List<String> fourCharacterIds = new ArrayList<>();
+        List<String> objectKeys = this.getObjectKeys(null, null);
+        for (String objectKey : objectKeys) {
+            String fourCharacterId = this.getObjectKeyPrefix(objectKey);
+            if (!fourCharacterIds.contains(fourCharacterId)) {
+                fourCharacterIds.add(fourCharacterId);
+            }
+        }
+        return fourCharacterIds;
+    }
+
+    private List<String> getObjectKeys(String keyPrefix, Date startDateTime)
+            throws SdkClientException, AmazonServiceException {
+        ListObjectsRequest listObjectsRequest = new ListObjectsRequest().withBucketName(this.bucketName);
+        if (keyPrefix != null) {
+            listObjectsRequest.setPrefix(keyPrefix);
+        }
+
+        List<String> objectKeys = new ArrayList<String>();
+        ObjectListing objectListing;
+        do {
+            objectListing = this.s3Client.listObjects(listObjectsRequest);
+            for (S3ObjectSummary objectSummary : objectListing.getObjectSummaries()) {
+                if (startDateTime == null || objectSummary.getLastModified().compareTo(startDateTime) <= 0) {
+                    objectKeys.add(objectSummary.getKey());
+                }
+            }
+            listObjectsRequest.setMarker(objectListing.getNextMarker());
+        } while (objectListing.isTruncated());
+
+        return objectKeys;
+    }
+
+    private String getObjectKeyPrefix(String objectKey) {
+        int index = objectKey.indexOf("_");
+        return (index == -1) ? null : objectKey.substring(0, index);
     }
 
     @Configuration
