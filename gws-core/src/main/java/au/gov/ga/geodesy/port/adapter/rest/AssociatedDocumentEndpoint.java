@@ -16,11 +16,14 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.AWSCredentialsProviderChain;
@@ -32,9 +35,12 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.DeleteObjectRequest;
+import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.S3Object;
 
+import java.io.InputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -57,6 +63,38 @@ public class AssociatedDocumentEndpoint {
         context.refresh();
         this.s3Client = (AmazonS3) context.getBean("s3Client");
         this.bucketName = (String) context.getBean("bucketName");
+    }
+
+    @GetMapping(
+        value = "/{name}"
+    )
+    public ResponseEntity<StreamingResponseBody> getDocumentContent(
+            @PathVariable("name") String documentName,
+            @RequestParam("type") String dispositionType)
+            throws SdkClientException, AmazonServiceException, IOException {
+        GetObjectRequest getObjectRequest = new GetObjectRequest(this.bucketName, documentName);
+        S3Object documentObject = this.s3Client.getObject(getObjectRequest);
+        InputStream inputStream = documentObject.getObjectContent();
+
+        StreamingResponseBody responseBody = outputStream -> {
+            int numberOfBytes;
+            byte[] data = new byte[1024];
+            while ((numberOfBytes = inputStream.read(data, 0, data.length)) != -1) {
+                outputStream.write(data, 0, numberOfBytes);
+            }
+            inputStream.close();
+        };
+
+        String contentDisposition = dispositionType;
+        if (dispositionType.equalsIgnoreCase("download")) {
+            contentDisposition += "; filename=" + documentName;
+        } else if (dispositionType.equalsIgnoreCase("inline")) {
+            contentDisposition += "; preview-type=application/html";
+        }
+
+        return ResponseEntity.ok()
+            .header(HttpHeaders.CONTENT_DISPOSITION, contentDisposition)
+            .body(responseBody);
     }
 
     @PostMapping(
