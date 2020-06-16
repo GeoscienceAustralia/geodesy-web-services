@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -28,6 +29,13 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 @ComponentScan(basePackages = {"au.gov.ga.geodesy.port.adapter.rest"})
 @Import(RepositoryRestMvcConfiguration.class)
 public class GeodesyRestMvcConfig extends WebMvcConfigurerAdapter {
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/associatedDocuments/**")
+                .addResourceLocations("/associatedDocuments/")
+                .setCachePeriod(86400);
+    }
 
     @Bean
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {

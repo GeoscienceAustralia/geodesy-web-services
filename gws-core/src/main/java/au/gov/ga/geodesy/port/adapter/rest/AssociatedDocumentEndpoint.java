@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
+import org.springframework.http.CacheControl;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,7 +21,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
@@ -40,10 +40,12 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.InputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.concurrent.TimeUnit;
 
 @RepositoryRestController
 @RequestMapping("/associatedDocuments")
@@ -65,44 +67,46 @@ public class AssociatedDocumentEndpoint {
         this.bucketName = (String) context.getBean("bucketName");
     }
 
-    @GetMapping(
-        value = "/{name}"
-    )
+    @GetMapping("/{name}")
     public ResponseEntity<StreamingResponseBody> getDocumentContent(
-            @PathVariable("name") String documentName,
-            @RequestParam("type") String dispositionType)
-            throws SdkClientException, AmazonServiceException, IOException {
+            @PathVariable("name") String documentName)
+            throws SdkClientException {
         GetObjectRequest getObjectRequest = new GetObjectRequest(this.bucketName, documentName);
         S3Object documentObject = this.s3Client.getObject(getObjectRequest);
-        InputStream inputStream = documentObject.getObjectContent();
+        ObjectMetadata objectMetadata = documentObject.getObjectMetadata();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set(HttpHeaders.ACCEPT_RANGES, "bytes");
+        headers.set(HttpHeaders.CONTENT_DISPOSITION, "inline; preview-type=application/html");
+        headers.set(HttpHeaders.CONTENT_TYPE, objectMetadata.getContentType());
+        headers.set(HttpHeaders.ETAG, objectMetadata.getETag());
+        headers.setCacheControl("max-age=86401");
+        headers.setContentLength(objectMetadata.getContentLength());
 
         StreamingResponseBody responseBody = outputStream -> {
-            int numberOfBytes;
-            byte[] data = new byte[1024];
-            while ((numberOfBytes = inputStream.read(data, 0, data.length)) != -1) {
-                outputStream.write(data, 0, numberOfBytes);
+            try (InputStream inputStream = documentObject.getObjectContent()) {
+                int numberOfBytes;
+                byte[] data = new byte[1024];
+                while ((numberOfBytes = inputStream.read(data, 0, data.length)) != -1) {
+                    outputStream.write(data, 0, numberOfBytes);
+                }
             }
-            inputStream.close();
         };
-
-        String contentDisposition = dispositionType;
-        if (dispositionType.equalsIgnoreCase("download")) {
-            contentDisposition += "; filename=" + documentName;
-        } else if (dispositionType.equalsIgnoreCase("inline")) {
-            contentDisposition += "; preview-type=application/html";
-        }
-
-        return ResponseEntity.ok()
-            .header(HttpHeaders.CONTENT_DISPOSITION, contentDisposition)
-            .body(responseBody);
+        CacheControl cacheControl = CacheControl.maxAge(24, TimeUnit.HOURS)
+                                                .noTransform()
+                                                .cachePublic();
+        return ResponseEntity.ok().headers(headers)
+                             .cacheControl(cacheControl)
+                             .body(responseBody);
     }
 
     @PostMapping(
         value = "/",
         consumes = MediaType.MULTIPART_FORM_DATA_VALUE
     )
-    public ResponseEntity<String> upload(@RequestPart("file") MultipartFile file)
-            throws SdkClientException, AmazonServiceException, URISyntaxException, IOException {
+    public ResponseEntity<String> upload(HttpServletRequest httpServletRequest,
+                                         @RequestPart("file") MultipartFile file)
+            throws SdkClientException, URISyntaxException, IOException {
         String documentName = file.getOriginalFilename();
         ObjectMetadata objectMetadata = new ObjectMetadata();
         objectMetadata.setContentLength(file.getSize());
@@ -114,15 +118,18 @@ public class AssociatedDocumentEndpoint {
                 .withCannedAcl(CannedAccessControlList.PublicRead);
         s3Client.putObject(putObjectRequest);
         String objectUrl = s3Client.getUrl(this.bucketName, documentName).toExternalForm();
-        log.info("Uploaded " + documentName + " to S3 bucket: " + objectUrl);
         HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.setLocation(new URI(objectUrl));
+        if (objectUrl.contains(documentName)) {
+            String location = this.getDocumentLocation(httpServletRequest, documentName);
+            responseHeaders.setLocation(new URI(location));
+            log.info("Uploaded " + documentName + " to S3 bucket: " + location);
+        }
         return new ResponseEntity<String>(responseHeaders, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{name}")
     public ResponseEntity<String> remove(@PathVariable("name") String documentName)
-            throws SdkClientException, AmazonServiceException {
+            throws SdkClientException {
         if (s3Client.doesObjectExist(this.bucketName, documentName)) {
             DeleteObjectRequest deleteObjectRequest = new DeleteObjectRequest(this.bucketName, documentName);
             s3Client.deleteObject(deleteObjectRequest);
@@ -137,6 +144,14 @@ public class AssociatedDocumentEndpoint {
     public ResponseEntity<String> handleExceptions(Exception e) {
         log.error(e.getMessage(), e);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+    }
+
+    private String getDocumentLocation(HttpServletRequest request, String documentName) {
+        String documentLocation = request.getRequestURL() + documentName;
+        if (request.getScheme().equals("http") && !request.getServerName().contains("localhost")) {
+            documentLocation = documentLocation.replace("http", "https");
+        }
+        return documentLocation;
     }
 
     @Configuration
