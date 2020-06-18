@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -27,6 +26,27 @@ import java.util.List;
 public class SkeletonEndpoint {
 
     private static final Logger log = LoggerFactory.getLogger(SkeletonEndpoint.class);
+
+    private static final String trimbleObsTypes =
+        "G   16 C1C L1C D1C S1C C2W L2W D2W S2W C2X L2X D2X S2X C5X  SYS / # / OBS TYPES\n" +
+        "       L5X D5X S5X                                          SYS / # / OBS TYPES\n" +
+        "R   16 C1C L1C D1C S1C C1P L1P D1P S1P C2C L2C D2C S2C C2P  SYS / # / OBS TYPES\n" +
+        "       L2P D2P S2P                                          SYS / # / OBS TYPES\n" +
+        "E   20 C1C L1C D1C S1C C5Q L5Q D5Q S5Q C7Q L7Q D7Q S7Q C8Q  SYS / # / OBS TYPES\n" +
+        "       L8Q D8Q S8Q C6C L6C D6C S6C                          SYS / # / OBS TYPES\n" +
+        "C   12 C2I L2I D2I S2I C6I L6I D6I S6I C7I L7I D7I S7I      SYS / # / OBS TYPES\n" +
+        "J   16 C1C L1C D1C S1C C2S L2S D2S S2S C2L L2L D2L S2L C5Q  SYS / # / OBS TYPES\n" +
+        "       L5Q D5Q S5Q                                          SYS / # / OBS TYPES\n";
+
+    private static final String septLeicaObsTypes =
+        "G   20 C1C L1C D1C S1C C1W L1W D1W S1W C2W L2W D2W S2W C2L  SYS / # / OBS TYPES\n" +
+        "       L2L D2L S2L C5Q L5Q D5Q S5Q                          SYS / # / OBS TYPES\n" +
+        "R   16 C1C L1C D1C S1C C1P L1P D1P S1P C2P L2P D2P S2P C2C  SYS / # / OBS TYPES\n" +
+        "       L2C D2C S2C                                          SYS / # / OBS TYPES\n" +
+        "E   20 C1X L1X D1X S1X C5X L5X D5X S5X C6X L6X D6X S6X C7X  SYS / # / OBS TYPES\n" +
+        "       L7X D7X S7X C8X L8X D8X S8X                          SYS / # / OBS TYPES\n" +
+        "C   12 C2I L2I D2I S2I C6I L6I D6I S6I C7I L7I D7I S7I      SYS / # / OBS TYPES\n" +
+        "J   12 C1C L1C D1C S1C C2X L2X D2X S2X C5X L5X D5X S5X      SYS / # / OBS TYPES\n";
 
     @Autowired
     private SiteLogRepository siteLogs;
@@ -104,9 +124,18 @@ public class SkeletonEndpoint {
 
         StringWriter stringWriter = new StringWriter();
         rinexFileHeader.write(stringWriter);
+        String headerString = stringWriter.toString();
+
+        // Assume signal types based on receiver type - unknown receiver types will be ignored
+        String receiverType = receiverLogItem.getType().toLowerCase();
+        if (receiverType.contains("leic") || receiverType.contains("sept")) {
+            headerString = headerString.substring(0, 538) + septLeicaObsTypes + headerString.substring(538);
+        } else if (receiverType.contains("trim")) {
+            headerString = headerString.substring(0, 538) + trimbleObsTypes + headerString.substring(538);
+        }
 
         return ResponseEntity.ok()
             .contentType(MediaType.TEXT_PLAIN)
-            .body(stringWriter.toString());
+            .body(headerString);
     }
 }

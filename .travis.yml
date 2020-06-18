@@ -1,4 +1,6 @@
 language: nix
+nix: 2.3.6
+
 sudo: required
 services:
 - docker
