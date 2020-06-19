@@ -69,6 +69,7 @@ public class AssociatedDocumentEndpoint {
         ObjectMetadata objectMetadata = new ObjectMetadata();
         objectMetadata.setContentLength(file.getSize());
         objectMetadata.setContentType(file.getContentType());
+        objectMetadata.setCacheControl("public,max-age=86400,immutable");
 
         PutObjectRequest putObjectRequest = new PutObjectRequest(this.bucketName,
                 documentName, file.getInputStream(), objectMetadata)
