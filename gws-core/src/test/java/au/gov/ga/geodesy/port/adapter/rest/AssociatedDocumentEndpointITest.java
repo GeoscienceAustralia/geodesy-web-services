@@ -1,8 +1,8 @@
 package au.gov.ga.geodesy.port.adapter.rest;
 
-import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -21,6 +21,7 @@ public class AssociatedDocumentEndpointITest extends IntegrationTest {
 
     private String documentName = "ALIC_ant_000_20191027T143000.jpg";
     private String fileReference = "http://localhost:4572/gnss-metadata-document-storage-local/" + this.documentName;
+    private String endpoint = "/associatedDocuments/" + this.documentName;
 
     @Test
     @Rollback(false)
@@ -32,10 +33,19 @@ public class AssociatedDocumentEndpointITest extends IntegrationTest {
             .with(super.superuserToken()))
             .andDo(print)
             .andExpect(status().isCreated())
-            .andExpect(header().string("location", this.fileReference));
+            .andExpect(header().string("location", this.endpoint));
     }
 
     @Test(dependsOnMethods = {"uploadDocument"})
+    @Rollback(false)
+    public void redirectToDocumentUrl() throws Exception {
+        mvc.perform(get("/associatedDocuments/" + this.documentName))
+            .andDo(print)
+            .andExpect(status().isFound())
+            .andExpect(header().string("location", this.fileReference));
+    }
+
+    @Test(dependsOnMethods = {"redirectToDocumentUrl"})
     @Rollback(false)
     public void deleteDocument() throws Exception {
         mvc.perform(delete("/associatedDocuments/" + this.documentName)

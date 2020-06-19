@@ -16,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +39,8 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
+import javax.servlet.http.HttpServletResponse;
 
 @RepositoryRestController
 @RequestMapping("/associatedDocuments")
@@ -75,10 +78,13 @@ public class AssociatedDocumentEndpoint {
                 documentName, file.getInputStream(), objectMetadata)
                 .withCannedAcl(CannedAccessControlList.PublicRead);
         s3Client.putObject(putObjectRequest);
-        String objectUrl = s3Client.getUrl(this.bucketName, documentName).toExternalForm();
-        log.info("Uploaded " + documentName + " to S3 bucket: " + objectUrl);
+        URL objectUrl = s3Client.getUrl(this.bucketName, documentName);
         HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.setLocation(new URI(objectUrl));
+        if (objectUrl != null) {
+            String location = "/associatedDocuments/" + documentName;
+            responseHeaders.setLocation(new URI(location));
+            log.info("Uploaded " + documentName + " to S3 bucket: " + objectUrl);
+        }
         return new ResponseEntity<String>(responseHeaders, HttpStatus.CREATED);
     }
 
@@ -93,6 +99,13 @@ public class AssociatedDocumentEndpoint {
         } else {
             return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/{name}")
+    public void redirect(HttpServletResponse response, @PathVariable("name") String documentName)
+            throws SdkClientException, AmazonServiceException, IOException {
+        URL objectUrl = s3Client.getUrl(this.bucketName, documentName);
+        response.sendRedirect(objectUrl.toExternalForm());
     }
 
     @ExceptionHandler(value = {AmazonServiceException.class, SdkClientException.class, URISyntaxException.class})
