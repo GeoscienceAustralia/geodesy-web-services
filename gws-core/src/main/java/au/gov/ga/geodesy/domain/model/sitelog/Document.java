@@ -28,16 +28,13 @@ import org.apache.commons.lang3.builder.CompareToBuilder;
  * </group>
  */
 @Entity
-@Table(name = "SITELOG_ASSOCIATEDDOCUMENT")
-public class AssociatedDocument implements Comparable<AssociatedDocument> {
+@Table(name = "DOCUMENT")
+public class Document implements Comparable<Document> {
 
     @Id
     @GeneratedValue(generator = "surrogateKeyGenerator")
-    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGASSOCIATEDDOCUMENT")
+    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_DOCUMENT")
     private Integer id;
-
-    @Column(name = "SITE_ID")
-    private Integer siteId;
 
     @Size(max = 256)
     @Column(name = "NAME", length = 256, unique = true, nullable = false)
@@ -67,14 +64,6 @@ public class AssociatedDocument implements Comparable<AssociatedDocument> {
     @SuppressWarnings("unused")
     private void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getSiteId() {
-        return siteId;
-    }
-
-    public void setSiteId(Integer siteId) {
-        this.siteId = siteId;
     }
 
     /**
@@ -148,7 +137,7 @@ public class AssociatedDocument implements Comparable<AssociatedDocument> {
     }
 
     @Override
-    public int compareTo(AssociatedDocument document) {
+    public int compareTo(Document document) {
         return new CompareToBuilder()
             .append(this.name, document.getName())
             .append(this.fileReference, document.getFileReference())
