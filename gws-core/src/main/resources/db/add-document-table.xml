@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="frankfu"
+               id="1593385497-1"
+               objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="document">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="file_reference" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="type" type="VARCHAR(100)"/>
+            <column name="created_date" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="frankfu"
+               id="1593385497-2"
+               objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id"
+                       constraintName="pk_document_id"
+                       tableName="document"/>
+        <addUniqueConstraint columnNames="name"
+                             tableName="document"
+                             constraintName="uk_document_name"
+                             deferrable="true"
+                             initiallyDeferred="true"/>
+        <addUniqueConstraint columnNames="file_reference"
+                             tableName="document"
+                             constraintName="uk_document_filereference"
+                             deferrable="true"
+                             initiallyDeferred="true"/>
+        <setTableRemarks remarks="table contains documents (site map, site diagram, site images, etc.) in site log"
+                         tableName="document"/>
+        <createSequence sequenceName="seq_document" incrementBy="50"/>
+    </changeSet>
+</databaseChangeLog>
