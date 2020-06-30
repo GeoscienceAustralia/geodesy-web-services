@@ -1,4 +1,4 @@
-version: "2"
+version: "3.2"
 
 services:
     db:
@@ -26,6 +26,7 @@ services:
             - db
             - open-am
             - tomcat
+            - localstack
         ports:
             - "8081:8080"
     geoserver:
@@ -52,3 +53,13 @@ services:
             - tomcat
         ports:
             - "8083:8080"
+    localstack:
+        image: localstack/localstack:0.10.2
+        environment:
+            - SERVICES=s3
+        ports:
+            - "4572:4572"
+        volumes:
+            - type: bind
+              source: ./aws/document-bucket-local.sh
+              target: /docker-entrypoint-initaws.d/document-bucket-local.sh
