@@ -27,7 +27,7 @@ public class SkeletonEndpoint {
 
     private static final Logger log = LoggerFactory.getLogger(SkeletonEndpoint.class);
 
-    private static final String trimbleObsTypes =
+    private static final String septLeicaObsTypes =
         "G   16 C1C L1C D1C S1C C2W L2W D2W S2W C2X L2X D2X S2X C5X  SYS / # / OBS TYPES\n" +
         "       L5X D5X S5X                                          SYS / # / OBS TYPES\n" +
         "R   16 C1C L1C D1C S1C C1P L1P D1P S1P C2C L2C D2C S2C C2P  SYS / # / OBS TYPES\n" +
@@ -38,7 +38,7 @@ public class SkeletonEndpoint {
         "J   16 C1C L1C D1C S1C C2S L2S D2S S2S C2L L2L D2L S2L C5Q  SYS / # / OBS TYPES\n" +
         "       L5Q D5Q S5Q                                          SYS / # / OBS TYPES\n";
 
-    private static final String septLeicaObsTypes =
+    private static final String trimbleObsTypes =
         "G   20 C1C L1C D1C S1C C1W L1W D1W S1W C2W L2W D2W S2W C2L  SYS / # / OBS TYPES\n" +
         "       L2L D2L S2L C5Q L5Q D5Q S5Q                          SYS / # / OBS TYPES\n" +
         "R   16 C1C L1C D1C S1C C1P L1P D1P S1P C2P L2P D2P S2P C2C  SYS / # / OBS TYPES\n" +
