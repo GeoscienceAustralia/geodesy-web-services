@@ -37,8 +37,6 @@
                              constraintName="uk_document_filereference"
                              deferrable="true"
                              initiallyDeferred="true"/>
-        <setTableRemarks remarks="table contains documents (site map, site diagram, site images, etc.) in site log"
-                         tableName="document"/>
         <createSequence sequenceName="seq_document" incrementBy="50"/>
     </changeSet>
 </databaseChangeLog>

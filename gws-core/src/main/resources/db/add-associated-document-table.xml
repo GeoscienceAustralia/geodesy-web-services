@@ -43,8 +43,6 @@
                              constraintName="uk_sitelog_associateddocument_filereference"
                              deferrable="true"
                              initiallyDeferred="true"/>
-        <setTableRemarks remarks="table contains associated documents (site map, site diagram, site images, etc.) in site log"
-                         tableName="sitelog_associateddocument"/>
         <createSequence sequenceName="seq_sitelogassociateddocument" incrementBy="50"/>
     </changeSet>
 </databaseChangeLog>
