@@ -66,4 +66,7 @@
     <include file="db/add-cors-site-removed-from-network.xml"/>
     <include file="db/remove-srid-from-site-position.sql"/>
     <include file="db/add-associated-document-table.xml"/>
+    <include file="db/drop-associated-document-table.xml"/>
+    <include file="db/add-document-table.xml"/>
+    <include file="db/add-sitelog-associateddocument-table.xml"/>
 </databaseChangeLog>

@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
 
 import com.vividsolutions.jts.geom.Point;
 
-import au.gov.ga.geodesy.domain.model.sitelog.AssociatedDocument;
+import au.gov.ga.geodesy.domain.model.sitelog.Document;
 import au.gov.ga.geodesy.domain.model.sitelog.CollocationInformationLogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.FrequencyStandardLogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.GnssAntennaLogItem;
@@ -579,7 +579,7 @@ public class SiteLogMapperITest extends IntegrationTest {
     }
 
     @Test
-    public void testAssociatedDocumentMapping() throws IOException, MarshallingException {
+    public void testDocumentMapping() throws IOException, MarshallingException {
         GeodesyMLType mobs = marshaller.unmarshal(TestResources.customGeodesyMLSiteLogReader("ALIC-with-2-associated-documents"), GeodesyMLType.class)
                 .getValue();
 
@@ -588,15 +588,15 @@ public class SiteLogMapperITest extends IntegrationTest {
 
         SiteLog siteLog = mapper.to(siteLogType);
 
-        List<DocumentPropertyType> associatedDocumentPropertyTypes = siteLogType.getAssociatedDocument();
-        sortDocumentPropertyTypes(associatedDocumentPropertyTypes);
-        assertThat(siteLog.getAssociatedDocuments().size(), equalTo(2));
-        assertThat(associatedDocumentPropertyTypes.size(), equalTo(2));
+        List<DocumentPropertyType> documentPropertyTypes = siteLogType.getAssociatedDocument();
+        sortDocumentPropertyTypes(documentPropertyTypes);
+        assertThat(siteLog.getDocuments().size(), equalTo(2));
+        assertThat(documentPropertyTypes.size(), equalTo(2));
 
         int i = 0;
-        for (AssociatedDocument associatedDocument : sortAssociatedDocuments(siteLog.getAssociatedDocuments())) {
-            DocumentType associatedDocumentType = associatedDocumentPropertyTypes.get(i++).getDocument();
-            assertThat(associatedDocument.getName(), equalTo(associatedDocumentType.getName().get(0).getValue()));
+        for (Document document : sortDocuments(siteLog.getDocuments())) {
+            DocumentType documentType = documentPropertyTypes.get(i++).getDocument();
+            assertThat(document.getName(), equalTo(documentType.getName().get(0).getValue()));
         }
     }
 
@@ -732,11 +732,11 @@ public class SiteLogMapperITest extends IntegrationTest {
     }
 
     /**
-     * Sort a set of AssociatedDocument by names.
+     * Sort a set of Document by names.
      */
-    private SortedSet<AssociatedDocument> sortAssociatedDocuments(Set<AssociatedDocument> set) {
-        SortedSet<AssociatedDocument> sorted = new TreeSet<>(new Comparator<AssociatedDocument>() {
-            public int compare(AssociatedDocument d1, AssociatedDocument d2) {
+    private SortedSet<Document> sortDocuments(Set<Document> set) {
+        SortedSet<Document> sorted = new TreeSet<>(new Comparator<Document>() {
+            public int compare(Document d1, Document d2) {
                 int result = d1.getName().compareTo(d2.getName());
                 // keep duplicates
                 return result != 0 ? result : 1;

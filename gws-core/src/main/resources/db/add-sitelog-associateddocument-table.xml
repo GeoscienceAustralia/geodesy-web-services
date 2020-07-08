@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="frankfu"
+               id="1593385206-1"
+               objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="sitelog_associateddocument">
+            <column name="document_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="site_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="frankfu"
+               id="1593385206-2"
+               objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="document_id, site_id"
+                       constraintName="pk_sitelog_associateddocument_ids"
+                       tableName="sitelog_associateddocument"/>
+        <addForeignKeyConstraint baseColumnNames="document_id"
+                                 baseTableName="sitelog_associateddocument"
+                                 constraintName="fk_sitelog_associateddocument_document_id"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 onDelete="NO ACTION"
+                                 onUpdate="NO ACTION"
+                                 referencedColumnNames="id"
+                                 referencedTableName="document"/>
+        <addForeignKeyConstraint baseColumnNames="site_id"
+                                 baseTableName="sitelog_associateddocument"
+                                 constraintName="fk_sitelog_associateddocument_site_id"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 onDelete="NO ACTION"
+                                 onUpdate="NO ACTION"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sitelog_site"/>
+        <setTableRemarks remarks="A join table of GNSS site and associated documents in site log"
+                         tableName="sitelog_associateddocument"/>
+    </changeSet>
+</databaseChangeLog>
