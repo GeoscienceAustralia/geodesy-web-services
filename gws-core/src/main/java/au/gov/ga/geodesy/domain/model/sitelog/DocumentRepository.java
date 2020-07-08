@@ -15,7 +15,4 @@ public interface DocumentRepository extends
     List<Document> findAll();
 
     Document findByName(@Param("name") String name);
-
-    @Query("select d.name from Document d where d.name like concat(UPPER(:fourCharacterId),'%')")
-    List<String> findDocumentNamesByFourCharacterId(@Param("fourCharacterId") String fourCharacterId);
 }

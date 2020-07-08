@@ -40,15 +40,4 @@ public class DocumentRepositoryITest extends IntegrationTest {
         Document d2 = documentRepository.findByName(d1.getName());
         assertThat(d2.getName(), isIn(documentNames));
     }
-
-    @Test(dependsOnMethods = {"saveDocumentsForAlic"})
-    @Rollback(false)
-    public void findDocumentNamesByFourCharacterId() throws Exception {
-        String fourCharacterId = "Alic";
-        List<String> documentNames = documentRepository.findDocumentNamesByFourCharacterId(fourCharacterId);
-        assertThat(documentNames.size(), is(2));
-        documentNames.forEach(documentName -> {
-            assertThat(documentName, startsWith(fourCharacterId.toUpperCase()));
-        });
-    }
 }

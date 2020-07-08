@@ -72,9 +72,9 @@ public class AssociatedDocumentEndpointITest extends IntegrationTest {
     @Test(dependsOnMethods = {"uploadMultipleDocuments"})
     @Rollback(false)
     public void removeOrphanDocuments() throws Exception {
-        mvc.perform(delete("/associatedDocuments/removeOrphanDocuments")
+        mvc.perform(delete("/associatedDocuments/removeOrphanDocuments?hoursToKeep=0")
             .with(super.superuserToken()))
             .andDo(print)
-            .andExpect(status().isNoContent());
+            .andExpect(status().isOk());
     }
 }

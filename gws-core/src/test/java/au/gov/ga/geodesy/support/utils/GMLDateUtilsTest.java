@@ -3,15 +3,12 @@ package au.gov.ga.geodesy.support.utils;
 import au.gov.ga.geodesy.exception.GeodesyRuntimeException;
 import org.testng.annotations.Test;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.ResolverStyle;
-import java.util.Date;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.notNullValue;
@@ -92,20 +89,5 @@ public class GMLDateUtilsTest {
         Instant out = GMLDateUtils.stringToDate(in);
 
         assertThat(out, notNullValue());
-    }
-
-    @Test
-    public void testCompareDates() throws ParseException {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd'T'HHmmss");
-        String dateString = "20200706T121000";
-        Date dateTarget = simpleDateFormat.parse(dateString);
-
-        String dateString1 = "20200706T001000";
-        Date dateBefore = simpleDateFormat.parse(dateString1);
-        assertThat(dateBefore.compareTo(dateTarget) < 0, is(true));
-
-        String dateString2 = "20200707T003300";
-        Date dateAfter = simpleDateFormat.parse(dateString2);
-        assertThat(dateAfter.compareTo(dateTarget) > 0, is(true));
     }
 }

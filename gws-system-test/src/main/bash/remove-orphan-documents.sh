@@ -12,6 +12,7 @@ function usage {
     exit 1
 }
 
+env=
 hoursToKeep=12
 while [[ $# -gt 0 ]]; do
     case $1 in
