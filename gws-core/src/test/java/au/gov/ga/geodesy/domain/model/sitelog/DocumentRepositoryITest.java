@@ -24,7 +24,7 @@ public class DocumentRepositoryITest extends IntegrationTest {
 
     @Test
     @Rollback(false)
-    public void saveAlic() throws Exception {
+    public void saveDocumentsForAlic() throws Exception {
         String[] documentNames = {"ALIC_ant_000_20191027T143000.jpg", "ALIC_ant_090_20191027T143500.jpg"};
         SiteLog siteLog = new GeodesyMLSiteLogReader(TestResources.customGeodesyMLSiteLogReader("ALIC-with-2-associated-documents")).getSiteLog();
         Set<Document> documents = siteLog.getDocuments();
@@ -37,20 +37,5 @@ public class DocumentRepositoryITest extends IntegrationTest {
 
         Document d2 = documentRepository.findByName(d1.getName());
         assertThat(d2.getName(), isIn(documentNames));
-    }
-
-    @Test
-    @Rollback(false)
-    public void saveMobs() throws Exception {
-        SiteLog siteLog = new GeodesyMLSiteLogReader(TestResources.customGeodesyMLSiteLogReader("MOBS")).getSiteLog();
-        Set<Document> documents = siteLog.getDocuments();
-        assertThat(documents.size(), is(1));
-
-        Document d1 = documents.iterator().next();
-        assertThat(d1.getName(), is("MOBS_ant_000_20191027T143000.jpg"));
-
-        documentRepository.saveAndFlush(d1);
-        Document d2 = documentRepository.findByName(d1.getName());
-        assertThat(d2.getName(), is(d1.getName()));
     }
 }
