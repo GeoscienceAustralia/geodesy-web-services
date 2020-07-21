@@ -15,6 +15,7 @@ import org.springframework.mock.web.MockMultipartFile;
 import org.testng.annotations.Test;
 import java.io.InputStream;
 import java.io.ByteArrayInputStream;
+import java.util.Arrays;
 
 
 public class AssociatedDocumentEndpointITest extends IntegrationTest {
@@ -52,5 +53,28 @@ public class AssociatedDocumentEndpointITest extends IntegrationTest {
             .with(super.superuserToken()))
             .andDo(print)
             .andExpect(status().isNoContent());
+    }
+
+    @Test(dependsOnMethods = {"deleteDocument"})
+    @Rollback(false)
+    public void uploadMultipleDocuments() throws Exception {
+        for (String siteId : Arrays.asList("ALIC", "ADE1", "ADE2")) {
+            InputStream fileContent = new ByteArrayInputStream((siteId + " image content").getBytes());
+            MockMultipartFile mockFile = new MockMultipartFile("file",
+                siteId + "_ant_000_20200611T143000.jpg", "image/jpg", fileContent);
+            mvc.perform(fileUpload("/associatedDocuments/")
+                .file(mockFile)
+                .with(super.superuserToken()))
+                .andExpect(status().isCreated());
+        }
+    }
+
+    @Test(dependsOnMethods = {"uploadMultipleDocuments"})
+    @Rollback(false)
+    public void removeOrphanDocuments() throws Exception {
+        mvc.perform(delete("/associatedDocuments/removeOrphanDocuments?hoursToKeep=0")
+            .with(super.superuserToken()))
+            .andDo(print)
+            .andExpect(status().isOk());
     }
 }

@@ -1,6 +1,7 @@
 package au.gov.ga.geodesy.domain.model.sitelog;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.isIn;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.Set;
 
 import au.gov.ga.geodesy.port.adapter.geodesyml.GeodesyMLSiteLogReader;
