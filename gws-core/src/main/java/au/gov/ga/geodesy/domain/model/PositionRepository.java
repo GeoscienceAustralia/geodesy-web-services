@@ -9,6 +9,6 @@ import au.gov.ga.geodesy.support.spring.AggregateRepository;
 
 public interface PositionRepository extends AggregateRepository<Position> {
 
-    @Query("select p from Position p where p.fourCharacterId = :id")
+    @Query("select p from Position p where p.fourCharacterId = UPPER(:id)")
     List<Position> findByFourCharacterId(@Param("id") String id);
 }

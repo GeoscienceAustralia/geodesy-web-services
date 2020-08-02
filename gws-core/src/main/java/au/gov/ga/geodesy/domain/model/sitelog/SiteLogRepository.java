@@ -15,7 +15,7 @@ public interface SiteLogRepository extends
     @Override
     List<SiteLog> findAll();
     
-    @Query("select siteLog from SiteLog siteLog where siteLog.siteIdentification.fourCharacterId = :id")
+    @Query("select siteLog from SiteLog siteLog where siteLog.siteIdentification.fourCharacterId = UPPER(:id)")
     SiteLog findByFourCharacterId(@Param("id") String id);
 }
 

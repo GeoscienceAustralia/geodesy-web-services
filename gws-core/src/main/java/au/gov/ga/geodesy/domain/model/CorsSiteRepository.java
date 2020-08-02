@@ -12,6 +12,6 @@ public interface CorsSiteRepository extends AggregateRepository<CorsSite> {
     @Override
     List<CorsSite> findAll();
 
-    @Query("select site from CorsSite site where site.fourCharacterId = :id")
+    @Query("select site from CorsSite site where site.fourCharacterId = UPPER(:id)")
     CorsSite findByFourCharacterId(@Param("id") String id);
 }
