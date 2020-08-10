@@ -117,7 +117,7 @@ public class AssociatedDocumentEndpoint {
         document.setDescription(description);
         document.setType(contentType);
         document.setFileReference("/associatedDocuments/" + documentName);
-        document.setCreatedDate(GMLDateUtils.stringToDate(createdDate, "uuuu-MM-dd'T'HH:mm:ss"));
+        document.setCreatedDate(GMLDateUtils.stringToDate(createdDate, "uuuuMMdd'T'HHmmss"));
         this.documentRepository.saveAndFlush(document);
         log.info("Saved " + documentName + " metadata to database");
         return new ResponseEntity<String>(HttpStatus.CREATED);

@@ -31,7 +31,7 @@ public class AssociatedDocumentEndpointITest extends IntegrationTest {
         String name = "ADE1_ant_090_20191027T143030.png";
         String contentType = "image/png";
         String description = "Antenna East Facing";
-        String createdDate = "2019-10-27T14:30:30";
+        String createdDate = "20191027T143030";
         InputStream fileContent = new ByteArrayInputStream("upload and save document testing".getBytes());
         MockMultipartFile mockFile = new MockMultipartFile("file", name, "image/png", fileContent);
         mvc.perform(post("/associatedDocuments/save")
