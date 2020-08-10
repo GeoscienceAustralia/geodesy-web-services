@@ -254,6 +254,13 @@ public class SiteLog {
     }
 
     /**
+     * Add an associated document to the sitelog.
+     */
+    public void addDocument(Document document) {
+        this.documents.add(document);
+    }
+
+    /**
      * Return GNSS receivers.
      */
     public Set<GnssReceiverLogItem> getGnssReceivers() {

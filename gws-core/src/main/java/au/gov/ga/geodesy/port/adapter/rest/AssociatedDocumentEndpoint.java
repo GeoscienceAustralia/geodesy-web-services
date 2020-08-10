@@ -1,6 +1,11 @@
 package au.gov.ga.geodesy.port.adapter.rest;
 
 import au.gov.ga.geodesy.domain.model.sitelog.Document;
+import au.gov.ga.geodesy.domain.model.sitelog.DocumentRepository;
+import au.gov.ga.geodesy.domain.model.sitelog.SiteLog;
+import au.gov.ga.geodesy.domain.model.sitelog.SiteLogRepository;
+
+import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,15 +50,15 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletResponse;
-
-import au.gov.ga.geodesy.domain.model.sitelog.DocumentRepository;
 
 
 @RepositoryRestController
@@ -63,6 +68,9 @@ public class AssociatedDocumentEndpoint {
     private static final Logger log = LoggerFactory.getLogger(AssociatedDocumentEndpoint.class);
 
     @Autowired
+    private SiteLogRepository siteLogRepository;
+
+    @Autowired
     private DocumentRepository documentRepository;
 
     @Autowired
@@ -70,6 +78,18 @@ public class AssociatedDocumentEndpoint {
 
     @Autowired
     private String bucketName;
+
+    private Map<String, String> siteImageDescriptionMap = new HashMap<String, String>() {{
+        put("ant_000", "Antenna North Facing");
+        put("ant_090", "Antenna East Facing");
+        put("ant_180", "Antenna South Facing");
+        put("ant_270", "Antenna West Facing");
+        put("ant_sn", "Antenna Serial No");
+        put("rec_sn", "Receiver Serial No");
+        put("ant_monu", "Antenna Monument");
+        put("ant_bldg", "Antenna Building");
+        put("ant_roof", "Antenna Roof");
+    }};
 
     public AssociatedDocumentEndpoint() {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
@@ -92,8 +112,8 @@ public class AssociatedDocumentEndpoint {
         objectMetadata.setCacheControl("public,max-age=86400,immutable");
 
         PutObjectRequest putObjectRequest = new PutObjectRequest(this.bucketName,
-                documentName, file.getInputStream(), objectMetadata)
-                .withCannedAcl(CannedAccessControlList.PublicRead);
+            documentName, file.getInputStream(), objectMetadata)
+            .withCannedAcl(CannedAccessControlList.PublicRead);
         s3Client.putObject(putObjectRequest);
         URL objectUrl = s3Client.getUrl(this.bucketName, documentName);
         HttpHeaders responseHeaders = new HttpHeaders();
@@ -103,6 +123,51 @@ public class AssociatedDocumentEndpoint {
             log.info("Uploaded " + documentName + " to S3 bucket: " + objectUrl);
         }
         return new ResponseEntity<String>(responseHeaders, HttpStatus.CREATED);
+    }
+
+    @PostMapping(value="/save", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<String> save(
+            @RequestPart("file") MultipartFile file,
+            @RequestParam("fourCharacterId") String fourCharacterId,
+            @RequestParam("documentType") String documentType,
+            @RequestParam("createdDate") String createdDate,
+            @RequestParam("webServiceHost") String webServiceHost)
+            throws SdkClientException, AmazonServiceException, IOException {
+        SiteLog siteLog = siteLogRepository.findByFourCharacterId(fourCharacterId);
+        if (siteLog == null) {
+            return new ResponseEntity<String>(HttpStatus.GONE);
+        }
+
+        String extension = FilenameUtils.getExtension(file.getOriginalFilename());
+        String documentName = String.format("%s_%s_%s.%s",
+                fourCharacterId, documentType, createdDate, extension);
+
+        if (documentRepository.findByName(documentName) != null) {
+            return new ResponseEntity<String>(HttpStatus.CONFLICT);
+        }
+
+        ObjectMetadata objectMetadata = new ObjectMetadata();
+        objectMetadata.setContentLength(file.getSize());
+        objectMetadata.setContentType(file.getContentType());
+        objectMetadata.setCacheControl("public,max-age=86400,immutable");
+        PutObjectRequest putObjectRequest = new PutObjectRequest(this.bucketName,
+                documentName, file.getInputStream(), objectMetadata)
+                .withCannedAcl(CannedAccessControlList.PublicRead);
+        this.s3Client.putObject(putObjectRequest);
+
+        String contentType = file.getContentType();
+        String description = this.siteImageDescriptionMap.get(documentType);
+        String fileReference = webServiceHost + "/associatedDocuments/" + documentName;
+        Document document = new Document();
+        document.setName(documentName);
+        document.setDescription(description);
+        document.setType(contentType);
+        document.setFileReference(fileReference);
+        document.setCreatedDate(this.parse(createdDate));
+        siteLog.addDocument(document);
+        this.siteLogRepository.saveAndFlush(siteLog);
+        log.info("Successfully saved " + documentName + " to site log " + fourCharacterId);
+        return new ResponseEntity<String>(HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{name}")
@@ -173,6 +238,15 @@ public class AssociatedDocumentEndpoint {
         } while (objectListing.isTruncated());
 
         return objectKeys;
+    }
+
+    private Instant parse(String datetime) {
+        String datetimeFmt = datetime.substring(0, 4) + "-"
+                           + datetime.substring(4, 6) + "-"
+                           + datetime.substring(6, 11) + ":"
+                           + datetime.substring(11, 13) + ":"
+                           + datetime.substring(13) + "Z";
+        return Instant.parse(datetimeFmt);
     }
 
     @Configuration
