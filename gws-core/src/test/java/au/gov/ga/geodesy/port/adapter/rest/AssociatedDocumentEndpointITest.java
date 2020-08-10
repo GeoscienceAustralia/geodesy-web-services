@@ -3,6 +3,7 @@ package au.gov.ga.geodesy.port.adapter.rest;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -23,6 +24,26 @@ public class AssociatedDocumentEndpointITest extends IntegrationTest {
     private String documentName = "ALIC_ant_000_20191027T143000.jpg";
     private String fileReference = "http://localhost:4572/gnss-metadata-document-storage-local/" + this.documentName;
     private String endpoint = "/associatedDocuments/" + this.documentName;
+
+    @Test
+    @Rollback(false)
+    public void saveDocument() throws Exception {
+        String name = "ADE1_ant_090_20191027T143030.png";
+        String contentType = "image/png";
+        String description = "Antenna East Facing";
+        String createdDate = "2019-10-27T14:30:30";
+        InputStream fileContent = new ByteArrayInputStream("upload and save document testing".getBytes());
+        MockMultipartFile mockFile = new MockMultipartFile("file", name, "image/png", fileContent);
+        mvc.perform(post("/associatedDocuments/save")
+            .param("name", name)
+            .param("fileReference", "/associatedDocuments/" + documentName)
+            .param("description", description)
+            .param("contentType", contentType)
+            .param("createdDate", createdDate)
+            .with(super.superuserToken()))
+            .andDo(print)
+            .andExpect(status().isCreated());
+    }
 
     @Test
     @Rollback(false)

@@ -1,6 +1,5 @@
 package au.gov.ga.geodesy.port.adapter.rest;
 
-import au.gov.ga.geodesy.domain.model.sitelog.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +52,9 @@ import java.time.temporal.ChronoUnit;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletResponse;
 
+import au.gov.ga.geodesy.domain.model.sitelog.Document;
 import au.gov.ga.geodesy.domain.model.sitelog.DocumentRepository;
+import au.gov.ga.geodesy.support.utils.GMLDateUtils;
 
 
 @RepositoryRestController
@@ -103,6 +104,23 @@ public class AssociatedDocumentEndpoint {
             log.info("Uploaded " + documentName + " to S3 bucket: " + objectUrl);
         }
         return new ResponseEntity<String>(responseHeaders, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/save")
+    public ResponseEntity<String> save(
+            @RequestParam("name") String documentName,
+            @RequestParam("description") String description,
+            @RequestParam("contentType") String contentType,
+            @RequestParam("createdDate") String createdDate) {
+        Document document = new Document();
+        document.setName(documentName);
+        document.setDescription(description);
+        document.setType(contentType);
+        document.setFileReference("/associatedDocuments/" + documentName);
+        document.setCreatedDate(GMLDateUtils.stringToDate(createdDate, "uuuu-MM-dd'T'HH:mm:ss"));
+        this.documentRepository.saveAndFlush(document);
+        log.info("Saved " + documentName + " metadata to database");
+        return new ResponseEntity<String>(HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{name}")
