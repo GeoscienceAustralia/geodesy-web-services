@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.5"
         xmlns:gml="http://www.opengis.net/gml/3.2"
         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -10,6 +11,7 @@
     <xsl:param name="contentType"/>
     <xsl:param name="createdDate"/>
     <xsl:param name="fileReference"/>
+
     <xsl:output method="xml" indent="yes"/>
     <xsl:template match="@* | node()">
         <xsl:copy>
@@ -27,6 +29,9 @@
                 <xsl:element name="gml:name">
                     <xsl:attribute name="codeSpace">eGeodesy/type</xsl:attribute>
                     <xsl:value-of select="$documentName"/>
+                </xsl:element>
+                <xsl:element name="gml:boundedBy">
+                    <xsl:attribute name="xsi:nil">true</xsl:attribute>
                 </xsl:element>
                 <xsl:element name="geo:type">
                     <xsl:attribute name="codeSpace">eGeodesy/type</xsl:attribute>
