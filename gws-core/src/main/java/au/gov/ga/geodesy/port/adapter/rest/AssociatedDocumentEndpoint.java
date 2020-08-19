@@ -83,9 +83,12 @@ public class AssociatedDocumentEndpoint {
         value = "/",
         consumes = MediaType.MULTIPART_FORM_DATA_VALUE
     )
-    public ResponseEntity<String> upload(@RequestPart("file") MultipartFile file)
+    public ResponseEntity<String> upload(@RequestPart("file") MultipartFile file,
+            @RequestParam(required = false) String documentName)
             throws SdkClientException, AmazonServiceException, URISyntaxException, IOException {
-        String documentName = file.getOriginalFilename();
+        if (documentName == null) {
+            documentName = file.getOriginalFilename();
+        }
         ObjectMetadata objectMetadata = new ObjectMetadata();
         objectMetadata.setContentLength(file.getSize());
         objectMetadata.setContentType(file.getContentType());
