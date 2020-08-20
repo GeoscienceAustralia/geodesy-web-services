@@ -15,37 +15,47 @@ function usage {
     exit 1
 }
 
-function validateDocumentCode {
-    description=
-    if [[ $1 == "ant_000" ]]; then
-        description="Antenna North Facing"
-    elif [[ $1 == "ant_090" ]]; then
-        description="Antenna East Facing"
-    elif [[ $1 == "ant_180" ]]; then
-        description="Antenna South Facing"
-    elif [[ $1 == "ant_270" ]]; then
-        description="Antenna West Facing"
-    elif [[ $1 == "ant_sn" ]]; then
-        description="Antenna Serial No"
-    elif [[ $1 == "rec_sn" ]]; then
-        description="Receiver Serial No"
-    elif [[ $1 == "ant_monu" ]]; then
-        description="Antenna Monument"
-    elif [[ $1 == "ant_bldg" ]]; then
-        description="Antenna Building"
-    elif [[ $1 == "ant_roof" ]]; then
-        description="Antenna Roof"
-    else
-        echo "Unknown document code"
-        echo "Valid document code: ant_000, ant_090, ant_180, ant_270, ant_sn, rec_sn, ant_monu, ant_bldg, ant_roof"
-        usage
-    fi
+function setDocumentDescription {
+    case "$1" in
+        ant_000)
+            description="Antenna North Facing"
+            ;;
+        ant_090)
+            description="Antenna East Facing"
+            ;;
+        ant_180)
+            description="Antenna South Facing"
+            ;;
+        ant_270)
+            description="Antenna West Facing"
+            ;;
+        ant_sn)
+            description="Antenna Serial No"
+            ;;
+        rec_sn)
+            description="Receiver Serial No"
+            ;;
+        ant_monu)
+            description="Antenna Monument"
+            ;;
+        ant_bldg)
+            description="Antenna Building"
+            ;;
+        ant_roof)
+            description="Antenna Roof"
+            ;;
+        *)
+            echo "Unknown document code"
+            echo "Valid document code: ant_000, ant_090, ant_180, ant_270, ant_sn, rec_sn, ant_monu, ant_bldg, ant_roof"
+            usage
+            ;;
+    esac
 }
 
 if [[ $# -lt 1 ]]; then
     echo "Error: environment is empty."
     usage
-elif [[ $1 != "dev" && $1 != "test" && $1 != "prod" ]]; then
+elif [[ $1 != dev && $1 != test && $1 != prod ]]; then
     echo "Error: invalid environment."
     usage
 elif [[ $# -lt 2 ]]; then
@@ -72,11 +82,11 @@ else
     fourCharacterId=$3
     documentCode=$4
     createdDate=$5
-    validateDocumentCode "${documentCode}"
+    setDocumentDescription "$documentCode"
 fi
 
 openam=https://${env}geodesy-openam.geodesy.ga.gov.au/openam
-if [[ $env == "prod" ]]; then
+if [[ $env == prod ]]; then
     gws=https://gws.geodesy.ga.gov.au
 else
     gws=https://${env}geodesy-webservices.geodesy.ga.gov.au
@@ -87,32 +97,35 @@ clientPassword=
 username=
 password=
 
-jwt=$(curl -s --user ${clientId}:${clientPassword} \
-              --data "grant_type=password&username=${username}&password=${password}&scope=openid profile" \
-              "${openam}/oauth2/access_token?realm=/" | jq -r .id_token)
+jwt=$(curl -s --user $clientId:$clientPassword \
+              --data "grant_type=password&username=$username&password=$password&scope=openid profile" \
+              "$openam/oauth2/access_token?realm=/" | jq -r .id_token)
 
-inputSiteLogXml=/tmp/sitelog_input.xml
-curl "${gws}/siteLogs/search/findByFourCharacterId?id=${fourCharacterId}&format=geodesyml" > ${inputSiteLogXml}
+inputSiteLogXml=$(curl "$gws/siteLogs/search/findByFourCharacterId?id=$fourCharacterId&format=geodesyml")
 
-if [[ -f ${inputSiteLogXml} ]]; then
-    documentName="${fourCharacterId}_${documentCode}_${createdDate}.${documentPath##*.}"
+if [[ -n $inputSiteLogXml ]]; then
+    documentName=${fourCharacterId}_${documentCode}_$createdDate.${documentPath##*.}
     contentType=$(file --mime-type -b "$documentPath")
-    createdDateFmt="${createdDate:0:4}-${createdDate:4:2}-${createdDate:6:5}:${createdDate:11:2}:${createdDate:13:2}.000Z"
-    fileReference="${gws}/associatedDocuments/${documentName}"
+    createdDateFmt=${createdDate:0:4}-${createdDate:4:2}-${createdDate:6:5}:${createdDate:11:2}:${createdDate:13:2}.000Z
 
-    curl -X POST -F "file=@${documentPath}" \
-                 -F "documentName=${documentName}" \
-                 -H "Authorization: Bearer ${jwt}" \
-                 "${gws}/associatedDocuments/"
+    responseHeader=$(curl -D - -F "file=@$documentPath" \
+                               -F "documentName=$documentName" \
+                               -H "Authorization: Bearer $jwt" \
+                               -X POST "$gws/associatedDocuments/")
+
+    relativeUrl=$(echo "$responseHeader" | grep Location | cut -d' ' -f 2)
+    if [[ -z $relativeUrl ]]; then
+        echo "Error: failed to upload document $documentPath to s3. Exit."
+        exit 2
+    fi
 
     outputSiteLogXml=$(xsltproc --stringparam description "$description" \
                                 --stringparam documentName "$documentName" \
                                 --stringparam contentType "$contentType" \
                                 --stringparam createdDate "$createdDateFmt" \
-                                --stringparam fileReference "$fileReference" \
-                                gws-system-test/src/main/resources/add-associated-document.xslt \
-                                ${inputSiteLogXml})
+                                --stringparam fileReference "$gws$relativeUrl" \
+                                gws-system-test/src/main/resources/add-associated-document.xslt - \
+                                <<< "$inputSiteLogXml" )
 
-    curl --data "${outputSiteLogXml}" "${gws}/siteLogs/upload" -H "Authorization: Bearer ${jwt}"
-    rm ${inputSiteLogXml}
+    curl -d "$outputSiteLogXml" -H "Authorization: Bearer $jwt" "$gws/siteLogs/upload"
 fi
