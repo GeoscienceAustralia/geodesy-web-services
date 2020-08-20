@@ -26,6 +26,8 @@ let
       awscli
       docker-compose
       terraform_0_12
+      libxslt
+      file
     ];
   };
 in
