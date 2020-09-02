@@ -11,7 +11,7 @@ function usage {
            path: file path of the document to be uploaded
            fourCharacterId: four character Id of the document
            documentCode: document code, eg., ant_000, ant_090, ant_180, ant_270, ...
-           createdDate: document created date in format of uuuuMMddTHHmmss, eg., 20200816T103045"
+           createdDate: document created date in format of uuuuMMdd, eg., 20200816"
     exit 1
 }
 
@@ -73,7 +73,7 @@ elif [[ $# -lt 4 ]]; then
 elif [[ $# -lt 5 ]]; then
     echo "Error: document created date is empty."
     usage
-elif [[ ! $5 =~ ^[0-2][0-9]{3}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3])([0-5][0-9]){2}$ ]]; then
+elif [[ ! $5 =~ ^[0-2][0-9]{3}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])$ ]]; then
     echo "Error: invalid or unsupported datetime format in createdDate."
     usage
 else
@@ -106,7 +106,7 @@ inputSiteLogXml=$(curl "$gws/siteLogs/search/findByFourCharacterId?id=$fourChara
 if [[ -n $inputSiteLogXml ]]; then
     documentName=${fourCharacterId}_${documentCode}_$createdDate.${documentPath##*.}
     contentType=$(file --mime-type -b "$documentPath")
-    createdDateFmt=${createdDate:0:4}-${createdDate:4:2}-${createdDate:6:5}:${createdDate:11:2}:${createdDate:13:2}.000Z
+    createdDateFmt=${createdDate:0:4}-${createdDate:4:2}-${createdDate:6:2}Z
 
     responseHeader=$(curl -D - -F "file=@$documentPath" \
                                -F "documentName=$documentName" \

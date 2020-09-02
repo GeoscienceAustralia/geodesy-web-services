@@ -27,7 +27,7 @@ public class DocumentRepositoryITest extends IntegrationTest {
     @Test
     @Rollback(false)
     public void saveDocumentsForAlic() throws Exception {
-        String[] documentNames = {"ALIC_ant_000_20191027T143000.jpg", "ALIC_ant_090_20191027T143500.jpg"};
+        String[] documentNames = {"ALIC_ant_000_20191027.jpg", "ALIC_ant_090_20191027.jpg"};
         SiteLog siteLog = new GeodesyMLSiteLogReader(TestResources.customGeodesyMLSiteLogReader("ALIC-with-2-associated-documents")).getSiteLog();
         Set<Document> documents = siteLog.getDocuments();
         assertThat(documents.size(), is(2));

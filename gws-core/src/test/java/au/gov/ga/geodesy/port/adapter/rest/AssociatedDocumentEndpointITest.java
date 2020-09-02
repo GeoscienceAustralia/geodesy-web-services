@@ -20,7 +20,7 @@ import java.util.Arrays;
 
 public class AssociatedDocumentEndpointITest extends IntegrationTest {
 
-    private String documentName = "ALIC_ant_000_20191027T143000.jpg";
+    private String documentName = "ALIC_ant_000_20191027.jpg";
     private String fileReference = "http://localhost:4572/gnss-metadata-document-storage-local/" + this.documentName;
     private String endpoint = "/associatedDocuments/" + this.documentName;
 
@@ -61,7 +61,7 @@ public class AssociatedDocumentEndpointITest extends IntegrationTest {
         for (String siteId : Arrays.asList("ALIC", "ADE1", "ADE2")) {
             InputStream fileContent = new ByteArrayInputStream((siteId + " image content").getBytes());
             MockMultipartFile mockFile = new MockMultipartFile("file",
-                siteId + "_ant_000_20200611T143000.jpg", "image/jpg", fileContent);
+                siteId + "_ant_000_20200611.jpg", "image/jpg", fileContent);
             mvc.perform(fileUpload("/associatedDocuments/")
                 .file(mockFile)
                 .with(super.superuserToken()))
