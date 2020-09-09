@@ -860,24 +860,24 @@ AUSTRALIA</gco:CharacterString>
         <geo:associatedDocument>
             <geo:Document gml:id="image_1">
                 <gml:description>Antenna North Facing</gml:description>
-                <gml:name>ALIC_ant_000_20191027T143000.jpg</gml:name>
+                <gml:name>ALIC_ant_000_20191027.jpg</gml:name>
                 <geo:type>image</geo:type>
-                <geo:createdDate>2019-10-27T14:30:00Z</geo:createdDate>
+                <geo:createdDate>2019-10-27Z</geo:createdDate>
                 <geo:body>
                     <geo:fileReference
-                        xlink:href="http://localhost:4572/gnss-metadata-document-storage-local/ALIC_ant_000_20191027T143000.jpg"/>
+                        xlink:href="http://localhost:4572/gnss-metadata-document-storage-local/ALIC_ant_000_20191027.jpg"/>
                 </geo:body>
             </geo:Document>
         </geo:associatedDocument>
         <geo:associatedDocument>
             <geo:Document gml:id="image_2">
                 <gml:description>Antenna East Facing</gml:description>
-                <gml:name>ALIC_ant_090_20191027T143500.jpg</gml:name>
+                <gml:name>ALIC_ant_090_20191027.jpg</gml:name>
                 <geo:type>image</geo:type>
-                <geo:createdDate>2019-10-27T14:35:00Z</geo:createdDate>
+                <geo:createdDate>2019-10-27Z</geo:createdDate>
                 <geo:body>
                     <geo:fileReference
-                        xlink:href="http://localhost:4572/gnss-metadata-document-storage-local/ALIC_ant_090_20191027T143500.jpg"/>
+                        xlink:href="http://localhost:4572/gnss-metadata-document-storage-local/ALIC_ant_090_20191027.jpg"/>
                 </geo:body>
             </geo:Document>
         </geo:associatedDocument>
