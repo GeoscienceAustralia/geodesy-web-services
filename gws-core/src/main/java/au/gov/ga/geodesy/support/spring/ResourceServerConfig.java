@@ -42,6 +42,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
             .antMatchers(HttpMethod.POST, "/associatedDocuments/").authenticated()
             .antMatchers(HttpMethod.DELETE, "/associatedDocuments/**").authenticated()
+            .antMatchers(HttpMethod.DELETE, "/associatedDocuments/removeOrphanDocuments").authenticated()
 
             .antMatchers(HttpMethod.POST, "/newCorsSiteRequests").authenticated()
             .antMatchers(HttpMethod.POST, "/siteLogs/upload").authenticated()

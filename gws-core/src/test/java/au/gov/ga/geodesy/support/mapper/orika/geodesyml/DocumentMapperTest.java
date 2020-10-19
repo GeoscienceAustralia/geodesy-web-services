@@ -1,6 +1,6 @@
 package au.gov.ga.geodesy.support.mapper.orika.geodesyml;
 
-import au.gov.ga.geodesy.domain.model.sitelog.AssociatedDocument;
+import au.gov.ga.geodesy.domain.model.sitelog.Document;
 import au.gov.ga.geodesy.port.adapter.geodesyml.GeodesyMLMarshaller;
 import au.gov.ga.geodesy.port.adapter.geodesyml.GeodesyMLUtils;
 import au.gov.ga.geodesy.support.TestResources;
@@ -19,15 +19,15 @@ import java.io.Reader;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class AssociatedDocumentMapperTest extends UnitTest {
+public class DocumentMapperTest extends UnitTest {
 
     @Autowired
-    private AssociatedDocumentMapper mapper;
+    private DocumentMapper mapper;
 
     private GeodesyMLMarshaller marshaller = new GeodesyMLMoxy();
 
     /**
-     * Test mapping from DocumentType to AssociatedDocument and back
+     * Test mapping from DocumentType to Document and back
      * to DocumentType.
      */
     @Test
@@ -39,7 +39,7 @@ public class AssociatedDocumentMapperTest extends UnitTest {
                 .get();
 
             DocumentType documentTypeA = siteLogType.getAssociatedDocument().get(0).getDocument();
-            AssociatedDocument document = mapper.to(documentTypeA);
+            Document document = mapper.to(documentTypeA);
 
             assertThat(document.getName(), equalTo(documentTypeA.getName().get(0).getValue()));
             assertThat(document.getFileReference(), equalTo(documentTypeA.getBody().getFileReference().getHref()));

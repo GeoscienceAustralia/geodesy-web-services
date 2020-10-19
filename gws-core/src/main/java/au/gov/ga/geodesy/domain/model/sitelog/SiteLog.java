@@ -18,6 +18,7 @@ import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
 import javax.persistence.SequenceGenerator;
@@ -81,8 +82,10 @@ public class SiteLog {
 
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @JoinColumn(name = "SITE_ID", referencedColumnName = "ID", foreignKey = @ForeignKey(name="FK_SITELOG_SITE_SITELOG_ASSOCIATEDDOCUMENT"))
-    protected Set<AssociatedDocument> associatedDocuments = new HashSet<>();
+    @JoinTable(name = "SITELOG_ASSOCIATEDDOCUMENT",
+               joinColumns = @JoinColumn(name = "SITE_ID"),
+               inverseJoinColumns = @JoinColumn(name = "DOCUMENT_ID"))
+    protected Set<Document> documents = new HashSet<>();
 
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
@@ -239,15 +242,15 @@ public class SiteLog {
     /**
      * Return associated documents.
      */
-    public Set<AssociatedDocument> getAssociatedDocuments() {
-        return associatedDocuments;
+    public Set<Document> getDocuments() {
+        return documents;
     }
 
     /**
      * Set associated documents.
      */
-    public void setAssociatedDocuments(Set<AssociatedDocument> documents) {
-        this.associatedDocuments = documents;
+    public void setDocuments(Set<Document> documents) {
+        this.documents = documents;
     }
 
     /**

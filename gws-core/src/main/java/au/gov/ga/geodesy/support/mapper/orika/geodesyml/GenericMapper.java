@@ -12,7 +12,7 @@ import org.opengis.metadata.citation.ResponsibleParty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import au.gov.ga.geodesy.domain.model.sitelog.AssociatedDocument;
+import au.gov.ga.geodesy.domain.model.sitelog.Document;
 import au.gov.ga.geodesy.domain.model.sitelog.CollocationInformationLogItem;
 import au.gov.ga.geodesy.domain.model.sitelog.DifferentialFromMarker;
 import au.gov.ga.geodesy.domain.model.sitelog.EffectiveDates;
@@ -158,7 +158,7 @@ public class GenericMapper {
     private MoreInformationMapper moreInformationMapper;
 
     @Autowired
-    private AssociatedDocumentMapper associatedDocumentMapper;
+    private DocumentMapper documentMapper;
 
 
     @PostConstruct
@@ -349,7 +349,7 @@ public class GenericMapper {
             .fieldMap("formInformation", "formInformation").converter("formInformation").add()
             .fieldMap("collocationInformation", "collocationInformation").converter("collocationInformation").add()
             .fieldMap("surveyedLocalTies", "surveyedLocalTies").converter("surveyedLocalTies").add()
-            .fieldMap("associatedDocument", "associatedDocuments").converter("associatedDocuments").add()
+            .fieldMap("associatedDocument", "documents").converter("documents").add()
             .customize(responsiblePartiesMapper)
             .register();
 
@@ -494,41 +494,41 @@ public class GenericMapper {
         converters.registerConverter("doiCodeTypeConverter", new StringToCodeTypeConverter("eGeodesy/doi") {});
 
         // Associated Document
-        mapperFactory.classMap(AssociatedDocument.class, DocumentType.class)
+        mapperFactory.classMap(Document.class, DocumentType.class)
             .fieldMap("type", "type").converter("eGeodesyCodeTypeConverter").add()
             .fieldMap("name", "name[0]").converter("eGeodesyCodeTypeConverter").add()
             .byDefault()
-            .customize(new CustomMapper<AssociatedDocument, DocumentType>() {
+            .customize(new CustomMapper<Document, DocumentType>() {
                 @Override
-                public void mapAtoB(AssociatedDocument associatedDocument, DocumentType documentType, MappingContext ctx) {
-                    if (associatedDocument.getCreatedDate() == null) {
+                public void mapAtoB(Document document, DocumentType documentType, MappingContext ctx) {
+                    if (document.getCreatedDate() == null) {
                         TimePositionType createdDate = new TimePositionType();
                         createdDate.setIndeterminatePosition(TimeIndeterminateValueType.UNKNOWN);
                         documentType.setCreatedDate(createdDate);
                     }
-                    if (associatedDocument.getFileReference() != null) {
+                    if (document.getFileReference() != null) {
                         ReferenceType fileReference = new ReferenceType();
-                        fileReference.setHref(associatedDocument.getFileReference());
+                        fileReference.setHref(document.getFileReference());
                         DocumentType.Body documentBody = new DocumentType.Body();
                         documentBody.setFileReference(fileReference);
                         documentType.setBody(documentBody);
                     }
-                    if (associatedDocument.getDescription() != null) {
+                    if (document.getDescription() != null) {
                         StringOrRefType descriptionType = new StringOrRefType();
-                        descriptionType.setValue(associatedDocument.getDescription());
+                        descriptionType.setValue(document.getDescription());
                         documentType.setDescription(descriptionType);
                     }
                 }
 
                 @Override
-                public void mapBtoA(DocumentType documentType, AssociatedDocument associatedDocument, MappingContext ctx) {
+                public void mapBtoA(DocumentType documentType, Document document, MappingContext ctx) {
                     if (documentType.getBody().getFileReference() != null) {
                         ReferenceType fileReference = documentType.getBody().getFileReference();
-                        associatedDocument.setFileReference(fileReference.getHref());
+                        document.setFileReference(fileReference.getHref());
                     }
                     if (documentType.getDescription() != null) {
                         StringOrRefType descriptionType = documentType.getDescription();
-                        associatedDocument.setDescription(descriptionType.getValue());
+                        document.setDescription(descriptionType.getValue());
                     }
                 }
             })
@@ -643,9 +643,9 @@ public class GenericMapper {
 
         converters.registerConverter("responsibleParty", new IsoConverter<CIResponsiblePartyType, ResponsibleParty>(new ResponsiblePartyMapper()) {});
 
-        converters.registerConverter("associatedDocuments",
-                new BidirectionalConverterWrapper<List<DocumentPropertyType>, Set<AssociatedDocument>>(
-                        associatedDocumentsConverter(associatedDocumentMapper)
+        converters.registerConverter("documents",
+                new BidirectionalConverterWrapper<List<DocumentPropertyType>, Set<Document>>(
+                        documentsConverter(documentMapper)
                 ) {}
         );
 
@@ -689,8 +689,8 @@ public class GenericMapper {
      * Given a DocumentPropertyType isomorphism (from DTO to domain model), return a
      * bidirectional converter from a list of GML property types to a set of domain model items.
      */
-    private <P extends GMLPropertyType, T extends AbstractGMLType, A extends AssociatedDocument>
-    BidirectionalConverter<List<P>, Set<A>> associatedDocumentsConverter(Iso<T, A> itemsIso) {
+    private <P extends GMLPropertyType, T extends AbstractGMLType, A extends Document>
+    BidirectionalConverter<List<P>, Set<A>> documentsConverter(Iso<T, A> itemsIso) {
         return new IsoConverter<>(new ListToSet2<>(new GMLPropertyTypeMapper<P, T>().compose(itemsIso)));
     }
 
